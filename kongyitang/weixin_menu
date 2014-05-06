@@ -1,0 +1,62 @@
+接口调用请求说明
+
+http请求方式：POST（请使用https协议） 
+https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
+
+
+{
+     "button":[
+     {	
+          "name":"预约",
+		   "sub_button":[
+			{
+			   "type":"click",
+			   "name":"门诊预约",
+			   "key":"V1001_reserve_clinic"
+			},
+			{
+			   "type":"click",
+			   "name":"健康服务",
+			   "key":"V1001_reserve_health"
+			},
+			{
+			   "type":"click",
+			   "name":"招生在线",
+			   "key":"V1001_reserve_enrol"
+			},
+			{
+			   "type":"click",
+			   "name":" 产品展示",
+			   "key":"V1001_reserve_product"
+			}]
+      },
+      {
+		   "type":"click",
+		   "name":"提问",
+		   "key":"V2001_ask_answer"
+      },
+      {
+           "name":"我的",
+		   "sub_button":[
+			{
+			   "type":"click",
+			   "name":"会员中心",
+			   "key":"V3001_my_member"
+			},
+			{
+			   "type":"click",
+			   "name":"我的问题",
+			   "key":"V3001_my_question"
+			},
+			{
+			   "type":"click",
+			   "name":"健康自测",
+			   "key":"V3001_my_health"
+			},
+			{
+			   "type":"click",
+			   "name":"消费记录",
+			   "key":"V3001_my_consume"
+			}]
+      }]
+ }
