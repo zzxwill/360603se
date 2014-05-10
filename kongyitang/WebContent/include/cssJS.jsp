@@ -1,5 +1,3 @@
-<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
-
-	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
-	<script type="text/javascript" src="../js/jquery.min.js"> </script>
-	<script src="../js/jquery.mobile-1.3.2.min.js"></script>
+	<link href="../resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/reserver_clinic/axurerp_pagespecificstyles.css" type="text/css" rel="stylesheet">
