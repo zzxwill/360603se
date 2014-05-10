@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%//@page import="com.nlsde.liming.database.*" %>
+<%@page import="database.*" %>
+
 
 <%
 String path = request.getContextPath();
