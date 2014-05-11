@@ -79,7 +79,8 @@ public class WeixinInterface extends HttpServlet {
 		WxRecvMsg msg = null;
 		
 //		String WeiXinUrl = "http://drinkmarket.duapp.com/";
-		String WeiXinUrl = "http://drinkmarket-liming.aliapp.com/";
+		//String WeiXinUrl = "http://drinkmarket-liming.aliapp.com/";
+		String WeiXinUrl = "http://localhost:8080/kongyitang/";
 		String ImageUrl = "http://limingbuaa.oss-cn-hangzhou.aliyuncs.com/kongyitang/";
 		//http://limingbuaa.oss-cn-hangzhou.aliyuncs.com/kongyitang/ask_answer__Gray_320_160.jpg
 		
