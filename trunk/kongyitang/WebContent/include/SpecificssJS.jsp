@@ -25,6 +25,19 @@
 		
 	}
 	
+	//返回时，显示之前的页面
+	function display_return_page(current_page, previous_page){
+		var cur_obj = document.getElementById(current_page);
+		var pre_obj = document.getElementById(previous_page);
+		if(cur_obj!=null & pre_obj != null){
+			cur_obj.style.display = "none";
+			pre_obj.style.display = "";
+		}
+		return;
+		
+		
+	}
+	
 	
 	//存储kongyitang_reservation_index页面选定的值
 	function set_kongyitang_reservation_index_value(site){
@@ -56,8 +69,33 @@
 	}
 	
 	
-	//reservation_patient_sickinfo
+	
+	//存储xuetang_reservation_index页面选定的值
+	function set_xuetang_reservation_index_value(site){
+		document.getElementById("xuetang").value = site;
+		//如果没有reutrn, 会提交表单
+		return;
+	}
+	
+	
+	//存储shanggongfang_reservation_index页面选定的值
+	function set_shanggongfang_reservation_index_value(site){
+		document.getElementById("type").value = site;
+		//如果没有reutrn, 会提交表单
+		return;
+	}
+	
+	//上工坊 不同的类型 提交给不同的action
+	function submit_reserve_shanggongfang(action){
+		var verifyForm = document.getElementById("verifyForm");
+		verifyForm.action = action;
+		   verifyForm.submit(); 
+	}
+	
+	
 	</script>
+	
+	
 	
 	
 	

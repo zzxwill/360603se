@@ -1,0 +1,380 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../孔医堂_预约_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:172px;
+    top:10px;
+    width:298px;
+    height:580px;
+}
+
+#u0_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:298px;
+    height:580px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:282px;
+    width:294px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_normal {
+    background-image: url('../images/reserver_clinic/u2_normal.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:191px;
+    top:122px;
+    width:258px;
+    height:27px;
+}
+
+#u2_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:264px;
+    height:33px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:254px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4 {
+    position:absolute;
+    left:287px;
+    top:127px;
+    width:76px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u5_normal {
+    background-image: url('../images/reserver_clinic/u5_normal.png');
+}
+
+.u5_container {
+    position:absolute;
+    left:192px;
+    top:148px;
+    width:257px;
+    height:152px;
+}
+
+#u5_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:263px;
+    height:158px;
+}
+
+.u6 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:253px;
+    height:95px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u7_normal {
+    background-image: url('../images/reserver_clinic/u7_normal.png');
+}
+
+.u7_container {
+    position:absolute;
+    left:192px;
+    top:315px;
+    width:257px;
+    height:40px;
+}
+
+#u7_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:263px;
+    height:46px;
+}
+
+.u8 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:253px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u9_normal {
+    background-image: url('../images/reserver_clinic/u7_normal.png');
+}
+
+.u9_container {
+    position:absolute;
+    left:192px;
+    top:355px;
+    width:257px;
+    height:40px;
+}
+
+#u9_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:263px;
+    height:46px;
+}
+
+.u10 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:253px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11_normal {
+    background-image: url('../images/reserver_clinic/u7_normal.png');
+}
+
+.u11_container {
+    position:absolute;
+    left:192px;
+    top:395px;
+    width:257px;
+    height:40px;
+}
+
+#u11_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:263px;
+    height:46px;
+}
+
+.u12 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:253px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u13 {
+    position:absolute;
+    left:202px;
+    top:124px;
+    width:48px;
+    height:22px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u14 {
+    position:absolute;
+    left:300px;
+    top:159px;
+    width:100px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u15 {
+    position:absolute;
+    left:390px;
+    top:323px;
+    width:50px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 13px;
+    color:#0000FF;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:underline;
+    
+}
+
+.u16 {
+    position:absolute;
+    left:390px;
+    top:363px;
+    width:50px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u17 {
+    position:absolute;
+    left:390px;
+    top:402px;
+    width:50px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u18_normal {
+    background-image: url('../images/reserver_clinic/u7_normal.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:192px;
+    top:434px;
+    width:257px;
+    height:40px;
+}
+
+#u18_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:263px;
+    height:46px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:253px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20 {
+    position:absolute;
+    left:390px;
+    top:441px;
+    width:50px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+

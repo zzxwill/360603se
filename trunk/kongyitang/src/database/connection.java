@@ -4,15 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
  
-public class connectionLocal {
+public class connection {
  
     public static Connection getConnection(){
         Connection conn = null;
         try {
         	
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drinkmarket?characterEncoding=utf8","root","mima");
-             
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/confuciusmedicine?characterEncoding=utf8","root","");
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/zzxwill_kongyitang?characterEncoding=utf8","zzxwill_kyt","d8nCfMeX");
+            
         } catch (InstantiationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
