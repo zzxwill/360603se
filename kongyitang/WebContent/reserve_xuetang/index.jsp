@@ -48,14 +48,27 @@
 
 				<!-- 预约孔医堂首页 -->
 				<div id="xuetang_reservation_index" style="display:">
+				<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="location=index.jsp">返回</button></td>
+							<td align="center" style="color: white;">招生在线</td>
+
+						</tr>
+
+
+					</table>
 
 					<table width="100%">
+					<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
 									>返回</button></td>
 							<td align="center">招生在线</td>
 
 						</tr>
+						 -->
+						
 						<tr>
 							<td colspan="2" align="center"><span><h1>孔伯华学院</h1></span></td>
 
@@ -101,13 +114,26 @@
 
 				<!-- 患者病情资料 -->
 				<div id="xuetang_reservation_content" style="display: none;">
+				<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
+							<td align="center" style="color: white;">招生在线</td>
+
+						</tr>
+
+
+					</table>
+					
 					<table width="100%">
+					<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
 							<td align="center">招生在线</td>
 
 						</tr>
+						 -->
 						<tr>
 							<td colspan="2" align="center"><span><h1>国医学堂</h1></span></td>
 

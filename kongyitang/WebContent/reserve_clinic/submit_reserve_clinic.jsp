@@ -21,12 +21,23 @@
  
 <div data-role="page">
 	<div data-role="header">
+	
  	</div>
 
   	<div data-role="content">
+  	<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="location='index.jsp'">返回</button></td>
+							<td align="center" style="color: white;">预约</td>
+
+						</tr>
+
+
+					</table>
   	
-    <p>预约成功！<br>
-   	<div> 预计 10 分钟后送达，请注意查收！</div>
+    <p aligh="center">预约成功！<br>
+   	
     <%
    	Dao dao = new Dao();
     
@@ -38,8 +49,10 @@
 	 int outpatientid = 100001;
 	 
 	 String illness_name = request.getParameter("illness_name");
-	 //String purpose = request.getParameter("purpose");
-	 String purpose = "复查";
+	 String purpose = request.getParameter("purpose");
+	 
+	 
+	// String purpose = "复查";
 	 String detail = request.getParameter("detail");
 	 //int mobile = Integer.valueOf(request.getParameter("mobile")).intValue();
 	 long mobile = Long.parseLong(request.getParameter("mobile"));
@@ -47,8 +60,8 @@
 	 
 	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid);
 	 
-	out.println("*********************************************************");
-	 out.println(site);
+	//out.println("*********************************************************");
+	 //out.println(site);
 	 
 	 
 
@@ -76,7 +89,7 @@
   %>
 
 	<div data-role="footer" data-id="myfooter" data-position="fixed">
-	  <!--    <h1>欢迎来到“喝喝”！</h1>-->
+	  
 	    <script>
 		function CloseWin(){
 			//window.opener=null; 
@@ -86,9 +99,7 @@
 	    </script>
 	    <table width="100%">
 	    	<tr><td>
-<!--	    		<a id='button-special' href="../index.jsp" data-theme="b" data-role="button"  data-mini="true" data-icon="arrow-r" data-iconpos="right" >我知道了</a>-->
-<!--	  			<input id='button-special' type="button" data-theme="b" value="我知道了" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">-->
-	  			<a id='button-special' type="button" data-theme="b" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">我知道了</a>
+	<a id='button-special' type="button" data-theme="b" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">我知道了</a>
 	  		</td></tr>
 	  	</table>
 	</div>

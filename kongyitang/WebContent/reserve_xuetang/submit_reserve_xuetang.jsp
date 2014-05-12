@@ -24,6 +24,16 @@
  	</div>
 
   	<div data-role="content">
+  	<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="location='index.jsp'">返回</button></td>
+							<td align="center" style="color: white;">预约</td>
+
+						</tr>
+
+
+					</table>
   	
     <p>预约成功！<br>
 
