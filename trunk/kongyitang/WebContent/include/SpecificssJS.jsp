@@ -5,9 +5,7 @@
 	<script src="../js/jquery.mobile-1.3.2.min.js"></script>
 	
 	<link href="../resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet">
-    <link href="../resources/css/axure_rp_page.css" type="text/css" rel="stylesheet">
-    <link href="../resources/css/reserver_clinic/axurerp_pagespecificstyles.css" type="text/css" rel="stylesheet">
-<!--     <link href="../resources/css/reserver_clinic/reserve_clinic_deparment.css" type="text/css" rel="stylesheet"> -->
+   
 	
 	
 	<script type="text/javascript" > 
@@ -89,7 +87,24 @@
 	function submit_reserve_shanggongfang(action){
 		var verifyForm = document.getElementById("verifyForm");
 		verifyForm.action = action;
-		   verifyForm.submit(); 
+		verifyForm.submit(); 
+		verifyForm.action = "";
+		return;
+	}
+	
+	//存储reservation_patient_sickinfo页面选定的值
+	function set_reservation_patient_sickinfo_value(){
+		var boxes = document.getElementsByName("purpose_chk");  
+	    var purpose=boxes[0].value;  
+	    for (var i = 1; i < boxes.length; i++){  
+	    	if (boxes[i].checked){  
+	    		purpose = purpose + " " + boxes[i].value ;  
+	    	}  
+		}  
+		
+		document.getElementById("purpose").value = purpose;
+		//如果没有reutrn, 会提交表单
+		return;
 	}
 	
 	
