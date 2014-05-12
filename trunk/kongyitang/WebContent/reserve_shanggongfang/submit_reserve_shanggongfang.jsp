@@ -5,10 +5,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>购买成功</title>
+    <title>预约成功</title>
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%>
+	 	 <%@ include file="../include/SpecificssJS.jsp"%>
 
 <style type="text/css">
 </style>
@@ -25,6 +26,16 @@
 
   	<div data-role="content">
   	
+  	<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="location='index.jsp'">返回</button></td>
+							<td align="center" style="color: white;">健康服务</td>
+
+						</tr>
+
+
+					</table>
     <p>预约成功！<br>
 
     <%
@@ -105,6 +116,7 @@
 	  			<a id='button-special' type="button" data-theme="b" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">我知道了</a>
 	  		</td></tr>
 	  	</table>
+	  	
 	</div>
 
 </div> 

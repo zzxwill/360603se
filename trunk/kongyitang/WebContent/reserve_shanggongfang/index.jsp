@@ -19,7 +19,9 @@
 
 <body>
 	<div data-role="page">
-		<div data-role="header"></div>
+		<div data-role="header">
+					
+		</div>
 		<div data-role="content">
 			<form name="verifyForm" id="verifyForm" method="post">
 
@@ -31,14 +33,26 @@
 			
 				<!-- 预约上工坊健康会所首页 -->
 				<div id="xuetang_reservation_index" style="display:">
+<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									>返回</button></td>
+							<td align="center" style="color: white;">健康服务</td>
 
+						</tr>
+
+
+					</table>
+					
 					<table width="100%">
+					<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
 									>返回</button></td>
 							<td align="center">健康服务</td>
 
 						</tr>
+						-->
 						<tr>
 							<td colspan="2" align="center"><span><h1>健康调理</h1></span></td>
 
@@ -86,15 +100,28 @@
 
 				<!-- 上工坊健康会所 具体预约页面 -->
 				<div id="xuetang_reservation_content" style="display: none;">
+				<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
+							<td align="center" style="color: white;">健康服务</td>
+
+						</tr>
+
+
+					</table>
+					
 					<table width="100%">
+					<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
 							<td align="center">健康服务</td>
 
 						</tr>
+						-->
 						<tr>
-							<td colspan="2" align="center"><span><h1>健康调理</h1></span></td>
+							<td colspan="2" align="center"><span><strong>健康调理</strong></span></td>
 
 						</tr>
 						
@@ -178,13 +205,26 @@
 
 				<!-- 上工坊健康会所  健康评估   具体预约页面 -->
 				<div id="xuetang_reservation_content_assess" style="display: none;">
+				<table width="100%" cellspacing="0" cellpadding="0">
+						<tr bgColor= "#000000">
+							<td align="left" style="width: 20%"><button type="button"
+									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');">返回</button></td>
+							<td align="center" style="color: white;">健康服务</td>
+
+						</tr>
+
+
+					</table>
+					
 					<table width="100%">
+					<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');">返回</button></td>
 							<td align="center">健康服务</td>
 
 						</tr>
+						 -->
 						<tr>
 							<td colspan="2" align="center"><span><h1>健康评估</h1></span></td>
 
