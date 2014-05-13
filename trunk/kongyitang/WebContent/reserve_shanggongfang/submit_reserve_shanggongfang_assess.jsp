@@ -42,7 +42,7 @@
 	Dao dao = new Dao();
     
     request.setCharacterEncoding("utf-8");
-	 String type = request.getParameter("type");
+	 String type = request.getParameter("type_assess");
 	 String name = request.getParameter("name_assess");
 	 String  gender_str= request.getParameter("gender_assess");
 	 int gender = 2;

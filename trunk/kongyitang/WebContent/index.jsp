@@ -28,19 +28,19 @@
     	<h2>《 首页 》</h2>
     	<h3>目录：</h3>
     	<p>预约：<p/>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_clinic" >门诊预约 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_health" >健康服务 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_enrol" >招生在线 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_product" >产品展示 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_clinic/index.jsp" >门诊预约 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_shanggongfang/index.jsp" >健康服务 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_xuetang/index.jsp" >招生在线 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_product/index.jsp" >产品展示 >> </a><br>
     	<br>
     	<p>提问：<p/>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="ask_answer" >提问 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="ask_answer/index.jsp" >提问 >> </a><br>
     	<br>
     	<p>我的：<p/>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_member" >会员中心 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_question" >我的问题 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_health" >健康自测 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_consume" >消费记录>> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_member/index.jsp" >会员中心 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_question/index.jsp" >我的问题 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_health/index.jsp" >健康自测 >> </a><br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="my_consume/index.jsp" >消费记录>> </a><br>
 	</p>
   </div>
 

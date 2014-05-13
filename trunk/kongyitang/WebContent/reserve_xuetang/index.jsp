@@ -9,12 +9,104 @@
 <title><%=sysName%></title>
 
 <%@ include file="../include/meta.jsp"%>
-<%@ include file="../include/cssJS.jsp"%>
+<%//@ include file="../include/cssJS.jsp"%>
 <%@ include file="../include/SpecificssJS.jsp"%>
 
+<link rel="stylesheet" href="../css/screen.css" />
+
 <style type="text/css">
+#verifyForm label.error {
+	margin-left: 10px;
+	width: auto;
+	display: inline;
+}
 </style>
 
+<script type="text/javascript">
+
+$().ready(function() {
+	// $("#verifyForm").validate();
+	 $("#verifyForm").validate({
+			rules: {
+				
+				name: {
+					required: true,
+					maxlength: 10
+				},
+				gender: "required",
+				age: {
+					required: true,
+					number:true,
+					min: 0,
+					max: 200
+					
+				},
+				mobile: {
+					required: true,
+					number:true,
+					minlength: 11,
+					maxlength: 11
+					
+				},
+				job: {
+					required: true,
+					maxlength: 20
+				},
+				company: {
+					required: true,
+					maxlength: 20
+				},
+				title: {
+					required: true,
+					maxlength: 20
+				}
+			},
+			messages: {
+				
+				name: {
+					required: "必填！",
+					maxlength: "长度不能超过10个字符！"
+				} ,
+				gender: {
+					required: "必选！",
+					
+				},
+				age: {
+					required: "必填！",
+					number:"请填写数字!",
+					min: "年龄必须大于0岁",
+					max: "年龄必须小于200岁"
+				},
+				mobile: {
+					required: "必填！",
+					number:"请填写数字!",
+					minlength: "手机号码为11位!",
+					maxlength: "手机号码为11位!"
+					
+				},
+				job: {
+					required: "必填！",
+					maxlength: "长度不能超过20个字符！"
+				} ,
+				company: {
+					required: "必填！",
+					maxlength: "长度不能超过20个字符！"
+				} ,
+				title: {
+					required: "必填！",
+					maxlength: "长度不能超过20个字符！"
+				} ,/*,
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+				},
+				email: "Please enter a valid email address",
+				agree: "Please accept our policy" */
+			}
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -146,12 +238,18 @@
 						<table>
 							<tr>
 								<td>姓名：</td>
-								<td colspan="3"><INPUT name="name" value="" width="80%"></td>
+								<td colspan="3"><INPUT name="name" value="" width="80%" class="required"></td>
 							</tr>
 							<tr>
 								<td>性别：</td>
 								<td ><input type="radio" name="gender" value="male" /> 男</td><td>
 										<input type="radio" name="gender" value="female" /> 女</td>
+										
+							</tr>
+							<tr>
+								<td></td>
+								<td ><label for="gender" class="error"></label></td>
+										
 							</tr>
 							<tr>
 								<td>年龄：</td>
