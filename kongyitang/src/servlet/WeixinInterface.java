@@ -79,8 +79,7 @@ public class WeixinInterface extends HttpServlet {
 		WxRecvMsg msg = null;
 		
 //		String WeiXinUrl = "http://drinkmarket.duapp.com/";
-		//String WeiXinUrl = "http://drinkmarket-liming.aliapp.com/";
-		String WeiXinUrl = "http://localhost:8080/kongyitang/";
+		String WeiXinUrl = "http://drinkmarket-liming.aliapp.com/";
 		String ImageUrl = "http://limingbuaa.oss-cn-hangzhou.aliyuncs.com/kongyitang/";
 		//http://limingbuaa.oss-cn-hangzhou.aliyuncs.com/kongyitang/ask_answer__Gray_320_160.jpg
 		
@@ -146,7 +145,7 @@ public class WeixinInterface extends HttpServlet {
 							"健康服务",
 							"欢迎来到孔医堂,健康服务！",
 							ImageUrl + "reserve_health__Gray_320_160.jpg",
-							WeiXinUrl + "reserve_health/index.jsp?sid=" + fromUser);
+							WeiXinUrl + "reserve_shanggongfang/index.jsp?sid=" + fromUser);
 					ArrayList<WxSendNewsMsgItem> itemList = new ArrayList<WxSendNewsMsgItem>();
 					itemList.add(msgItem);
 					((WxSendNewsMsg) sendMsg).setItems(itemList);
@@ -163,7 +162,7 @@ public class WeixinInterface extends HttpServlet {
 							"招生在线",
 							"欢迎来到孔医堂,招生在线！",
 							ImageUrl + "reserve_enrol__Gray_320_160.jpg",
-							WeiXinUrl + "reserve_enrol/index.jsp?sid=" + fromUser);
+							WeiXinUrl + "reserve_xuetang/index.jsp?sid=" + fromUser);
 					ArrayList<WxSendNewsMsgItem> itemList = new ArrayList<WxSendNewsMsgItem>();
 					itemList.add(msgItem);
 					((WxSendNewsMsg) sendMsg).setItems(itemList);

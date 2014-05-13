@@ -1,0 +1,83 @@
+#ConsumerRecordsButton,#AskedRecordsButton{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#FF8C47;
+	height:34px;
+	line-height:34px;
+
+} 
+#ConsumerRecordsButton{
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:0px 0px;
+    border-bottom-right-radius:0px 0px;
+    border-bottom-left-radius:10px 10px;
+}
+#AskedRecordsButton{
+	border-top-left-radius:0px 0px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:0px 0px;
+}
+
+#records{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#88B8D3;
+	height:auto !important;
+	height:100px; /*假定最低高度是100px*/
+	min-height:100px; 
+	//line-height:100px;
+} 
+
+#records{ 
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}
+#doctors{
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+    border-style:solid; 
+	border-width:1px; 
+	border-color:#568EFF;
+	background:#568EFF;
+	height:30px;
+	line-height:30px;
+	color:white;
+}
+
+#reply_no,#reply_yes{
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#FF8C47;
+	height:30px;
+	line-height:30px;
+}
+
+#reply_no{
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+    background: ;
+    color:#FF8C47;
+}
+#reply_yes{
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+    background:#FF8C47;
+    color:white;
+}
+
+#questions{
+	color:#FF8C47;
+}
+
+#answers{
+	color:#B16C48;
+}

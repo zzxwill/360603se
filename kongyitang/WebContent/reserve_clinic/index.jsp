@@ -9,13 +9,96 @@
 <title><%=sysName%></title>
 
 <%@ include file="../include/meta.jsp"%>
-<%@ include file="../include/cssJS.jsp"%>
+<%//\\@ include file="../include/cssJS.jsp"%>
 <%@ include file="../include/SpecificssJS.jsp"%>
 
 <style type="text/css">
-.table-site table{border-right:1px solid #000000;border-bottom:1px solid #000000;border-left:1px solid #000000}
-.table-site table td{border-top:1px solid #000000}
+.table-site table {
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000
+}
+
+.table-site table td {
+	border-top: 1px solid #000000
+}
 </style>
+
+
+<link rel="stylesheet" href="../css/screen.css" />
+<style type="text/css">
+#verifyForm label.error {
+	margin-left: 10px;
+	width: auto;
+	display: inline;
+}
+</style>
+
+<script type="text/javascript">
+
+$().ready(function() {
+	 $("#verifyForm").validate({
+			rules: {
+				
+				name: {
+					required: true,
+					maxlength: 10
+				},
+			
+			
+				mobile: {
+					required: true,
+					number:true,
+					minlength: 11,
+					maxlength: 11
+					
+				},
+				illness_name: {
+					required: true,
+					maxlength: 100
+				},
+				detail: {
+					required: true,
+					maxlength: 200
+				},
+				purpose_chk: {
+					required: true
+				}
+			},
+			messages: {
+				
+				name: {
+					required: "必填！",
+					maxlength: "长度不能超过10个字符！"
+				} ,
+				
+				
+				mobile: {
+					required: "必填！",
+					number:"请填写数字!",
+					minlength: "手机号码为11位!",
+					maxlength: "手机号码为11位!"
+					
+				},
+				illness_name: {
+					required: "必填！",
+					maxlength: "长度不能超过100个字符！"
+				} ,
+				detail: {
+					required: "必填！",
+					maxlength: "长度不能超过200个字符！"
+				} ,
+				purpose_chk:{
+					required: "必选！"
+				} 
+			}
+		});
+	 
+	
+	});
+</script>
+
+
 
 </head>
 
@@ -58,27 +141,27 @@
 				<input id="outpatientid" name="outpatientid" type="hidden">
 				<!-- 预约的门诊的目的 -->
 				<input id="purpose" name="purpose" type="hidden">
-				
-				
+
+
 
 
 
 
 
 				<!-- 预约孔医堂首页 -->
-				<div id="kongyitang_reservation_index" style="display:" >
+				<div id="kongyitang_reservation_index" style="display:">
 
-					<table width="100%" bgColor= "#FFFFFF" cellspacing="0" cellpadding="0">
-						
-						<tr bgColor= "#000000">
-							<td align="left" style="width: 20%"><button type="button"
-									>返回</button></td>
+					<table width="100%" bgColor="#FFFFFF" cellspacing="0"
+						cellpadding="0">
+
+						<tr bgColor="#000000">
+							<td align="left" style="width: 20%"><button type="button">返回</button></td>
 							<td align="center" style="color: white;">预约孔医堂</td>
 
 						</tr>
-						
+
 						<tr>
-							<td colspan="2" align="center" ><span><strong>孔医堂</strong></span></td>
+							<td colspan="2" align="center"><span><strong>孔医堂</strong></span></td>
 
 						</tr>
 						<tr>
@@ -88,31 +171,32 @@
 						</tr>
 					</table>
 					</br>
-					
-					<div class="table-site">
-					<table bgColor= "#FFFFFF" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td style="width: 80%;" align="center">望京馆</td>
-							<td><button type="button"
-									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
-						</tr>
-						<tr>
-							<td style="width: 80%;" align="center">五棵松馆</td>
-							<td><button type="button"
-									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
-						</tr>
-						<tr>
-							<td style="width: 80%;" align="center">展览路馆</td>
-							<td><button type="button"
-									onclick="set_kongyitang_reservation_index_value('展览路馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
-						</tr>
-						<tr>
-							<td style="width: 80%;" align="center">三里屯SOHO馆</td>
-							<td><button type="button"
-									onclick="set_kongyitang_reservation_index_value('三里屯SOHO馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
-						</tr>
 
-					</table>
+					<div class="table-site">
+						<table bgColor="#FFFFFF" border="0" cellspacing="0"
+							cellpadding="0">
+							<tr>
+								<td style="width: 80%;" align="center">望京馆</td>
+								<td><button type="button"
+										onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
+							</tr>
+							<tr>
+								<td style="width: 80%;" align="center">五棵松馆</td>
+								<td><button type="button"
+										onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
+							</tr>
+							<tr>
+								<td style="width: 80%;" align="center">展览路馆</td>
+								<td><button type="button"
+										onclick="set_kongyitang_reservation_index_value('展览路馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
+							</tr>
+							<tr>
+								<td style="width: 80%;" align="center">三里屯SOHO馆</td>
+								<td><button type="button"
+										onclick="set_kongyitang_reservation_index_value('三里屯SOHO馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">预约</button></td>
+							</tr>
+
+						</table>
 					</div>
 
 
@@ -123,8 +207,8 @@
 				<!-- 具体预约某个医馆 -->
 				<div id="reservation_specific_location" style="display: none;">
 					<table width="100%" cellspacing="0" cellpadding="0">
-					
-						<tr bgColor= "#000000">
+
+						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('reservation_specific_location', 'kongyitang_reservation_index');">返回</button></td>
 							<td align="center" colspan="2" style="color: white;">预约孔医堂</td>
@@ -133,16 +217,14 @@
 					</table>
 					<table>
 						<tr>
-						<td width="33%">&nbsp;&nbsp;</td>
+							<td width="33%">&nbsp;&nbsp;</td>
 							<td align="center"><span><strong>望京馆</strong></span></td>
-							
-							<td width="33%"><a style="width: 70px; height: 28px"
-						href="" 
-						data-role="button" data-mini="true" 
-						>出诊表</a></td>
+
+							<td width="33%"><a style="width: 70px; height: 28px" href=""
+								data-role="button" data-mini="true">出诊表</a></td>
 
 						</tr>
-						
+
 
 					</table>
 					<!-- 
@@ -276,7 +358,7 @@
 				<!-- 具体预约某个医生 -->
 				<div id="reservation_specific_doctor" style="display: none;">
 					<table width="100%" cellpadding="0" cellspacing="0">
-						<tr bgColor= "#000000">
+						<tr bgColor="#000000">
 							<td align="left" width="20%"><button type="button"
 									onclick="display_return_page('reservation_specific_doctor', 'reservation_specific_location');">返回</button></td>
 							<td align="center" style="color: white;">预约</td>
@@ -416,7 +498,7 @@
 				<!-- 患者病情资料 -->
 				<div id="reservation_patient_sickinfo" style="display: none;">
 					<table width="100%" cellspacing="0" cellpadding="0">
-						<tr bgColor= "#000000">
+						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');">返回</button></td>
 							<td align="center" style="color: white;">预约</td>
@@ -461,9 +543,12 @@
 								</tr>
 								<tr>
 									<td>预约目的</td>
-									<td><label><input type="checkbox" name="purpose_chk" value="诊断"/>诊断</label></td>
-									<td><label><input type="checkbox" name="purpose_chk" value="治疗"/>治疗</label></td>
-									<td><label> <input type="checkbox" name="purpose_chk" value="复诊"/>复诊
+									<td><label><input type="checkbox"
+											name="purpose_chk" value="诊断" />诊断</label></td>
+									<td><label><input type="checkbox"
+											name="purpose_chk" value="治疗" />治疗</label></td>
+									<td><label> <input type="checkbox"
+											name="purpose_chk" value="复诊" />复诊
 									</label></td>
 								</tr>
 								<tr>
@@ -489,7 +574,8 @@
 
 
 
-							<br /> <INPUT id="u38" type="submit" value="预约" onclick="set_reservation_patient_sickinfo_value();">
+							<br /> <INPUT id="u38" type="submit" value="预约"
+								onclick="set_reservation_patient_sickinfo_value();">
 
 						</div>
 					</div>

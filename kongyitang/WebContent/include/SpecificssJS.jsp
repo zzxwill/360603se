@@ -2,7 +2,11 @@
 
 	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
 	<script type="text/javascript" src="../js/jquery.min.js"> </script>
-	<script src="../js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.mobile-1.3.2.min.js"></script>
+	<!-- Jquery validation -->
+	<script type="text/javascript" src="../js/jquery.validate.js"></script>
+	
+<!-- 	<script type="text/javascript" src="../js/jquery.metadata.js"></script> -->
 	
 	<link href="../resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet">
    
@@ -78,13 +82,15 @@
 	
 	//存储shanggongfang_reservation_index页面选定的值
 	function set_shanggongfang_reservation_index_value(site){
-		document.getElementById("type").value = site;
+		document.getElementById("type_adjust").value = site;
+		document.getElementById("type_assess").value = site;
 		//如果没有reutrn, 会提交表单
 		return;
 	}
 	
 	//上工坊 不同的类型 提交给不同的action
 	function submit_reserve_shanggongfang(action){
+		//$("verifyForm").validate();
 		var verifyForm = document.getElementById("verifyForm");
 		verifyForm.action = action;
 		verifyForm.submit(); 

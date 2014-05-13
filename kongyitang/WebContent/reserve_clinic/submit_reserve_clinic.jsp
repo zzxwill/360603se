@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>购买成功</title>
+    <title>预约成功</title>
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%>
