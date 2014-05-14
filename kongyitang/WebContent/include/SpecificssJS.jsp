@@ -53,6 +53,11 @@
 	function set_reservation_specific_location_value(department, doctorid){
 		document.getElementById("department").value = department;
 		document.getElementById("doctorid").value = doctorid;
+		var department_specific =  document.getElementById("department_specific");
+		var reserver_date_table = department_specific.innerHTML;
+		department_specific.innerHTML = document.getElementById(doctorid.toString()).innerHTML;
+		department_specific.innerHTML += reserver_date_table;
+		
 		return;
 		
 		

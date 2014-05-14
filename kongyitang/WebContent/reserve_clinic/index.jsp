@@ -238,39 +238,53 @@ $().ready(function() {
 					</div>
 					 -->
 
-
+					<%
+					ReserveClinicDao deparment_dao = new ReserveClinicDao();
+					deparment_dao.retrive_deparment();
+					for(int i=0;i<deparment_dao.department_num;i++){
+				
+					
+					%>
 					<div id="u8">
 						<div id="u8_rtf">
 							<p style="text-align: center;">
-								中医内科 <a onclick="show_hidden('zhongyineike');"><img
+								<%=deparment_dao.department[i] %>
+								<a onclick="show_hidden('<%=deparment_dao.department[i] %>');"><img
 									src="../resources/css/images/reserver_clinic/u17_normal.png"
 									width="16" height="15" alt="" /></a>
 							</p>
 						</div>
 					</div>
 
-					<div id="zhongyineike" style="display: none;">
+					<div id="<%=deparment_dao.department[i] %>" style="display: none;">
 						<div>
 							<table border="0" width="100%">
+								<% 
+								ReserveClinicDao doctor_dao = new ReserveClinicDao();
+								doctor_dao.retrive_doctors_by_deparment(deparment_dao.department_id[i]);
+								for(int j=0;j<doctor_dao.doctor_num;j++){
+								%>
 								<tr>
 									<td><img src="../resources/images/upload/doctor_male.jpg"
-										width="50" height="50" alt="" /></td>
-									<td>
-										<table width="80%">
+										width="50" height="50" alt="<%=doctor_dao.doctor_id[j] %>" /></td>
+									<td id="<%=doctor_dao.doctor_id[j] %>">
+										<table width="80%" >
+
 											<tr>
 
-												<td><span style="text-align: left;">田&nbsp; 野</span></td>
-												<td><span style="text-align: right">主治医师</span></td>
+												<td><span style="text-align: left;"><%=doctor_dao.name[j] %></span></td>
+												<td><span style="text-align: right"><%=doctor_dao.title[j] %></span></td>
 												<td align="center"><span
 													style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
 											</tr>
 											<tr>
 
-												<td>中医内科</td>
+												<td><%=deparment_dao.department[i] %></td>
 												<td>&nbsp;</td>
 												<td>
 													<button id="u21" type="button"
-														onclick="set_reservation_specific_location_value('中医内科','100001');show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');">预约</button>
+														onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i] %>','<%=doctor_dao.doctor_id[j] %>');">
+														预约</button>
 												</td>
 											</tr>
 										</table>
@@ -278,78 +292,23 @@ $().ready(function() {
 
 
 								</tr>
+								<%
+								}
+								%>
 
-								<tr>
-									<td><img
-										src="../resources/images/upload/doctor_female.jpg" width="50"
-										height="50" alt="" /></td>
-									<td><table>
-											<tr>
-
-												<td><span style="text-align: left;">赵丽丽</span></td>
-												<td><span style="text-align: right">主治医师</span></td>
-												<td><span
-													style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
-											</tr>
-											<tr>
-
-												<td>中医内科</td>
-												<td>&nbsp;</td>
-												<!-- set_reservation_specific_location_value(department, doctorid) -->
-												<td><INPUT id="u21" type="button" value="预约"
-													onclick="set_reservation_specific_location_value('中医内科','100002');show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');"></td>
-											</tr>
-										</table></td>
-
-
-								</tr>
-
-
-
-
-
-
+							
 							</table>
 						</div>
 					</div>
+					<%
+					}
+				
+					
+					%>
 
-					<div>
-						<div>
-							</br>
-							<p style="text-align: center;">
-								中医外科 <a onclick=""><img
-									src="../resources/css/images/reserver_clinic/u17_normal.png" /></a>
-							</p>
-						</div>
-					</div>
-					<div>
-						<div>
-							</br>
-							<p style="text-align: center;">
-								妇科 <a onclick=""><img
-									src="../resources/css/images/reserver_clinic/u17_normal.png" /></a>
-							</p>
-						</div>
-					</div>
-					<div>
-						<div>
-							</br>
-							<p style="text-align: center;">
-								儿科 <a onclick=""><img
-									src="../resources/css/images/reserver_clinic/u17_normal.png" /></a>
-							</p>
-						</div>
-					</div>
-					<div>
-						<div>
-							</br>
-							<p style="text-align: center;">
-								针推科 <a onclick=""><img
-									src="../resources/css/images/reserver_clinic/u17_normal.png" /></a>
-							</p>
-						</div>
-					</div>
+					
 
+					
 
 
 
@@ -367,63 +326,28 @@ $().ready(function() {
 
 
 					</table>
-					<div id="zhongyineike" style="display:;">
-						<div>
-							<table border="0" width="100%">
+					<div id="department_specific" style="display:;">
+							<!-- <table border="0" width="100%">
 								<tr>
 									<td><img src="../resources/images/upload/doctor_male.jpg"
 										width="50" height="50" alt="" /></td>
 									<td>
 										<table width="80%">
 											<tr>
-
 												<td><span style="text-align: left;">田&nbsp; 野</span></td>
 												<td><span style="text-align: right">主治医师</span></td>
 												<td align="center"><span
 													style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
 											</tr>
 											<tr>
-
 												<td>中医内科</td>
 												<td>&nbsp;</td>
 												<td></td>
 											</tr>
 										</table>
 									</td>
-
-
 								</tr>
-							</table>
-
-							<!-- 			
-							<table border="0" width="100%">
-								<tr>
-									<td width="20%"><img
-										src="../resources/css/images/reserver_clinic/u30_normal.png"
-										alt="" /></td>
-									<td width="80%">
-										<table width="100%">
-											<tr>
-
-												<td><span style="text-align: left;">田&nbsp; 野</span></td>
-												<td><span style="text-align: right">主治医师</span></td>
-												<td><img
-													src="../resources/css/images/reserver_clinic/v.jpg"
-													width="40" height="44" alt="" /></td>
-											</tr>
-											<tr>
-
-												<td>中医外科</td>
-												<td>&nbsp;</td>
-												<td></td>
-											</tr>
-										</table>
-									</td>
-
-
-								</tr>
-							</table>
-							-->
+							</table>			 -->			
 							<table>
 
 								<tr>
@@ -489,7 +413,7 @@ $().ready(function() {
 
 
 							</table>
-						</div>
+					
 					</div>
 
 
