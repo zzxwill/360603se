@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
-	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
+	<!-- <link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
 	<script type="text/javascript" src="../js/jquery.min.js"> </script>
-	<script type="text/javascript" src="../js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.mobile-1.3.2.min.js"></script> -->
 	<!-- Jquery validation -->
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	
@@ -101,6 +101,21 @@
 		verifyForm.submit(); 
 		verifyForm.action = "";
 		return;
+	}
+	
+	//学堂  提交action
+	function submit_reserve_xuetang(action){
+		
+		
+		if ($("#verifyForm").valid()) {
+	        $("#verifyForm").submit();
+	    }
+		//$("verifyForm").validate();
+		/* var verifyForm = document.getElementById("verifyForm");
+		
+		verifyForm.submit(); 
+		
+		return; */
 	}
 	
 	//存储reservation_patient_sickinfo页面选定的值
