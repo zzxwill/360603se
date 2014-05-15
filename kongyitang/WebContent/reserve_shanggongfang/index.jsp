@@ -9,11 +9,16 @@
 <title><%=sysName%></title>
 
 <%@ include file="../include/meta.jsp"%>
-<%//@ include file="../include/cssJS.jsp"%>
+<%@ include file="../include/cssJS.jsp"%>
 <%@ include file="../include/SpecificssJS.jsp"%>
 
 
 <link rel="stylesheet" href="../css/screen.css" />
+
+
+<link rel="stylesheet" href="../css/ask.css" />
+<link rel="stylesheet" href="../css/reservation_xuetang.css" />
+
 <style type="text/css">
 #verifyForm label.error {
 	margin-left: 10px;
@@ -122,14 +127,39 @@ $().ready(function() {
 				}
 			}
 		});
+
+	 $("#submit_assess_link").click(function() {
+		    if ($("#assess_form").valid()) {
+		        $("#assess_form").submit();
+		    }
+		});
+	
+	
+	$("#submit_adjust_link").click(function() {
+	    if ($("#adjust_form").valid()) {
+	        $("#adjust_form").submit();
+	    }
 	});
+});
+
 </script>
 
 </head>
 
 <body>
 	<div data-role="page">
-		<div data-role="header"></div>
+		<div data-role="header">
+			<table width="100%">
+				<tr>
+					<td width="33%" align="center">
+						<div id="backButton" style="width: 60px;"
+							href="javascript:history.back(-1)">返回</div>
+					</td>
+					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
+					<td width="33%">&nbsp;&nbsp;</td>
+				</tr>
+			</table>
+		</div>
 		<div data-role="content">
 <!-- 			<form name="verifyForm" id="verifyForm" method="post"> -->
 
@@ -138,7 +168,7 @@ $().ready(function() {
 
 				<!-- 预约上工坊健康会所首页 -->
 				<div id="xuetang_reservation_index" style="display:">
-					<table width="100%" cellspacing="0" cellpadding="0">
+					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button">返回</button></td>
 							<td align="center" style="color: white;">健康服务</td>
@@ -146,7 +176,7 @@ $().ready(function() {
 						</tr>
 
 
-					</table>
+					</table> -->
 
 					<table width="100%">
 						<!-- 
@@ -168,30 +198,62 @@ $().ready(function() {
 
 						</tr>
 					</table>
-					<table>
+					<table width="100%">
 						<tr>
-							<td style="width: 80%;" align="center">健康评估</td>
-							<td><button type="button"
-									onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">预约</button></td>
+							<td colspan="2"><hr color="<%=sysColor%>"></td>
 						</tr>
 						<tr>
-							<td style="width: 80%;" align="center">健康调理</td>
+						<td id="xuetang_button"><strong>健康评估</strong></td>
+							<td>
+								<div align="center" id="ASKSubmit" onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">
+									<big>预&nbsp;&nbsp;约</big>
+								</div>
+							</td>
+							
+							<!-- <td style="width: 80%;" align="center">健康评估</td>
 							<td><button type="button"
-									onclick="set_shanggongfang_reservation_index_value('健康调理');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">预约</button></td>
+									onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">预约</button></td> -->
+						</tr>
+						<tr>
+							<td colspan="2"><hr color="<%=sysColor%>"></td>
+						</tr>
+						<tr>
+							<td id="xuetang_button"><strong>健康调理</strong></td>
+							<td>
+								<div align="center" id="ASKSubmit" onclick="set_shanggongfang_reservation_index_value('健康调理');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">
+									<big>预&nbsp;&nbsp;约</big>
+								</div>
+							</td>
+							
+							
+						</tr>
+
+<tr>
+							<td colspan="2"><hr color="<%=sysColor%>"></td>
+						</tr>
+						<tr>
+							<td id="xuetang_button"><strong>健康讲座</strong></td>
+							<td>
+								<div align="center" id="ASKSubmit" >
+									<big>预&nbsp;&nbsp;约(No)</big>
+								</div>
+							</td>
+						
+						</tr>
+						<tr>
+							<td colspan="2"><hr color="<%=sysColor%>"></td>
 						</tr>
 
 						<tr>
-							<td style="width: 80%;" align="center">健康讲座</td>
-							<td><button type="button" onclick="">
-									预约</br>(暂未开放)
-								</button></td>
+							<td id="xuetang_button"><strong>健康沙龙</strong></td>
+							<td>
+								<div align="center" id="ASKSubmit" >
+									<big>预&nbsp;&nbsp;约(No)</big>
+								</div>
+							</td>
 						</tr>
-
 						<tr>
-							<td style="width: 80%;" align="center">健康沙龙</td>
-							<td><button type="button" onclick="">
-									预约</br>(暂未开放)
-								</button></td>
+							<td colspan="2"><hr color="<%=sysColor%>"></td>
 						</tr>
 
 					</table>
@@ -209,7 +271,7 @@ $().ready(function() {
 					<form id="adjust_form" action="submit_reserve_shanggongfang.jsp" method="post">
 					<!-- 预约的上工坊健康会所的类型 -->
 					<input id="type_adjust" name="type_adjust" type="hidden">
-					<table width="100%" cellspacing="0" cellpadding="0">
+					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
@@ -218,7 +280,7 @@ $().ready(function() {
 						</tr>
 
 
-					</table>
+					</table> -->
 
 					<table width="100%">
 						<!-- 
@@ -240,33 +302,33 @@ $().ready(function() {
 
 					<table>
 						<tr>
-							<td>姓名：</td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</div></td>
 							<td colspan="2"><INPUT name="name" value="" width="80%" ></td>
 						</tr>
 						<tr>
-							<td>性别：</td>
+							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
 							<td><input type="radio" name="gender" value="male" /> 男</td>
 							<td><input type="radio" name="gender" value="female" /> 女</td>
 						</tr>
 						<tr>
 								<td></td>
-								<td ><label for="gender" class="error"></label></td>
+							<td colspan="2"><label for="gender" class="error"></label></td>
 										
 							</tr>
-						<tr>
-							<td>年龄：</td>
+						<tr>							
+							<td id="xuetang_td"><div id="ASKInput">年龄:</div></td>
 							<td colspan="2"><INPUT name="age" value="" width="80%"></td>
 						</tr>
 
 						<tr>
-							<td>手机：</td>
+							<td id="xuetang_td"><div id="ASKInput">手&nbsp;&nbsp;&nbsp;&nbsp;机：</div></td>
 							<td colspan="2"><INPUT name="mobile" value="" width="80%"></td>
 						</tr>
 
 
 
 						<tr>
-							<td>调理项目：</td>
+							<td id="xuetang_td"><div id="ASKInput">调理项目：</div></td>
 							<td colspan="2"><select id="adjust_programe"
 								name="adjust_programe">
 									<option selected="" value="肩颈能量疏通">肩颈能量疏通</option>
@@ -283,7 +345,7 @@ $().ready(function() {
 						</tr>
 
 						<tr>
-							<td>预约时间：</td>
+							<td id="xuetang_td"><div id="ASKInput">预约时间：</div></td>
 							<td colspan="2"><select id="book_date" name="book_date">
 									<option selected="" value="2014-06-06 星期一 10:00">2014-05-06
 										星期一 10:00</option>
@@ -293,7 +355,7 @@ $().ready(function() {
 						</tr>
 
 						<tr>
-							<td>调理师：</td>
+							<td id="xuetang_td"><div id="ASKInput">调理师：</div></td>
 							<td colspan="2"><select id="adjust_master"
 								name="adjust_master" class="u29">
 									<option selected="" value="王毅河">王毅河</option>
@@ -312,7 +374,10 @@ $().ready(function() {
 
 						<br /> <!-- <INPUT id="u38" type="submit" value="预约"
 							onclick="submit_reserve_shanggongfang('submit_reserve_shanggongfang.jsp')"> -->
-							<INPUT id="u38" type="submit" value="预约">
+							<!-- <INPUT id="u38" type="submit" value="预约"> -->
+							<div align="center" id="ASKSubmit" >
+							<a id="submit_adjust_link" style="color: white;"><big>预约</big></a>
+						</div>
 
 					</div>
 					</form>
@@ -323,7 +388,7 @@ $().ready(function() {
 				<form id="assess_form" action="submit_reserve_shanggongfang_assess.jsp" method="post">
 					<!-- 预约的上工坊健康会所的类型 -->
 					<input id="type_assess" name="type_assess" type="hidden">
-					<table width="100%" cellspacing="0" cellpadding="0">
+					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');">返回</button></td>
@@ -332,7 +397,7 @@ $().ready(function() {
 						</tr>
 
 
-					</table>
+					</table> -->
 
 					<table width="100%">
 						<!-- 
@@ -354,29 +419,30 @@ $().ready(function() {
 
 					<table>
 						<tr>
-							<td>姓名：</td>
+							<!-- <td id="ASKInput">：</td> -->
+							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</div></td>
 							<td colspan="2"><INPUT name="name_assess" value=""
 								width="80%" class="required"></td>
 						</tr>
 						<tr>
-							<td>性别：</td>
+							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
 							<td><input type="radio" name="gender_assess" value="male" />
 								男</td>
 							<td><input type="radio" name="gender_assess" value="female" /> 女</td>
 						</tr>
 						<tr>
 								<td></td>
-								<td ><label for="gender_assess" class="error"></label></td>
+								<td colspan="2"><label for="gender_assess" class="error"></label></td>
 										
 							</tr>
 						<tr>
-							<td>年龄：</td>
+							<td id="xuetang_td"><div id="ASKInput">年&nbsp;&nbsp;&nbsp;&nbsp;龄：</div></td>
 							<td colspan="2"><INPUT name="age_assess" value=""
 								width="80%"></td>
 						</tr>
 
 						<tr>
-							<td>手机：</td>
+							<td id="xuetang_td"><div id="ASKInput">手&nbsp;&nbsp;&nbsp;&nbsp;机：</div></td>
 							<td colspan="2"><INPUT name="mobile_assess" value=""
 								width="80%"></td>
 						</tr>
@@ -384,7 +450,8 @@ $().ready(function() {
 
 
 						<tr>
-							<td>评估项目：</td>
+					
+							<td id="xuetang_td"><div id="ASKInput" align="center">评估项目:</div></td>
 							<td colspan="2"><select id="assess_programe"
 								name="assess_programe_assess">
 									<option selected="" value="私人医生顾问服务">私人医生顾问服务</option>
@@ -395,7 +462,8 @@ $().ready(function() {
 						</tr>
 
 						<tr>
-							<td>预约时间：</td>
+							
+							<td id="xuetang_td"><div id="ASKInput" align="center">预约时间:</div></td>
 							<td colspan="2"><select id="book_date"
 								name="book_date_assess">
 									<option selected="" value="2014-06-06 星期一 10:00">2014-05-06
@@ -406,7 +474,8 @@ $().ready(function() {
 						</tr>
 
 						<tr>
-							<td>调理师：</td>
+					
+							<td id="xuetang_td"><div id="ASKInput" align="center">调理师:</div></td>
 							<td colspan="2"><select id="assess_master"
 								name="assess_master_assess" class="u29">
 									<option selected="" value="李志更">李志更</option>
@@ -428,7 +497,10 @@ $().ready(function() {
 
 						<br /><!--  <INPUT id="u38" type="submit" value="预约"
 							onclick="submit_reserve_shanggongfang('submit_reserve_shanggongfang_assess.jsp')"> -->
-							 <INPUT id="u38" type="submit" value="预约">
+							 <!-- <INPUT id="u38" type="submit" value="预约" > -->
+						<div align="center" id="ASKSubmit" >
+							<a id="submit_assess_link" style="color: white;"><big>预约</big></a>
+						</div>
 
 					</div>
 					</form>

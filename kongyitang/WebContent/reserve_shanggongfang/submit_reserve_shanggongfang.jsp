@@ -22,11 +22,21 @@
  
 <div data-role="page">
 	<div data-role="header">
+	<table width="100%">
+				<tr>
+					<td width="33%" align="center">
+						<div id="backButton" style="width: 60px;"
+							href="location='index.jsp'">返回</div>
+					</td>
+					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
+					<td width="33%">&nbsp;&nbsp;</td>
+				</tr>
+			</table>
  	</div>
 
   	<div data-role="content">
   	
-  	<table width="100%" cellspacing="0" cellpadding="0">
+  <!-- 	<table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor= "#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="location='index.jsp'">返回</button></td>
@@ -35,7 +45,7 @@
 						</tr>
 
 
-					</table>
+					</table> -->
     <p>预约成功！<br>
 
     <%
