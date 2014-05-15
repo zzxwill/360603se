@@ -13,7 +13,6 @@
 <%@ include file="../include/SpecificssJS.jsp"%>
 
 <link rel="stylesheet" href="../css/screen.css" />
-<link rel="stylesheet" href="../css/ask.css" />
 <link rel="stylesheet" href="../css/reservation_xuetang.css" />
 
 
@@ -210,7 +209,7 @@ $().ready(function() {
 							<td id="xuetang_button"><strong>科普学堂</strong></td>
 							<td>
 								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名</big>
+									<big>报&nbsp;&nbsp;名(No)</big>
 								</div>
 							</td>
 						</tr>
@@ -222,7 +221,7 @@ $().ready(function() {
 							<td id="xuetang_button"><strong>紫禁学堂</strong></td>
 							<td>
 								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名</big>
+									<big>报&nbsp;&nbsp;名(No)</big>
 								</div>
 							</td>
 						</tr>
@@ -249,7 +248,7 @@ $().ready(function() {
 							<td id="xuetang_button"><strong>翰林学堂</strong></td>
 							<td>
 								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名</big>
+									<big>报&nbsp;&nbsp;名(No)</big>
 								</div>
 							</td>
 						</tr>
@@ -303,14 +302,14 @@ $().ready(function() {
 					<table width="100%">
 						<tr>
 							<!-- <td id="ASKInput">：</td> -->
-							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 							<td colspan="2"><INPUT name="name" value="" width="80%"
 								class="required"></td>
 						</tr>
 						<tr>
 
 
-							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
+							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
 							<td><input type="radio" name="gender" value="male" /> 男</td>
 							<td><input type="radio" name="gender" value="female" /> 女</td>
 
@@ -321,31 +320,31 @@ $().ready(function() {
 
 						</tr>
 						<tr>
-							<td id="xuetang_td"><div id="ASKInput">年&nbsp;&nbsp;&nbsp;&nbsp;龄：</div></td>
+							<td id="xuetang_td"><div id="ASKInput">年&nbsp;&nbsp;&nbsp;&nbsp;龄</div></td>
 							<td colspan="2"><INPUT name="age" value="" width="80%"></td>
 						</tr>
 
 						<tr>
 
-							<td id="xuetang_td"><div id="ASKInput">手&nbsp;&nbsp;&nbsp;&nbsp;机：</div></td>
+							<td id="xuetang_td"><div id="ASKInput">手&nbsp;&nbsp;&nbsp;&nbsp;机</div></td>
 							<td colspan="2"><INPUT name="mobile" value="" width="80%"></td>
 						</tr>
 
 						<tr>
 
-							<td id="xuetang_td"><div id="ASKInput">职&nbsp;&nbsp;&nbsp;&nbsp;业：</div></td>
+							<td id="xuetang_td"><div id="ASKInput">职&nbsp;&nbsp;&nbsp;&nbsp;业</div></td>
 							<td colspan="2"><INPUT name="job" value="" width="80%"></td>
 						</tr>
 
 						<tr>
 
-							<td id="xuetang_td"><div id="ASKInput">就职单位：</div></td>
+							<td id="xuetang_td"><div id="ASKInput">就职单位</div></td>
 							<td colspan="2"><INPUT name="company" value="" width="80%"></td>
 						</tr>
 
 						<tr>
 
-							<td id="xuetang_td"><div id="ASKInput">职务职称：</div></td>
+							<td id="xuetang_td"><div id="ASKInput">职务/职称</div></td>
 							<td colspan="2"><INPUT name="title" value="" width="80%"></td>
 						</tr>
 

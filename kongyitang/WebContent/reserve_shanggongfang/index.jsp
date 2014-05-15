@@ -302,11 +302,11 @@ $().ready(function() {
 
 					<table>
 						<tr>
-							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 							<td colspan="2"><INPUT name="name" value="" width="80%" ></td>
 						</tr>
 						<tr>
-							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
+							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
 							<td><input type="radio" name="gender" value="male" /> 男</td>
 							<td><input type="radio" name="gender" value="female" /> 女</td>
 						</tr>
@@ -316,7 +316,7 @@ $().ready(function() {
 										
 							</tr>
 						<tr>							
-							<td id="xuetang_td"><div id="ASKInput">年龄:</div></td>
+							<td id="xuetang_td"><div id="ASKInput">年龄</div></td>
 							<td colspan="2"><INPUT name="age" value="" width="80%"></td>
 						</tr>
 
@@ -420,12 +420,12 @@ $().ready(function() {
 					<table>
 						<tr>
 							<!-- <td id="ASKInput">：</td> -->
-							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 							<td colspan="2"><INPUT name="name_assess" value=""
 								width="80%" class="required"></td>
 						</tr>
 						<tr>
-							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
+							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
 							<td><input type="radio" name="gender_assess" value="male" />
 								男</td>
 							<td><input type="radio" name="gender_assess" value="female" /> 女</td>
@@ -451,7 +451,7 @@ $().ready(function() {
 
 						<tr>
 					
-							<td id="xuetang_td"><div id="ASKInput" align="center">评估项目:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">评估项目</div></td>
 							<td colspan="2"><select id="assess_programe"
 								name="assess_programe_assess">
 									<option selected="" value="私人医生顾问服务">私人医生顾问服务</option>
@@ -463,7 +463,7 @@ $().ready(function() {
 
 						<tr>
 							
-							<td id="xuetang_td"><div id="ASKInput" align="center">预约时间:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">预约时间</div></td>
 							<td colspan="2"><select id="book_date"
 								name="book_date_assess">
 									<option selected="" value="2014-06-06 星期一 10:00">2014-05-06
@@ -475,7 +475,7 @@ $().ready(function() {
 
 						<tr>
 					
-							<td id="xuetang_td"><div id="ASKInput" align="center">调理师:</div></td>
+							<td id="xuetang_td"><div id="ASKInput" align="center">调理师</div></td>
 							<td colspan="2"><select id="assess_master"
 								name="assess_master_assess" class="u29">
 									<option selected="" value="李志更">李志更</option>
