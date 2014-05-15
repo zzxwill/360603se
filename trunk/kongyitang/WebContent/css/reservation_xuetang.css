@@ -1,0 +1,22 @@
+#xuetang_button{ 
+	width: 70%; 
+	text-align: center;	
+}
+
+
+#xuetang_td{ 
+	width: 30%; 
+	text-align: center;	
+}
+    
+
+    .submit_button{
+	background: #FF8C47;
+	color: #000000;
+	border: 1px solid #000000;
+	font-weight: bold;
+	font-size: 13px;
+	border-color:#FF8C47;
+	
+	
+}
