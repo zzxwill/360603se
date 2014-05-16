@@ -13,7 +13,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
-String sysColor = "#FF8C47";
+String sysColor = "#d8a14f";//#FF8C47
+String sysFontColor = "#FF8C47";//#d8a14f
 String loginedUserName = null;
 String sysName = "孔医堂！";
 

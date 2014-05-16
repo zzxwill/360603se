@@ -21,7 +21,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<a style="width:70px;height:28px" href="javascript:history.back(-1)" data-theme="c" data-role="button"  data-mini="true" data-icon="back" data-iconpos="left">返回</a>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">注&nbsp;&nbsp;册</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -63,6 +63,7 @@
 	
 	    <form method="post" name="registerForm" id="registerForm" action="register_3.jsp?role=<%=role %>">
 		     <fieldset data-role="fieldcontain">
+	<link rel="stylesheet" href="../css/my.css" />
 	<script>
 	    function registerSubmit()
 	    {
@@ -122,12 +123,12 @@
 				<input id="registerTel" name="registerTel" type="hidden" value="<%=registerTel %>" />
 				<table width="100%">
 		   			<tr>
-		    			<td width="45%">请输入新密码：</td>
+		    			<td width="45%"><div id="MyInput">请输入新密码</div></td>
 		    			<td width="54%"><input id="registerPW_1" name="registerPW_1" type="password" value="" /></td>
 		    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
 		    		</tr>
 		    		<tr>
-		    			<td width="45%">请再次输入密码：</td>
+		    			<td width="45%"><div id="MyInput">请再次输入密码</div></td>
 		    			<td width="54%"><input id="registerPW_2" name="registerPW_2" type="password" value="" /></td>
 		    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
 		    		</tr>
@@ -144,7 +145,7 @@
 		 }%>
 		 <br>
 		<div id="msgRegister" ></div>
-   		<div id="registerSubmit"><a data-theme="b" data-role="button" onclick="registerSubmit()">提&nbsp;&nbsp;&nbsp;&nbsp;交</a></div>
+   		<div id="registerSubmit"><div id="SubmitButton" onclick="registerSubmit()">提&nbsp;&nbsp;&nbsp;&nbsp;交</div></div>
  
     	</fieldset>
 	</form>	

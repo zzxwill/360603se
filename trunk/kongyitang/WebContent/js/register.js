@@ -64,7 +64,8 @@
 	   
 	   var registerShiCheng = document.getElementById("registerShiCheng").value;
 	   var registerZhengJian = document.getElementById("registerZhengJian").value;
-	   var registerKeShi = document.getElementById("registerKeShi").value;
+	   var registerKeShi =$('input:radio[name="registerKeShi"]:checked').val();
+	  // var registerKeShi = document.getElementById("registerKeShi").value;
 	   var registerZhiCheng = document.getElementById("registerZhiCheng").value;
 	   
 	   var registerTel = document.getElementById("registerTel").value;
@@ -84,11 +85,19 @@
 		if(flag==1){
 		   if(radio%2==1){//医生有效
 			   if(null==registerShiCheng||registerShiCheng==""||null==registerZhengJian||registerZhengJian==""||
-					   null==registerKeShi||registerKeShi==""||null==registerZhiCheng||registerZhiCheng==""){
+					   null==registerZhiCheng||registerZhiCheng==""){
 					  flag = 0;
 				 	  message = "请您填写各项完整医生信息！";
 					  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 				}
+			   if(flag==1){
+				   if( null==registerKeShi||registerKeShi==""){
+					   flag = 0;
+				 	   message = "请您选择您所在的科室！";
+					   msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+				   }
+				  
+			   }
 		   }
 		}
 	   if(flag==1){
@@ -124,3 +133,35 @@
 			}
 	   }
     }
+    
+    function SelectKeShi(){
+    	document.getElementById('SelectKeShi').style.display='block';
+    }
+    
+    function SelectKeshiCancel(){
+    	document.getElementById('SelectKeShi').style.display='none';
+    	document.getElementById("SelectKeShi").value = "";
+    }
+
+    function SelectKeshiCertain(){
+    	document.getElementById('SelectKeShi').style.display='none';
+    	document.getElementById('SelectedKeShi').style.display='block';
+    	var SelectedKeShi = document.getElementById("SelectedKeShi");
+    	var registerKeShi =$('input:radio[name="registerKeShi"]:checked').val();
+    	if(registerKeShi==1){
+    		message = "中医内科";
+    	}else if(registerKeShi==2){
+    		message = "中医外科";
+    	}
+    	else if(registerKeShi==3){
+    		message = "妇&nbsp;&nbsp;科";
+    	}
+    	else if(registerKeShi==4){
+    		message = "儿&nbsp;&nbsp;科";
+    	}
+    	else if(registerKeShi==5){
+    		message = "针推科";
+    	}
+    	SelectedKeShi.innerHTML = "<a>" + message + "</a>";
+    }
+    

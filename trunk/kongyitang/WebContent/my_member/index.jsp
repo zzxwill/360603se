@@ -22,7 +22,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<a style="width:70px;height:28px" href="javascript:history.back(-1)" data-theme="c" data-role="button"  data-mini="true" data-icon="back" data-iconpos="left">返回</a>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">登&nbsp;&nbsp;陆</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -34,7 +34,7 @@
   	<table width="100%"><tr><td align="center">登&nbsp;&nbsp;陆<hr color="red" ></td></tr></table>
     <form method="post" name="loginForm" id="loginForm" action="login_success.jsp">
 	     	 <fieldset data-role="fieldcontain">
-
+<link rel="stylesheet" href="../css/my.css" />
  <script>
     function checkLogin()
     {
@@ -61,23 +61,28 @@
 	      loginForm.submit(); 
 	   }
     }
+
+    function GoRegister(){
+    	window.location = "register_1.jsp";
+    }
 </script>
 		
     	<table width="95%">
     		<tr>
-    			<td width="25%">用户名：</td>
+    			<td width="25%"><div id="MyInput">用户名</div></td>
     			<td width="75%"><input id="loginName" name="loginName" type="text" value="" /></td>
     		</tr>
     		<tr>
-    			<td width="25%">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+    			<td width="25%"><div id="MyInput">密&nbsp;&nbsp;&nbsp;&nbsp;码</div></td>
     			<td width="75%"><input id="loginPW" name="loginPW" type="password" value="" /></td>
     		</tr>
     	</table>
     	<br>
     	<div id="msgLogin" ></div>
-    	<div id="loginSubmit" ><a data-theme="b" data-role="button" onclick="checkLogin()">登&nbsp;&nbsp;陆</a></div>
-    	<div id="loginWait" style="display:none"><a data-theme="b" data-role="button" onclick="checkLogin()">正在登陆，请稍后...</a></div>
-    	<a href="register_1.jsp" data-theme="b" data-role="button" >注&nbsp;&nbsp;册</a>
+    	<div id="loginSubmit" ><div id="SubmitButton" onclick="checkLogin()">登&nbsp;&nbsp;&nbsp;&nbsp;陆</div></div>
+    	<div id="loginWait" style="display:none"><div id="SubmitButton">正在登陆，请稍后...</div></div>
+    	<br>
+		<div id="SubmitButton" onclick="GoRegister()">注&nbsp;&nbsp;&nbsp;&nbsp;册</div>
 
     	</fieldset>
 	</form>	

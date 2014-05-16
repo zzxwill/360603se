@@ -13,8 +13,8 @@
 
 </head>
   
-   
-  <% String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
+     <%@ include file="../check/index.jsp"%> 
+  <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
 
@@ -35,7 +35,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" href="javascript:history.back(-1)">返回</div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提&nbsp;&nbsp;问</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -51,8 +51,8 @@
 	 <link rel="stylesheet" href="../css/ask.css" />
 	<script src="../js/ask.js"></script>
 	<div>请详细描述您的病情、症状、发病时间、治疗情况:</div><br>
-	<textarea style="min-height:150px" name="QuestionText" id="QuestionText" wrap=virtual 
-		placeholder="请详细描述您的病情、症状、发病时间、治疗情况">
+	<textarea style="min-height:120px" name="QuestionText" id="QuestionText" wrap=virtual 
+		placeholder=" ">
 	</textarea>
 	<br>
 	<center>
@@ -74,7 +74,7 @@
 			<tr>
 				<td align="center" width="100%"><div id="ASKPhoto"><big>从相册中选择</big></div></td>
 			</tr>
-			<tr><td><hr color="#FF8C47"></td></tr>
+			<tr><td><hr color="<%=sysFontColor %>"></td></tr>
 			<tr>
 				<td align="center">
 					<div id="UploadPhotoCancel" onclick="UploadPhotoCancel()"><big>取&nbsp;&nbsp;消</big></div>
@@ -122,13 +122,13 @@
 		<table width="100%"><tr><td><hr></td></tr></table>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>皮肤科</big></td>
+				<td align="center" width="70%"><big>针推科</big></td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="5">
 				</td>
 			</tr>
 		</table>
-		<table width="100%"><tr><td><hr color="#FF8C47"></td></tr></table>
+		<table width="100%"><tr><td><hr color="<%=sysFontColor %>"></td></tr></table>
 		<table width="100%">
 			<tr>
 				<td width="50%" align="center">
@@ -175,7 +175,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" href="javascript:history.back(-1)">返回</div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提问列表</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -184,31 +184,102 @@
 	
  	</div>
   	<div data-role="content">
+<!--  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="AskResult.jsp?ffff=ddd">-->
+<!--	      <fieldset data-role="fieldcontain">-->
+	      
+	 <link rel="stylesheet" href="../css/ask_doctor.css" />
+  	<script src="../js/ask_doctor.js"></script>
+	
+	<script>
+	</script>
+	
   	<table width="100%">
   		<tr>
-  			<td align="center" width="50%"> 
-  			<div sytle="border:1px solid #FF8C47">
-			  	<select style="margin:-2;" name="SelsetAnswerFlag" id="SelsetAnswerFlag" data-native-menu="false">
-					<option value="2" "selected">全部问题</option>
-					<option value="1">已回答</option>
-					<option value="0">未回答</option>
-				 </select>
-			</div>
+			<td align="center" width="50%"> 
+  			<div id="InputBorderHH" align="center" onclick="SelectStatusTop()">
+				<div id="SelectedStatusTop" style="display:none"></div>
+				<div id="SelectStatusAttentionTop">&nbsp;&nbsp;&nbsp;&nbsp;全部问题&nbsp;&nbsp;
+				<img src="../images/down.png" border = "0px"  width="20px"/></div>
+	    	</div>
 			</td>
 			<td align="center" width="50%"> 
-			<div sytle="border:1px solid #FF8C47">
-			  	<select  style="margin:-2;"  name="SelectKeShi" id="SelectKeShi" data-native-menu="false">
-					<option value="0" "selected">全部科室</option>
-					<option value="1">中医内科</option>
-					<option value="2">中医外科</option>
-					<option value="2">皮肤科</option>
-					<option value="2">妇科</option>
-					<option value="2">儿科</option>
-				 </select>
-			</div>
+			<div id="InputBorderHH" align="center" onclick="SelectKeShiTop()">
+				<div id="SelectedKeShiTop" style="display:none"></div>
+				<div id="SelectKeShiAttentionTop">&nbsp;&nbsp;&nbsp;&nbsp;全部科室&nbsp;&nbsp;
+				<img src="../images/down.png" border = "0px"  width="20px"/></div>
+	    	</div>
 			</td>
 		</tr>
 	</table>
+
+	
+	<div id="SelectKeShiTop" class="SelectKeShiTop" >
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">中医内科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKKeShiTop" id="ASKKeShiTop" value="1" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">中医外科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKKeShiTop" id="ASKKeShiTop" value="2" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">妇&nbsp;&nbsp;科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKKeShiTop" id="ASKKeShiTop" value="3" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">儿&nbsp;&nbsp;科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKKeShiTop" id="ASKKeShiTop" value="4" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">针推科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKKeShiTop" id="ASKKeShiTop" value="5" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	<div id="SelectStatusTop" class="SelectStatusTop" >
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">已回答</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKStatusTop" id="ASKStatusTop" value="1" onclick="StatusChanged();" >
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">未回答</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="ASKStatusTop" id="ASKStatusTop" value="0" onclick="StatusChanged();">
+				</td>
+			</tr>
+		</table>
+	</div>
+	
   	<%
   	int qID = 0;
   	
@@ -221,9 +292,10 @@
   	//System.out.println("num:" + qNum);
   	for(int i=1;i<=qNum;i++){
   		qID = i;
+  		//System.out.println("qID:" + qID + "\n");
   	%>
   	
-	  	<form method="post" name="ASKForm<%=qID %>" id="ASKForm<%=qID %>" action="AskResult.jsp?qID=<%=qID %>">
+	  	<form method="post" name="ASKForm<%=qID %>" id="ASKForm<%=qID %>" action="AskResult.jsp?qID=<%=qID %>" >
 		      <fieldset data-role="fieldcontain">
 	
 		 <link rel="stylesheet" href="../css/my.css" />
@@ -261,7 +333,10 @@
 			</fieldset>
 		</form>	
 		<br>
-	<%} 
+	<%} %>
+<!--	</fieldset>-->
+<!--</form>	-->
+	<%
 	}%>
 	
   </div>
