@@ -58,6 +58,8 @@
 		department_specific.innerHTML = document.getElementById(doctorid.toString()).innerHTML;
 		department_specific.innerHTML += reserver_date_table;
 		
+		$("."+department + "_"+doctorid).remove();
+		
 		return;
 		
 		
@@ -70,10 +72,10 @@
 	}
 	
 	//存储reservation_patient_sickinfo页面选定的值
-	function set_reservation_patient_sickinfo_value(outpatientid){
+ function set_reservation_patient_sickinfo_value(outpatientid){
 		document.getElementById("outpatientid").value = outpatientid;
 		return;
-	}
+	} 
 	
 	
 	
@@ -120,6 +122,7 @@
 	
 	//存储reservation_patient_sickinfo页面选定的值
 	function set_reservation_patient_sickinfo_value(){
+		
 		var boxes = document.getElementsByName("purpose_chk");  
 	    var purpose=boxes[0].value;  
 	    for (var i = 1; i < boxes.length; i++){  
