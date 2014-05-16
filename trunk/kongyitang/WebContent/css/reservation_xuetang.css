@@ -54,3 +54,17 @@
     border-bottom-right-radius:0px 0px;
     border-bottom-left-radius:10px 10px;
 }
+
+#ASKSubmit_disabled{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:6B6969;
+	height:36px;
+	line-height:36px;
+	background:6B6969;
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}

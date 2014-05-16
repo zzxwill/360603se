@@ -429,7 +429,7 @@ $().ready(function() {
 							<tr>
 								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
 								<td>
-									<div align="center" id="ASKSubmit"
+									<div align="center" id="ASKSubmit_disabled"
 										style="height: 20px; line-height: 20px;" onclick="">已停诊
 									</div>
 									
@@ -440,7 +440,7 @@ $().ready(function() {
 							<tr>
 								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
 								<td>
-									<div align="center" id="ASKSubmit"
+									<div align="center" id="ASKSubmit_disabled"
 										style="height: 20px; line-height: 20px;" onclick="">已停诊
 									</div>
 								</td>
@@ -451,7 +451,7 @@ $().ready(function() {
 							<tr>
 								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
 								<td>
-									<div align="center" id="ASKSubmit"
+									<div align="center" id="ASKSubmit_disabled"
 										style="height: 20px; line-height: 20px;" onclick="">已停诊
 									</div>
 								</td>
@@ -461,7 +461,7 @@ $().ready(function() {
 							<tr>
 								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
 								<td>
-									<div align="center" id="ASKSubmit"
+									<div align="center" id="ASKSubmit_disabled"
 										style="height: 20px; line-height: 20px;" onclick="">已停诊<br/>
 									</div>
 								</td>
@@ -550,7 +550,7 @@ $().ready(function() {
 									</label></td>
 								</tr>
 								<tr>
-									<td colspan="4"><p><div id="ASKInput" align="center">病情描述及相关检查结果</div></p>
+									<td colspan="4"><p><div id="ASKInput" align="left">病情描述及相关检查结果</div></p>
 										<p>
 											<textarea name="detail" rows="3" cols="30"></textarea>
 										</p></td>
