@@ -19,6 +19,12 @@
 	border-left: 1px solid #000000
 }
 
+.table-site table {
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000
+}
+
 .table-site table td {
 	border-top: 1px solid #000000
 }
@@ -273,7 +279,7 @@ $().ready(function() {
 							
 							<td width="20%">
 									<div align="center" id="ASKSubmit" style="height:20px;line-height:20px;"
-										onclick="">
+										onclick="display_hidden_outpatient_table();">
 										出诊表
 									</div>
 								</td>
@@ -288,6 +294,7 @@ $().ready(function() {
 
 
 					</table>
+					<div id="outpatient_reserve">
 					<!-- 
 					<div>
 						<INPUT id="u45" type="submit" class="u245" value="返回"> <span
@@ -306,7 +313,7 @@ $().ready(function() {
 				
 					
 					%>
-					<div id="u8">
+					<div id="outpatient_reserve">
 						<div id="u8_rtf">
 							<p style="text-align: center;">
 								<big><%=deparment_dao.department[i] %></big>
@@ -373,13 +380,130 @@ $().ready(function() {
 					%>
 
 					
-
+</div>
 					
 
 
 
 				</div>
 
+
+				<!-- 出诊表 -->
+				<div id="outpatient_table"  style="display: none;" >
+				
+					<table border="1" cellspacing="0" cellpadding="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" width="100%">
+						<tr>
+							<td width="2%">
+							
+							</td>
+							<td width="12%">
+							一
+							</td>
+							<td width="12%">
+							二
+							</td>
+							<td width="12%">
+							三
+							</td>
+							<td width="12%">
+							四
+							</td>
+							<td width="12%">
+							五
+							</td>
+							<td width="12%">
+							六
+							</td>
+							<td width="12%">
+							日
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+							上
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							肖强<br/>徐晓凝
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							叶宜颖
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+							下
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							肖强<br/>徐晓凝
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							叶宜颖
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							
+						</tr>
+						
+						<tr>
+							<td>
+							晚
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							肖强<br/>徐晓凝
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							叶宜颖
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							
+						</tr>
+					</table>
+				
+				</div>
 				<!-- 具体预约某个医生 -->
 				<div id="reservation_specific_doctor" style="display: none;">
 					<!-- <table width="100%" cellpadding="0" cellspacing="0">

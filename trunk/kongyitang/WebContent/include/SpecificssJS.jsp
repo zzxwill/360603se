@@ -137,6 +137,36 @@
 	}
 	
 	
+	//显示或隐藏出诊表  Will  5/16/2014
+	function display_hidden_outpatient_table(){
+		if($("#outpatient_reserve").is(':hidden')){
+			$("#outpatient_table").hide();		
+			$("#outpatient_reserve").show();
+			/* $("#outpatient_table").css( "display", "block");		
+			$("#outpatient_reserve").css( "display", "none"); */
+		}else{
+			/* $("#outpatient_table").css( "display", "none");	
+			$("#outpatient_reserve").css( "display", "block"); */
+			$("#outpatient_table").show();
+			$("#outpatient_reserve").hide();
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</script>
 	
 	
