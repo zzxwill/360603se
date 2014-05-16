@@ -15,8 +15,8 @@
 
 </head>
   
-   
-  <% String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
+     <%@ include file="../check/index.jsp"%> 
+  <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
   %>
@@ -28,7 +28,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" href="javascript:history.back(-1)">返回</div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">回复成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -80,7 +80,7 @@
 		  		askPatient.modifyQuestion(qID_int);
 		  	%>
 			  	<div>您对上述问题给出的回复是：</div><br>
-			  	<div style="color:#FF8C47"><%=AnswerText %></div><br>
+			  	<div style="color:<%=sysFontColor %>"><%=AnswerText %></div><br>
 			  	<div>感谢您对患者的关心，祝您身体健康！</div>
 			  	<%
 		  	}

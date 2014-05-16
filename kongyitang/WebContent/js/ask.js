@@ -65,6 +65,4 @@ function ASKSubmit(){
 		var ASKForm = document.getElementById("ASKForm");
 		ASKForm.submit(); 
 	}
-	
-	
 }

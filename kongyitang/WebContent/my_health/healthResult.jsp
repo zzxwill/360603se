@@ -22,7 +22,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<a style="width:70px;height:28px" href="javascript:history.back(-1)" data-theme="c" data-role="button"  data-mini="true" data-icon="back" data-iconpos="left">返回</a>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">健康自测结果</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

@@ -12,4 +12,10 @@
     border-top-right-radius:0px 0px;
     border-bottom-right-radius:0px 0px;
     border-bottom-left-radius:50px 50px;
+    text-align:center;
+}
+
+a:link {
+	text-decoration: none;
+	color:white;
 }

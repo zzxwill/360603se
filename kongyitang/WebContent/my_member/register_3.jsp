@@ -41,6 +41,7 @@
 			
 			String registerShiCheng = request.getParameter("registerShiCheng");
 			String registerZhengJian = request.getParameter("registerZhengJian");
+			//var registerKeShi =$('input:radio[name="registerKeShi"]:checked').val();
 			String registerKeShi = request.getParameter("registerKeShi");
 			String registerZhiCheng = request.getParameter("registerZhiCheng");
 			

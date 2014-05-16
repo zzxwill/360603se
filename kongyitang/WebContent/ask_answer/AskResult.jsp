@@ -15,8 +15,8 @@
 
 </head>
   
-   
-  <% String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
+     <%@ include file="../check/index.jsp"%> 
+  <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
   	WeiXinDao weixinDao = new WeiXinDao();
@@ -38,7 +38,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" href="javascript:history.back(-1)">返回</div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提问成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -85,7 +85,7 @@
 	  		askPatient.insertQuestion(userID,QuestionText,picture_path,ASKKeShi_int,ASKGender_int,ASKAge_int,ASKTel);
 	  	%>
 	  	<div>您所关心的问题是：</div><br>
-	  	<div style="color:#FF8C47"><%=QuestionText %></div><br>
+	  	<div style="color:<%=sysFontColor %>"><%=QuestionText %></div><br>
 	  	<div>我们会安排相关领域的专家医生尽快为您解答，请您注意查看提问记录！</div><br>
 	  	<div>孔医堂全体员工再次祝您身体健康！</div>
 	  	<%
@@ -107,7 +107,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" href="javascript:history.back(-1)">返回</div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">问题详情</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -186,7 +186,7 @@
 			</textarea>
 			<br>
 			<div id="msgAnswer"></div>
-			<div id="reply_yes" style="width:95%" onclick="AnswerSubmit()"><big>答&nbsp;&nbsp;复</big></div>
+			<div id=submitButton style="width:95%" onclick="AnswerSubmit()"><big>答&nbsp;&nbsp;复</big></div>
 	  		</center>
 	  		<%
 	  	}
