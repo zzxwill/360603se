@@ -44,6 +44,10 @@
 	//存储kongyitang_reservation_index页面选定的值
 	function set_kongyitang_reservation_index_value(site){
 		document.getElementById("site").value = site;
+		
+		$("#return_link").attr("onclick", "display_return_page('reservation_specific_location', 'kongyitang_reservation_index');");
+		
+		
 		//如果没有reutrn, 会提交表单
 		return;
 	}
@@ -51,14 +55,22 @@
 	
 	//存储reservation_specific_location页面选定的值
 	function set_reservation_specific_location_value(department, doctorid){
+		$("#return_link").attr("onclick","display_return_page('reservation_specific_doctor', 'reservation_specific_location');");
+		                                  
 		document.getElementById("department").value = department;
 		document.getElementById("doctorid").value = doctorid;
 		var department_specific =  document.getElementById("department_specific");
-		var reserver_date_table = department_specific.innerHTML;
-		department_specific.innerHTML = document.getElementById(doctorid.toString()).innerHTML;
-		department_specific.innerHTML += reserver_date_table;
+		//获取department_specific的innerHTML，但是，不能更改其内容  Will Zhou   5/17/2014
+		var reserver_date_table = document.getElementById("reserver_table");//department_specific.innerHTML;
 		
-		$("."+department + "_"+doctorid).remove();
+		//开始清空department_specific.innerHTML
+		//department_specific.innerHTML = "";
+		
+		department_specific.innerHTML = document.getElementById(doctorid.toString()).innerHTML;
+		department_specific.innerHTML += reserver_date_table.innerHTML;
+		
+		//$("."+department + "_"+doctorid).remove();
+		$("#department_specific").find("."+department + "_"+doctorid).remove();
 		
 		return;
 		
@@ -67,6 +79,9 @@
 	
 	//存储reservation_specific_doctor页面选定的值
 	function set_reservation_specific_doctor_value(outpatientid){
+		$("#return_link").attr("onclick","display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');");
+		
+		
 		document.getElementById("outpatientid").value = outpatientid;
 		return;
 	}
