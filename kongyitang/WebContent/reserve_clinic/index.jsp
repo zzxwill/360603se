@@ -559,7 +559,7 @@ $().ready(function() {
 
 
 					</table> -->
-					<div id="zhongyineike" style="display:;">
+					<!-- <div id="zhongyineike" style="display:;">
 						<table border="0" width="100%">
 							<tr>
 								<td><img src="../resources/images/upload/doctor_male.jpg"
@@ -584,9 +584,13 @@ $().ready(function() {
 
 
 							</tr>
-						</table>
+						</table> -->
 
-						<div>
+						
+					</div>
+					
+					
+					<div id="reserve_clinic_illness" style="display: none;">
 
 							<table>
 
@@ -626,10 +630,7 @@ $().ready(function() {
 								</tr>
 							</table>
 
-						</div>
-
-
-						<div>
+						
 
 
 
@@ -643,7 +644,8 @@ $().ready(function() {
 								<a id="submit_adjust_link" style="color: white;"><big>预约</big></a>
 							</div>
 						</div>
-					</div>
+						
+						
 
 					<div data-role="footer" data-id="myfooter" data-position="fixed">
 					</div>

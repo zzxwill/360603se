@@ -35,6 +35,19 @@
 			cur_obj.style.display = "none";
 			pre_obj.style.display = "";
 		}
+		
+		//返回时，应该把顶部的返回按钮的onclick内容更新
+		if("reservation_specific_location" == previous_page){
+			$("#return_link").attr("onclick", "display_return_page('reservation_specific_location', 'kongyitang_reservation_index');");
+		}/* else if("outpatient_table" == previous_page){
+			$("#return_link").attr("onclick", "display_return_page('outpatient_table', 'reservation_specific_location');");
+		} */else if("reservation_specific_doctor" == previous_page){
+			$("#return_link").attr("onclick", "display_return_page('reservation_specific_doctor', 'reservation_specific_location');");
+		}
+		else if("reservation_patient_sickinfo" == previous_page){
+			$("#return_link").attr("onclick", "display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');");
+		}
+		
 		return;
 		
 		
@@ -83,11 +96,30 @@
 		
 		
 		document.getElementById("outpatientid").value = outpatientid;
+
+		var reservation_patient_sickinfo =  document.getElementById("reservation_patient_sickinfo");
+		
+		var reserve_clinic_illness = document.getElementById("reserve_clinic_illness");//department_specific.innerHTML;
+		
+		//开始清空department_specific.innerHTML
+		//department_specific.innerHTML = "";
+		
+		reservation_patient_sickinfo.innerHTML = $( "#department_specific table:first-child" ).get(0).outerHTML;//document.getElementById(doctorid.toString()).innerHTML;
+		reservation_patient_sickinfo.innerHTML += reserve_clinic_illness.innerHTML;
+		
+		//$("."+department + "_"+doctorid).remove();
+		//$("#reservation_patient_sickinfo").find("."+department + "_"+doctorid).remove();
+		$("#reservation_patient_sickinfo").children("#reserve_clinic_illness").show();
+		
 		return;
+		
+		
 	}
 	
 	//存储reservation_patient_sickinfo页面选定的值
  function set_reservation_patient_sickinfo_value(outpatientid){
+	 //$("#return_link").attr("onclick","display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');");
+	 
 		document.getElementById("outpatientid").value = outpatientid;
 		return;
 	} 
