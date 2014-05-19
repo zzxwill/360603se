@@ -1,40 +1,41 @@
-<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*"
+	pageEncoding="UTF-8"%>
 
- <%@ include file="../include/package.jsp"%> 
+<%@ include file="../include/package.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <title>购买成功</title>
+<head>
+<title>预约成功</title>
 
-	 <%@ include file="../include/meta.jsp"%> 
-	 <%@ include file="../include/cssJS.jsp"%>
+<%@ include file="../include/meta.jsp"%>
+<%@ include file="../include/cssJS.jsp"%>
 
 <style type="text/css">
 </style>
 
 </head>
-  
-  <body>
+
+<body>
 
 
- 
-<div data-role="page">
-	<div data-role="header">
-				<table width="100%">
+
+	<div data-role="page">
+		<div data-role="header">
+			<table width="100%">
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;"
-							href="javascript:history.back(-1)">返回</div>
+							onclick="location.href='index.jsp';">返回</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
 				</tr>
 			</table>
- 	</div>
+		</div>
 
-  	<div data-role="content">
-  	<!-- <table width="100%" cellspacing="0" cellpadding="0">
+		<div data-role="content">
+			<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor= "#000000">
 							<td align="left" style="width: 20%"><button type="button"
 									onclick="location='index.jsp'">返回</button></td>
@@ -44,10 +45,11 @@
 
 
 					</table> -->
-  	
-    <p>预约成功！<br>
 
-    <%
+			<p>
+				预约成功！<br>
+
+				<%
    	Dao dao = new Dao();
     
     request.setCharacterEncoding("utf-8");
@@ -81,40 +83,43 @@
 	 
 	 dao.submit_reservation_xuetang(hm);
 	 
-
-		
+	 
+	 
+	 //发送成功预约的短信	
+	ReservationSMS reservationSMS = new ReservationSMS();
+		String msg = "孔伯华学院-" + xuetang + "：" + name + "，" + gender  + "，" +age  + "，" + mobile + "。";
+		reservationSMS.run(msg,String.valueOf(mobile).toString());		
 		
     %>
-	   <!--  <script>
+				<!--  <script>
 			self.location = '../index.jsp';
 	    </script> -->
-	
-    <br>
 
+				<br>
+		</div>
 
-  </div>
-
-  <%//@ include file="../include/buttonStyle.jsp"
+		<%//@ include file="../include/buttonStyle.jsp"
   %>
 
-	<div data-role="footer" data-id="myfooter" data-position="fixed">
+		<div data-role="footer" data-id="myfooter" data-position="fixed">
 
-	    <script>
+			<script>
 		function CloseWin(){
 			//window.opener=null; 
 			//window.close(); 
 			WeixinJSBridge.call('closeWindow');
 		}
 	    </script>
-	    <table width="100%">
-	    	<tr><td>
+			<table width="100%">
+				<tr>
+					<td><a id='button-special' type="button" data-theme="b"
+						data-mini="true" data-icon="arrow-r" data-iconpos="right"
+						onclick="CloseWin()">我知道了</a></td>
+				</tr>
+			</table>
+		</div>
 
-	  			<a id='button-special' type="button" data-theme="b" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">我知道了</a>
-	  		</td></tr>
-	  	</table>
 	</div>
 
-</div> 
-
-  </body>
+</body>
 </html>
