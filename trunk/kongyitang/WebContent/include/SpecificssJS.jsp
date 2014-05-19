@@ -97,19 +97,21 @@
 		
 		document.getElementById("outpatientid").value = outpatientid;
 
-		var reservation_patient_sickinfo =  document.getElementById("reservation_patient_sickinfo");
+		var reservation_doctor =  document.getElementById("reservation_doctor");
 		
-		var reserve_clinic_illness = document.getElementById("reserve_clinic_illness");//department_specific.innerHTML;
+		//var reserve_clinic_illness = document.getElementById("reserve_clinic_illness");//department_specific.innerHTML;
 		
 		//开始清空department_specific.innerHTML
 		//department_specific.innerHTML = "";
 		
-		reservation_patient_sickinfo.innerHTML = $( "#department_specific table:first-child" ).get(0).outerHTML;//document.getElementById(doctorid.toString()).innerHTML;
-		reservation_patient_sickinfo.innerHTML += reserve_clinic_illness.innerHTML;
+		reservation_doctor.innerHTML = $( "#department_specific table:first-child" ).get(0).outerHTML;//document.getElementById(doctorid.toString()).innerHTML;
+		//reservation_doctor.innerHTML += reserve_clinic_illness.innerHTML;
 		
 		//$("."+department + "_"+doctorid).remove();
 		//$("#reservation_patient_sickinfo").find("."+department + "_"+doctorid).remove();
-		$("#reservation_patient_sickinfo").children("#reserve_clinic_illness").show();
+		//$("#reservation_patient_sickinfo").children("#reserve_clinic_illness").show();
+		
+		//$("#reservation_patient_sickinfo").hide();
 		
 		return;
 		
@@ -117,17 +119,19 @@
 	}
 	
 	//存储reservation_patient_sickinfo页面选定的值
- function set_reservation_patient_sickinfo_value(outpatientid){
-	 //$("#return_link").attr("onclick","display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');");
+/*  function set_reservation_patient_sickinfo_value(outpatientid){
+	
 	 
 		document.getElementById("outpatientid").value = outpatientid;
 		return;
-	} 
+	}  */
 	
 	
 	
 	//存储xuetang_reservation_index页面选定的值
 	function set_xuetang_reservation_index_value(site){
+		$("#return_link").attr("onclick","display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');");
+		
 		document.getElementById("xuetang").value = site;
 		//如果没有reutrn, 会提交表单
 		return;
@@ -136,6 +140,11 @@
 	
 	//存储shanggongfang_reservation_index页面选定的值
 	function set_shanggongfang_reservation_index_value(site){
+		if("健康调理"==site){
+			$("#return_link").attr("onclick","display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');");
+		}else if("健康评估"==site){
+			$("#return_link").attr("onclick","display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');");
+		}
 		document.getElementById("type_adjust").value = site;
 		document.getElementById("type_assess").value = site;
 		//如果没有reutrn, 会提交表单
@@ -200,6 +209,13 @@
 		
 	}
 	
+	
+	//返回微信主界面  Will  5/19/2014
+	function return_to_wechat_main(){
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+			WeixinJSBridge.call('closeWindow');
+		});
+	}
 	
 	
 	

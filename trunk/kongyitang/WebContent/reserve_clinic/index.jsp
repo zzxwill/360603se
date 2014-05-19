@@ -102,12 +102,12 @@ $().ready(function() {
 			}
 		});
 	 
-	 $("#submit_adjust_link").click(function() {
+   $("#submit_adjust_link").click(function() {
 		 set_reservation_patient_sickinfo_value();
 		    if ($("#verifyForm").valid()) {
 		        $("#verifyForm").submit();
 		    }
-		});
+		}); 
 	 
 	
 	});
@@ -262,12 +262,12 @@ $().ready(function() {
 					</table> -->
 					<table width="100%">
 						<tr>
-							<td width="20%"></td>
-							<td align="center"><span><strong>望京馆</strong></span></td>
+							
+							<td width="50%" align="center"><span><strong>望京馆</strong></span></td>
 
-							<td width="20%">
-								<div align="center" id="ASKSubmit"
-									style="height: 20px; line-height: 20px;"
+							<td width="50%" align="right">
+								<div  id="ASKSubmit" align="center"
+									style="height: 20px; line-height: 20px; width: 65px; line-width: 65px;"
 									onclick="display_hidden_outpatient_table();">出诊表</div>
 							</td>
 
@@ -336,9 +336,9 @@ $().ready(function() {
 												</tr>
 												<tr>
 
-													<td><%=deparment_dao.department[i] %></td>
-													<td>&nbsp;</td>
-													<td>
+													<td width="30%"><%=deparment_dao.department[i] %></td>
+													<td width="30%">剩余:12</td>
+													<td width="20%" >
 														<div align="center" id="ASKSubmit"
 															class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
 															onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i]%>','<%=doctor_dao.doctor_id[j]%>');">
@@ -559,38 +559,11 @@ $().ready(function() {
 
 
 					</table> -->
-					<!-- <div id="zhongyineike" style="display:;">
-						<table border="0" width="100%">
-							<tr>
-								<td><img src="../resources/images/upload/doctor_male.jpg"
-									width="50" height="50" alt="" /></td>
-								<td>
-									<table width="80%">
-										<tr>
-
-											<td><span style="text-align: left;">田&nbsp; 野</span></td>
-											<td><span style="text-align: right">主治医师</span></td>
-											<td align="center"><span
-												style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
-										</tr>
-										<tr>
-
-											<td>中医内科</td>
-											<td>&nbsp;</td>
-											<td></td>
-										</tr>
-									</table>
-								</td>
-
-
-							</tr>
-						</table> -->
-
+					 <div id="reservation_doctor" style="display:;">
 						
 					</div>
-					
-					
-					<div id="reserve_clinic_illness" style="display: none;">
+						
+						<div id="reserve_clinic_illness" style="display: ;">
 
 							<table>
 
@@ -641,9 +614,16 @@ $().ready(function() {
 							<a id="submit_adjust_link" style="color: white;" onclick="set_reservation_patient_sickinfo_value();"><big>预约</big></a>
 						</div> -->
 							<div align="center" id="ASKSubmit">
-								<a id="submit_adjust_link" style="color: white;"><big>预约</big></a>
+								<a id="submit_adjust_link" style="color: white;"  ><big>预约</big></a>
 							</div>
-						</div>
+						</div>	
+
+						
+					</div>
+					
+				
+					
+					
 						
 						
 

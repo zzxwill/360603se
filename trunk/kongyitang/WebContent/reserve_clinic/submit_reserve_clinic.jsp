@@ -71,19 +71,10 @@
 	 
 	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid);
 	 
-	//out.println("*********************************************************");
-	 //out.println(site);
-	 
-	 
-
-		/* userDao.insertOrder(weixinID,orderList,total);
-		userDao.deleteTmpOrder(weixinID);
-		logHelper.dummyLog("deleteTmpOrder!\n");
-		//选择快递员
-		int expressID = 1;
-		userDao.getExpressInfo(expressID);
-		//System.out.println("expressName:" + userDao.expressName + "\n");
-		logHelper.dummyLog("getExpressInfo!\n"); */
+	//发送成功预约的短信	
+		ReservationSMS reservationSMS = new ReservationSMS();
+		String msg = "孔医堂门诊-" + site + "：" + department + "，"+ name + "，" + mobile + "。";
+		reservationSMS.run(msg,String.valueOf(mobile).toString());	
 		
 		
     %>
