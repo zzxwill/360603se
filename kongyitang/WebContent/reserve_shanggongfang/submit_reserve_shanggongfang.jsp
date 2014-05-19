@@ -26,7 +26,7 @@
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;"
-							href="location='index.jsp'">返回</div>
+							onclick="location.href='index.jsp';">返回</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
@@ -94,6 +94,12 @@
 	 
 	 
 	 dao.submit_reservation_shanggongfang(hm);
+	 
+	 
+	//发送成功预约的短信	
+		ReservationSMS reservationSMS = new ReservationSMS();
+		String msg = "上工坊健康会所-" + type + "：" + name + "，" + gender  + "，" +age  + "，" + mobile + "。";
+		reservationSMS.run(msg,String.valueOf(mobile).toString());	
 	 
 
 		
