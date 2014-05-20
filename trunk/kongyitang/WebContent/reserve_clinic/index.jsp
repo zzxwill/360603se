@@ -124,7 +124,7 @@ $().ready(function() {
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="location.href='../index.jsp';">返回</a>
+							<a id="return_link" onclick="return_to_wechat_main()">返回</a>
 						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约孔医堂</a></td>
@@ -201,7 +201,7 @@ $().ready(function() {
 							<td id="xuetang_button"><strong>五棵松馆</strong></td>
 							<td>
 								<div align="center" id="ASKSubmit"
-									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									onclick="set_kongyitang_reservation_index_value('五棵松馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
 									<big>预&nbsp;&nbsp;约</big>
 								</div>
 							</td>
@@ -263,7 +263,7 @@ $().ready(function() {
 					<table width="100%">
 						<tr>
 							
-							<td width="50%" align="center"><span><strong>望京馆</strong></span></td>
+							<td width="50%" align="center"><span><strong><span  id="reservation_specific_location_name">望京馆</span></strong></span></td>
 
 							<td width="50%" align="right">
 								<div  id="ASKSubmit" align="center"
@@ -339,7 +339,7 @@ $().ready(function() {
 													<td width="30%"><%=deparment_dao.department[i] %></td>
 													<td width="30%">剩余:12</td>
 													<td width="20%" >
-														<div align="center" id="ASKSubmit"
+														<div align="center" id="ASKSubmit" style="height: 20px; line-height: 20px;"
 															class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
 															onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i]%>','<%=doctor_dao.doctor_id[j]%>');">
 															<big>预&nbsp;&nbsp;约</big>
@@ -380,7 +380,7 @@ $().ready(function() {
 				<div id="outpatient_table" style="display: none;">
 
 					<table border="1" cellspacing="0" cellpadding="0"
-						bordercolorlight="#000000" bordercolordark="#FFFFFF" width="100%">
+						bordercolorlight="#000000" bordercolordark="#FFFFFF" width="100%" id="reserve_table_td">
 						<tr>
 							<td width="2%"></td>
 							<td width="12%">一</td>
@@ -480,63 +480,31 @@ $().ready(function() {
 						</table>
 
 						<table width="100%">
+						<%
+					ReserveClinicDao outpatient_dao = new ReserveClinicDao();
+						outpatient_dao.retrive_outpatient();
+					for(int i=0;i<outpatient_dao.outpatient_id.size();i++){
+				
+					
+					%>
 							<tr>
-								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
+								<td id="clinic_text"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;星期日&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
 								<td>
+									<% if (outpatient_dao.amount.get(i) < 50){ %>
 									<div align="center" id="ASKSubmit_disabled"
-										style="height: 20px; line-height: 20px;" onclick="">已停诊
+										style="height: 20px; line-height: 20px; font-size:12" onclick="" >已停诊
 									</div>
-
-								</td>
-
-							</tr>
-
-							<tr>
-								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
-								<td>
-									<div align="center" id="ASKSubmit_disabled"
-										style="height: 20px; line-height: 20px;" onclick="">已停诊
-									</div>
-								</td>
-
-							</tr>
-
-
-							<tr>
-								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
-								<td>
-									<div align="center" id="ASKSubmit_disabled"
-										style="height: 20px; line-height: 20px;" onclick="">已停诊
-									</div>
-								</td>
-							</tr>
-
-
-							<tr>
-								<td id="clinic_text">2014-06-01&nbsp;星期日&nbsp;上午&nbsp;普通门诊</td>
-								<td>
-									<div align="center" id="ASKSubmit_disabled"
-										style="height: 20px; line-height: 20px;" onclick="">
-										已停诊<br />
-									</div>
-								</td>
-							</tr>
-
-
-
-							<tr>
-								<td id="clinic_text">2014-06-02&nbsp;星期一&nbsp;上午&nbsp;普通门诊</td>
-								<td>
+									<%} else { %>
 									<div align="center" id="ASKSubmit"
-										style="height: 20px; line-height: 20px;"
+										style="height: 20px; line-height: 20px;font-size:12"
 										onclick="set_reservation_specific_doctor_value('100001');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">申请预约
 									</div>
+									<%}%>									
+
 								</td>
 
-								<!-- <td><input type="button" value="申请预约"
-									onclick="set_reservation_specific_doctor_value('100001');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');"></td>
-							 -->
 							</tr>
+					<%} %>					
 
 						</table>
 					</div>
@@ -571,7 +539,7 @@ $().ready(function() {
 								<tr>
 									<td id="xuetang_td"><div id="ASKInput" align="center">所患疾病</div></td>
 
-									<td colspan="3"><INPUT name="illness_name" width="80%"></td>
+									<td colspan="3"><INPUT name="illness_name" width="60%"></td>
 								</tr>
 								<tr>
 									<td id="xuetang_td"><div id="ASKInput" align="center">预约目的</div></td>
@@ -594,12 +562,12 @@ $().ready(function() {
 								<tr>
 
 									<td id="xuetang_td"><div id="ASKInput" align="center">手机号</div></td>
-									<td colspan="3"><INPUT name="mobile" value="" width="80%"></td>
+									<td colspan="3"><INPUT name="mobile" value="" width="60%"></td>
 								</tr>
 								<tr>
 
 									<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
-									<td colspan="3"><INPUT name="name" value="" width="80%"></td>
+									<td colspan="3"><INPUT name="name" value="" width="60%"></td>
 								</tr>
 							</table>
 

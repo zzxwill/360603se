@@ -60,6 +60,9 @@
 		
 		$("#return_link").attr("onclick", "display_return_page('reservation_specific_location', 'kongyitang_reservation_index');");
 		
+		//reservation_specific_location_name 具体预约某个馆时，顶上显示不同的名字
+		$("#reservation_specific_location_name").get(0).innerText = site;
+		
 		
 		//如果没有reutrn, 会提交表单
 		return;
@@ -212,9 +215,10 @@
 	
 	//返回微信主界面  Will  5/19/2014
 	function return_to_wechat_main(){
-		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 			WeixinJSBridge.call('closeWindow');
-		});
+		/* document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+			WeixinJSBridge.call('closeWindow');
+		}); */
 	}
 	
 	

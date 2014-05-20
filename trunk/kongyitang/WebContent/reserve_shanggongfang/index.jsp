@@ -155,7 +155,7 @@ $().ready(function() {
 						<!-- <div id="backButton" style="width: 60px;"
 							onclick="location.href='../index.jsp';">返回</div> -->
 							<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="location.href='../index.jsp';">返回</a>
+							<a id="return_link" onclick="return_to_wechat_main()">返回</a>
 						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
