@@ -20,5 +20,7 @@ String LGName = null;
 String LGRole = null;
 String curPath = null;
 String sysName = "孔医堂！";
+String hrSize  = "999 1px";
+
 
 %>

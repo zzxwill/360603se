@@ -38,6 +38,11 @@
 	     	 <fieldset data-role="fieldcontain">
 <link rel="stylesheet" href="../css/my.css" />
  <script>
+
+ 	function setTelNull() {  
+		document.getElementById("loginName").value = "";
+	}
+	
     function checkLogin()
     {
 	   var loginName = document.getElementById("loginName").value;
@@ -57,6 +62,7 @@
 	   }
 
 	   if(flag==1){
+		  document.getElementById("msgLogin").style.display = "none";
 	      document.getElementById("loginSubmit").style.display = "none";
 		  document.getElementById("loginWait").style.display = "block";
 	      var loginForm = document.getElementById("loginForm");
@@ -72,7 +78,7 @@
     	<table width="95%">
     		<tr>
     			<td width="25%"><div id="MyInput">用户名</div></td>
-    			<td width="75%"><input id="loginName" name="loginName" type="text" value="" /></td>
+    			<td width="75%"><input id="loginName" name="loginName" type="text" value="请输入手机号" onfocus="setTelNull()" /></td>
     		</tr>
     		<tr>
     			<td width="25%"><div id="MyInput">密&nbsp;&nbsp;&nbsp;&nbsp;码</div></td>
