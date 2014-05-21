@@ -302,11 +302,16 @@ $().ready(function() {
 					%>
 						<div id="outpatient_reserve">
 							<div id="u8_rtf">
-								<p style="text-align: center;">
+								<%-- <p style="text-align: center;" >
 									<big><%=deparment_dao.department[i] %></big> <a
 										onclick="show_hidden('<%=deparment_dao.department[i] %>');"><img
 										src="../resources/css/images/reserver_clinic/u17_normal.png"
 										width="16" height="15" alt="" /></a>
+								</p> --%>
+								<p style="text-align: center;" onclick="show_hidden('<%=deparment_dao.department[i] %>');">
+									<big><%=deparment_dao.department[i] %></big> <img
+										src="../resources/css/images/reserver_clinic/u17_normal.png"
+										width="16" height="15" alt="" />
 								</p>
 							</div>
 						</div>

@@ -4,6 +4,9 @@ http请求方式：POST（请使用https协议）
 https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 
 
+ke3EIdZJSvujCO7N2HGTmj1kJ2VUzDjL_1tp69SJyX7ddFnntFpV_ZXv6FO2m0iuR43_ef7gey2hj7Le52glKg
+
+
 {
      "button":[
      {	
@@ -12,28 +15,28 @@ https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 			{
 			   "type":"view",
 			   "name":"门诊预约",
-			   "url":"http://drinkmarket-liming.aliapp.com/reserve_clinic/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/reserve_clinic/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":"健康服务",
-			   "url":"http://drinkmarket-liming.aliapp.com/reserve_shanggongfang/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/reserve_shanggongfang/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":"招生在线",
-			   "url":"http://drinkmarket-liming.aliapp.com/reserve_xuetang/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/reserve_xuetang/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":" 产品展示",
-			   "url":"http://drinkmarket-liming.aliapp.com/reserve_product/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/reserve_product/index.jsp"
 			}]
       },
       {
 		   "type":"view",
 		   "name":"提问",
-		   "url":"http://drinkmarket-liming.aliapp.com/ask_answer/index.jsp"
+		   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/ask_answer/index.jsp"
       },
       {
            "name":"我的",
@@ -41,22 +44,22 @@ https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 			{
 			   "type":"view",
 			   "name":"会员中心",
-			   "url":"http://drinkmarket-liming.aliapp.com/my_member/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/my_member/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":"我的问题",
-			   "url":"http://drinkmarket-liming.aliapp.com/my_question/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/my_question/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":"健康自测",
-			   "url":"http://drinkmarket-liming.aliapp.com/my_health/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/my_health/index.jsp"
 			},
 			{
 			   "type":"view",
 			   "name":"消费记录",
-			   "url":"http://drinkmarket-liming.aliapp.com/my_consume/index.jsp"
+			   "url":"http://www.kongyitang.zhouzhengxi.com/wechat/my_consume/index.jsp"
 			}]
       }]
  }
