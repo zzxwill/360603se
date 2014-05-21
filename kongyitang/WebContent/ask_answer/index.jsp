@@ -338,9 +338,10 @@ if(USERID>0){//患者或医生
 	%>
 	<p style='color:red;'>您好， 您还未登陆孔医堂，如需登陆或注册，请点击下方按钮！</p>
 	<br>
+	<% curPath = request.getScheme() + "://" + request.getHeader("host") + request.getRequestURI();  %>
 	<script>
 	function GoRegister(){
-		window.location = '../my_member/index.jsp';
+		window.location = '../my_member/index.jsp?curPath=<%=curPath %>';
 		}	
 	</script>
 	<br>

@@ -36,6 +36,11 @@
 	     <fieldset data-role="fieldcontain">
 	     <link rel="stylesheet" href="../css/my.css" />
  <script>
+
+ 	function setTelNull() {  
+		document.getElementById("loginName").value = "";
+	}
+	
     function checkLogin()
     {
        document.getElementById("tmpMsg").style.display = "none"; 
@@ -56,6 +61,7 @@
 	   }
 
 	   if(flag==1){
+		  document.getElementById("msgLogin").style.display = "none";
 		  document.getElementById("loginSubmit").style.display = "none";
 		  document.getElementById("loginWait").style.display = "block";
 	      var loginForm = document.getElementById("loginForm");
@@ -108,7 +114,7 @@
 				<%	
 			}else{
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！正在返回登陆前界面，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = '<%=curPath %>' ",1500);
 				</script>
@@ -138,8 +144,10 @@
 			IPDao ipDao = new IPDao();
 			if(ipDao.isUserID_by_address_Exist(userID,1)==1){
 				ipDao.modifyAddress(userID,1,TMP_IPAdress);
+				//System.out.println("ipDao.modifyAddress(userID,1,TMP_IPAdress)\n");
 			}else{
 				ipDao.insertIP(userID,1,TMP_IPAdress);
+				//System.out.println("ipDao.insertIP(userID,1,TMP_IPAdress)\n");
 			}
 
 			//System.out.println("Doctor success!");
@@ -151,7 +159,7 @@
 				<%	
 			}else{
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！正在返回登陆前界面，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = '<%=curPath %>' ",1500);
 				</script>
@@ -168,7 +176,7 @@
 	    	<table width="95%">
 	    		<tr>
 	    			<td width="25%"><div id="MyInput">用户名</div></td>
-	    			<td width="75%"><input id="loginName" name="loginName" type="text" value="" /></td>
+	    			<td width="75%"><input id="loginName" name="loginName" type="text" value="请输入手机号" onfocus="setTelNull()"/></td>
 	    		</tr>
 	    		<tr>
 	    			<td width="25%"><div id="MyInput">密&nbsp;&nbsp;&nbsp;&nbsp;码</div></td>
