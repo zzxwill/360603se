@@ -28,8 +28,8 @@ public class Dao {
 	// public int patient_illness_id;
 
 	// 用于切换开发和部署的配置
-	String table_prefix = "";
-	//String table_prefix = "04";
+	//String table_prefix = "";
+	String table_prefix = "04";
 
 	// 提交望京馆信息
 	public void submit_reservation(String illness_name, String purpose,
