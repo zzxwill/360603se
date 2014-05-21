@@ -9,6 +9,7 @@
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%>
+	    <%@ include file="../check/index.jsp"%> 
 
 <style type="text/css">
 </style>
