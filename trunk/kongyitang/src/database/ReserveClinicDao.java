@@ -69,7 +69,7 @@ public class ReserveClinicDao {
 
 		conn = connection.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
-		String sql = "SELECT id as department_id, name as department FROM " + table_prefix + "`department` ";
+		String sql = "SELECT id as department_id, name as department FROM " + table_prefix + "department ";
 
 		try {
 			stmt = conn.createStatement();
@@ -142,7 +142,7 @@ public class ReserveClinicDao {
 
 		conn = connection.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
-		String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + " `outpatient_info` ";
+		String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + " outpatient_info ";
 
 		try {
 			stmt = conn.createStatement();
