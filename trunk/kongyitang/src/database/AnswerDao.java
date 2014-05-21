@@ -24,6 +24,10 @@ public class AnswerDao {
 	public String answers_Given_Patient[]; 
 	public int num_Given_Patient = 0;
 	
+	public String answers_Given_Doctor[]; 
+	public int questions_ids_Given_Doctor[];
+	public int num_Given_Doctor = 0;
+	
 	//新建答案
 	public void insertAnswer(String answer, int doctor_id, int question_id) {
 		
@@ -75,6 +79,32 @@ public class AnswerDao {
 			e.printStackTrace();
 		}
 		return answer;
+	}
+	
+	//根据doctorID查询问题列表
+	public void getQuestions_Given(int doctor_id) throws SQLException {
+		
+		answers_Given_Doctor = new String[NUM]; 
+		questions_ids_Given_Doctor = new int[NUM];
+		
+		conn = Connections.getConnection();
+		String sql = "select * from 04answer where doctor_id=" + doctor_id;
+		try {
+			int index = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				questions_ids_Given_Doctor[index] = rs.getInt("question_id");
+				answers_Given_Doctor[index] = rs.getString("answer");;
+				index++;
+			}
+			num_Given_Doctor = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	//根据question_id查询答案

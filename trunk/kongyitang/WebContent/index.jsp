@@ -24,9 +24,23 @@
  	</div>
   	<div data-role="content">
     <script>
+    function reserve_clinic(){
+    	window.location = "reserve_clinic/index.jsp";
+     }
+    function reserve_shanggongfang(){
+    	window.location = "reserve_shanggongfang/index.jsp";
+     }
+    function reserve_xuetang(){
+    	window.location = "reserve_xuetang/index.jsp";
+     }
+    function reserve_product(){
+    	window.location = "reserve_product/index.jsp";
+     }
+    
     function ask_answer(){
     	window.location = "ask_answer/index.jsp";
      }
+    
     function my_member(){
     	window.location = "my_member/index.jsp";
      }
@@ -45,10 +59,10 @@
     	   	
     	<h3>目录：</h3>
     	<p>预约：<p/>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_clinic/index.jsp" >门诊预约 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_shanggongfang/index.jsp" >健康服务 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_xuetang/index.jsp" >招生在线 >> </a><br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;<a href="reserve_product/index.jsp" >产品展示 >> </a><br>
+    	<div onclick="reserve_clinic();" >&nbsp;&nbsp;&nbsp;&nbsp;门诊预约 >> </div><br>
+    	<div onclick="reserve_shanggongfang();" >&nbsp;&nbsp;&nbsp;&nbsp;健康服务 >> </div><br>
+    	<div onclick="reserve_xuetang();" >&nbsp;&nbsp;&nbsp;&nbsp;招生在线 >> </div><br>
+    	<div onclick="reserve_product();" >&nbsp;&nbsp;&nbsp;&nbsp;产品展示 >> </div><br>
     	<br>
     	<p>提问：<p/>
     	<div onclick="ask_answer();" >&nbsp;&nbsp;&nbsp;&nbsp;提问 >> </div><br>

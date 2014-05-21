@@ -69,7 +69,7 @@ public class IPDao {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				deadline = rs.getTimestamp("deadline");
-				if(curTS.getTime()-deadline.getTime()>interval){
+				if(curTS.getTime()>deadline.getTime()){
 					//userID = 0;
 				}else{
 					userID = rs.getInt("userID");
