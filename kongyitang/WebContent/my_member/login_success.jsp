@@ -136,7 +136,7 @@
 			}
 			
 			IPDao ipDao = new IPDao();
-			if(ipDao.isUserID_by_address_Exist(userID,0)==1){
+			if(ipDao.isUserID_by_address_Exist(userID,1)==1){
 				ipDao.modifyAddress(userID,1,TMP_IPAdress);
 			}else{
 				ipDao.insertIP(userID,1,TMP_IPAdress);
