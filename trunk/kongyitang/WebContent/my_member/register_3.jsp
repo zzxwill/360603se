@@ -18,6 +18,17 @@
  <body>
   <div data-role="page">
 	<div data-role="header">
+	
+	<table width="100%">
+		<tr>
+			<td width="33%">
+				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+			</td>
+			<td align="center" width="34%"><a style="color:white;">注册成功</a></td>
+			<td width="33%">&nbsp;&nbsp;</td>
+		</tr>
+	</table>
+	
  	</div>
   	<div data-role="content">
 	
@@ -66,8 +77,26 @@
 					UserDaoPatient patient = new UserDaoPatient();
 					patient.insertUser_Patient(registerName, registerGender_int, registerAge_int,
 							registerRole_int, registerTel, registerPW);
-					session.setAttribute("loginedUserName",registerName);
-					session.setMaxInactiveInterval(60*30);
+
+					int userID = patient.getUserId_by_Tel_Patient(registerTel);
+					
+					GetLocalIpAddress getLocalIpAddress = new GetLocalIpAddress();
+					String TMP_IPAdress = getLocalIpAddress.getLocalIpAddress();
+					%>
+					<%@ include file="../include/IPV4.jsp"%> 
+					<%
+					if (IPV4 == null || IPV4.length() == 0 || "unknown".equalsIgnoreCase(IPV4)) {
+						;
+					}else{
+						TMP_IPAdress += IPV4;
+					}
+					
+					IPDao ipDao = new IPDao();
+					//ipDao.modifyAddress(userID,0,TMP_IPAdress);
+					ipDao.insertIP(userID,0,TMP_IPAdress);
+					%>
+					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册孔医堂！</p>
+					<%
 					
 				}else if(role.equals("doctor")){
 					int registerKeShi_int = Integer.parseInt(registerKeShi);
@@ -76,12 +105,29 @@
 					doctor.insertUser_Doctor(registerName, registerGender_int, registerAge_int,
 							registerRole_int, registerTel, registerShiCheng, registerZhengJian,
 							registerKeShi_int, registerZhiCheng, registerPW);
-					session.setAttribute("loginedUserName",registerName);
-					session.setMaxInactiveInterval(60*30);
+					
+					int userID = doctor.getUserId_by_Tel_Doctor(registerTel);
+					
+					GetLocalIpAddress getLocalIpAddress = new GetLocalIpAddress();
+					String TMP_IPAdress = getLocalIpAddress.getLocalIpAddress();
+					%>
+					<%@ include file="../include/IPV4.jsp"%> 
+					<%
+					if (IPV4 == null || IPV4.length() == 0 || "unknown".equalsIgnoreCase(IPV4)) {
+						;
+					}else{
+						TMP_IPAdress += IPV4;
+					}
+					
+					IPDao ipDao = new IPDao();
+					//ipDao.modifyAddress(userID,0,TMP_IPAdress);
+					//需要审核，先不加入ip列表
+					//ipDao.insertIP(userID,1,TMP_IPAdress);
+					%>
+					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册医生账号孔医堂，请等候身份审核！</p>
+					<%
+					
 				}
-			%>
-			<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册孔医堂！</p>
-			<%
 			}
 	 	}
 	%>

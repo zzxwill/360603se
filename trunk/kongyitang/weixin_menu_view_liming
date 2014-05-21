@@ -1,0 +1,62 @@
+接口调用请求说明
+
+http请求方式：POST（请使用https协议） 
+https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
+
+
+{
+     "button":[
+     {	
+          "name":"预约",
+		   "sub_button":[
+			{
+			   "type":"view",
+			   "name":"门诊预约",
+			   "url":"http://drinkmarket-liming.aliapp.com/reserve_clinic/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"健康服务",
+			   "url":"http://drinkmarket-liming.aliapp.com/reserve_shanggongfang/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"招生在线",
+			   "url":"http://drinkmarket-liming.aliapp.com/reserve_xuetang/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":" 产品展示",
+			   "url":"http://drinkmarket-liming.aliapp.com/reserve_product/index.jsp"
+			}]
+      },
+      {
+		   "type":"view",
+		   "name":"提问",
+		   "url":"http://drinkmarket-liming.aliapp.com/ask_answer/index.jsp"
+      },
+      {
+           "name":"我的",
+		   "sub_button":[
+			{
+			   "type":"view",
+			   "name":"会员中心",
+			   "url":"http://drinkmarket-liming.aliapp.com/my_member/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"我的问题",
+			   "url":"http://drinkmarket-liming.aliapp.com/my_question/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"健康自测",
+			   "url":"http://drinkmarket-liming.aliapp.com/my_health/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"消费记录",
+			   "url":"http://drinkmarket-liming.aliapp.com/my_consume/index.jsp"
+			}]
+      }]
+ }

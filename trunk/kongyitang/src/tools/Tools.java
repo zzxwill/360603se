@@ -69,6 +69,10 @@ public class Tools {
 			sql = "select max(id) as id from 04weixinMapUser";
 		}
 		
+		else if(flag.equals("04ipmapuser")){//04ipmapuser
+			sql = "select max(id) as id from 04ipmapuser";
+		}
+		
 		else if(flag.equals("04question")){
 			sql = "select max(id) as id from 04question";
 		}
@@ -99,6 +103,10 @@ public class Tools {
 				}
 				
 				else if(flag.equals("04weixinMapUser")){
+					id = rs.getInt("id");
+				}
+				
+				else if(flag.equals("04ipmapuser")){
 					id = rs.getInt("id");
 				}
 				

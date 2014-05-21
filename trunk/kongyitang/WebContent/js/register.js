@@ -1,47 +1,7 @@
 	var radio=0;
-	var flagTel = 1;
+	//var flagTel = 1;
 
-	function getCode(){
-		var seconds = 0;
-		var message = null;
-		document.getElementById("normalGetCode").style.display = "none";
-		document.getElementById("waitGetCode").style.display = "block";
-		var registerTel = document.getElementById("registerTel").value;
-		var msg = document.getElementById("msgRegister");
-		//2013-11-29
-		   //if(!( /^1[3,5]\d{9}$/.test(tel))){
-		if(!( /^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/.test(registerTel))){
-			 flagTel = 0;
-			 message = "请输入正确的手机号！";
-			 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
-		 }
-		 if(flagTel==1){
-			 $(document).ready(function(){
-				  $("#normalGetCode").click(function(){
-				    $.post("register_1_code.jsp",
-				    {
-				      	registerTel:registerTel
-				    },
-				    function(data){
-					   var html = $(data);
-					   var sendMsgStatus = html.find("#sendMsgStatus").val();
-				      //alert("sendMsgStatus:" + sendMsgStatus);
-				    });
-				  });
-			});
-		}
-		
-		setInterval(function(){
-		  	seconds += 1;
-		  	document.getElementById('count').innerHTML = 60-seconds;
-		  	if(seconds == 60){
-		  		seconds = 0;
-				document.getElementById("normalGetCode").style.display = "block";
-				document.getElementById("waitGetCode").style.display = "none";
-		  	}
-		},1000);
-		
-	}
+
 	  
  	function changeRadio(){
 		var registerRole = document.getElementById("registerRole").value;

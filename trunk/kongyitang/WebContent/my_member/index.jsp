@@ -14,7 +14,7 @@
 </style>
 
 </head>
-  
+  <%@ include file="../exit/exit.jsp"%>
  <body>
   <div data-role="page">
 	<div data-role="header">
@@ -25,7 +25,9 @@
 				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">登&nbsp;&nbsp;陆</a></td>
-			<td width="33%">&nbsp;&nbsp;</td>
+			<td width="33%" align="right">
+			&nbsp;&nbsp;
+				</td>
 		</tr>
 	</table>
  	</div>
@@ -78,6 +80,17 @@
     		</tr>
     	</table>
     	<br>
+    	<%
+    	request.setCharacterEncoding("utf-8");
+    	curPath = request.getParameter("curPath");
+    	if((null==curPath)||curPath.equals("")){
+    		;
+    	}else{
+    		%>
+    		<input id="curPath" name="curPath" type="hidden"  value="<%=curPath %>" />
+    		<%
+    	}
+    	%>
     	<div id="msgLogin" ></div>
     	<div id="loginSubmit" ><div id="SubmitButton" onclick="checkLogin()">登&nbsp;&nbsp;&nbsp;&nbsp;陆</div></div>
     	<div id="loginWait" style="display:none"><div id="SubmitButton">正在登陆，请稍后...</div></div>

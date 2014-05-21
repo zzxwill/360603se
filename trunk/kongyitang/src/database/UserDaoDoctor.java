@@ -19,12 +19,14 @@ public class UserDaoDoctor {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
+	private int NUM = 1000;
+	
 	public String UserName = null;
 	public String UserTel = null;
 	public int UserGroup = 0;
 	
-	public int UserNum = 0;
-	public String UserNames[];
+	public int UserDoctorNum = 0;
+	public String UserDoctorTels[];
 	
 	//新建用户
 	public void insertUser_Doctor(String userName, int userGender, int userAge, int userRole, String userTel, 
@@ -109,6 +111,95 @@ public class UserDaoDoctor {
 		}
 		return id;
 	}
+	
+	
+	//根据id查询Tel
+	public String getUserTel_Doctor(int id) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where id=" + id;
+		String userTel= null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				userTel = rs.getString("mobile");
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userTel;
+	}
+	
+	//根据Tel查询id
+	public int getUserId_by_Tel_Doctor(String tel) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where mobile='" + tel + "'";
+		int id= 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				id = rs.getInt("id");
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	
+	//查询所有Tel
+	public void getAllUserTel_Doctor() throws SQLException {
+		
+		UserDoctorTels = new String[NUM];
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor ";
+		try {
+			int index = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				UserDoctorTels[index] = rs.getString("mobile");
+				index++;
+			}
+			UserDoctorNum = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询Doctor用户是否禁用
+	public int IsDoctorExist(String mobile) throws SQLException {
+		int flag = 0;
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where mobile='" + mobile + "'"
+			+ " and validate_flag = '" + 1 + "'" ;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				flag = 1;
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 	
 	/*
 	

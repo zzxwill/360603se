@@ -38,8 +38,18 @@ public class ASKPatient {
 	public Timestamp createDates[];
 	public int num = 0;
 	
+	//查询指定用户所有问题
+	public int ids_Given[];
+	//public int userIDs[];
+	public String contents_Given[];
+	public String picture_paths_Given[];
+	public int departments_Given[];
+	public int answered_flags_Given[]; 
+	public Timestamp createDates_Given[];
+	public int num_Given = 0;
 	
-	//新建用户
+	
+	//新建问题
 	public void insertQuestion(int userID, String content, String picture_path, int department, int gender, int age, String mobile) {
 		
 		conn = Connections.getConnection();
@@ -163,6 +173,7 @@ public class ASKPatient {
 			rs = stmt.executeQuery(sql);
 			int index = 1;
 			while (rs.next()) {
+				ids[index] = rs.getInt("id");
 				userIDs[index] = rs.getInt("userID");
 				contents[index] = rs.getString("content");
 				picture_paths[index] = rs.getString("picture_path");
@@ -172,6 +183,41 @@ public class ASKPatient {
 				index++;
 			}
 			num = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询指定用户所有问题
+	public void getAllQuestionInfos_Given(int userID) throws SQLException {
+
+		ids_Given = new int[NUM];
+		contents_Given = new String[NUM];
+		picture_paths_Given = new String[NUM];
+		departments_Given = new int[NUM];
+		answered_flags_Given = new int[NUM];
+		createDates_Given = new Timestamp[NUM];
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04question where userID= '" + userID + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			int index = 1;
+			while (rs.next()) {
+				ids_Given[index] = rs.getInt("id");
+				//userIDs[index] = rs.getInt("userID");
+				contents_Given[index] = rs.getString("content");
+				picture_paths_Given[index] = rs.getString("picture_path");
+				departments_Given[index] = rs.getInt("department");
+				answered_flags_Given[index] = rs.getInt("answered_flag");
+				createDates_Given[index] = rs.getTimestamp("createDate");
+				index++;
+			}
+			num_Given = index-1;
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
