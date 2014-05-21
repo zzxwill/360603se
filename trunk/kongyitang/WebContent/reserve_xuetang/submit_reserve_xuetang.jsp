@@ -78,6 +78,7 @@
 	 hm.put("job", job);
 	 hm.put("company", company);
 	 hm.put("title", title);
+	 hm.put("username", USERID);
 	 
 	 
 	 
