@@ -91,6 +91,8 @@
 	 hm.put("assess_programe",assess_programe);
 	 hm.put("assess_master",assess_master);
 	 
+	 hm.put("username", USERID);
+	 
 	 
 	 
 	 

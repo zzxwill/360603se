@@ -70,7 +70,7 @@
 	 long mobile = Long.parseLong(request.getParameter("mobile"));
 	 String name = request.getParameter("name");
 	 
-	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid);
+	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid,USERID);
 	 
 	//发送成功预约的短信	
 		ReservationSMS reservationSMS = new ReservationSMS();

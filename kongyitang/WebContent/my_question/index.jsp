@@ -9,6 +9,9 @@
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%> 
+	 
+	
+	 
 	
 	<link rel="stylesheet" href="../css/my.css" />
 	<script src="../js/my.js"></script>
@@ -16,6 +19,7 @@
 </head>
   
    <%@ include file="../check/index.jsp"%> 
+
   <% //String weixinID = "gh_f5c1c22104b0"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
@@ -42,13 +46,15 @@
 		<center>
 		<table width="60%" cellpadding="0" cellspacing="1"  >
 			<tr>
-				<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="ConsumerRecordsButton" class="ConsumerRecordsButton"  onclick="ConsumerRecordsButton();">消费记录</div></td>
+				<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="ConsumerRecordsButton" class="ConsumerRecordsButton"  onclick="ConsumerRecordsButton();">我的预约<!-- 消费记录 --></div></td>
 				<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white" id="AskedRecordsButton" class="AskedRecordsButton" onclick="AskedRecordsButton();">提问记录</div></td>
 			</tr>
 		</table>
 		
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
-		<div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
+		    <%@ include file="../my_reservation/index.jsp"%> 
+		  
+		<!-- <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
 			<table width="90%">
 				<tr>
 					<td align="center" width="40%"><strong>日&nbsp;&nbsp;&nbsp;&nbsp;期</strong></td>
@@ -71,7 +77,7 @@
 					<td align="center">望京馆</td>
 				</tr>	
 			</table>
-		</div>
+		</div> -->
 		</center>
 		<div id="AskedRecords" class="AskedRecords">
 		<center>
@@ -163,14 +169,14 @@
 	
 	<table width="60%" cellpadding="0" cellspacing="1"  >
 		<tr>
-			<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="DoctorConsumerRecordsButton" class="DoctorConsumerRecordsButton"  onclick="DoctorConsumerRecordsButton();">消费记录</div></td>
+			<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="DoctorConsumerRecordsButton" class="DoctorConsumerRecordsButton"  onclick="DoctorConsumerRecordsButton();">我的预约</div></td>
 			<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white" id="DoctorAskedRecordsButton" class="DoctorAskedRecordsButton" onclick="DoctorAskedRecordsButton();">回答记录</div></td>
 		</tr>
 	</table>
 	
 	<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
 	
-	<div id="DoctorConsumerRecords"  class="DoctorConsumerRecords" style="display:none">
+	<!-- <div id="DoctorConsumerRecords"  class="DoctorConsumerRecords" style="display:none">
 		<table width="90%">
 			<tr>
 				<td align="center" width="40%"><strong>日&nbsp;&nbsp;&nbsp;&nbsp;期</strong></td>
@@ -193,7 +199,10 @@
 				<td align="center">望京馆</td>
 			</tr>	
 		</table>
-	</div>
+	</div> -->
+	
+	 <%@ include file="../my_reservation/doctor_index.jsp"%>  
+	
 	<div id="DoctorAskedRecords"  class="DoctorAskedRecords">
 	<%
 		AnswerDao answerDao_Doctor = new AnswerDao();
