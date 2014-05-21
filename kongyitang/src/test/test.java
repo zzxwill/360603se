@@ -1,6 +1,7 @@
 package test;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.*; 
 import java.text.*;
 
@@ -12,6 +13,7 @@ import tools.*;
 import sendSMS.*;
 import security.*;
 import login.Validate;
+import IP.*;
 
 public class test {
 
@@ -43,10 +45,10 @@ public class test {
 		/*
 		//添加患者用户
 		PasswordUtil GP = new PasswordUtil();
-    	String pw = "zhangsan";
+    	String pw = "patient";
 		pw = GP.generatePassword(pw);
 		UserDaoPatient patient = new UserDaoPatient();
-		patient.insertUser_Patient("zhangsan", 0, 20, 0, "15210983333", pw);
+		patient.insertUser_Patient("patient", 0, 20, 0, "222", pw);
 		*/
 		
 		/*
@@ -106,6 +108,59 @@ public class test {
 		int question_id = 2;
 		answerDao.insertAnswer(answer, doctor_id, question_id);
 		*/
+		
+		/*
+		//加解密：
+		try {
+			enDecrypt enDe =  new enDecrypt();
+			String key = "15210983731";
+			String ciphertext = enDe.encrypt(key);
+			System.out.println("ciphertext: " + ciphertext + "\n");
+			String plaintext = enDe.decrypt(ciphertext);
+			System.out.println("plaintext: " + plaintext + "\n");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		
+		/*
+		//测试连接网络地址：
+		GetLocalIpAddress getLocalIpAddress = new GetLocalIpAddress();
+		String IP01 = getLocalIpAddress.getLocalIpAddress();
+		//String IP012 = getLocalIpAddress.getIP4(request);
+		System.out.println("IP01:" + IP01 +"\n");
+		*/
+		
+		/*
+		Timestamp ts = new Timestamp(System.currentTimeMillis());  
+		System.out.println("ts:" +ts + "\n");
+		long longts =  ts.getTime();
+		System.out.println("getTime:" +longts + "\n");
+		longts =longts - 1000*2;//1000*2为两秒
+		Timestamp ts2 =   new Timestamp(longts);
+		System.out.println("ts2:" +ts2 + "\n");
+		*/
+		
+		/*
+		//IP地址
+		IPDao ipDao = new IPDao();
+		int userID = 1;//患者为3;;医生为1;;;
+		String TMP_IPAdress = "fe80:0:0:0:910:49b1:51b1:b467%11";
+		String IPV4 = "192.168.1.107";
+		TMP_IPAdress += IPV4;
+		ipDao.insertIP(userID, 1, TMP_IPAdress);
+		*/
+		
+		/*
+		//查询department
+		DepartmentDao departmentDao = new DepartmentDao();
+		int id = 2;
+		String name  = departmentDao.getDepartmentName(id);
+		System.out.println("name:" + name + "\n");
+		*/
+		
+		
 		
 	}
 

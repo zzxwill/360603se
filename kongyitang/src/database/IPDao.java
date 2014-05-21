@@ -12,38 +12,38 @@ import database.Connections;
 import tools.Tools;
 //import security.PasswordUtil;
 
-public class AnswerDao {
+public class IPDao {
 
-	int NUM = 1000;
-	
 	private Statement stmt = null;
 	private ResultSet rs = null;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
-	public String answers_Given_Patient[]; 
-	public int num_Given_Patient = 0;
-	
-	//新建答案
-	public void insertAnswer(String answer, int doctor_id, int question_id) {
+	private long interval = 15*60*1000; //十分钟间隔
+		
+	//新建IP
+	public void insertIP(int userID, int role, String address) {
 		
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04answer values(?,?,?,?,?,?)";
+		String sql = "insert into 04ipmapuser values(?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
-			int id = tool.generateID("04answer");
+			int id = tool.generateID("04ipmapuser");
 			if (id == -1) {
 				return;
 			}
 			ps.setInt(1, id);
-			ps.setString(2, answer);
-			ps.setInt(3, doctor_id);
-			ps.setInt(4, question_id);
+			ps.setInt(2, userID);
+			ps.setInt(3, role);
+			ps.setString(4, address);
+			
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
 			ps.setTimestamp(5, ts);
-			ps.setTimestamp(6, ts);
+			
+			Timestamp ts2 = new Timestamp(ts.getTime()+interval);
+			ps.setTimestamp(6, ts2);
 
 			ps.execute();
 			
@@ -56,63 +56,24 @@ public class AnswerDao {
 		}
 	}
 	
-	//根据id查询答案
-	public String getAnswer(int id) throws SQLException {
+	//根据address查询userID
+	public int getUserID_by_address(String address) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04answer where id=" + id;
-		String answer= null;
+		Timestamp curTS = new Timestamp(System.currentTimeMillis()); 
+		Timestamp deadline = null;
+		String sql = "select * from 04ipmapuser where address='" + address + "'";
+		int userID= 0;
 		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if (rs.next()) {
-				answer = rs.getString("answer");
-			}
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return answer;
-	}
-	
-	//根据question_id查询答案
-	public void getAnswers_Given(int question_id) throws SQLException {
-		
-		answers_Given_Patient = new String[NUM];
-		
-		conn = Connections.getConnection();
-		String sql = "select * from 04answer where question_id=" + question_id;
-		try {
-			int index = 1;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				answers_Given_Patient[index] = rs.getString("answer");;
-				index++;
-			}
-			num_Given_Patient = index-1;
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	/*
-	//根据weixinID查询id
-	public int getID_By_WeixinID(String weixinID) throws SQLException {
-
-		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
-		int id= 0;
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if (rs.next()) {
-				id = rs.getInt("id");
+				deadline = rs.getTimestamp("deadline");
+				if(curTS.getTime()-deadline.getTime()>interval){
+					//userID = 0;
+				}else{
+					userID = rs.getInt("userID");
+				}
 			}
 			stmt.close();
 			conn.close();
@@ -120,41 +81,27 @@ public class AnswerDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return id;
+		return userID;
 	}
 	
-	//根据weixinID查询userID
-	public int getUserID_By_WeixinID(String weixinID) throws SQLException {
+	//根据address查询用户role
+	public int getUserRole_by_address(String address) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
-		int id= 0;
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if (rs.next()) {
-				id = rs.getInt("userID");
-			}
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return id;
-	}
-	
-	//根据weixinID查询role
-	public int getRole_By_WeixinID(String weixinID) throws SQLException {
-
-		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
+		Timestamp curTS = new Timestamp(System.currentTimeMillis()); 
+		Timestamp deadline = null;
+		String sql = "select * from 04ipmapuser where address='" + address + "'";
 		int role= 0;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			if (rs.next()) {
-				role = rs.getInt("role");
+			while (rs.next()) {
+				deadline = rs.getTimestamp("deadline");
+				if(curTS.getTime()-deadline.getTime()>interval){
+					//role = 0;
+				}else{
+					role = rs.getInt("role");
+				}
 			}
 			stmt.close();
 			conn.close();
@@ -165,8 +112,52 @@ public class AnswerDao {
 		return role;
 	}
 	
-	*/
+	//根据address查询对应userID是否存在
+	public int isUserID_by_address_Exist(int userID, int role) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04ipmapuser where userID='" + userID + "'"
+			+ " and role = '" + role + "'" ;
+		int flag = 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				flag = 1;
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
 	
+	//修改用户地址信息
+	public void modifyAddress(int userID, int role, String address) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		Timestamp ts2 = new Timestamp(ts.getTime()+interval);
+
+		String sql = "update 04ipmapuser set address = '" + address + "'"
+				+ " , deadline = '" + ts2 + "'" + " where userID = '" + userID + "'" 
+				+ " and role = '" + role + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+
 	/*
 
 	//用户修改用户信息

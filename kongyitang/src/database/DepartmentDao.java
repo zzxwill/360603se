@@ -12,35 +12,54 @@ import database.Connections;
 import tools.Tools;
 //import security.PasswordUtil;
 
-public class AnswerDao {
+public class DepartmentDao {
 
-	int NUM = 1000;
-	
 	private Statement stmt = null;
 	private ResultSet rs = null;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
+
 	
-	public String answers_Given_Patient[]; 
-	public int num_Given_Patient = 0;
+	//根据id查询weixinID
+	public String getDepartmentName(int id) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04department where id='" + id + "'"
+			+ " and valid = '" + 1 + "'" ;
+		String departmentName = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				departmentName = rs.getString("name");
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return departmentName;
+	}
 	
-	//新建答案
-	public void insertAnswer(String answer, int doctor_id, int question_id) {
+	/*
+	//新建用户
+	public void insertDepartment(String weixinID, int userID, int role) {
 		
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04answer values(?,?,?,?,?,?)";
+		String sql = "insert into 04weixinMapUser values(?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
-			int id = tool.generateID("04answer");
+			int id = tool.generateID("04weixinMapUser");
 			if (id == -1) {
 				return;
 			}
 			ps.setInt(1, id);
-			ps.setString(2, answer);
-			ps.setInt(3, doctor_id);
-			ps.setInt(4, question_id);
+			ps.setString(2, weixinID);
+			ps.setInt(3, userID);
+			ps.setInt(4, role);
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
 			ps.setTimestamp(5, ts);
 			ps.setTimestamp(6, ts);
@@ -56,17 +75,17 @@ public class AnswerDao {
 		}
 	}
 	
-	//根据id查询答案
-	public String getAnswer(int id) throws SQLException {
+	//根据id查询weixinID
+	public String getWeixinID(int id) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04answer where id=" + id;
-		String answer= null;
+		String sql = "select * from 04weixinMapUser where id=" + id;
+		String weixinID= null;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
-				answer = rs.getString("answer");
+				weixinID = rs.getString("weixinID");
 			}
 			stmt.close();
 			conn.close();
@@ -74,34 +93,9 @@ public class AnswerDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return answer;
+		return weixinID;
 	}
 	
-	//根据question_id查询答案
-	public void getAnswers_Given(int question_id) throws SQLException {
-		
-		answers_Given_Patient = new String[NUM];
-		
-		conn = Connections.getConnection();
-		String sql = "select * from 04answer where question_id=" + question_id;
-		try {
-			int index = 1;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				answers_Given_Patient[index] = rs.getString("answer");;
-				index++;
-			}
-			num_Given_Patient = index-1;
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	/*
 	//根据weixinID查询id
 	public int getID_By_WeixinID(String weixinID) throws SQLException {
 
@@ -165,10 +159,7 @@ public class AnswerDao {
 		return role;
 	}
 	
-	*/
 	
-	/*
-
 	//用户修改用户信息
 	public void modifyUser(int userID, String userPWD, String userTel) throws SQLException {
 		

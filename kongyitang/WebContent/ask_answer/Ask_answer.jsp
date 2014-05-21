@@ -27,8 +27,8 @@
 	
 	<table width="100%">
 		<tr>
-			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
+			<td width="33%">
+				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">回复成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -46,16 +46,12 @@
 </script>
   	
 	<%
-	WeiXinDao weixinDao = new WeiXinDao();
-	int userID = 0;
-	int role = 0;
-	userID = weixinDao.getUserID_By_WeixinID(weixinID);
-	role = weixinDao.getRole_By_WeixinID(weixinID);
 	
 	request.setCharacterEncoding("UTF-8");
  	String url = "index.jsp";
 
-	if(role==1){ //医生
+	if(USERROLE==1){ //医生
+
 		String qID = request.getParameter("qID");
 		if(null==qID||qID.equals("")){
 			%>
@@ -75,7 +71,7 @@
 		  	}else{
 		  		AnswerDao answerDao = new AnswerDao();
 		  		//System.out.println("AnswerText:" + AnswerText + "\nuserID:" + userID + "\nqID_int:" + qID_int);
-		  		answerDao.insertAnswer(AnswerText,userID,qID_int);
+		  		answerDao.insertAnswer(AnswerText,USERID,qID_int);
 		  		ASKPatient askPatient = new ASKPatient();
 		  		askPatient.modifyQuestion(qID_int);
 		  	%>
@@ -85,17 +81,8 @@
 			  	<%
 		  	}
 	  	}
-	%>
-	
-	
-		
-			
-	</center>
-	<%}else if(role==1){ %>
-	
-	<%} %>
-	
-	
+	}
+%>
 	
 	</fieldset>
 </form>	

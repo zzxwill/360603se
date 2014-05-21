@@ -5,15 +5,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
  
 public class connection {
+//public class connectionACE {
  
     public static Connection getConnection(){
+    	String username = "db4sm1ji23kix8uy";
+    	String password = "liliming1990";
+    	String databaseName = username;
+    	String host = "rdsayenemanerj2.mysql.rds.aliyuncs.com";
+    	String port = "3306";
+    	String driverName = "com.mysql.jdbc.Driver";
+    	String dbUrl = "jdbc:mysql://";
+    	String serverName = host + ":" + port + "/";
+//    	serverName += databaseName + "?characterEncoding=utf8";
+    	dbUrl += serverName + databaseName + "?characterEncoding=utf8";
+    	//dbUrl = "jdbc:mysql://localhost:3306/drinkmarket?characterEncoding=utf8"
         Connection conn = null;
         try {
         	
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/confuciusmedicine?characterEncoding=utf8","root","");
-            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/zzxwill_kongyitang?characterEncoding=utf8","zzxwill_kyt","d8nCfMeX");
-            
+            Class.forName(driverName).newInstance();
+            conn = DriverManager.getConnection(dbUrl,username,password);
+             
         } catch (InstantiationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

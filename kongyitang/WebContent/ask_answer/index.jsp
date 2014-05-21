@@ -9,23 +9,20 @@
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%> 
-
-
+    
 </head>
   
-     <%@ include file="../check/index.jsp"%> 
+     <%@ include file="../check/checkAnonymous.jsp"%> 
+     <%//@ include file="../check/index.jsp"%>
   <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
 
-	WeiXinDao weixinDao = new WeiXinDao();
-	int userID = 0;
-	int role = 0;
-	userID = weixinDao.getUserID_By_WeixinID(weixinID);
-	role = weixinDao.getRole_By_WeixinID(weixinID);
-	
-	if(role==0){ //患者
-		UserDaoPatient userDaoPatient = new UserDaoPatient();
+%>
+<%
+if(USERID>0){//患者或医生
+	USERROLE = ipDao.getUserRole_by_address(TMP_IPAdress);
+	if(USERROLE==0){ //患者
 %>
   
  <body>
@@ -68,16 +65,16 @@
 		<div><big>上传照片</big></div><br>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="100%"> <div id="ASKPhoto"><big>拍&nbsp;&nbsp;照</big></div></td>
+				<td align="center" width="100%"> <div id="ASKPhoto">拍&nbsp;&nbsp;照</div></td>
 			</tr>
 			<tr><td><hr></td></tr>
 			<tr>
-				<td align="center" width="100%"><div id="ASKPhoto"><big>从相册中选择</big></div></td>
+				<td align="center" width="100%"><div id="ASKPhoto">从相册中选择</div></td>
 			</tr>
 			<tr><td><hr color="<%=sysFontColor %>"></td></tr>
 			<tr>
 				<td align="center">
-					<div id="UploadPhotoCancel" onclick="UploadPhotoCancel()"><big>取&nbsp;&nbsp;消</big></div>
+					<div id="UploadPhotoCancel" onclick="UploadPhotoCancel()">取&nbsp;&nbsp;消</div>
 				</td>
 			</tr>
 		</table>
@@ -86,7 +83,7 @@
 	<div id="SelectKeShi" class="SelectKeShi" >
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>中医内科</big></td>
+				<td align="center" width="70%">中医内科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="1">
 				</td>
@@ -95,7 +92,7 @@
 		<table width="100%"><tr><td><hr></td></tr></table>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>中医外科</big></td>
+				<td align="center" width="70%">中医外科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="2">
 				</td>
@@ -104,7 +101,7 @@
 		<table width="100%"><tr><td><hr></td></tr></table>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>妇&nbsp;&nbsp;科</big></td>
+				<td align="center" width="70%">妇&nbsp;&nbsp;科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="3">
 				</td>
@@ -113,7 +110,7 @@
 		<table width="100%"><tr><td><hr></td></tr></table>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>儿&nbsp;&nbsp;科</big></td>
+				<td align="center" width="70%">儿&nbsp;&nbsp;科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="4">
 				</td>
@@ -122,7 +119,7 @@
 		<table width="100%"><tr><td><hr></td></tr></table>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="70%"><big>针推科</big></td>
+				<td align="center" width="70%">针推科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" name="ASKKeShi" id="ASKKeShi" value="5">
 				</td>
@@ -132,10 +129,10 @@
 		<table width="100%">
 			<tr>
 				<td width="50%" align="center">
-					<div id="SelectKeshiCertain" onclick="SelectKeshiCertain()"><big>确&nbsp;&nbsp;认</big></div>
+					<div id="SelectKeshiCertain" onclick="SelectKeshiCertain()">确&nbsp;&nbsp;认</div>
 				</td>
 				<td align="center">
-					<div id="SelectKeshiCancel" onclick="SelectKeshiCancel()"><big>取&nbsp;&nbsp;消</big></div>
+					<div id="SelectKeshiCancel" onclick="SelectKeshiCancel()">取&nbsp;&nbsp;消</div>
 				</td>
 			</tr>
 		</table>
@@ -167,7 +164,9 @@
 		</fieldset>
 </form>	
 
-	<%}else if(role==1){ %>
+	<%}
+	else if(USERROLE==1){ //医生
+	%>
 <body>
   <div data-role="page">
 	<div data-role="header">
@@ -333,11 +332,22 @@
 			</fieldset>
 		</form>	
 		<br>
-	<%} %>
-<!--	</fieldset>-->
-<!--</form>	-->
-	<%
-	}%>
+	<%}
+	}
+}else{//游客
+	%>
+	<p style='color:red;'>您好， 您还未登陆孔医堂，如需登陆或注册，请点击下方按钮！</p>
+	<br>
+	<script>
+	function GoRegister(){
+		window.location = '../my_member/index.jsp';
+		}	
+	</script>
+	<br>
+	<center>
+	<div id="SubmitButton" onclick="GoRegister()">前往登陆或注册！</div>
+	</center>
+<%}%>
 	
   </div>
 

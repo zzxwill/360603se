@@ -28,20 +28,14 @@
   	<div data-role="content">
 	<%
 	
-	WeiXinDao weixinDao = new WeiXinDao();
-	int userID = 0;
-	int role = 0;
-	userID = weixinDao.getUserID_By_WeixinID(weixinID);
-	role = weixinDao.getRole_By_WeixinID(weixinID);
-	
-	if(role==0){ //患者
+	if(USERROLE==0){ //患者
 		UserDaoPatient userDaoPatient = new UserDaoPatient();
 	
 	%>
 		<table>
 			<tr>
 				<td><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
-				<td>&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(userID) %></big></td>
+				<td>&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
 			</tr>
 		</table>
 		
@@ -109,7 +103,7 @@
 		</center>
 		</div>
 	<%
-	}else if(role==1){
+	}else if(USERROLE==1){ //医生
 		UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 	%>
 		<table width="95%">
@@ -118,7 +112,7 @@
 			<td width="60%">
 				<table width="100%">
 					<tr>
-						<td><big><big><strong><%=userDaoDoctor.getUserName_Doctor(userID) %></strong></big></big>
+						<td><big><big><strong><%=userDaoDoctor.getUserName_Doctor(USERID) %></strong></big></big>
 							<img src="../images/v.png" border = "0px"  width="20px"/>
 						</td>
 					</tr>

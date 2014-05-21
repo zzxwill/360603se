@@ -28,20 +28,14 @@
   	<div data-role="content">
 	<%
 	
-	WeiXinDao weixinDao = new WeiXinDao();
-	int userID = 0;
-	int role = 0;
-	userID = weixinDao.getUserID_By_WeixinID(weixinID);
-	role = weixinDao.getRole_By_WeixinID(weixinID);
-	
-	if(role==0){ //患者
+	if(USERROLE==0){ //患者
 		UserDaoPatient userDaoPatient = new UserDaoPatient();
 	
 	%>
 		<table>
 			<tr>
 				<td><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
-				<td>&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(userID) %></big></td>
+				<td>&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
 			</tr>
 		</table>
 		
@@ -81,35 +75,68 @@
 		</center>
 		<div id="AskedRecords" class="AskedRecords">
 		<center>
-			<div style="width:90%" id="records" >	
-				<table width="100%">
-					<tr>
-						<td width="60%">2014-04-03</td>
-						<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-						<td width="12%">儿科</td>
-						<td width="20%" align="center"><div id="reply_no" class="reply_no">未答复</div></td>
-					</tr>
-				</table>
-				<div align="left" id="questions">幼儿湿疹比较严重，怎么办？</div>
-			</div>
-			<br>
-			<div style="width:90%" id="records" >	
-				<table width="100%">
-					<tr>
-						<td width="60%">2014-04-03</td>
-						<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-						<td width="12%">儿科</td>
-						<td width="20%" align="center"><div id="reply_yes">已答复</div></td>
-					</tr>
-				</table>
-				<div align="left"  id="questions">幼儿湿疹比较严重，怎么办？</div>
-				<div align="left"  id="answers"><img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复：请前往医院治疗。</div>
-			</div>
+		
+		<%
+		ASKPatient askPatient = new ASKPatient();
+		DepartmentDao departmentDao = new DepartmentDao();
+		askPatient.getAllQuestionInfos_Given(USERID);
+		//System.out.println("USERID:" + USERID + "\n");
+		int departmentID = 0;
+		String departmentName = null;
+		int answerFlag = 0; 
+		//System.out.println("askPatient.num_Given:" + askPatient.num_Given + "\n");
+		for(int i=1;i<=askPatient.num_Given;i++){
 			
+			departmentID = askPatient.departments_Given[i];
+			departmentName = departmentDao.getDepartmentName(departmentID);
+			answerFlag = askPatient.answered_flags_Given[i];
+			if(answerFlag==0){
+			%>
+				<div style="width:90%" id="records" >	
+					<table width="100%">
+						<tr>
+							<td width="60%"><%=askPatient.createDates_Given[i] %></td>
+							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
+							<td width="12%"><%=departmentName %></td>
+							<td width="20%" align="center"><div id="reply_no">未答复</div></td>
+						</tr>
+					</table>
+					<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
+				</div>
+				<br>
+			<%
+			}else{
+				int questionID = askPatient.ids_Given[i];
+				AnswerDao answerDao_Patient = new AnswerDao();
+				answerDao_Patient.getAnswers_Given(questionID);
+				%>
+				<div style="width:90%" id="records" >	
+					<table width="100%">
+						<tr>
+							<td width="60%"><%=askPatient.createDates_Given[i] %></td>
+							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
+							<td width="12%"><%=departmentName %></td>
+							<td width="20%" align="center"><div id="reply_yes">已答复</div></td>
+						</tr>
+					</table>
+					<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
+					<div align="left"  id="answers">
+						<%
+						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
+						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
+						%>
+							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %></div>
+						<%} %>
+				</div>
+				<br>
+			<%
+			}
+		}
+		%>
 		</center>
 		</div>
 	<%
-	}else if(role==1){
+	}else if(USERROLE==1){ //医生
 		UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 	%>
 		<table width="95%">
@@ -118,7 +145,7 @@
 			<td width="60%">
 				<table width="100%">
 					<tr>
-						<td><big><big><strong><%=userDaoDoctor.getUserName_Doctor(userID) %></strong></big></big>
+						<td><big><big><strong><%=userDaoDoctor.getUserName_Doctor(USERID) %></strong></big></big>
 							<img src="../images/v.png" border = "0px"  width="20px"/>
 						</td>
 					</tr>

@@ -19,16 +19,12 @@
   <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
   //oDK3oji70nN1CG77qYR_z_thFUBs
   //gh_f5c1c22104b0
-  	WeiXinDao weixinDao = new WeiXinDao();
-	int userID = 0;
-	int role = 0;
-	userID = weixinDao.getUserID_By_WeixinID(weixinID);
-	role = weixinDao.getRole_By_WeixinID(weixinID);
-	
+
 	request.setCharacterEncoding("UTF-8");
  	String url = "index.jsp";
 
-	if(role==0){ //患者
+	if(USERROLE==0){ //患者
+
   %>
   
  <body>
@@ -38,7 +34,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
+				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提问成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -82,7 +78,7 @@
 	  		String picture_path  = "http://www.baidu.com";
 	  		
 	  		ASKPatient askPatient = new ASKPatient();
-	  		askPatient.insertQuestion(userID,QuestionText,picture_path,ASKKeShi_int,ASKGender_int,ASKAge_int,ASKTel);
+	  		askPatient.insertQuestion(USERID,QuestionText,picture_path,ASKKeShi_int,ASKGender_int,ASKAge_int,ASKTel);
 	  	%>
 	  	<div>您所关心的问题是：</div><br>
 	  	<div style="color:<%=sysFontColor %>"><%=QuestionText %></div><br>
@@ -94,7 +90,8 @@
 	%>
 	</center>
 	
-	<%}else if(role==1){ 
+	<%}else if(USERROLE==1){ //医生
+
 		request.setCharacterEncoding("UTF-8");
 		String qID = request.getParameter("qID");
 	
@@ -139,6 +136,8 @@
 	  			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 		  	  }
 	  		 if(flag==1){
+	  			document.getElementById("answerSubmit").style.display = "none";
+	  		    document.getElementById("answerWait").style.display = "block";
 	  			var AnswerForm = document.getElementById("AnswerForm");
 	  			AnswerForm.submit(); 
 	  		 }
@@ -186,7 +185,8 @@
 			</textarea>
 			<br>
 			<div id="msgAnswer"></div>
-			<div id=submitButton style="width:95%" onclick="AnswerSubmit()"><big>答&nbsp;&nbsp;复</big></div>
+			<div id="answerSubmit" ><div id=submitButton style="width:95%" onclick="AnswerSubmit()"><big>答&nbsp;&nbsp;复</big></div></div>
+			<div id="answerWait" style="display:none"><div id="SubmitButton"><big>正在提交答复，请稍后...</big></div></div>
 	  		</center>
 	  		<%
 	  	}

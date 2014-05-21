@@ -28,6 +28,7 @@
     String rightCode = (String)session.getAttribute("rightCode");
     int validate = 0;
     validate = tools.validateCode(registerCode,rightCode);
+    //TODO 验证
 	//if(validate==1){
 		//System.out.println("success!" + "\n");
 	%>
