@@ -42,6 +42,16 @@
 		 	  message = "请您填写各项完整信息！";
 			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 		}
+	   
+	    if(flag==1){
+	    	//registerAge
+	    	var right_age = /^[0-9]*[1-9][0-9]*$/; //正整数
+	    	if(!(right_age.test(registerAge))){
+	    		 flag = 0;
+				 message = "请输入正确年龄(正整数)！";
+				 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+			 }
+	    }
 		if(flag==1){
 		   if(radio%2==1){//医生有效
 			   if(null==registerShiCheng||registerShiCheng==""||null==registerZhengJian||registerZhengJian==""||

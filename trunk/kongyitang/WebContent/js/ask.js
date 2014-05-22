@@ -39,13 +39,14 @@ function ASKSubmit(){
 	 	  message = "请您填写各项完整信息！";
 		  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 	}
+	/*
 	if(flag==1){
 		if((ASKGender!="男")&&(ASKGender!="女")){
 			flag = 0;
 		 	message = "请您正确填写性别信息，如 “男”！";
 			msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 		}
-	}
+	}*/
 	if(flag==1){
 		if(!( /^[123456789]|([0-9]{2})$/.test(ASKAge))){
 			 flag = 0;

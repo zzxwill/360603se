@@ -66,11 +66,13 @@
 	  		String QuestionText = request.getParameter("QuestionText");
 	  		String ASKTel = request.getParameter("ASKTel");
 	  		int ASKGender_int = 0;
+	  		ASKGender_int = Integer.parseInt(ASKGender);
+	  		/*
 	  		if(ASKGender.equals("男")){
 	  			ASKGender_int = 1;
 	  		}else if(ASKGender.equals("女")){
 	  			ASKGender_int = 0;
-	  		}
+	  		}*/
 	  		int ASKKeShi_int = Integer.parseInt(ASKKeShi);
 	  		int ASKAge_int = Integer.parseInt(ASKAge);
 	  		
