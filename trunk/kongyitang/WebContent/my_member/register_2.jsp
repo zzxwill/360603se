@@ -79,6 +79,8 @@
 		    }
 		   if(flag==1){
 			 	if(registerPW_1==registerPW_2){
+			 		document.getElementById("registerSubmit").style.display = "none";
+					document.getElementById("registerWait").style.display = "block";
 			 		var registerForm = document.getElementById("registerForm");
 			 		registerForm.submit(); 
 				}else{
@@ -146,7 +148,7 @@
 		 <br>
 		<div id="msgRegister" ></div>
    		<div id="registerSubmit"><div id="SubmitButton" onclick="registerSubmit()">提&nbsp;&nbsp;&nbsp;&nbsp;交</div></div>
- 
+    	<div id="registerWait" style="display:none"><div id="SubmitButton">正在提交，请稍后...</div></div>
     	</fieldset>
 	</form>	
   </div>

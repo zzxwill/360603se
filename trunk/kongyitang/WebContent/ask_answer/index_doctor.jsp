@@ -22,6 +22,9 @@
   	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="index.jsp">
 	      <fieldset data-role="fieldcontain">
 	      
+<!--	 <form method="post" name="ASKModifyForm" id="ASKModifyForm" action="index.jsp">-->
+<!--	      <fieldset data-role="fieldcontain">-->
+	      
 	 <%@ include file="../ask_answer/index_doctor_topSelect.jsp"%> 
 		
 	  	<%
@@ -81,6 +84,12 @@
 	  		</center>
 	  	<%	
 	  	}else if(questionNum>0){
+	  		%>
+	  		<form method="post" name="HiddenForm" id="HiddenForm" action="index.jsp" >
+				<fieldset data-role="fieldcontain">
+				</fieldset>
+			</form>	
+	  		<%
 	  		int departmentID = 0;
 		  	String departmentName = null;
 		  	DepartmentDao departmentDao = new DepartmentDao();
@@ -133,6 +142,9 @@
 			<%}
 	  	}
   	%>
+<!--  			</fieldset>-->
+<!--		  </form>-->
+		  	
   		</fieldset>
 	</form>	
 </div>
