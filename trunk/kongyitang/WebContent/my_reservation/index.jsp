@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
+
+	 <%@page import="database.*" %> 
+	
 	<%
 	//System.out.println("USERID:" + USERID +"\nUSERROLE:" + USERROLE + "\n");
 	if(USERROLE==0){ //患者
@@ -9,8 +12,8 @@
 		<center>
 	
 		
-		<table width="90%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
-		<div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
+<!--		<table width="90%"><tr><td><hr color="<%//=sysFontColor %>" ></td></tr></table>-->
+<!--		<div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">-->
 			<table width="100%">
 				<tr>
 					<td align="center" colspan="4"><strong>门诊预约</strong></td>
@@ -135,7 +138,7 @@
 			</table>
 			
 			
-		</div>
+<!--		</div>-->
 		</center>
 		
 	<%-- <%

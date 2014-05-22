@@ -55,7 +55,7 @@ https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 			},
 			{
 			   "type":"view",
-			   "name":"消费记录",
+			   "name":"我的预约",
 			   "url":"http://drinkmarket-liming.aliapp.com/my_consume/index.jsp"
 			}]
       }]

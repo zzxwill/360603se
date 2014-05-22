@@ -52,32 +52,9 @@
 		</table>
 		
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
-		    <%@ include file="../my_reservation/index.jsp"%> 
-		  
-		<!-- <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
-			<table width="90%">
-				<tr>
-					<td align="center" width="40%"><strong>日&nbsp;&nbsp;&nbsp;&nbsp;期</strong></td>
-					<td align="center" width="30%"><strong>消费金额</strong></td>
-					<td align="center" width="30%"><strong>预约馆</strong></td>
-				</tr>
-				<tr>
-					<td align="center">2014-04-02</td>
-					<td align="center">200元</td>
-					<td align="center">望京馆</td>
-				</tr>
-				<tr>
-					<td align="center">2014-04-03</td>
-					<td align="center">100元</td>
-					<td align="center">望京馆</td>
-				</tr>
-				<tr>
-					<td align="center">2014-04-04</td>
-					<td align="center">150元</td>
-					<td align="center">望京馆</td>
-				</tr>	
-			</table>
-		</div> -->
+		    <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
+		    	<%@ include file="../my_reservation/index.jsp"%> 
+			</div> 
 		</center>
 		<div id="AskedRecords" class="AskedRecords">
 		<center>
@@ -176,32 +153,9 @@
 	
 	<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
 	
-	<!-- <div id="DoctorConsumerRecords"  class="DoctorConsumerRecords" style="display:none">
-		<table width="90%">
-			<tr>
-				<td align="center" width="40%"><strong>日&nbsp;&nbsp;&nbsp;&nbsp;期</strong></td>
-				<td align="center" width="30%"><strong>消费金额</strong></td>
-				<td align="center" width="30%"><strong>预约馆</strong></td>
-			</tr>
-			<tr>
-				<td align="center">2014-04-02</td>
-				<td align="center">200元</td>
-				<td align="center">望京馆</td>
-			</tr>
-			<tr>
-				<td align="center">2014-04-03</td>
-				<td align="center">100元</td>
-				<td align="center">望京馆</td>
-			</tr>
-			<tr>
-				<td align="center">2014-04-04</td>
-				<td align="center">150元</td>
-				<td align="center">望京馆</td>
-			</tr>	
-		</table>
-	</div> -->
-	
-	 <%@ include file="../my_reservation/doctor_index.jsp"%>  
+	<div id="DoctorConsumerRecords"  class="DoctorConsumerRecords" style="display:none">
+		<%@ include file="../my_reservation/doctor_index.jsp"%>  
+	</div> 
 	
 	<div id="DoctorAskedRecords"  class="DoctorAskedRecords">
 	<%
