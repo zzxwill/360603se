@@ -14,6 +14,7 @@ import java.util.HashMap;
 import database.connection;
 
 public class Dao {
+	private static final long USERID = 0;
 	private Statement statement = null;
 	private ResultSet rs = null;
 
@@ -34,7 +35,7 @@ public class Dao {
 	// 提交望京馆信息
 	public void submit_reservation(String illness_name, String purpose,
 			String detail, long mobile, String name, String site,
-			String department, int doctorid) {
+			String department, int doctorid, int userid) {
 
 		int patient_illness_id = 0;
 		Connection conn = connection.getConnection();
@@ -51,6 +52,7 @@ public class Dao {
 			ps.setString(3, detail);
 			ps.setLong(4, mobile);
 			ps.setString(5, name);
+			
 
 			ps.execute();
 
@@ -65,7 +67,11 @@ public class Dao {
 			}
 
 			// 存reservation_patient_illness Will Zhou 5/9/2014
-			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`) VALUES (?,?,?,?,?)";
+			
+			
+			
+			//String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`) VALUES (?,?,?,?,?)";
+			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`, userid) VALUES (?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql_reservation_normal);
 			ps.setString(1, site);
 			ps.setString(2, department);
@@ -73,10 +79,14 @@ public class Dao {
 			if (patient_illness_id != 0) {
 				ps.setInt(4, patient_illness_id);
 			}
+			
 			Date currentTime = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String date = dateFormat.format(currentTime);
 			ps.setString(5, date);
+			//加入用户名 Will Zhou   5/21/2014
+			ps.setLong(6, userid);
+			
 
 			ps.execute();
 
@@ -101,6 +111,8 @@ public class Dao {
 		String job = (String) hm4xuetang.get("job");
 		String company = (String) hm4xuetang.get("company");
 		String title = (String) hm4xuetang.get("title");
+		
+		long username = Long.valueOf(hm4xuetang.get("username").toString());
 
 		Connection conn = connection.getConnection();
 
@@ -121,8 +133,8 @@ public class Dao {
 			ps.setString(8, title);
 
 			// 临时指定username，应该从Li Ming那里获取
-			String username = "test_user";
-			ps.setString(9, username);
+			//String username = "test_user";
+			ps.setLong(9, username);
 
 			Date currentTime = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -158,6 +170,8 @@ public class Dao {
 
 		String assess_programe = new String();
 		String assess_master = new String();
+		
+		long username = Long.valueOf(hm4shanggongfang.get("username").toString());
 
 		if ("健康调理".equals(type)) {
 			adjust_programe = (String) hm4shanggongfang.get("adjust_programe");
@@ -196,8 +210,8 @@ public class Dao {
 			ps.setString(7, book_date);
 
 			// 临时指定username，应该从Li Ming那里获取
-			String username = "test_user";
-			ps.setString(9, username);
+			//String username = "test_user";
+			ps.setLong(9, username);
 
 			Date currentTime = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
