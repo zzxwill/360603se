@@ -119,6 +119,29 @@ public class ASKPatient {
 		}
 	}
 	
+	//修改问题所属科室
+	public void modifyQuestionDepartment(int id, int department) throws SQLException {
+		
+		conn = Connections.getConnection();
+		String sql = null;
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+
+		sql = "update 04question set department = '" + department + "'"
+		 	+ " , updateDate = '" + ts + "'" 
+		 	+ " where id = " + id ;
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	//查询问题数量
 	public int getQuestionNum() throws SQLException {
 		int questionNum = 0;

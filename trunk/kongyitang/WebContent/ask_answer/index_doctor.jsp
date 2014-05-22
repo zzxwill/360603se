@@ -24,8 +24,6 @@
 	      
 <!--	 <form method="post" name="ASKModifyForm" id="ASKModifyForm" action="index.jsp">-->
 <!--	      <fieldset data-role="fieldcontain">-->
-	      
-	 <%@ include file="../ask_answer/index_doctor_topSelect.jsp"%> 
 		
 	  	<%
 		request.setCharacterEncoding("UTF-8");
@@ -36,15 +34,23 @@
 		
 		String ASKStatusTop = request.getParameter("ASKStatusTop");
 		String ASKKeShiTop = request.getParameter("ASKKeShiTop");
+		int  ASKStatusTop_radio = -1;
+		int ASKKeShiTop_radio = 0;
 		if(null==ASKStatusTop||ASKStatusTop.equals("")){ //全部问题
 			if(null==ASKKeShiTop||ASKKeShiTop.equals("")){ //全部科室
 				askPatient_doctor.getAllQuestionInfos_Condition(-1,0);
+				ASKStatusTop_radio = -1;  
+				ASKKeShiTop_radio = 0;
 			}else{
 				int ASKKeShiTop_int = Integer.parseInt(ASKKeShiTop);
 				if(ASKKeShiTop_int==0){ //全部科室
 					askPatient_doctor.getAllQuestionInfos_Condition(-1,0);
+					ASKStatusTop_radio = -1;  
+					ASKKeShiTop_radio = 0;
 				}else if(ASKKeShiTop_int>0){
 					askPatient_doctor.getAllQuestionInfos_Condition(-1,ASKKeShiTop_int);
+					ASKStatusTop_radio = -1;  
+					ASKKeShiTop_radio = ASKKeShiTop_int;
 				}
 			}
 		}else{
@@ -52,28 +58,42 @@
 			if(ASKStatusTop_int==-1){ //全部问题
 				if(null==ASKKeShiTop||ASKKeShiTop.equals("")){ //全部科室
 					askPatient_doctor.getAllQuestionInfos_Condition(-1,0);
+					ASKStatusTop_radio = -1;  
+					ASKKeShiTop_radio = 0;
 				}else{
 					int ASKKeShiTop_int = Integer.parseInt(ASKKeShiTop);
 					if(ASKKeShiTop_int==0){ //全部科室
 						askPatient_doctor.getAllQuestionInfos_Condition(-1,0);
+						ASKStatusTop_radio = -1;  
+						ASKKeShiTop_radio = 0;
 					}else if(ASKKeShiTop_int>0){
 						askPatient_doctor.getAllQuestionInfos_Condition(-1,ASKKeShiTop_int);
+						ASKStatusTop_radio = -1;  
+						ASKKeShiTop_radio = ASKKeShiTop_int;
 					}
 				}
 			}else if(ASKStatusTop_int>-1){
 				if(null==ASKKeShiTop||ASKKeShiTop.equals("")){ //全部科室
 					askPatient_doctor.getAllQuestionInfos_Condition(ASKStatusTop_int,0);
+					ASKStatusTop_radio = ASKStatusTop_int;  
+					ASKKeShiTop_radio = 0;
 				}else{
 					int ASKKeShiTop_int = Integer.parseInt(ASKKeShiTop);
 					if(ASKKeShiTop_int==0){ //全部科室
 						askPatient_doctor.getAllQuestionInfos_Condition(ASKStatusTop_int,0);
+						ASKStatusTop_radio = ASKStatusTop_int;  
+						ASKKeShiTop_radio = 0;
 					}else if(ASKKeShiTop_int>0){
 						askPatient_doctor.getAllQuestionInfos_Condition(ASKStatusTop_int,ASKKeShiTop_int);
+						ASKStatusTop_radio = ASKStatusTop_int;  
+						ASKKeShiTop_radio = ASKKeShiTop_int;
 					}
 				}
 			}
 		}
-
+		%>
+		<%@ include file="../ask_answer/index_doctor_topSelect.jsp"%> 
+		<%
 	  	int questionNum = askPatient_doctor.num_Condition;
 	  	//System.out.println("num:" + qNum);
 	  	if(questionNum==0){

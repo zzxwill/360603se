@@ -157,6 +157,30 @@ public class IPDao {
 		}
 	}
 	
+	/*
+	//(注销)修改用户状态
+	public void modifyStatus(int userID, int role) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		Timestamp ts2 = new Timestamp(ts.getTime()+interval);
+
+		String sql = "update 04ipmapuser set address = '" + address + "'"
+				+ " , deadline = '" + ts2 + "'" + " where userID = '" + userID + "'" 
+				+ " and role = '" + role + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
 
 	/*
 

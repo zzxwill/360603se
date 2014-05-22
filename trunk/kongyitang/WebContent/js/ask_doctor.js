@@ -32,6 +32,9 @@ function StatusChanged(){
 		message = "未回答";
 	}
 	SelectedStatusTop.innerHTML = "<a>" + message + "</a>";
+	
+	var ASKSelectForm = document.getElementById("ASKSelectForm");
+	ASKSelectForm.submit(); 
 }
 
 function KeshiChanged(){
