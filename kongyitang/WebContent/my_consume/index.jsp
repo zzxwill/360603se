@@ -64,53 +64,64 @@
 		String departmentName = null;
 		int answerFlag = 0; 
 		//System.out.println("askPatient.num_Given:" + askPatient.num_Given + "\n");
-		for(int i=1;i<=askPatient.num_Given;i++){
+		int question_num_patient = askPatient.num_Given;
+		if(question_num_patient>0){
 			
-			departmentID = askPatient.departments_Given[i];
-			departmentName = departmentDao.getDepartmentName(departmentID);
-			answerFlag = askPatient.answered_flags_Given[i];
-			if(answerFlag==0){
-			%>
-				<div style="width:90%" id="records" >	
-					<table width="100%">
-						<tr>
-							<td width="60%"><%=askPatient.createDates_Given[i] %></td>
-							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-							<td width="12%"><%=departmentName %></td>
-							<td width="20%" align="center"><div id="reply_no">未答复</div></td>
-						</tr>
-					</table>
-					<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
-				</div>
-				<br>
-			<%
-			}else{
-				int questionID = askPatient.ids_Given[i];
-				AnswerDao answerDao_Patient = new AnswerDao();
-				answerDao_Patient.getAnswers_Given(questionID);
+			for(int i=1;i<=askPatient.num_Given;i++){
+				
+				departmentID = askPatient.departments_Given[i];
+				departmentName = departmentDao.getDepartmentName(departmentID);
+				answerFlag = askPatient.answered_flags_Given[i];
+				if(answerFlag==0){
 				%>
-				<div style="width:90%" id="records" >	
-					<table width="100%">
-						<tr>
-							<td width="60%"><%=askPatient.createDates_Given[i] %></td>
-							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-							<td width="12%"><%=departmentName %></td>
-							<td width="20%" align="center"><div id="reply_yes">已答复</div></td>
-						</tr>
-					</table>
-					<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
-					<div align="left"  id="answers">
-						<%
-						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
-						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
-						%>
-							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %></div>
-						<%} %>
-				</div>
-				<br>
-			<%
+					<div style="width:90%" id="records" >	
+						<table width="100%">
+							<tr>
+								<td width="60%"><%=askPatient.createDates_Given[i] %></td>
+								<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
+								<td width="12%"><%=departmentName %></td>
+								<td width="20%" align="center"><div id="reply_no">未答复</div></td>
+							</tr>
+						</table>
+						<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
+					</div>
+					<br>
+				<%
+				}else{
+					int questionID = askPatient.ids_Given[i];
+					AnswerDao answerDao_Patient = new AnswerDao();
+					answerDao_Patient.getAnswers_Given(questionID);
+					%>
+					<div style="width:90%" id="records" >	
+						<table width="100%">
+							<tr>
+								<td width="60%"><%=askPatient.createDates_Given[i] %></td>
+								<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
+								<td width="12%"><%=departmentName %></td>
+								<td width="20%" align="center"><div id="reply_yes">已答复</div></td>
+							</tr>
+						</table>
+						<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
+						<div align="left"  id="answers">
+							<%
+							//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
+							for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
+							%>
+								<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %></div>
+							<%} %>
+					</div>
+					<br>
+				<%
+				}
 			}
+		}else{
+			%>
+			<center>
+		  			<div style="width:90%" id="records" ><br><br><div style="color:red" >您还没有相关的任何提问！</div></div>
+		  	</center>
+			<%
 		}
+
 		%>
 		</center>
 		</div>
@@ -159,33 +170,45 @@
 		int questionID = 0;
 		int departmentID = 0;
 		String departmentName = null;
-		for(int i=1;i<=answerDao_Doctor.num_Given_Doctor;i++){
-			questionID = answerDao_Doctor.questions_ids_Given_Doctor[i];
+		int question_num_doctor = answerDao_Doctor.num_Given_Doctor;
+		if(question_num_doctor>0){
 			
-			ASKPatient askPatient_doctor = new ASKPatient();
-			askPatient_doctor.getQuestionInfo(questionID);
-			departmentID = askPatient_doctor.department;
+			for(int i=1;i<=answerDao_Doctor.num_Given_Doctor;i++){
+				questionID = answerDao_Doctor.questions_ids_Given_Doctor[i];
+				
+				ASKPatient askPatient_doctor = new ASKPatient();
+				askPatient_doctor.getQuestionInfo(questionID);
+				departmentID = askPatient_doctor.department;
+				
+				DepartmentDao departmentDao_doctor = new DepartmentDao();
+				departmentName = departmentDao_doctor.getDepartmentName(departmentID);
 			
-			DepartmentDao departmentDao_doctor = new DepartmentDao();
-			departmentName = departmentDao_doctor.getDepartmentName(departmentID);
-		
-	%>
-		<div style="width:90%" id="records" >	
-			<table width="100%">
-				<tr>
-					<td width="62%"><%=askPatient_doctor.createDate %></td>
-					<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-					<td width="30%"><%=departmentName %></td>
-				</tr>
-			</table>
-			<div align="left"  id="questions"><%=askPatient_doctor.content %></div>
-			<div align="left"  id="answers">
-				<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>
-				专家答复&nbsp;：&nbsp;<%=answerDao_Doctor.answers_Given_Doctor[i] %>
+		%>
+			<div style="width:90%" id="records" >	
+				<table width="100%">
+					<tr>
+						<td width="62%"><%=askPatient_doctor.createDate %></td>
+						<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
+						<td width="30%"><%=departmentName %></td>
+					</tr>
+				</table>
+				<div align="left"  id="questions"><%=askPatient_doctor.content %></div>
+				<div align="left"  id="answers">
+					<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>
+					专家答复&nbsp;：&nbsp;<%=answerDao_Doctor.answers_Given_Doctor[i] %>
+				</div>
 			</div>
-		</div>
-		<br>
-	<%} %>
+			<br>
+		<%}
+		}else{
+		%>
+			<center>
+		  			<div style="width:90%" id="records" ><br><br><div style="color:red" >您还没有答复相关的任何提问！</div></div>
+		  	</center>
+		<%
+			
+		}
+ %>
 	</div>	
 	
 	</center>

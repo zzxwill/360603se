@@ -119,7 +119,21 @@
 	<table width="95%" cellpadding="0" cellspacing="1"  border="0">
 		<tr>
 			<td width="30" align="center"><div id="ASKInput">性&nbsp;&nbsp;别</div></td>
-			<td width="70%"><input id="ASKGender" name="ASKGender" type="text" value="" /></td>
+<!--			<td width="70%"><input id="ASKGender" name="ASKGender" type="text" value="" /></td>-->
+			<td width="70%"><div id="InputBorderASK">
+   				<table width="100%">
+   					<tr>
+   						<td valign="middle" align="right" width="15%">
+   							<input type="radio" checked name="ASKGender" id="ASKGender" value="1">
+   						</td>
+   						<td align="left" width="35%">&nbsp;&nbsp;男</td>
+   						 
+   						<td valign="middle" align="right" width="15%">
+   							<input type="radio" name="ASKGender" id="ASKGender" value="0">
+   						<td align="left" width="35%">&nbsp;&nbsp;女</td>
+   					</tr>
+				</table></div>
+			</td>
 		</tr>
 		<tr><td>&nbsp;</td></tr>
 		<tr>

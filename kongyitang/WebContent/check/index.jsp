@@ -17,9 +17,11 @@ if (IPV4 == null || IPV4.length() == 0 || "unknown".equalsIgnoreCase(IPV4)) {
 IPDao ipDao = new IPDao();
 int USERID = 0;
 int USERROLE = 0;
-//System.out.println("TMP_IPAdress:" + TMP_IPAdress + "\n");
+System.out.println("TMP_IPAdress:" + TMP_IPAdress + "\n");
 USERID = ipDao.getUserID_by_address(TMP_IPAdress);
 USERROLE = ipDao.getUserRole_by_address(TMP_IPAdress);
+System.out.println("USERID:" + USERID + "\n");
+System.out.println("USERROLE:" + USERROLE + "\n");
 //request.setCharacterEncoding("utf-8");
 
 //LGName = request.getParameter("LGName");
