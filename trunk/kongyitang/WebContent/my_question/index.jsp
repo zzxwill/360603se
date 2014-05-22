@@ -111,8 +111,9 @@
 							//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
 							for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
 							%>
-								<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %></div>
+								<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
 							<%} %>
+							</div>
 					</div>
 					<br>
 				<%
