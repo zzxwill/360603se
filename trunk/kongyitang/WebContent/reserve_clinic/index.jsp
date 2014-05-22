@@ -41,6 +41,16 @@
 	width: auto;
 	display: inline;
 }
+.ui-content
+{
+	padding:0px;
+}
+body,div
+{
+	font-family: 微软雅黑;
+	margin:0px;
+	padding:0px;
+}
 </style>
 
 <script type="text/javascript">
@@ -153,22 +163,20 @@ $().ready(function() {
 				<!-- 预约孔医堂首页 -->
 				<div id="kongyitang_reservation_index" style="display:">
 
-					<table width="100%" bgColor="#FFFFFF" cellspacing="0"
-						cellpadding="0">
-
-						<!-- <tr bgColor="#000000">
-							<td align="left" style="width: 20%"><button type="button">返回</button></td>
-							<td align="center" style="color: white;">预约孔医堂</td>
-
-						</tr> -->
+					<table width="100%" bgColor="#fffef0" cellspacing="0"
+						cellpadding="0" class="Introtable">
 
 						<tr>
-							<td colspan="2" align="center"><span><strong>孔医堂</strong></span></td>
+							<td align="center"><span class="title">孔医堂</span></td>
 
 						</tr>
 						<tr>
-							<td colspan="2" align="center"><span>依托孔伯华名家研究室，汇聚北京名老中医、京城四大名医的后代和传人。</br>下设三家传统中医诊疗机构（望京馆、展览路馆、五棵松馆），涵盖中医内、外、妇、儿、皮肤等科室。
-							</span></td>
+							<td>
+							<div style="margin-bottom: 20px">
+								<p>依托孔伯华名家研究室，汇聚北京名老中医、京城四大名医的后代和传人。</p>
+								<p>下设三家传统中医诊疗机构（望京馆、展览路馆、五棵松馆），涵盖中医内、外、妇、儿、皮肤等科室。</p>
+							</div>
+							</td>
 
 						</tr>
 					</table>
@@ -176,78 +184,52 @@ $().ready(function() {
 
 					<!-- <div class="table-site"> -->
 					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
-						width="100%">
-
+						width="100%" class="listTable">
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-
-						<tr>
-							<td id="xuetang_button"><strong>望京馆</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit"
+							<td class="xuetang_button"><strong>望京馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
 									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
-									<big>预&nbsp;&nbsp;约</big>
+									预&nbsp;&nbsp;约
 								</div>
 							</td>
 						</tr>
-
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-
-						<tr>
-							<td id="xuetang_button"><strong>五棵松馆</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit"
-									onclick="set_kongyitang_reservation_index_value('五棵松馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
-									<big>预&nbsp;&nbsp;约</big>
+							<td class="xuetang_button"><strong>五棵松馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									预&nbsp;&nbsp;约
 								</div>
 							</td>
 						</tr>
-
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-
-						<tr>
-							<td id="xuetang_button"><strong>展览路馆</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit"
+							<td class="xuetang_button"><strong>展览路馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
 									onclick="set_kongyitang_reservation_index_value('展览路馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
-									<big>预&nbsp;&nbsp;约</big>
+									预&nbsp;&nbsp;约
 								</div>
 							</td>
 						</tr>
-
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-
-						<tr>
-							<td id="xuetang_button"><strong>三里屯SOHO馆</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit"
+							<td class="xuetang_button"><strong>三里屯SOHO馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
 									onclick="set_kongyitang_reservation_index_value('三里屯SOHO馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
-									<big>预&nbsp;&nbsp;约</big>
+									预&nbsp;&nbsp;约
 								</div>
 							</td>
 						</tr>
 
-						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
 
 					</table>
-					<!-- </div> -->
+			
 
 
 
 				</div>
+				
 
 
 				<!-- 具体预约某个医馆 -->
