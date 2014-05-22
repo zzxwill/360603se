@@ -160,7 +160,13 @@ public class test {
 		System.out.println("name:" + name + "\n");
 		*/
 		
-		
+		/*
+		//用户登陆注销
+		IPDao ipDao = new IPDao();
+		int userID = 10;
+		int role = 0;
+		ipDao.modifyStatus(userID, role);
+		*/
 		
 	}
 

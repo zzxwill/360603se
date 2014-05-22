@@ -14,8 +14,51 @@
 </style>
 
 </head>
-  <%@ include file="../exit/exit.jsp"%>
- <body>
+  <%//@ include file="../exit/exit.jsp"%>
+  <%@ include file="../check/checkAnonymous.jsp"%>
+ 
+ <%
+ if(USERID>0){//已登录
+	 USERROLE = ipDao.getUserRole_by_address(TMP_IPAdress);
+ 	%>
+<body>
+	<div data-role="page">
+		<div data-role="header">
+			<table width="100%">
+				<tr>
+					<td width="33%">
+						<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
+					</td>
+					<td align="center" width="34%"><a style="color:white;">注销登陆</a></td>
+					<td width="33%" align="right">&nbsp;&nbsp;
+					</td>
+				</tr>
+			</table>
+		</div>
+	 	<div data-role="content">
+			<script>
+		 		function exitLogin(){
+		 			window.location = "../exit/index.jsp";
+		 	 	}
+		 	</script>
+		 	<center>
+		 	<br><br>
+		 	<div style="color:<%=sysFontColor %>" > 尊敬的用户，您好！<br>
+		 	您已登陆孔医堂，如需注销登陆，请点击下方按钮！</div>
+		 	<br>
+		 	<div id="submitButton" style="width:95%" onclick="exitLogin()"><big>注销登陆</big></div>
+		 	</center>
+	   </div>
+		
+		<div data-role="footer" data-id="myfooter" data-position="fixed">
+		</div> 
+	</div> 
+</body>
+ 	
+ 	<%
+ }else{//未登录
+%>
+<body>
   <div data-role="page">
 	<div data-role="header">
 <!--	style="heght:50px;font-sise:25px" -->
@@ -114,4 +157,8 @@
 </div> 
 
   </body>
+<%	 
+ }
+ %>
+  
 </html>

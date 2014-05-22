@@ -34,7 +34,8 @@
     top: 1%; 
     left: 6%; 
     width: 36%; 
-    //height: 60%; 
+    //height: 60%;
+    //min-height:100px; 
     padding: 10px; 
     border: 1px solid #d8a14f; 
     background-color: white; 
