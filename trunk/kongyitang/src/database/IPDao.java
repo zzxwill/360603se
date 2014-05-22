@@ -19,7 +19,7 @@ public class IPDao {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
-	private long interval = 15*60*1000; //十分钟间隔
+	private long interval = 15*60*1000; //十五分钟间隔
 		
 	//新建IP
 	public void insertIP(int userID, int role, String address) {
@@ -157,15 +157,15 @@ public class IPDao {
 		}
 	}
 	
-	/*
+	
 	//(注销)修改用户状态
 	public void modifyStatus(int userID, int role) throws SQLException {
 		
 		conn = Connections.getConnection();
 		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
-		Timestamp ts2 = new Timestamp(ts.getTime()+interval);
+		Timestamp ts2 = new Timestamp(ts.getTime()-interval);
 
-		String sql = "update 04ipmapuser set address = '" + address + "'"
+		String sql = "update 04ipmapuser set deadline = '" + ts2 + "'"
 				+ " , deadline = '" + ts2 + "'" + " where userID = '" + userID + "'" 
 				+ " and role = '" + role + "'";
 
@@ -180,7 +180,7 @@ public class IPDao {
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 
 	/*
 
