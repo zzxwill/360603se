@@ -48,6 +48,16 @@ public class ASKPatient {
 	public Timestamp createDates_Given[];
 	public int num_Given = 0;
 	
+	//查询指定条件的所有问题
+	public int ids_Condition[];
+	//public int userIDs_Condition[];
+	public String contents_Condition[];
+	public String picture_paths_Condition[];
+	public int departments_Condition[];
+	public int answered_flags_Condition[]; 
+	public Timestamp createDates_Condition[];
+	public int num_Condition = 0;
+	
 	
 	//新建问题
 	public void insertQuestion(int userID, String content, String picture_path, int department, int gender, int age, String mobile) {
@@ -218,6 +228,52 @@ public class ASKPatient {
 				index++;
 			}
 			num_Given = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询指定条件的所有问题
+	public void getAllQuestionInfos_Condition(int answered_flag, int department) throws SQLException {
+
+		ids_Condition = new int[NUM];
+		contents_Condition = new String[NUM];
+		picture_paths_Condition = new String[NUM];
+		departments_Condition = new int[NUM];
+		answered_flags_Condition = new int[NUM];
+		createDates_Condition = new Timestamp[NUM];
+
+		conn = Connections.getConnection();
+		String sql = null;
+		if((answered_flag==-1)&&(department==0)){//无任何限制
+			sql = "select * from 04question";
+		}else if((answered_flag==-1)&&(department>0)){//无回答标志限制，且，搜索相关部分部门
+			sql = "select * from 04question where department= '" + department + "'";
+		}else if((answered_flag>-1)&&(department==0)){//搜索相关回答，且，无部门限制
+			sql = "select * from 04question where answered_flag= '" + answered_flag + "'";
+		}else if((answered_flag>-1)&&(department>0)){//搜索相关回答，且，搜索相关部分部门
+			sql = "select * from 04question where answered_flag= '" + answered_flag + "'"
+				+ " and department = '" + department + "'";
+		}
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			int index = 1;
+			while (rs.next()) {
+				ids_Condition[index] = rs.getInt("id");
+				//userIDs_Condition[index] = rs.getInt("userID");
+				contents_Condition[index] = rs.getString("content");
+				picture_paths_Condition[index] = rs.getString("picture_path");
+				departments_Condition[index] = rs.getInt("department");
+				answered_flags_Condition[index] = rs.getInt("answered_flag");
+				createDates_Condition[index] = rs.getTimestamp("createDate");
+				index++;
+			}
+			num_Condition = index-1;
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
