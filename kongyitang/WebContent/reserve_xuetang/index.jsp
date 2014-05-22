@@ -22,6 +22,16 @@
 	width: auto;
 	display: inline;
 }
+.ui-content
+{
+	padding:0px;
+}
+body,div
+{
+	font-family: 微软雅黑;
+	margin:0px;
+	padding:0px;
+}
 </style>
 
 <script type="text/javascript">
@@ -160,84 +170,56 @@ $().ready(function() {
 
 				<!-- 预约孔医堂首页 -->
 				<div id="xuetang_reservation_index" style="display:">
-					<!-- <table width="100%" cellspacing="0" cellpadding="0">
-						<tr bgColor= "#000000">
-							<td align="left" style="width: 20%"><button type="button"
-									onclick="location=index.jsp">返回</button></td>
-							<td align="center" style="color: white;">招生在线</td>
+
+					<table width="100%" bgColor="#fffef0" cellspacing="0"
+						cellpadding="0" class="Introtable">
+
+						<!-- <tr bgColor="#000000">
+							<td align="left" style="width: 20%"><button type="button">返回</button></td>
+							<td align="center" style="color: white;">预约孔医堂</td>
+
+						</tr> -->
+
+						<tr>
+							<td align="center"><span class="title">孔医堂</span></td>
 
 						</tr>
-
-
-					</table> -->
-
-					<!-- <table width="100%">
 						<tr>
-							<td width="33%" align="center">
-								<div id="backButton" style="width: 60px;"
-									onclick="location=index.jsp">返回</div>
+							<td>
+							<div style="margin-bottom: 20px">
+								<p>依托孔伯华名家研究室，汇聚北京名老中医、京城四大名医的后代和传人。</p>
+								<p>下设三家传统中医诊疗机构（望京馆、展览路馆、五棵松馆），涵盖中医内、外、妇、儿、皮肤等科室。</p>
+							</div>
 							</td>
-							<td align="center" width="34%"><a style="color: white;">招生在线</a></td>
-							<td width="33%">&nbsp;&nbsp;</td>
-						</tr>
-					</table> -->
-
-					<table width="100%">
-						<!-- 
-						<tr>
-							<td align="left" style="width: 20%"><button type="button"
-									>返回</button></td>
-							<td align="center">招生在线</td>
-
-						</tr>
-						 -->
-
-						<tr>
-							<td colspan="2" align="center"><span><h1>孔伯华学院</h1></span></td>
-
-						</tr>
-						<tr>
-							<td colspan="2" align="center"><span>孔伯华学院下设以国学精读为主的“紫禁学堂”，以中医教学为主的“国医学堂”，以儿童启蒙为主的“翰林学堂”和开展公益的“社区教室”。
-									</br>弘扬中华文化，以文化滋养生活，推动中医现代化进程。
-							</span></td>
 
 						</tr>
 					</table>
 
-					<table width="100%">
+					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
+						width="100%" class="listTable" >				
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-						<tr>
-							<td id="xuetang_button"><strong>科普学堂</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名(No)</big>
+							<td class="xuetang_button"><strong>科普学堂</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no"  style="width:100px" onclick="">
+									<big>报&nbsp;&nbsp;名</big>
 								</div>
 							</td>
 						</tr>
 
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-						<tr>
-							<td id="xuetang_button"><strong>紫禁学堂</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名(No)</big>
+							<td class="xuetang_button"><strong>紫禁学堂</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no" style="width:100px" onclick="">
+									<big>报&nbsp;&nbsp;名</big>
 								</div>
 							</td>
 						</tr>
 
-						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
 
 						<tr>
-							<td id="xuetang_button"><strong>国医学堂</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit"
+							<td class="xuetang_button"><strong>国医学堂</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
 									onclick="set_xuetang_reservation_index_value('国医学堂');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">
 									<big>报&nbsp;&nbsp;名</big>
 								</div>
@@ -245,27 +227,15 @@ $().ready(function() {
 						</tr>
 
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
-						<tr>
-							<td id="xuetang_button"><strong>翰林学堂</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" onclick="">
-									<big>报&nbsp;&nbsp;名(No)</big>
+							<td class="xuetang_button"><strong>翰林学堂</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no" style="width:100px" onclick="">
+									<big>报&nbsp;&nbsp;名</big>
 								</div>
 							</td>
 						</tr>
 
-						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-
 					</table>
-
-
-
-
 
 				</div>
 

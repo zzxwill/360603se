@@ -97,7 +97,7 @@ public class IPDao {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				deadline = rs.getTimestamp("deadline");
-				if(curTS.getTime()-deadline.getTime()>interval){
+				if(curTS.getTime()>deadline.getTime()){
 					//role = 0;
 				}else{
 					role = rs.getInt("role");

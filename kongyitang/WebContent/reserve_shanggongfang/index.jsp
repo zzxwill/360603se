@@ -25,6 +25,16 @@
 	width: auto;
 	display: inline;
 }
+.ui-content
+{
+	padding:0px;
+}
+body,div
+{
+	font-family: 微软雅黑;
+	margin:0px;
+	padding:0px;
+}
 </style>
 
 <script type="text/javascript">
@@ -171,102 +181,75 @@ $().ready(function() {
 
 				<!-- 预约上工坊健康会所首页 -->
 				<div id="xuetang_reservation_index" style="display:">
-					<!-- <table width="100%" cellspacing="0" cellpadding="0">
-						<tr bgColor="#000000">
+
+					<table width="100%" bgColor="#fffef0" cellspacing="0"
+						cellpadding="0" class="Introtable">
+
+						<!-- <tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button">返回</button></td>
-							<td align="center" style="color: white;">健康服务</td>
+							<td align="center" style="color: white;">预约孔医堂</td>
 
-						</tr>
+						</tr> -->
 
-
-					</table> -->
-
-					<table width="100%">
-						<!-- 
 						<tr>
-							<td align="left" style="width: 20%"><button type="button"
-									>返回</button></td>
-							<td align="center">健康服务</td>
-
-						</tr>
-						-->
-						<tr>
-							<td colspan="2" align="center"><span><h1>健康调理</h1></span></td>
+							<td align="center"><span class="title">健康调理</span></td>
 
 						</tr>
 						<tr>
-							<td colspan="2" align="center"><span>提供健康咨询、健康评估、健康指导、就医指导、健康管理、健康教育及各项基础保健项目（全身经络推导和局部穴位刺激）。
-									</br>非介入人能自然疗法，辩证调养身心健康。
-							</span></td>
+							<td>
+							<div style="margin-bottom: 20px">
+								<p>提供健康咨询、健康评估、健康指导、就医指导、健康管理、健康教育及各项基础保健项目（全身经络推导和局部穴位刺激）。</p>
+								<p>非介入人能自然疗法，辩证调养身心健康。</p>
+							</div>
+							</td>
 
 						</tr>
 					</table>
-					<table width="100%">
+
+					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
+						width="100%" class="listTable" >				
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-						<tr>
-						<td id="xuetang_button"><strong>健康评估</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">
+							<td class="xuetang_button"><strong>健康评估</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px" onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">
 									<big>预&nbsp;&nbsp;约</big>
 								</div>
 							</td>
-							
-							<!-- <td style="width: 80%;" align="center">健康评估</td>
-							<td><button type="button"
-									onclick="set_shanggongfang_reservation_index_value('健康评估');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content_assess');">预约</button></td> -->
 						</tr>
+
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-						<tr>
-							<td id="xuetang_button"><strong>健康调理</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" onclick="set_shanggongfang_reservation_index_value('健康调理');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">
+							<td class="xuetang_button"><strong>健康调理</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"  onclick="set_shanggongfang_reservation_index_value('健康调理');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">
 									<big>预&nbsp;&nbsp;约</big>
 								</div>
 							</td>
-							
-							
 						</tr>
 
-<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
-						<tr>
-							<td id="xuetang_button"><strong>健康讲座</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" >
-									<big>预&nbsp;&nbsp;约(No)</big>
-								</div>
-							</td>
-						
-						</tr>
-						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
-						</tr>
 
 						<tr>
-							<td id="xuetang_button"><strong>健康沙龙</strong></td>
-							<td>
-								<div align="center" id="ASKSubmit" >
-									<big>预&nbsp;&nbsp;约(No)</big>
+							<td class="xuetang_button"><strong>健康讲座</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no" style="width:100px" onclick="">
+									<big>预&nbsp;&nbsp;约</big>
 								</div>
 							</td>
 						</tr>
+
 						<tr>
-							<td colspan="2"><hr color="<%=sysColor%>"></td>
+							<td class="xuetang_button"><strong>健康沙龙</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no" style="width:100px" onclick="">
+									<big>预&nbsp;&nbsp;约</big>
+								</div>
+							</td>
 						</tr>
 
 					</table>
-
-
-
-
 
 				</div>
-
+				
+				
 
 
 				<!-- 上工坊健康会所 具体预约页面 -->

@@ -71,7 +71,7 @@
     	<div onclick="my_member();" >&nbsp;&nbsp;&nbsp;&nbsp;会员中心 >> </div><br>
     	<div onclick="my_question();" >&nbsp;&nbsp;&nbsp;&nbsp;我的问题 >> </div><br>
     	<div onclick="my_health();" >&nbsp;&nbsp;&nbsp;&nbsp;健康自测 >> </div><br>
-    	<div onclick="my_consume();" >&nbsp;&nbsp;&nbsp;&nbsp;消费记录>></div><br>
+    	<div onclick="my_consume();" >&nbsp;&nbsp;&nbsp;&nbsp;我的预约>></div><br>
   </div>
 
 <div data-role="footer" data-id="myfooter" data-position="fixed">

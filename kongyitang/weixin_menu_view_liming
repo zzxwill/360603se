@@ -45,6 +45,11 @@ https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 			},
 			{
 			   "type":"view",
+			   "name":"我的预约",
+			   "url":"http://drinkmarket-liming.aliapp.com/my_consume/index.jsp"
+			},
+			{
+			   "type":"view",
 			   "name":"我的问题",
 			   "url":"http://drinkmarket-liming.aliapp.com/my_question/index.jsp"
 			},
@@ -52,11 +57,6 @@ https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
 			   "type":"view",
 			   "name":"健康自测",
 			   "url":"http://drinkmarket-liming.aliapp.com/my_health/index.jsp"
-			},
-			{
-			   "type":"view",
-			   "name":"我的预约",
-			   "url":"http://drinkmarket-liming.aliapp.com/my_consume/index.jsp"
 			}]
       }]
  }

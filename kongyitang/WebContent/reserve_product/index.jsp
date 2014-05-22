@@ -29,35 +29,46 @@
 		</tr>
 	</table>
  	</div>
-<center>
-  	<div data-role="content">
-	<div style="color:<%=sysFontColor %>"><strong><h1>孔医堂产品展示</h1></strong></div>
-	<div id="paragraph">
-		孔医堂（北京）科技有限公司是基于孔伯华医馆基础上经资源整合成立的一家集医疗、产品、网络、文化为一体的，以中医诊疗和健康管理服务为主的中医文化创新型企业。
-	</div>
-	<div id="paragraph">
-		孔医堂旗下医馆汇聚北京名老中医、京城四大名医之孔伯华后裔和四大名医传人，下设三家传统中医医馆和一家专业健康管理机构—北京上工坊健康科技有限公司。
-	</div>
+
+<table width="100%" bgColor="#fffef0" cellspacing="0"
+						cellpadding="0" class="Introtable">
+
+						<tr>
+							<td align="center"><span class="title">孔医堂产品展示</span></td>
+
+						</tr>
+						<tr>
+							<td>
+							<div style="margin-bottom: 20px">
+								<p>孔医堂（北京）科技有限公司是基于孔伯华医馆基础上经资源整合成立的一家集医疗、产品、网络、文化为一体的，以中医诊疗和健康管理服务为主的中医文化创新型企业。</p>
+								<p>孔医堂旗下医馆汇聚北京名老中医、京城四大名医之孔伯华后裔和四大名医传人，下设三家传统中医医馆和一家专业健康管理机构—北京上工坊健康科技有限公司。。</p>
+							</div>
+							</td>
+
+						</tr>
+					</table>
+
 
  <script>
     function MedicalPS(){
     	window.location = "MedicalPS.jsp";
     }
 </script>
-<table width="100%"><tr><td><hr color="<%=sysColor %>"></td></tr></table>
-		<table width="100%">
+
+		<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
+						width="100%"  style="border-top: 1px solid #d8a14f;" id="xuanzhetab">
 			<tr>
 				<td width="50%" align="center"><div id="ProductButton" onclick="MedicalPS()">医疗产品服务</div></td>
-				<td width="50%" align="center"><div id="ProductButton">非医疗产品服务</div></td>
+				<td width="50%" align="center"><div id="ProductButton_no">非医疗产品服务</div></td>
 			</tr>
 			<tr>
-				<td width="50%" align="center"><div id="ProductButton">健康管理卡</div></td>
-				<td width="50%" align="center"><div id="ProductButton">孔伯华学院</div></td>
+				<td width="50%" align="center"><div id="ProductButton_no">健康管理卡</div></td>
+				<td width="50%" align="center"><div id="ProductButton_no">孔伯华学院</div></td>
 			</tr>
 		</table>
 
   </div>
-</center>
+
 	
 <div data-role="footer" data-id="myfooter" data-position="fixed">
 </div> 
