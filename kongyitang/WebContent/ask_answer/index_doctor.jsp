@@ -99,9 +99,11 @@
 	  	if(questionNum==0){
 	  	%>
 	  		<link rel="stylesheet" href="../css/my.css" />
+	  		<br><br>
 	  		<center>
 	  			<div style="width:90%" id="records" ><br><br><div style="color:red" >暂无此条件的相关提问！</div></div>
 	  		</center>
+	  		<br><br><br><br><br>
 	  	<%	
 	  	}else if(questionNum>0){
 	  		%>
