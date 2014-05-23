@@ -43,7 +43,7 @@
 		 	</script>
 		 	<center>
 		 	<br><br>
-		 	<div style="color:<%=sysFontColor %>" > 尊敬的用户，您好！<br>
+		 	<div style="color:red" > 尊敬的用户，您好！<br>
 		 	您已登陆孔医堂，如需注销登陆，请点击下方按钮！</div>
 		 	<br>
 		 	<div id="submitButton" style="width:95%" onclick="exitLogin()"><big>注销登陆</big></div>
