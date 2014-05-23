@@ -51,6 +51,51 @@ body,div
 	margin:0px;
 	padding:0px;
 }
+.Reservation
+{
+	margin:20px;
+	border: 1px solid #d8a14f;
+	background: #fff;
+}
+#reservation_specific_location_name
+{
+	height: 50px;
+	line-height: 50px;
+	font-size: 19px;
+	padding:0 10px;
+	color:#d8a14f;
+}
+.Reservation #u8_rtf
+{
+	border-top: 1px solid #d8a14f;
+	height: 50px;
+	line-height: 50px;
+	font-size: 17px;
+	
+	
+}
+.Reservation #u8_rtf div
+{
+	padding:0 10px;
+}
+.tab
+{
+	border-bottom: 1px solid #d8a14f;
+	height: 40px;
+	background: #fff;
+	line-height: 40px;
+	font-size: 17px;
+}
+
+.DoctorsList
+{
+	margin:5px auto	;
+	border: 1px dotted #d8a14f;
+	border-bottom:0px;
+	width:98%;
+}
+
+
 </style>
 
 <script type="text/javascript">
@@ -122,6 +167,22 @@ $().ready(function() {
 	 
 	
 	});
+	function UpDown(vid)
+	{
+		if($(vid).css("border-bottom-width")=="0px")
+		{
+			$(vid).css("background","#fffef0");
+			$(vid).children("img")[0].src="../resources/css/images/reserver_clinic/left.gif";
+			$(vid).css("border-bottom","1px solid #d8a14f");
+		}
+		else
+		{
+			$(vid).css("background","#fff");
+			$(vid).children("img")[0].src="../resources/css/images/reserver_clinic/right.gif";
+			$(vid).css("border-bottom","0px");
+		}
+			
+	}
 </script>
 
 
@@ -198,7 +259,7 @@ $().ready(function() {
 							<td class="xuetang_button"><strong>五棵松馆</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"
-									onclick="set_kongyitang_reservation_index_value('五棵松馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
 									预&nbsp;&nbsp;约
 								</div>
 							</td>
@@ -243,39 +304,29 @@ $().ready(function() {
 
 						</tr>
 					</table> -->
-					<table width="100%">
+					<table width="100%" class="tab">
 						<tr>
-							
-							<td width="50%" align="center"><span><strong><span  id="reservation_specific_location_name">望京馆</span></strong></span></td>
-
-							<td width="50%" align="right">
-								<div  id="ASKSubmit" align="center"
-									style="height: 20px; line-height: 20px; width: 65px; line-width: 65px;"
-									onclick="display_hidden_outpatient_table();">出诊表</div>
+							<td id="tab_yu" width="50%" align="center" onclick="display_hidden_outpatient_table();"  style="background:#d8a14f;color:#fff">
+								预约
 							</td>
-
-							<!-- <td width="20%" align="right"><a style="width: 70px; height: 28px" href=""
-								>出诊表</a></td> -->
-
+							<td id="tab_cz" width="50%" align="center" onclick="display_hidden_outpatient_table();" style="border-left: 1px solid #d8a14f;">
+								出诊表
+							</td>
 						</tr>
 						<tr>
-							<td colspan="3"><hr color="<%=sysColor%>"></td>
+							<td id="tab_yuimg" width="50%" height="10px" align="center" onclick="display_hidden_outpatient_table();" style="background:#d8a14f;color:#fff">
+								<img src="../resources/css/images/reserver_clinic/tab_set.gif"  style="position:relative;top:1px"
+										width="8" height="10" alt="" />
+							</td>
+							<td id="tab_czimg" width="50%" align="center" onclick="display_hidden_outpatient_table();" style="border-left: 1px solid #d8a14f;">
+								<img src="../resources/css/images/reserver_clinic/tab_set.gif"  style="position:relative;top:1px;display:none"
+										width="8" height="10"  alt="" />
+							</td>
 						</tr>
-
-
 					</table>
-					<div id="outpatient_reserve">
-						<!-- 
-					<div>
-						<INPUT id="u45" type="submit" class="u245" value="返回"> <span
-							style="text-align: right">预约孔医堂</span>
-					</div>
-
-					<div>
-						<p style="text-align: center;"></p>
-					</div>
-					 -->
-
+					<div id="outpatient_reserve" class="Reservation">
+			
+					<div  id="reservation_specific_location_name">望京馆</div>
 						<%
 					ReserveClinicDao deparment_dao = new ReserveClinicDao();
 					deparment_dao.retrive_deparment();
@@ -285,49 +336,42 @@ $().ready(function() {
 					%>
 						<div id="outpatient_reserve">
 							<div id="u8_rtf">
-								<%-- <p style="text-align: center;" >
-									<big><%=deparment_dao.department[i] %></big> <a
-										onclick="show_hidden('<%=deparment_dao.department[i] %>');"><img
-										src="../resources/css/images/reserver_clinic/u17_normal.png"
-										width="16" height="15" alt="" /></a>
-								</p> --%>
-								<p style="text-align: center;" onclick="show_hidden('<%=deparment_dao.department[i] %>');">
-									<big><%=deparment_dao.department[i] %></big> <img
-										src="../resources/css/images/reserver_clinic/u17_normal.png"
-										width="16" height="15" alt="" />
-								</p>
+								
+								<div style="text-align: left;" onclick="show_hidden('<%=deparment_dao.department[i] %>');UpDown(this)">
+									<%=deparment_dao.department[i] %> <img style="float:right;margin-top:17px"
+										src="../resources/css/images/reserver_clinic/right.gif" 
+										width="16" height="15" alt="" /> <span style="float:right; font-size:14px;color:#d8a14f">共2人</span>
+								</div>
 							</div>
 						</div>
-						<div>
-							<hr color="<%=sysColor%>">
-						</div>
+					
 						<div id="<%=deparment_dao.department[i] %>" style="display: none;">
 							<div>
-								<table border="0" width="100%">
+								<table border="0"  class="DoctorsList">
 									<% 
 								ReserveClinicDao doctor_dao = new ReserveClinicDao();
 								doctor_dao.retrive_doctors_by_deparment(deparment_dao.department_id[i]);
 								for(int j=0;j<doctor_dao.doctor_num;j++){
 								%>
-									<tr>
-										<td><img src="../resources/images/upload/doctor_male.jpg"
-											width="60" height="80" alt="<%=doctor_dao.doctor_id[j] %>" /></td>
+									<tr style="border-bottom: 1px dotted #d8a14f;">
+										<td style="padding:5px"><img src="../resources/images/upload/doctor_male.jpg"
+											width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>
 										<td id="<%=doctor_dao.doctor_id[j] %>">
-											<table width="80%">
+											<table width="100%" >
 
 												<tr>
 
-													<td width="30%"><span style="text-align: left;"><%=doctor_dao.name[j] %></span></td>
+													<td width="40%"><span style="text-align: left;"><%=doctor_dao.name[j] %></span></td>
 													<td width="30%"><span style="text-align: right"><%=doctor_dao.title[j] %></span></td>
-													<td width="20%" align="center"><span
+													<td width="30%" align="center"><span
 														style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
 												</tr>
 												<tr>
 
-													<td width="30%"><%=deparment_dao.department[i] %></td>
+													<td width="40%"><%=deparment_dao.department[i] %></td>
 													<td width="30%">剩余:12</td>
-													<td width="20%" >
-														<div align="center" id="ASKSubmit" style="height: 20px; line-height: 20px;"
+													<td width="30%"  align="center">
+														<div align="center" class="ASKSubmit" style="height: 30px; line-height: 30px;width:70px"
 															class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
 															onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i]%>','<%=doctor_dao.doctor_id[j]%>');">
 															<big>预&nbsp;&nbsp;约</big>
@@ -365,10 +409,10 @@ $().ready(function() {
 
 
 				<!-- 出诊表 -->
-				<div id="outpatient_table" style="display: none;">
+				<div id="outpatient_table" style="display: none;background: #fff;margin:20px;">
 
 					<table border="1" cellspacing="0" cellpadding="0"
-						bordercolorlight="#000000" bordercolordark="#FFFFFF" width="100%" id="reserve_table_td">
+						width="100%" id="reserve_table_td">
 						<tr>
 							<td width="2%"></td>
 							<td width="12%">一</td>
