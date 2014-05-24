@@ -35,7 +35,7 @@ public class Dao {
 	// 提交望京馆信息
 	public void submit_reservation(String illness_name, String purpose,
 			String detail, long mobile, String name, String site,
-			String department, int doctorid, int userid) {
+			String department, int doctorid, int userid, int outpatient_id) {
 
 		int patient_illness_id = 0;
 		Connection conn = connection.getConnection();
@@ -89,6 +89,13 @@ public class Dao {
 			
 
 			ps.execute();
+			
+			
+			//预约医生后，医生已使用的预约号增加一个  Will Zhou   5/24/2014
+			String sql_outpatient_doctor = "UPDATE 04outpatient_doctor SET used_amount = used_amount +1 where outpatient_id = " + outpatient_id  + " and doctor_id=" + doctorid ;
+			ps = conn.prepareStatement(sql_outpatient_doctor);
+			ps.execute();
+			
 
 			conn.close();
 

@@ -369,7 +369,7 @@ $().ready(function() {
 												<tr>
 
 													<td width="40%"><%=deparment_dao.department[i] %></td>
-													<td width="30%">剩余:12</td>
+													<td width="30%">剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
 													<td width="30%"  align="center">
 														<div align="center" class="ASKSubmit" style="height: 30px; line-height: 30px;width:70px"
 															class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
@@ -529,7 +529,7 @@ $().ready(function() {
 									<%} else { %>
 									<div align="center" id="ASKSubmit"
 										style="height: 20px; line-height: 20px;font-size:12"
-										onclick="set_reservation_specific_doctor_value('100001');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">申请预约
+										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">申请预约
 									</div>
 									<%}%>									
 
