@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family : Helvetica, Arial, Sans-Serif;
     background-color: #F9F9F9;
     overflow:hidden;
@@ -119,7 +119,7 @@ a {
     padding : 4px 0px 4px 5px;
     font-size: .7em;
     z-index: 50;
-    text-shadow: 0 1px 2px #FFF;
+    
 }
 
 
