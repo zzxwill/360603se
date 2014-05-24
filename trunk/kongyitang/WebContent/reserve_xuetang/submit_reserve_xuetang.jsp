@@ -26,7 +26,7 @@
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;"
-							onclick="location.href='index.jsp';">返回</div>
+							onclick="return_to_wechat_main()">返回</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
