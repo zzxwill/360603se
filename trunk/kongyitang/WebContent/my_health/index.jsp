@@ -11,6 +11,12 @@
 	 <%@ include file="../include/cssJS.jsp"%> 
 
 <style type="text/css">
+table td
+{
+	height:30px;
+	line-height:30px;
+}
+
 </style>
 
 </head>
@@ -59,7 +65,7 @@
     }
 </script> 	
 
-<table width="100%">
+<table width="100%" style="width:90%;margin:0 auto">
 	<tr>
 		<td width="100%"><strong>问题1：</strong>您是否有晚睡的习惯？</td>
 	<tr>
@@ -184,8 +190,8 @@
 </table>
 	<br>
    	<div id="msgHealth" ></div>
-   	<div id="healthSubmit">
-   		<div id="submitButton" onclick="healthSubmit()">提交并查看结果</div></div>
+   	<div id="healthSubmit" >
+   		<div style="width:90%;margin:0 auto" id="submitButton" onclick="healthSubmit()">提交并查看结果</div></div>
     	</fieldset>
 	</form>	
   </div>

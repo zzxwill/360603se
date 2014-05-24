@@ -45,12 +45,7 @@
 {
 	padding:0px;
 }
-body,div
-{
-	font-family: 微软雅黑;
-	margin:0px;
-	padding:0px;
-}
+
 .Reservation
 {
 	margin:20px;
@@ -414,52 +409,52 @@ $().ready(function() {
 					<table border="1" cellspacing="0" cellpadding="0"
 						width="100%" id="reserve_table_td">
 						<tr>
-							<td width="2%"></td>
-							<td width="12%">一</td>
-							<td width="12%">二</td>
-							<td width="12%">三</td>
-							<td width="12%">四</td>
-							<td width="12%">五</td>
-							<td width="12%">六</td>
-							<td width="12%">日</td>
-
+							<td width="25%">星期</td>
+							<td width="25%">上</td>
+							<td width="25%">下</td>
+							<td width="25%">晚</td>
 						</tr>
 						<tr>
-							<td>上</td>
+							<td>一</td>
 							<td></td>
 							<td></td>
-							<td>肖强<br />徐晓凝
-							</td>
 							<td></td>
-							<td>叶宜颖</td>
-							<td></td>
-							<td></td>
-
 						</tr>
 						<tr>
-							<td>下</td>
+							<td>二</td>
+							<td>肖强<br />徐晓凝</td>
+							<td>肖强<br />徐晓凝</td>
 							<td></td>
-							<td></td>
-							<td>肖强<br />徐晓凝
-							</td>
-							<td></td>
-							<td>叶宜颖</td>
-							<td></td>
-							<td></td>
-
 						</tr>
-
 						<tr>
-							<td>晚</td>
+							<td>三</td>
 							<td></td>
 							<td></td>
-							<td>肖强<br />徐晓凝
-							</td>
 							<td></td>
-							<td>叶宜颖</td>
+						</tr>
+						<tr>
+							<td>四</td>
 							<td></td>
 							<td></td>
-
+							<td></td>
+						</tr>
+						<tr>
+							<td>五</td>
+							<td>肖强<br />徐晓凝</td>
+							<td>肖强<br />徐晓凝</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>六</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>日</td>
+							<td></td>
+							<td></td>
+							<td></td>
 						</tr>
 					</table>
 

@@ -11,6 +11,11 @@
 	 <%@ include file="../include/cssJS.jsp"%> 
 
 <style type="text/css">
+ table td
+{
+	height:30px;
+	line-height:30px;
+}
 </style>
 
 </head>
@@ -30,8 +35,8 @@
 	</table>
  	</div>
  	
-  	<div data-role="content">
-
+  	<div data-role="content" style="width:90%;margin:0 auto">
+<br/>
  <center><strong>各问题答案及评分规则</strong></center>
  <table width="100%"><tr><td align="center"><hr color="red" ></td></tr></table>
 <table width="100%">

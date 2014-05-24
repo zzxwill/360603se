@@ -26,12 +26,7 @@
 {
 	padding:0px;
 }
-body,div
-{
-	font-family: 微软雅黑;
-	margin:0px;
-	padding:0px;
-}
+
 </style>
 
 <script type="text/javascript">
@@ -121,7 +116,7 @@ $().ready(function() {
 				agree: "Please accept our policy" */
 			}
 		});
-	 $("#submit_link").click(function() {
+	 $(".submit_link").click(function() {
 		    if ($("#verifyForm").valid()) {
 		        $("#verifyForm").submit();
 		    }
@@ -243,7 +238,7 @@ $().ready(function() {
 
 
 				<!-- 患者病情资料 -->
-				<div id="xuetang_reservation_content" style="display: none;">
+				<div id="xuetang_reservation_content" style="display: none;margin:0 auto;width:90%">
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor= "#000000">
 							<td align="left" style="width: 20%"><button type="button"
@@ -273,7 +268,7 @@ $().ready(function() {
 					</table >
 
 
-					<table width="100%">
+					<table  width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<!-- <td id="ASKInput">：</td> -->
 							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
@@ -281,11 +276,16 @@ $().ready(function() {
 								class="required"></td>
 						</tr>
 						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="name" class="error"></label></td>
+							</tr>
+						<tr>
 
 
 							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
-							<td><input type="radio" name="gender" value="male" /> 男</td>
-							<td><input type="radio" name="gender" value="female" /> 女</td>
+							<td><input type="radio" name="gender" value="male"  style="float:left;margin-left:10px" /> 男 </td>
+							<td><input type="radio" name="gender" value="female" style="float:left;margin-left:10px" /> 女</td>
 
 						</tr>
 						<tr>
@@ -297,30 +297,59 @@ $().ready(function() {
 							<td id="xuetang_td"><div id="ASKInput">年&nbsp;&nbsp;&nbsp;&nbsp;龄</div></td>
 							<td colspan="2"><INPUT name="age" value="" width="80%"></td>
 						</tr>
-
+						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="age" class="error"></label></td>
+							</tr>
+						<tr>
 						<tr>
 
 							<td id="xuetang_td"><div id="ASKInput">手&nbsp;&nbsp;&nbsp;&nbsp;机</div></td>
 							<td colspan="2"><INPUT name="mobile" value="" width="80%"></td>
 						</tr>
+						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="mobile" class="error"></label></td>
+							</tr>
+						<tr>
 
 						<tr>
 
 							<td id="xuetang_td"><div id="ASKInput">职&nbsp;&nbsp;&nbsp;&nbsp;业</div></td>
 							<td colspan="2"><INPUT name="job" value="" width="80%"></td>
 						</tr>
+						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="job" class="error"></label></td>
+							</tr>
+						<tr>
 
 						<tr>
 
 							<td id="xuetang_td"><div id="ASKInput">就职单位</div></td>
 							<td colspan="2"><INPUT name="company" value="" width="80%"></td>
 						</tr>
+						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="company" class="error"></label></td>
+							</tr>
+						<tr>
 
 						<tr>
 
 							<td id="xuetang_td"><div id="ASKInput">职务/职称</div></td>
 							<td colspan="2"><INPUT name="title" value="" width="80%"></td>
 						</tr>
+						<tr>
+						
+							<td></td>
+							<td colspan="2"><label for="title" class="error"></label></td>
+							</tr>
+						<tr>
 
 					</table>
 
@@ -329,8 +358,8 @@ $().ready(function() {
 					<br />
 				
 						
-						<div align="center" id="ASKSubmit" >
-							<a id="submit_link" style="color: white;"><big>预约</big></a>
+						<div  >
+							<a  id="ASKSubmit" class="submit_link" style="color: white;widht:100%;display: block;text-align: center;font-size: 17px;"><big>预约</big></a>
 						</div>
 
 
