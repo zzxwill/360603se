@@ -8,17 +8,17 @@ public class connection {
 //public class connectionACE {
  
     public static Connection getConnection(){
-    	String username = "db4sm1ji23kix8uy";
-    	String password = "liliming1990";
+    	String username = "root";
+    	String password = "";
     	String databaseName = username;
-    	String host = "rdsayenemanerj2.mysql.rds.aliyuncs.com";
+    	String host = "localhost";
     	String port = "3306";
     	String driverName = "com.mysql.jdbc.Driver";
     	String dbUrl = "jdbc:mysql://";
     	String serverName = host + ":" + port + "/";
 //    	serverName += databaseName + "?characterEncoding=utf8";
-    	dbUrl += serverName + databaseName + "?characterEncoding=utf8";
-    	//dbUrl = "jdbc:mysql://localhost:3306/drinkmarket?characterEncoding=utf8"
+    	//dbUrl += serverName + databaseName + "?characterEncoding=utf8";
+    	dbUrl = "jdbc:mysql://localhost:3306/confuciusmedicine?characterEncoding=utf8";
         Connection conn = null;
         try {
         	

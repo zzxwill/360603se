@@ -57,8 +57,8 @@
 	 String site = request.getParameter("site");
 	 String department = request.getParameter("department");
 	 int doctorid = Integer.valueOf(request.getParameter("doctorid")).intValue();
-	 //int outpatientid = Integer.valueOf(request.getParameter("outpatientid")).intValue();
-	 int outpatientid = 100001;
+	 int outpatientid = Integer.valueOf(request.getParameter("outpatientid")).intValue();
+	 //int outpatientid = 100001;
 	 
 	 String illness_name = request.getParameter("illness_name");
 	 String purpose = request.getParameter("purpose");
@@ -70,7 +70,7 @@
 	 long mobile = Long.parseLong(request.getParameter("mobile"));
 	 String name = request.getParameter("name");
 	 
-	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid,USERID);
+	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid,USERID, outpatientid);
 	 
 	//发送成功预约的短信	
 		ReservationSMS reservationSMS = new ReservationSMS();

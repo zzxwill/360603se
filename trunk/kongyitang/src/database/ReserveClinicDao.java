@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import database.Connections;
 import tools.Tools;
@@ -38,6 +41,11 @@ public class ReserveClinicDao {
 	private ResultSet rs = null;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
+	
+	private Statement stmt_doctor_avaialble_amount = null;
+	private ResultSet rs_doctor_avaialble_amount = null;
+	private Connection conn_doctor_avaialble_amount = null;
+	private PreparedStatement ps_doctor_avaialble_amount = null;
 	
 	public String UserName = null;
 	public String UserTel = null;
@@ -107,6 +115,7 @@ public class ReserveClinicDao {
 	public int  doctor_id[];
 	public String  name[];
 	public String  title[];
+	public int  doctor_available_amount[];
 	
 	private int NUM = 1000;
 	
@@ -155,21 +164,59 @@ public class ReserveClinicDao {
 
 		conn = connection.getConnection();
 		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
+		
+		//当前日期    Will Zhou   5/24/2014
+		Date currentTime = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = dateFormat.format(currentTime);
+		
+		//当周周日的日期
+		//date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) 
+		//当前医生还剩余的号  当天--周日
+		//String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
+		
+		
 
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
+			
+		
+			
+			
 			int index = 0;
 			doctor_id = new int[NUM];
 			name = new String[NUM];
 			title = new String[NUM];
+			doctor_available_amount = new int[NUM];
 			
 			
 			while (rs.next()) {
 				//department[index] = rs.getString(1);
 				doctor_id[index] =rs.getInt(1);
+				
+				
+				
 				name[index] = rs.getString(2);
 				title[index] = rs.getString(3);
+				
+				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
+				sql_doctor_available_amount += rs.getInt(1);
+				conn_doctor_avaialble_amount = connection.getConnection();
+				stmt_doctor_avaialble_amount = conn_doctor_avaialble_amount.createStatement();
+				rs_doctor_avaialble_amount = stmt_doctor_avaialble_amount.executeQuery(sql_doctor_available_amount);
+				/*private Statement  = null;
+				private ResultSet  = null;
+				private Connection  = null;
+				private PreparedStatement ps_doctor_avaialble_amount = null;*/
+				doctor_available_amount[index]=0;
+				while(rs_doctor_avaialble_amount.next()){
+					doctor_available_amount[index] = rs.getInt(1);
+				}
+				
+				
+				
+				
 				
 				index++;
 				
