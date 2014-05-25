@@ -114,7 +114,9 @@
     }
 
     function SelectKeshiCertain(){
+    	
     	document.getElementById('SelectKeShi').style.display='none';
+    	//document.getElementById('SelectKeShiAttention').style.display='none';
     	document.getElementById('SelectedKeShi').style.display='block';
     	var SelectedKeShi = document.getElementById("SelectedKeShi");
     	var registerKeShi =$('input:radio[name="registerKeShi"]:checked').val();
