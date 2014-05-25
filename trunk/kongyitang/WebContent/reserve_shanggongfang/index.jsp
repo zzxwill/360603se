@@ -424,7 +424,6 @@ $().ready(function() {
 								<td colspan="2"><label for="name_assess" class="error"></label></td>
 										
 							</tr>
-						</tr>
 						<tr>
 							<td id="xuetang_td"><div id="ASKInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
 							<td><input type="radio" name="gender_assess	" value="male"  style="float:left;margin-left:10px" /> 男 </td>
