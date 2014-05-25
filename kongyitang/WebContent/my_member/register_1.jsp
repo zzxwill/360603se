@@ -11,6 +11,7 @@
 	 <%@ include file="../include/cssJS.jsp"%> 
 
 <style type="text/css">
+
 </style>
 
 </head>
@@ -28,7 +29,7 @@
 		</tr>
 	</table>
  	</div>
-  	<div data-role="content">
+  	<div data-role="content" style="margin:20px auto;width:90%">
 
 	<table width="95%">
 		<tr>
@@ -43,8 +44,8 @@
 	     	 
 <link rel="stylesheet" href="../css/my.css" />
  <script src="../js/register.js"></script>
-		
-    	<table width="100%">
+	
+    	<table  width="100%" border="0" cellspacing="0" cellpadding="0">
     		<tr>
     			<td width="25%"><div id="MyInput">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
     			<td width="75%"><input id="registerName" name="registerName" type="text" value="" /></td>
@@ -95,8 +96,8 @@
     		</tr>
     	</table>
     
-    	<div id="registerDoctor" style="display:none">
-	    	<table width="100%">
+    	<div id="registerDoctor" style="display:none" >
+	    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	    		<tr>
 	    			<td width="25%"><div id="MyInput">师&nbsp;&nbsp;&nbsp;&nbsp;承</div></td>
 	    			<td width="75%"><input id="registerShiCheng" name="registerShiCheng" type="text" value="" /></td>
@@ -111,8 +112,8 @@
 	    			<td width="25%"><div id="MyInput">科&nbsp;&nbsp;&nbsp;&nbsp;室</div></td>
 	    			<td width="75%">
 	    				<div id="InputBorder" align="center" onclick="SelectKeShi()">
-	    					<div id="SelectedKeShi" style="display:none"></div>
-	    					<div id="SelectKeShiAttention">选择您所在的科室&nbsp;&nbsp;&nbsp;&nbsp;
+	    					<div id="SelectedKeShi" style="display:none;float: left;"></div>
+	    					<div id="SelectKeShiAttention">选择科室&nbsp;&nbsp;&nbsp;&nbsp;
 	    					<img src="../images/down.png" border = "0px"  width="20px"/></div>
 	    				</div>
 	    			</td>
@@ -128,7 +129,7 @@
 	    
 	        		
     <div id="SelectKeShi" class="SelectKeShi" >
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px"  border="0"  >
 			<tr>
 				<td align="center" width="70%"><big>中医内科</big></td>
 				<td valign="middle" align="left" width="30%">
@@ -137,7 +138,7 @@
 			</tr>
 		</table>
 		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
 			<tr>
 				<td align="center" width="70%"><big>中医外科</big></td>
 				<td valign="middle" align="left" width="30%">
@@ -146,7 +147,7 @@
 			</tr>
 		</table>
 		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
 			<tr>
 				<td align="center" width="70%"><big>妇&nbsp;&nbsp;科</big></td>
 				<td valign="middle" align="left" width="30%">
@@ -155,7 +156,7 @@
 			</tr>
 		</table>
 		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
 			<tr>
 				<td align="center" width="70%"><big>儿&nbsp;&nbsp;科</big></td>
 				<td valign="middle" align="left" width="30%">
@@ -164,7 +165,7 @@
 			</tr>
 		</table>
 		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
 			<tr>
 				<td align="center" width="70%"><big>针推科</big></td>
 				<td valign="middle" align="left" width="30%">
@@ -173,7 +174,7 @@
 			</tr>
 		</table>
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>"></td></tr></table>
-		<table width="100%">
+		<table width="100%" >
 			<tr>
 				<td width="50%" align="center">
 					<div id="SelectKeshiCertain" onclick="SelectKeshiCertain()"><big>确&nbsp;&nbsp;认</big></div>
@@ -183,10 +184,12 @@
 				</td>
 			</tr>
 		</table>
-	</div>
-	    
-	    <script>
 
+	 </div>   
+	    <script>
+	    $(document).ready(function(){
+	   		 $("#registerTel").parent().css("-webkit-border-radius",".6em");
+	    });
 	    function setTelNull() {  
 			document.getElementById("registerTel").value = "";
 		}
@@ -274,6 +277,7 @@
 					      //alert("sendMsgStatus:" + sendMsgStatus);
 					    });
 					  });
+					  
 				});
 					
 				 setInterval(function(){
@@ -290,7 +294,7 @@
 	    
 	    </script>
 	    
-	    <table width="100%">
+	    <table width="100%" cellpadding="0" cellspacing="0px"  border="0">
     		<tr>
     			<td width="65%">
     				<input id="registerTel" name="registerTel" type="text" value="请输入手机号" onfocus="setTelNull()"/>
@@ -302,7 +306,7 @@
     			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
     		</tr>
     	</table>
-    	<table width="100%">
+    	<table width="100%" cellpadding="0" cellspacing="0px"  border="0">
     		<tr>
     			<td width="25%"><div id="MyInput">验证码</div></td>
     			<td width="75%"><input id="registerCode" name="registerCode" type="text" value="" /></td>

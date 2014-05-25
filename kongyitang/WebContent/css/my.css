@@ -24,7 +24,7 @@
 	border-width:1px; 
 	border-color:#88B8D3;
 	height:auto !important;
-	height:100px; /*假定最低高度是100px*/
+	height:100px; /*鍋囧畾鏈�綆楂樺害鏄�00px*/
 	min-height:100px; 
 	//line-height:100px;
 } 
@@ -86,7 +86,7 @@
 	border-style:solid; 
 	border-width:1px; 
 	border-color:#d8a14f;
-	height:35px;
+	height:34px;
 	line-height:35px;
 	background:#d8a14f;
 	color:white;
@@ -95,6 +95,7 @@
     border-bottom-right-radius:0px 0px;
     border-bottom-left-radius:10px 10px;
     text-align:center;
+    margin:5px 0;
 }
 
 #SubmitButton{ 
@@ -120,10 +121,10 @@
 	line-height:34px;
 	background: ;
 	color:#000000;
-	border-top-left-radius:10px 10px;
+	
     border-top-right-radius:10px 10px;
     border-bottom-right-radius:10px 10px;
-    border-bottom-left-radius:10px 10px;
+   
     //text-align:center;
 }
 

@@ -90,6 +90,26 @@
 	width:98%;
 }
 
+.ui-checkbox input, .ui-radio input {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 0;
+    outline: 0!important;
+    z-index: 1;
+}
+.ui-btn-corner-all
+{
+	-webkit-border-radius:0px;
+}
+.ui-fullsize .ui-btn-inner, .ui-fullsize .ui-btn-inner
+{
+	padding-left:0px;
+	font-size: 10px;
+	padding: 10px 0px;
+}
 
 </style>
 
@@ -349,35 +369,35 @@ $().ready(function() {
 								for(int j=0;j<doctor_dao.doctor_num;j++){
 								%>
 									<tr style="border-bottom: 1px dotted #d8a14f;">
-										<td style="padding:5px"><img src="../resources/images/upload/doctor_male.jpg"
-											width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>
-										<td id="<%=doctor_dao.doctor_id[j] %>">
-											<table width="100%" >
+										
+										<td id="<%=doctor_dao.doctor_id[j] %>" width="100%">
+											<table width="100%" style="font-size: 13px;">
 
 												<tr>
-
-													<td width="40%"><span style="text-align: left;"><%=doctor_dao.name[j] %></span></td>
-													<td width="30%"><span style="text-align: right"><%=doctor_dao.title[j] %></span></td>
-													<td width="30%" align="center"><span
-														style="font-weight: bold; font-style: normal; text-decoration: none; color: #1DDA2C;">V</span></td>
+												<td style="padding:5px;width:50px" rowspan="2"><img src="../resources/images/upload/doctor_male.jpg" 
+													width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>		
+													<td valign="bottom"   width="50%"><span style="text-align: left;font-size: 15px;font-weight: 700"><%=doctor_dao.name[j] %></span><img src="../resources/css/images/reserver_clinic/V.gif" 
+													width="15" height="15" /></td>
+													<td valign="bottom" align="center"  width="50%"><div align="center" class="ASKSubmit_blue" style="height: 25px; line-height: 25px;width:60px;margin:5px"><%=deparment_dao.department[i] %></div></td>
+													
+													
 												</tr>
 												<tr>
 
-													<td width="40%"><%=deparment_dao.department[i] %></td>
-													<td width="30%">剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
-													<td width="30%"  align="center">
-														<div align="center" class="ASKSubmit" style="height: 30px; line-height: 30px;width:70px"
-															class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
-															onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i]%>','<%=doctor_dao.doctor_id[j]%>');">
-															<big>预&nbsp;&nbsp;约</big>
-														</div>
-
-
-													</td>
+													<td width="50%" ><span><%=doctor_dao.title[j] %></span></td>
+													<td width="50%" align="center" >剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
+													
 												</tr>
+												
 											</table>
 										</td>
-
+										<td width="60px">
+											<div align="center" class="ASKSubmit" style="height: 30px; line-height: 30px;width:60px;margin:0px"
+												class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
+												onclick="show_hidden('reservation_specific_doctor');show_hidden('reservation_specific_location');set_reservation_specific_location_value('<%=deparment_dao.department[i]%>','<%=doctor_dao.doctor_id[j]%>');">
+												<big>预&nbsp;&nbsp;约</big>
+											</div>
+										</td>
 
 									</tr>
 									<%
@@ -460,7 +480,7 @@ $().ready(function() {
 
 				</div>
 				<!-- 具体预约某个医生 -->
-				<div id="reservation_specific_doctor" style="display: none;">
+				<div id="reservation_specific_doctor" style="display: none;width:90%;margin:10px auto;">
 					<!-- <table width="100%" cellpadding="0" cellspacing="0">
 						<tr bgColor="#000000">
 							<td align="left" width="20%"><button type="button"
@@ -471,7 +491,7 @@ $().ready(function() {
 
 
 					</table> -->
-					<div id="department_specific" style="display:;">
+					<div id="department_specific" style="display:;margin:10px;">
 						<!-- <table border="0" width="100%">
 								<tr>
 									<td><img src="../resources/images/upload/doctor_male.jpg"
@@ -514,17 +534,17 @@ $().ready(function() {
 				
 					
 					%>
-							<tr>
-								<td id="clinic_text"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;星期日&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
+							<tr style="height: 40px; line-height: 40px;">
+								<td id="clinic_text"  style="font-size:13px;"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;星期日&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
 								<td>
 									<% if (outpatient_dao.amount.get(i) < 50){ %>
-									<div align="center" id="ASKSubmit_disabled"
-										style="height: 20px; line-height: 20px; font-size:12" onclick="" >已停诊
+									<div align="center" class="ASKSubmit_no"
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
 									</div>
 									<%} else { %>
-									<div align="center" id="ASKSubmit"
-										style="height: 20px; line-height: 20px;font-size:12"
-										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">申请预约
+									<div align="center" class="ASKSubmit"
+										style="height: 30px; line-height: 30px;font-size:15px;width:60px;margin:0px"
+										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">预约
 									</div>
 									<%}%>									
 
@@ -543,7 +563,7 @@ $().ready(function() {
 				</div>
 
 				<!-- 患者病情资料 -->
-				<div id="reservation_patient_sickinfo" style="display: none;">
+				<div id="reservation_patient_sickinfo" style="display: none;width:90%;margin:10px auto;">
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
@@ -558,9 +578,9 @@ $().ready(function() {
 						
 					</div>
 						
-						<div id="reserve_clinic_illness" style="display: ;">
+						<div id="reserve_clinic_illness" style="display: ;width:100%">
 
-							<table>
+							<table width="100%">
 
 
 								<tr>
@@ -568,6 +588,11 @@ $().ready(function() {
 
 									<td colspan="3"><INPUT name="illness_name" width="60%"></td>
 								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2"><label for="illness_name" class="error"></label></td>
+								</tr>
+							
 								<tr>
 									<td id="xuetang_td"><div id="ASKInput" align="center">预约目的</div></td>
 									<td><label><input type="checkbox"
@@ -579,12 +604,20 @@ $().ready(function() {
 									</label></td>
 								</tr>
 								<tr>
+									<td></td>
+									<td colspan="2"><label for="purpose_chk" class="error"></label></td>
+								</tr>
+								<tr>
 									<td colspan="4"><p>
-										<div id="ASKInput" align="left">病情描述及相关检查结果</div>
-										</p>
+										<div align="left">病情描述及相关检查结果</div>
+									
 										<p>
-											<textarea name="detail" rows="3" cols="30"></textarea>
+											<textarea style="-webkit-border-radius:0.6em;border-left:1px;border-color: #d8a14f;" name="detail" rows="3" cols="30"></textarea>
 										</p></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2"><label for="detail" class="error"></label></td>
 								</tr>
 								<tr>
 
@@ -592,9 +625,17 @@ $().ready(function() {
 									<td colspan="3"><INPUT name="mobile" value="" width="60%"></td>
 								</tr>
 								<tr>
+									<td></td>
+									<td colspan="2"><label for="mobile" class="error"></label></td>
+								</tr>
+								<tr>
 
 									<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 									<td colspan="3"><INPUT name="name" value="" width="60%"></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2"><label for="name" class="error"></label></td>
 								</tr>
 							</table>
 
