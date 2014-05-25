@@ -11,7 +11,6 @@
 <%@ include file="../include/meta.jsp"%>
 <%@ include file="../include/cssJS.jsp"%>
    <%@ include file="../check/index.jsp"%> 
-   	 	 <%@ include file="../include/SpecificssJS.jsp"%>
 <style type="text/css">
 </style>
 
@@ -26,9 +25,8 @@
 			<table width="100%">
 				<tr>
 					<td width="33%" align="center">
-						<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="return_to_wechat_main()">返回</a>
-						</div>
+						<div id="backButton" style="width: 60px;"
+							onclick="return_to_wechat_main()">返回</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
@@ -49,7 +47,7 @@
 					</table> -->
 
 			<p>
-				预约成功！<br>
+<!--				预约成功！<br>-->
 
 				<%
    	Dao dao = new Dao();
@@ -99,27 +97,41 @@
 	    </script> -->
 
 				<br>
+		
+<!--		<script>-->
+<!--		function CloseWin(){-->
+<!--			//window.opener=null; -->
+<!--			//window.close(); -->
+<!--			WeixinJSBridge.call('closeWindow');-->
+<!--		}-->
+<!--	    </script>-->
+<!--		-->
+<!--		<div id="submitButton" style="width:95%" onclick="CloseWin()"><big>我知道了</big></div>-->
+				
+			<% String url="index.jsp"; %>	
+			<br><br>
+			<center>
+			<div style="color:red"><big>恭喜您 <%=name %> ，您已成功预约"孔伯华学院-<%=xuetang %>"！
+				<br>正在返回预约前界面，请稍后...</big>
+			</div>
+			</center>
+			<script language='javascript' type='text/javascript'>
+				setTimeout(" window.location = '<%=url %>' ",2000);
+			</script>
+				
 		</div>
-
-		<%//@ include file="../include/buttonStyle.jsp"
-  %>
+<!--		<div id="SubmitButton" style="width:90%"  onclick="closeWin();">我知道了</div>-->
+		<%//@ include file="../include/buttonStyle.jsp"%>
 
 		<div data-role="footer" data-id="myfooter" data-position="fixed">
 
-			<script>
-		function CloseWin(){
-			//window.opener=null; 
-			//window.close(); 
-			WeixinJSBridge.call('closeWindow');
-		}
-	    </script>
-			<table width="100%">
-				<tr>
-					<td><a id='button-special' type="button" data-theme="b"
-						data-mini="true" data-icon="arrow-r" data-iconpos="right"
-						onclick="CloseWin()">我知道了</a></td>
-				</tr>
-			</table>
+<!--			<table width="100%">-->
+<!--				<tr>-->
+<!--					<td><a id='button-special' type="button" data-theme="b"-->
+<!--						data-mini="true" data-icon="arrow-r" data-iconpos="right"-->
+<!--						onclick="CloseWin()">我知道了</a></td>-->
+<!--				</tr>-->
+<!--			</table>-->
 		</div>
 
 	</div>
