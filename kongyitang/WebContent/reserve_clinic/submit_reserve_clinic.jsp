@@ -10,7 +10,7 @@
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%>
 	    <%@ include file="../check/index.jsp"%> 
-
+	 	 <%@ include file="../include/SpecificssJS.jsp"%>
 <style type="text/css">
 </style>
 
@@ -99,6 +99,16 @@
 			//window.close(); 
 			WeixinJSBridge.call('closeWindow');
 		}
+		
+		//返回微信主界面  Will  5/19/2014
+		function return_to_wechat_main(){
+				WeixinJSBridge.call('closeWindow');
+			/* document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+				WeixinJSBridge.call('closeWindow');
+			}); */
+		}
+		
+		
 	    </script>
 	    <table width="100%">
 	    	<tr><td>
