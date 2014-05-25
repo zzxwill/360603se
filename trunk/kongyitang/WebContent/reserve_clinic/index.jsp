@@ -274,7 +274,7 @@ $().ready(function() {
 							<td class="xuetang_button"><strong>五棵松馆</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"
-									onclick="set_kongyitang_reservation_index_value('望京馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									onclick="set_kongyitang_reservation_index_value('五棵松馆');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
 									预&nbsp;&nbsp;约
 								</div>
 							</td>

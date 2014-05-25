@@ -11,6 +11,7 @@
 <%@ include file="../include/meta.jsp"%>
 <%@ include file="../include/cssJS.jsp"%>
    <%@ include file="../check/index.jsp"%> 
+   	 	 <%@ include file="../include/SpecificssJS.jsp"%>
 <style type="text/css">
 </style>
 
@@ -25,8 +26,9 @@
 			<table width="100%">
 				<tr>
 					<td width="33%" align="center">
-						<div id="backButton" style="width: 60px;"
-							onclick="return_to_wechat_main()">返回</div>
+						<div id="backButton" style="width: 60px;">
+							<a id="return_link" onclick="return_to_wechat_main()">返回</a>
+						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
