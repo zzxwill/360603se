@@ -41,6 +41,20 @@ body,div
 	margin-right:20px;
 }
 
+.ASKSubmit_blue {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #2865e0;
+	height: 42px;
+	line-height: 42px;
+	background: #568eff;
+	color: white;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+}
+
 .ASKSubmit_no {
 	border-style: solid;
 	border-width: 1px;
