@@ -60,7 +60,7 @@ public class UserDaoDoctor {
 			ps.setTimestamp(15, ts);
 
 			ps.execute();
-			System.out.println("doctor insert success!");
+			//System.out.println("doctor insert success!");
 			ps.close();
 			conn.close();
 
@@ -198,6 +198,28 @@ public class UserDaoDoctor {
 			e.printStackTrace();
 		}
 		return flag;
+	}
+	
+	//医生修改密码
+	public void modifyPassword_Doctor(String mobile, String password) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		
+		String sql = "update 04user_doctor set password = '" + password + "'"
+			 	+ " , updateDate = '" + ts + "'" 
+			 	+ " where mobile = '" + mobile + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

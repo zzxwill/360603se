@@ -80,13 +80,9 @@ public class Tools {
 		else if(flag.equals("04answer")){
 			sql = "select max(id) as id from 04answer";
 		}
-		
-		
-		/*
-		else if(flag.equals("usercharts")){
-			sql = "select max(userID) as userID from usercharts";
+		else if(flag.equals("04validate_code")){
+			sql = "select max(id) as id from 04validate_code";
 		}
-		*/	
 		
 		//System.out.println(sql);
 		try {
@@ -117,11 +113,10 @@ public class Tools {
 				else if(flag.equals("04answer")){
 					id = rs.getInt("id");
 				}
-				/*
-				else if(flag.equals("usercharts")){
-					id = rs.getInt("userID");
+				else if(flag.equals("04validate_code")){
+					id = rs.getInt("id");
 				}
-				*/
+				
 				id++;
 			}
 			stmt.close();

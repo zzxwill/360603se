@@ -190,6 +190,29 @@ public class UserDaoPatient {
 		return flag;
 	}
 	
+	//患者修改密码
+	public void modifyPassword_Patient(String mobile, String password) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		
+		String sql = "update 04user set password = '" + password + "'"
+			 	+ " , updateDate = '" + ts + "'" 
+			 	+ " where mobile = '" + mobile + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	/*
 
 	//用户修改用户信息
