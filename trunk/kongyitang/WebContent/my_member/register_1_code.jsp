@@ -22,20 +22,31 @@
   	<div data-role="content">
     <p>
     <%
+    String url = "index.jsp";
     String registerTel =  request.getParameter("registerTel");
-    Tools tools = new Tools();
-    session.removeAttribute("rightCode");   
-	String str_code = tools.GenRandomNum(); 
-	
-	SendMsg sendMsg = new SendMsg();
-	//String tel = "15210983731";
-	sendMsg.run(str_code, registerTel);
-	session.setAttribute("rightCode",str_code);
-	session.setMaxInactiveInterval(60*30);
-	
-    //System.out.println("registerTel:" + registerTel +"\n");
+    if((null==registerTel)||(registerTel.equals(""))){
     %>
-    <input id="sendMsgStatus" name="sendMsgStatus" type="hidden"  value="OK" />
+	    <script language='javascript' type='text/javascript'>
+				window.location = "<%=url%>";
+		</script>
+    <%	
+    }else{
+    	
+    	ValidateCodeDao validateCodeDao = new ValidateCodeDao();
+    	validateCodeDao.deleteValidateCode(registerTel);
+    	
+	    Tools tools = new Tools(); 
+		String str_code = tools.GenRandomNum(); 
+		
+		SendMsg sendMsg = new SendMsg();
+		//String tel = "15210983731";
+		sendMsg.run(str_code, registerTel);
+		validateCodeDao.insertValidateCode(registerTel,str_code);
+		
+		// System.out.println("str_code:" + str_code +"\n");
+	    %>
+	    <input id="sendMsgStatus" name="sendMsgStatus" type="hidden"  value="OK" />
+	<%} %>
 
   </div>
 

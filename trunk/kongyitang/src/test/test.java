@@ -36,7 +36,7 @@ public class test {
 		/*
 		//测试短信
 		Tools tools = new Tools();
-		String str_code = tool.GenRandomNum();
+		String str_code = tools.GenRandomNum();
 		SendMsg sendMsg = new SendMsg();
 		String tel = "15210983731";
 		sendMsg.run(str_code, tel);
