@@ -355,7 +355,7 @@ $().ready(function() {
 								<div style="text-align: left;" onclick="show_hidden('<%=deparment_dao.department[i] %>');UpDown(this)">
 									<%=deparment_dao.department[i] %> <img style="float:right;margin-top:17px"
 										src="../resources/css/images/reserver_clinic/right.gif" 
-										width="16" height="15" alt="" /> <span style="float:right; font-size:14px;color:#d8a14f">共2人</span>
+										width="16" height="15" alt="" /> <!-- <span style="float:right; font-size:14px;color:#d8a14f">共2人</span> -->
 								</div>
 							</div>
 						</div>
