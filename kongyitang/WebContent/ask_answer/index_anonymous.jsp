@@ -7,7 +7,10 @@
 	<div data-role="header">
  	</div>
   	<div data-role="content">
-	<p style='color:red;'>您好， 您还未登陆孔医堂，如需登陆或注册，请点击下方按钮！</p>
+  	<br>
+  	<center>
+	<div style="width:90%;color:red;">您好， 您尚未登陆孔医堂！<br>如需登陆或注册，请点击下方按钮！</div>
+	</center>
 	<br>
 	<% curPath = request.getScheme() + "://" + request.getHeader("host") + request.getRequestURI();  %>
 	<script>
@@ -17,7 +20,7 @@
 	</script>
 	<br>
 	<center>
-	<div id="SubmitButton" onclick="GoRegister()">前往登陆或注册！</div>
+	<div style="width:90%;" id="SubmitButton" onclick="GoRegister()">前往登陆或注册！</div>
 	</center>
 	</div>
 

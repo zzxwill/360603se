@@ -67,3 +67,24 @@ function ASKSubmit(){
 		ASKForm.submit(); 
 	}
 }
+
+function OthersASKButton(){
+	document.getElementById("OthersASK").style.display = "block";
+	document.getElementById("OwnASK").style.display = "none";
+	
+	document.getElementById('OthersASKButton').style.backgroundColor='#d8a14f';
+	document.getElementById('OthersASKButton').style.color="white";
+	document.getElementById('OwnASKButton').style.backgroundColor='';
+	document.getElementById('OwnASKButton').style.color="#FF8C47";
+
+}
+
+function OwnASKButton(){
+	document.getElementById("OthersASK").style.display = "none";
+	document.getElementById("OwnASK").style.display = "block";
+	
+	document.getElementById('OwnASKButton').style.backgroundColor='#d8a14f';
+	document.getElementById('OwnASKButton').style.color="white";
+	document.getElementById('OthersASKButton').style.backgroundColor='';
+	document.getElementById('OthersASKButton').style.color="#FF8C47";
+}
