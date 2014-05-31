@@ -110,7 +110,10 @@
 			//System.out.println("curPath0:" + curPath + "\n");
 			if(null==curPath||curPath.equals("")){
 				%>
-				<p style='color:red;'>恭喜您 <%=loginName %>，登陆成功！</p>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
+				<script language='javascript' type='text/javascript'>
+					setTimeout(" window.location = 'index.jsp' ",1500);
+				</script>
 				<%	
 			}else{
 				%>
@@ -155,7 +158,10 @@
 			//System.out.println("curPath1:" + curPath + "\n");
 			if(null==curPath||curPath.equals("")){
 				%>
-				<p style='color:red;'>恭喜您 <%=loginName %>，登陆成功！</p>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
+				<script language='javascript' type='text/javascript'>
+					setTimeout(" window.location = 'index.jsp' ",1500);
+				</script>
 				<%	
 			}else{
 				%>
@@ -171,8 +177,9 @@
 			}
 	
 		}else{
+			curPath = request.getParameter("curPath");
 			%>
-			
+			<input id="curPath" name="curPath" type="hidden"  value="<%=curPath %>" />
 	    	<table width="90%" cellspacing="0" cellpadding="0" border=0px style="margin-top:20px;">
     		<tr>
     			<td width="50px"><div id="MyInput"><img src="../images/user.png" style="width:20px;height:20px;margin-top:8px" /></div></td>
@@ -188,8 +195,10 @@
     		</tr>
     		</table>
 	    	<br>
+	    	
 			<div id="msgLogin" ></div>
 			<div id="tmpMsg" style='color:red;'>您输入的用户名或密码有误！</div>
+			<div align=right style="width:90%;color:blue;" onclick="setPassword();"><u><i>忘记密码？</i></u></div>
 	    	<div id="loginSubmit"><div id="SubmitButton" style="width:90%"  onclick="checkLogin()">登录</div></div>
 	    	<div id="loginWait" style="display:none;width:90%"><div id="SubmitButton">正在登陆，请稍后...</div></div>
 	

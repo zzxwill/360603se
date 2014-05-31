@@ -1,0 +1,25 @@
+#exitButton{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#EDEDED;//#d8a14f
+	height:25px;
+	line-height:25px;
+	background:#EDEDED;
+	color:black;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+    text-align:center;
+}
+
+
+#exitButton:hover{
+	color:red;
+}    /*鼠标放上去的时候a标签变成红色*/ 
+
+
+
+#exitButton:active{
+	background-color:#d8a14f;
+}    /*鼠标按下去时a标签变成红色*/
