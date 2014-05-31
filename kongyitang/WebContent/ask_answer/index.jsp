@@ -14,11 +14,7 @@
   
      <%@ include file="../check/checkAnonymous.jsp"%> 
      <%//@ include file="../check/index.jsp"%>
-  <% //String weixinID = "oDK3oji70nN1CG77qYR_z_thFUBs"; 
-  //oDK3oji70nN1CG77qYR_z_thFUBs
-  //gh_f5c1c22104b0
 
-%>
 <%
 if(USERID>0){//患者或医生
 	USERROLE = ipDao.getUserRole_by_address(TMP_IPAdress);

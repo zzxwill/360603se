@@ -76,10 +76,10 @@
 	  	//System.out.println("num:" + qNum);
 	  	if(questionNum==0){
 	  	%>
-	  		<link rel="stylesheet" href="../css/ask.css" />
+	  		<link rel="stylesheet" href="../css/ask_public.css" />
 	  		<br><br>
 	  		<center>
-	  			<div style="width:90%" id="records" ><br><br><div style="color:red" >暂无此条件的相关提问！</div></div>
+	  			<div style="width:90%" id="ask_records" ><br><br><div style="color:red" >暂无此条件的相关提问！</div></div>
 	  		</center>
 	  		<br><br><br><br><br>
 	  	<%	
@@ -101,10 +101,10 @@
 	  			//System.out.println("qID:" + qID + "\n");
 	  		%>
 			
-				 <link rel="stylesheet" href="../css/ask.css" />
+				<link rel="stylesheet" href="../css/ask_public.css" />
 				
 				<center>
-				<div style="width:90%" id="records" >	
+				<div style="width:90%" id="ask_records" >	
 					<table width="100%">
 						<tr>
 							<td width="60%"><%=askPatient_doctor.createDates_Condition[i] %></td>
@@ -112,15 +112,15 @@
 							<td width="12%"><%=departmentName %></td>
 							<td width="20%" align="center">
 							<%if(answerFlag==0){ %>
-								<div id="reply_no" class="reply_no">未答复</div>
+								<div id="ask_reply_no" class="ask_reply_no">未答复</div>
 							<%}else if(answerFlag==1){ %>
-								<div id="reply_yes" class="reply_yes">已答复</div>
+								<div id="ask_reply_yes" class="ask_reply_yes">已答复</div>
 							<%} %>
 							</td>
 						</tr>
 					</table>
-					<div align="left" id="questions"><%=askPatient_doctor.contents_Condition[i] %></div>
-					<div align="left"  id="answers">
+					<div align="left" id="ask_questions"><%=askPatient_doctor.contents_Condition[i] %></div>
+					<div align="left"  id="ask_answers">
 					<%
 						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
 						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	

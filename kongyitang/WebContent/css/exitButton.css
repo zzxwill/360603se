@@ -13,12 +13,9 @@
     text-align:center;
 }
 
-
 #exitButton:hover{
 	color:red;
 }    /*鼠标放上去的时候a标签变成红色*/ 
-
-
 
 #exitButton:active{
 	background-color:#d8a14f;

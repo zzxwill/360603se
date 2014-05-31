@@ -5,12 +5,12 @@
 	      
 	 <link rel="stylesheet" href="../css/ask.css" />
 	<script src="../js/ask.js"></script>
+	<center>
 	<div>请详细描述您的病情、症状、发病时间、治疗情况:</div><br>
-	<textarea style="min-height:120px" name="QuestionText" id="QuestionText" wrap=virtual 
+	<textarea style="min-height:120px;width:90%" name="QuestionText" id="QuestionText" wrap=virtual 
 		placeholder=" ">
 	</textarea>
 	<br>
-	<center>
 
 	<table width="100%">
 		<tr>
