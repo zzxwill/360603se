@@ -101,7 +101,7 @@
 							%>
 								<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
 							<%} %>
-							</div>
+						</div>
 					</div>
 					<br>
 				<%
