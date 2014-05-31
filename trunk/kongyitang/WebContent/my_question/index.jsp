@@ -1,48 +1,36 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
-
- <%@ include file="../include/package.jsp"%> 
- 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <title><%=sysName %></title>
-
-	 <%@ include file="../include/meta.jsp"%> 
-	 <%@ include file="../include/cssJS.jsp"%> 
-	 
-	
-	 
-	
-	<link rel="stylesheet" href="../css/my.css" />
+  
+   <%//@ include file="../check/index.jsp"%> 
+  
+  	<link rel="stylesheet" href="../css/my.css" />
 	<script src="../js/my.js"></script>
-
-</head>
-  
-   <%@ include file="../check/index.jsp"%> 
-
-  <% //String weixinID = "gh_f5c1c22104b0"; 
-  //oDK3oji70nN1CG77qYR_z_thFUBs
-  //gh_f5c1c22104b0
-  %>
-  
+	
  <body>
   <div data-role="page">
 	<div data-role="header">
  	</div>
   	<div data-role="content">
+	<script>
+		function exitLogin(){
+			window.location = "../exit/index.jsp";
+	 	}
+	</script>
 	<%
 	//System.out.println("USERID:" + USERID +"\nUSERROLE:" + USERROLE + "\n");
 	if(USERROLE==0){ //患者
 		UserDaoPatient userDaoPatient = new UserDaoPatient();
 	
 	%>
-		<table>
-			<tr>
-				<td><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
-				<td>&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
-			</tr>
-		</table>
-		
+	 	<div style="width:90%" id="consumerInfos" class="consumerInfos"">
+			<table width="95%">
+				<tr>
+					<td width="25%" align="center"><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
+					<td width="50%" align="left">&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
+					<td width="25%" align="right"><div id="exitButton" style="width:95%" onclick="exitLogin()">退出</div>
+					</td>
+				</tr>
+			</table>
+		</div>
 		<center>
 		<table width="60%" cellpadding="0" cellspacing="1"  >
 			<tr>
@@ -134,25 +122,26 @@
 	}else if(USERROLE==1){ //医生
 		UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 	%>
-		<table width="95%">
-		<tr>
-			<td width="15%"><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
-			<td width="60%">
-				<table width="100%">
-					<tr>
-						<td><big><big><strong><%=userDaoDoctor.getUserName_Doctor(USERID) %></strong></big></big>
-							<img src="../images/v.png" border = "0px"  width="20px"/>
-						</td>
-					</tr>
-					<tr>
-						<td>主治医生</td>
-					</tr>
-				</table>
-			</td>
-			<td align="center" width="25%"><div id="doctors">中医外科</div></td>
-		</tr>
-	</table>
-	
+		<div style="width:90%" id="consumerInfos" class="consumerInfos">
+			<table width="95%">
+			<tr>
+				<td width="15%" align="right"><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
+				<td width="60%">
+					<table width="100%">
+						<tr>
+							<td width="50%" align="center"><big><big><strong><%=userDaoDoctor.getUserName_Doctor(USERID) %></strong></big></big></td>
+							<td width="50%" align="center"><img src="../images/v.png" border = "0px"  width="20px"/></td>
+						</tr>
+						<tr>
+							<td width="50%" align="center">主治医生</td>
+							<td width="50%" align="center"><div id="doctors">中医外科</div></td>
+						</tr>
+					</table>
+				</td>
+				<td align="right" width="25%"><div id="exitButton" style="width:95%" onclick="exitLogin()">退出</div></td>
+			</tr>
+		</table>
+	</div>
 	<center>
 <!--	<div style="color:<%//=sysFontColor %>"><strong>回答记录</strong></div>-->
 	
@@ -228,4 +217,3 @@
 </div> 
 
   </body>
-</html>

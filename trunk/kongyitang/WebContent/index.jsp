@@ -44,14 +44,8 @@
     function my_member(){
     	window.location = "my_member/index.jsp";
      }
-    function my_question(){
-    	window.location = "my_question/index.jsp";
-     }
     function my_health(){
     	window.location = "my_health/index.jsp";
-     }
-    function my_consume(){
-    	window.location = "my_consume/index.jsp";
      }
     </script>
     	<h1>欢迎来到孔医堂！</h1>
@@ -69,9 +63,7 @@
     	<br>
     	<p>我的：<p/>
     	<div onclick="my_member();" >&nbsp;&nbsp;&nbsp;&nbsp;会员中心 >> </div><br>
-    	<div onclick="my_question();" >&nbsp;&nbsp;&nbsp;&nbsp;我的问题 >> </div><br>
     	<div onclick="my_health();" >&nbsp;&nbsp;&nbsp;&nbsp;健康自测 >> </div><br>
-    	<div onclick="my_consume();" >&nbsp;&nbsp;&nbsp;&nbsp;我的预约>></div><br>
   </div>
 
 <div data-role="footer" data-id="myfooter" data-position="fixed">

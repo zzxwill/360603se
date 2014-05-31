@@ -21,39 +21,8 @@
  if(USERID>0){//已登录
 	 USERROLE = ipDao.getUserRole_by_address(TMP_IPAdress);
  	%>
-<body>
-	<div data-role="page">
-		<div data-role="header">
-			<table width="100%">
-				<tr>
-					<td width="33%">
-						<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
-					</td>
-					<td align="center" width="34%"><a style="color:white;">注销登陆</a></td>
-					<td width="33%" align="right">&nbsp;&nbsp;
-					</td>
-				</tr>
-			</table>
-		</div>
-	 	<div data-role="content">
-			<script>
-		 		function exitLogin(){
-		 			window.location = "../exit/index.jsp";
-		 	 	}
-		 	</script>
-		 	<center>
-		 	<br><br>
-		 	<div style="color:red" > 尊敬的用户，您好！<br>
-		 	您已登陆孔医堂，如需注销登陆，请点击下方按钮！</div>
-		 	<br>
-		 	<div id="submitButton" style="width:95%" onclick="exitLogin()"><big>注销登陆</big></div>
-		 	</center>
-	   </div>
-		
-		<div data-role="footer" data-id="myfooter" data-position="fixed">
-		</div> 
-	</div> 
-</body>
+ 	
+	<%@ include file="../my_question/index.jsp"%> 
  	
  	<%
  }else{//未登录
@@ -147,8 +116,8 @@
     		<%
     	}
     	%>
-    	<div align=right style="width:90%;color:blue;" onclick="setPassword();"><u><i>忘记密码？</i></u></div>
     	<div id="msgLogin" ></div>
+    	<div align=right style="width:90%;color:blue;" onclick="setPassword();"><u><i>忘记密码？</i></u></div>
     	<div id="loginSubmit"><div id="SubmitButton" style="width:90%"  onclick="checkLogin()">登录</div></div>
     	<div id="loginWait" style="display:none;width:90%" ><div id="SubmitButton">正在登陆，请稍后...</div></div>
 
