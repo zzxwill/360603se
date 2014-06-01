@@ -24,8 +24,9 @@
     <%
     String url = "index.jsp";
     String registerCode =  request.getParameter("registerCode");
-    
-    if((null==registerCode)||(registerCode.equals(""))){
+    String registerTel =  request.getParameter("registerTel");
+        
+    if((null==registerCode)||(registerCode.equals(""))||(null==registerTel)||(registerTel.equals(""))){
     %>
 	    <script language='javascript' type='text/javascript'>
 				window.location = "<%=url%>";
@@ -34,10 +35,12 @@
     }else{
     	ValidateCodeDao validateCodeDao = new ValidateCodeDao();
 	    Tools tools = new Tools();
-	    String rightCode = validateCodeDao.getValidateCode(registerCode);
+	    String rightCode = validateCodeDao.getValidateCode(registerTel);
 	    int validate = 0;
+	    //System.out.println("registerCode:" + registerCode + ",,,rightCode:" + rightCode + "\n");
 	    validate = tools.validateCode(registerCode,rightCode);
 	    //TODO 验证
+	   // System.out.println("to valide!" + "\n");
 		if(validate==1){
 			//System.out.println("success!" + "\n");
 		%>

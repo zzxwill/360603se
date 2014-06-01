@@ -8,7 +8,7 @@ public class connectionQingYun {
 //public class connectionACE {
  
     public static Connection getConnection(){
-    	String username = "root";
+    	String username = "root2";
     	String password = "123qwe";
     	String databaseName = "db4sm1ji23kix8uy";
     	String host = "121.201.7.153";

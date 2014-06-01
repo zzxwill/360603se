@@ -56,7 +56,8 @@ public class ValidateCodeDao {
 	public String getValidateCode(String mobile) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04validate_code where mobile='" + mobile + "'";
+		//System.out.println("mobile:" + mobile + "\n");
+		String sql = "select * from 04validate_code where mobile = '" + mobile + "'";
 		String code = null;
 		Timestamp deadline = null;
 		try {
@@ -67,6 +68,7 @@ public class ValidateCodeDao {
 				deadline = rs.getTimestamp("deadline");
 				if(curTS.getTime()>deadline.getTime()){
 					//code = null;
+					//System.out.println("chaoshi:" + curTS + "\n");
 				}else{
 					code = rs.getString("code");
 				}
@@ -77,6 +79,7 @@ public class ValidateCodeDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//System.out.println("code:" + code + "\n");
 		return code;
 	}
 	
