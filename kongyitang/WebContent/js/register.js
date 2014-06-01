@@ -83,7 +83,8 @@
 					  $("#registerNext").click(function(){
 					    $.post("register_1_validateCode.jsp",
 					    {
-					      	registerCode:registerCode
+					      	registerCode:registerCode,
+					      	registerTel:registerTel
 					    },
 					    function(data){
 						   var html = $(data);
