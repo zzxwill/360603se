@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-import database.connection;
+import database.Connections;;
 
 public class Dao {
 	private static final long USERID = 0;
@@ -38,7 +38,7 @@ public class Dao {
 			String department, int doctorid, int userid, int outpatient_id) {
 
 		int patient_illness_id = 0;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		String sql_reservation_patient_illness = "INSERT INTO `" + table_prefix + "reservation_patient_illness`( `illness_name`, `purpose`, `detail`, `mobile`, `name`) VALUES (?,?,?,?,?)";
 		try {
@@ -121,7 +121,7 @@ public class Dao {
 		
 		long username = Long.valueOf(hm4xuetang.get("username").toString());
 
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		String sql_reservation_xuetang = "INSERT INTO `" + table_prefix + "reservation_xuetang`(`xuetang`,`name`, `gender`, `age`, `mobile`, `job`, `company`, `title`,`username`,`date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
@@ -162,6 +162,7 @@ public class Dao {
 	// 提交上工坊预约信息 Will Zhou 5/11/2013
 	public void submit_reservation_shanggongfang(HashMap hm4shanggongfang) {
 		String type = (String) hm4shanggongfang.get("type");
+		String site = (String) hm4shanggongfang.get("site");
 		String name = (String) hm4shanggongfang.get("name");
 
 		int gender = (Integer) hm4shanggongfang.get("gender");
@@ -188,11 +189,11 @@ public class Dao {
 			assess_master = (String) hm4shanggongfang.get("assess_master");
 		}
 
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
-		String sql_reservation_xuetang = "INSERT INTO `" + table_prefix + "reservation_shanggongfang_adjust`(`type`, `name`, `gender`, `age`, `mobile`, `adjust_programe`, `book_date`, `adjust_master`, `username`, `date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sql_reservation_xuetang = "INSERT INTO `" + table_prefix + "reservation_shanggongfang_adjust`(`type`, `name`, `gender`, `age`, `mobile`, `adjust_programe`, `book_date`, `adjust_master`, `username`, `date`, `site`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
-		String sql_reservation_xuetang_assess = "INSERT INTO `" + table_prefix + "reservation_shanggongfang_assess`(`type`, `name`, `gender`, `age`, `mobile`, `assess_programe`, `book_date`, `assess_master`, `username`, `date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sql_reservation_xuetang_assess = "INSERT INTO `" + table_prefix + "reservation_shanggongfang_assess`(`type`, `name`, `gender`, `age`, `mobile`, `assess_programe`, `book_date`, `assess_master`, `username`, `date`, `site`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps;
@@ -209,6 +210,7 @@ public class Dao {
 			}
 
 			ps.setString(1, type);
+		
 			ps.setString(2, name);
 			ps.setInt(3, gender);
 			ps.setInt(4, age);
@@ -225,10 +227,11 @@ public class Dao {
 			String date = dateFormat.format(currentTime);
 
 			ps.setString(10, date);
+			ps.setString(11, site);
 
 			ps.execute();
 
-			conn.close();
+			conn.close(); 
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -309,7 +312,7 @@ public class Dao {
 
 	// 查询所有建筑信息
 	public void getBuildingAll() throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		int index = 1;
 		buildingIds = new int[NUM];
@@ -333,7 +336,7 @@ public class Dao {
 	// 根据id查询建筑名字
 	public String getBuildingName(int id) throws SQLException {
 		String buildingName = null;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from building where buildingID=" + id;
 		rs = statement.executeQuery(sql);
@@ -352,7 +355,7 @@ public class Dao {
 	// 根据id查询单价
 	public double getPrice(int id) throws SQLException {
 		double price = 0.0;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from price where drinkID=" + id;
 		rs = statement.executeQuery(sql);
@@ -371,7 +374,7 @@ public class Dao {
 	// 根据id查询饮料描述
 	public String getDecription(int id) throws SQLException {
 		String decription = null;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from price where drinkID=" + id;
 		rs = statement.executeQuery(sql);
@@ -389,7 +392,7 @@ public class Dao {
 
 	// 查询所有饮料信息
 	public void getDrinkAll() throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		int index = 1;
 		drinkIds = new int[NUM];
@@ -426,7 +429,7 @@ public class Dao {
 
 	// 查询所有饮料单价
 	public void getPriceAll() throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from price";
 		rs = statement.executeQuery(sql);
@@ -449,7 +452,7 @@ public class Dao {
 
 	// 查询所有饮料描述
 	public void getDecriptionAll() throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from price";
 		rs = statement.executeQuery(sql);
@@ -472,7 +475,7 @@ public class Dao {
 
 	// 新建订单信息
 	public void insertOrder(String weixinID, String orderList, double total) {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		String sql = "insert into orderlist values(?,?,?,?,?,?,?)";
 		try {
@@ -507,7 +510,7 @@ public class Dao {
 
 	// 查询指定用户今日所有已完成订单信息
 	public void getCurOrderList(int ID) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		int index = 1;
 
@@ -547,7 +550,7 @@ public class Dao {
 
 	// 根据状态informed是否发送，查询所有订单信息
 	public void getOrderListInformed(int informed) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		int index = 1;
 		orderIDs = new int[NUM];
@@ -579,7 +582,7 @@ public class Dao {
 	// 修改订单informed状态
 	public void modifyOrderInformed(int orderID, int informed)
 			throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "update orderlist set informed =" + informed
 				+ " where orderID =" + orderID;
@@ -597,7 +600,7 @@ public class Dao {
 	// 新建用户信息
 	public void insertUserInfo(String weixinID, String nickname,
 			String telephone, int buildingID, String roomNum) {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		String sql = "insert into userinfo values(?,?,?,?,?,?,?,?,?,?)";
 		try {
@@ -631,7 +634,7 @@ public class Dao {
 	// 判断用户是否已经存在。
 	public boolean isExist(String weixinID) {
 		boolean flag = false;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		// String sql = "select * from users where weixinID='" + weixinID + "'";
 		String sql = "select * from userinfo where weixinID=?";
@@ -654,7 +657,7 @@ public class Dao {
 	// 判断临时订单是否已经存在。
 	public boolean isExistTmpOrder(String weixinID) {
 		boolean flag = false;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		// String sql = "select * from users where weixinID='" + weixinID + "'";
 		String sql = "select * from tmporder where weixinID=?";
@@ -677,7 +680,7 @@ public class Dao {
 	// 根据微信ID查询用户ID
 	public int getUserID(String weixinID) throws SQLException {
 		int userID = 0;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from userinfo where weixinID='" + weixinID + "'";
 		rs = statement.executeQuery(sql);
@@ -696,7 +699,7 @@ public class Dao {
 	// 修改用户信息
 	public void modifyUserInfo(int userID, String telephone, int buildingID,
 			String roomNum) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		String sql = "update userinfo set telephone = '" + telephone + "'"
@@ -717,7 +720,7 @@ public class Dao {
 	// 查询用户积分
 	public int getUserScore(int userID) throws SQLException {
 		int score = 0;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from userinfo where userID=" + userID;
 		rs = statement.executeQuery(sql);
@@ -735,7 +738,7 @@ public class Dao {
 
 	// 修改用户积分
 	public void modifyUserScoreInfo(int userID, int score) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		int oldScore = 0;
 		oldScore = getUserScore(userID);
@@ -754,7 +757,7 @@ public class Dao {
 
 	// 根据微信号查询指定用户信息
 	public void getUserInfoAll(String WXID) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from userinfo where weixinID = '" + WXID + "'";
 		rs = statement.executeQuery(sql);
@@ -777,7 +780,7 @@ public class Dao {
 
 	// 根据用户ID查询指定用户信息
 	public void getUserInfoAll(int userID) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from userinfo where userID =" + userID;
 		rs = statement.executeQuery(sql);
@@ -799,7 +802,7 @@ public class Dao {
 
 	// 新建临时订单信息
 	public void insertTmpOrder(String weixinID, String orderList, double total) {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 
 		String sql = "insert into tmporder values(?,?,?,?,?)";
 		try {
@@ -829,7 +832,7 @@ public class Dao {
 	// 根据微信ID查询临时订单ID
 	public int getTmpOrderID(String weixinID) throws SQLException {
 		int orderID = 0;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from tmporder where weixinID='" + weixinID + "'";
 		rs = statement.executeQuery(sql);
@@ -849,7 +852,7 @@ public class Dao {
 	// 修改临时订单信息
 	public void modifyTmpOrder(int orderID, String orderList, double total)
 			throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 
@@ -868,7 +871,7 @@ public class Dao {
 
 	// 根据id查询临时订单信息
 	public void getTmpOrder(int id) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from tmporder where orderID=" + id;
 		rs = statement.executeQuery(sql);
@@ -887,7 +890,7 @@ public class Dao {
 
 	// 删除临时订单信息
 	public void deleteTmpOrder(String weixinID) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		// String sql = "select * from users where userID=" + id;
 		String sql = "delete from tmporder where weixinID = '" + weixinID + "'";
@@ -903,7 +906,7 @@ public class Dao {
 
 	// 查询指定快递员信息
 	public void getExpressInfo(int id) throws SQLException {
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		statement = conn.createStatement();
 		String sql = "select * from expressinfo where expressID = '" + id + "'";
 		rs = statement.executeQuery(sql);
@@ -923,7 +926,7 @@ public class Dao {
 
 	/*
 	 * // 删除用户 public void deleteUser(int id) throws SQLException{ Connection
-	 * conn = connection.getConnection(); statement = conn.createStatement(); //
+	 * conn = Connections.getConnection(); statement = conn.createStatement(); //
 	 * String sql = "select * from users where userID=" + id; String sql =
 	 * "delete from users where userID = '" + id + "'"; statement.execute(sql);
 	 * try { System.out.println("删除成功！！"); conn.close(); } catch (SQLException
@@ -934,7 +937,7 @@ public class Dao {
 	public int generateID(String flag) {
 		int id = -1;
 		String sql = null;
-		Connection conn = connection.getConnection();
+		Connection conn = Connections.getConnection();
 		if (flag.equals("userinfo")) {
 			sql = "select max(userID) as userID from userinfo";
 		} else if (flag.equals("orderlist")) {

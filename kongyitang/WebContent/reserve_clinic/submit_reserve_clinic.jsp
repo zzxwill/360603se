@@ -48,7 +48,7 @@
 
 					</table> -->
   	
-    <p aligh="center">预约成功！<br>
+  
    	
     <%
    	Dao dao = new Dao();
@@ -84,6 +84,19 @@
 	    </script> -->
 	
     <br>
+    
+    
+   
+    <% String url="index.jsp"; %>	
+			<br><br>
+			<center>
+			<div style="color:red"><big>恭喜您 <%=name %> ，您已成功预约"门诊-<%=site %>"！
+				<br>正在返回预约前界面，请稍后...</big>
+			</div>
+			</center>
+			<script language='javascript' type='text/javascript'>
+				setTimeout(" window.location = '<%=url %>' ",2000);
+			</script>
 
 
   </div>

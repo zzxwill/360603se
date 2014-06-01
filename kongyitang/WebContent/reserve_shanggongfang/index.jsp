@@ -283,6 +283,17 @@ $().ready(function() {
 
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
+							<td id="xuetang_td"><div id="ASKInput" style="height: 41px;line-height: 41px;">诊疗机构：</div></td>
+							<td colspan="2"><select id="site"
+								name="site">
+									<option selected="" value="望京馆">望京馆</option>
+									<option value="五棵松馆">五棵松馆</option>
+									<option value="展览路馆">展览路馆</option>
+									<option value="三里屯SOHO馆">三里屯SOHO馆</option>							
+							</select></td>
+						</tr>
+						
+						<tr>
 							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
 							<td colspan="2"><INPUT name="name" value="" width="80%" ></td>
 							<tr>
@@ -413,6 +424,17 @@ $().ready(function() {
 
 
 					<table  width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td id="xuetang_td"><div id="ASKInput" style="height: 41px;line-height: 41px;">诊疗机构：</div></td>
+							<td colspan="2"><select id="site_assess"
+								name="site_assess">
+									<option selected="" value="望京馆">望京馆</option>
+									<option value="五棵松馆">五棵松馆</option>
+									<option value="展览路馆">展览路馆</option>
+									<option value="三里屯SOHO馆">三里屯SOHO馆</option>							
+							</select></td>
+						</tr>
+						
 						<tr>
 							<!-- <td id="ASKInput">：</td> -->
 							<td id="xuetang_td"><div id="ASKInput" align="center">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>

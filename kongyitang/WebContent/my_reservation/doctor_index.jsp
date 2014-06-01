@@ -12,11 +12,23 @@
 		
 <!--		<table width="90%"><tr><td><hr color="<%//=sysFontColor %>" ></td></tr></table>-->
 <!--		<div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">-->
+			<%
+			ReserveClinicDao reserveClinicDao = new ReserveClinicDao();
+			reserveClinicDao.retrive_doctor_reservation(USERID);
+			if(reserveClinicDao.clinic_doctor_site.size()!=0){ %>
 			<table width="100%">
+				
 				<tr>
 					<td align="center" colspan="4"><strong>门诊预约</strong></td>
 				
 				</tr>
+	<%-- 			<%
+					
+					if(reserveClinicDao.clinic_doctor_site.size()!=0){
+				
+					
+					%> --%>
+				
 			
 				<tr>
 					<td align="center" width="20%"><strong>诊疗机构</strong></td>
@@ -29,8 +41,7 @@
 				
 				
 					<%
-					ReserveClinicDao reserveClinicDao = new ReserveClinicDao();
-					reserveClinicDao.retrive_doctor_reservation(USERID);
+					
 					for(int i=0;i<reserveClinicDao.clinic_doctor_site.size();i++){
 				
 					
@@ -44,25 +55,19 @@
 					<td align="center"><%=reserveClinicDao.clinic_doctor_date.get(i) %></td>
 				</tr>
 				<%} %>
+			
+				
 				
 			
 			
 			</table>
+			<%}else{ %>
+				您暂时没有门诊预约！
+				<%} %>
 			
 			
 			
-			
-			
-			
-				
-				
-				
-		
-			
-			</table>
-			
-			
-<!--		</div>-->
+
 		</center>
 	<%}%>
 
