@@ -53,13 +53,17 @@
     
     request.setCharacterEncoding("utf-8");
 	 String type = request.getParameter("type_assess");
+	 String site = request.getParameter("site_assess");
 	 String name = request.getParameter("name_assess");
 	 String  gender_str= request.getParameter("gender_assess");
 	 int gender = 2;
+	 String gender_sms = "";
 	 if("male".equals(gender_str)){
 		 gender = 0;
+		 gender_sms = "男";
 	 }else if("female".equals(gender_str)){
 		 gender = 1;
+		 gender_sms = "女";
 	 }
 	 int age =Integer.valueOf(request.getParameter("age_assess")).intValue();
 	 String mobile_str = request.getParameter("mobile_assess");
@@ -80,6 +84,7 @@
 	 
 	 HashMap hm = new HashMap();
 	 hm.put("type", type);
+	 hm.put("site",site);
 	 hm.put("name", name);
 	 hm.put("gender", gender);
 	 hm.put("age", age);
@@ -101,7 +106,7 @@
 	 
 	//发送成功预约的短信	
 	ReservationSMS reservationSMS = new ReservationSMS();
-	String msg = "上工坊健康会所-" + type + "：" + name + "，" + gender  + "，" +age  + "，" + mobile + "。";
+	String msg = "健康服务-" + type + "-" + site + "：" + name + "，" + gender_sms  + "，" +age  + "，" + mobile + "。";
 	reservationSMS.run(msg,String.valueOf(mobile).toString());		
 	 
 	 
