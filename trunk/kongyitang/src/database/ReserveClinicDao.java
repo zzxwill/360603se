@@ -82,6 +82,10 @@ public class ReserveClinicDao {
 	public ArrayList<Long> clinic_patient_illness_id = new ArrayList<Long>();
 	public ArrayList<Boolean> clinic_treat_flag = new ArrayList<Boolean>();*/
 	public ArrayList<String> clinic_date = new ArrayList<String>();
+	public ArrayList<String> clinic_time = new ArrayList<String>();
+	public ArrayList<Integer> clinic_reservation_normal_id = new ArrayList<Integer>();
+	public ArrayList<Integer> clinic_treat_flag = new ArrayList<Integer>();
+	
 	
 	public ArrayList<String> shanggongfang_adjust_type = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_adjust_programe = new ArrayList<String>();
@@ -290,7 +294,7 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
-		String sql = "SELECT  `site`, n.`department`, d.name,  `date` FROM  " + table_prefix + "reservation_normal n, " + table_prefix + "reservation_patient_illness i,  " + table_prefix + "user_doctor d where n.patient_illness_id = i.id and n.doctorid = d.id and userid =  " + userid;
+		String sql = "SELECT  `site`, n.`department`, d.name,  o.date, o.time, n.id, n.treat_flag  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
 		String sql_shanggongfang_adjust = "SELECT type, `adjust_programe`, `book_date` as shanggongfang_adjust_book_date, `adjust_master`, name  as shanggongfang_adjust_name  FROM  " + table_prefix + "reservation_shanggongfang_adjust WHERE  username =  " + userid;
 		String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
 		String sql_xuetang = "SELECT `xuetang`, `name` as xuetang_name FROM   " + table_prefix + "reservation_xuetang WHERE  username =  " + userid;
@@ -311,12 +315,17 @@ public class ReserveClinicDao {
 			ResultSet rs_shanggongfang_assess = stmt_shanggongfang_assess.executeQuery(sql_shanggongfang_assess);
 			ResultSet rs_xuetang = stmt_xuetang.executeQuery(sql_xuetang);
 			
+			//门诊预约
 			int index = 0;
 			while (rs.next()) {
 				clinic_site.add(rs.getString(1));
 				clinic_department.add(rs.getString(2));
 				clinic_doctor_name.add(rs.getString(3));
 				clinic_date.add(rs.getString(4));
+				clinic_time.add(rs.getString(5));
+				clinic_reservation_normal_id.add(rs.getInt(6));
+				clinic_treat_flag.add(rs.getInt(7));
+				
 				index++;
 			}
 			

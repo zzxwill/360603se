@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*"
+<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*,java.text.DateFormat,java.text.SimpleDateFormat,java.util.Date"
 	pageEncoding="UTF-8"%>
 
 <%@page import="database.*"%>
@@ -11,6 +11,8 @@
 	%>
 
 <center>
+<form name="verifyForm" id="verifyForm" method="post"
+				action="cancell_reservation.jsp">
 
 	<%
 					ReserveClinicDao reserveClinicDao = new ReserveClinicDao();
@@ -30,10 +32,11 @@
 
 		</tr>
 		<tr>
-			<td align="center" width="25%"><strong>诊疗机构</strong></td>
-			<td align="center" width="25%"><strong>科室</strong></td>
-			<td align="center" width="25%"><strong>医生</strong></td>
-			<td align="center" width="25%"><strong>预约时间</strong></td>
+			<td align="center" width="20%"><strong>诊疗机构</strong></td>
+			<td align="center" width="20%"><strong>科室</strong></td>
+			<td align="center" width="20%"><strong>医生</strong></td>
+			<td align="center" width="20%"><strong>预约时间</strong></td>
+			<td align="center" width="20%"><strong>操作</strong></td>
 		</tr>
 
 
@@ -49,7 +52,40 @@
 			<td align="center"><%=reserveClinicDao.clinic_site.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.clinic_department.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.clinic_doctor_name.get(i) %></td>
-			<td align="center"><%=reserveClinicDao.clinic_date.get(i) %></td>
+			<td align="center"><%=reserveClinicDao.clinic_date.get(i) %>&nbsp;<%=reserveClinicDao.clinic_time.get(i) %></td>
+			<td align="center">
+			<%Date currentTime = new Date();
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String date = dateFormat.format(currentTime);
+			if(reserveClinicDao.clinic_treat_flag.get(i) == 2){
+			%>
+			<div align="center" class="ASKSubmit_no"
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已取消
+									</div>
+			<%
+			
+			}else if(date.compareTo(reserveClinicDao.clinic_date.get(i))>=0 && reserveClinicDao.clinic_treat_flag.get(i) != 2){
+			%>
+			
+			<div align="center" class="ASKSubmit_no"
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >取消
+									</div>
+			
+			
+			
+			<%	
+			}else {
+				%>	
+			<div align="center" class="ASKSubmit"
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
+										<a id="submit_adjust_link" style="color: white;" href="../my_reservation/cancell_reservation.jsp?clinic_reservation_normal_id=<%=reserveClinicDao.clinic_reservation_normal_id.get(i) %>" ><big>取消</big></a>
+									</div>	
+								
+		
+			
+			<%
+			}%>
+			</td>
 		</tr>
 		<%} %>
 
@@ -154,6 +190,7 @@
 	您暂时没有预约！
 	<%} %>
 	<!--		</div>-->
+	</form>
 </center>
 
 <%-- <%
