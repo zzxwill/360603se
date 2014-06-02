@@ -71,7 +71,7 @@ public class Dao {
 			
 			
 			//String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`) VALUES (?,?,?,?,?)";
-			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`, userid) VALUES (?,?,?,?,?,?)";
+			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`, userid,outpatient_id) VALUES (?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql_reservation_normal);
 			ps.setString(1, site);
 			ps.setString(2, department);
@@ -86,6 +86,8 @@ public class Dao {
 			ps.setString(5, date);
 			//加入用户名 Will Zhou   5/21/2014
 			ps.setLong(6, userid);
+			
+			ps.setLong(7, outpatient_id);
 			
 
 			ps.execute();
@@ -239,6 +241,35 @@ public class Dao {
 		}
 	}
 
+	
+	// 取消门诊预约信息
+		public void cancell_reservation(HashMap hm) {
+
+			long clinic_reservation_normal_id = (Long) hm.get("clinic_reservation_normal_id");
+			
+
+			Connection conn = Connections.getConnection();
+
+			String sql = "UPDATE `04reservation_normal` SET `treat_flag`=2 WHERE id = " + clinic_reservation_normal_id;
+
+		
+			try {
+				PreparedStatement ps;
+
+			
+					ps = conn.prepareStatement(sql);
+				
+
+				ps.execute();
+
+				conn.close(); 
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	
 	// 饮料单价
 	public double PRICE_OF_KUANGQUANSHUI = 0.0;
 	public double PRICE_OF_HONGCHA = 0.0;
