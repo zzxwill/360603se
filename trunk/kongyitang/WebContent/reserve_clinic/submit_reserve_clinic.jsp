@@ -74,7 +74,7 @@
 	 
 	//发送成功预约的短信	
 		ReservationSMS reservationSMS = new ReservationSMS();
-		String msg = "孔医堂门诊-" + site + "：" + department + "，"+ name + "，" + mobile + "。";
+		String msg = "孔医堂门诊-" + site + "：" + department + "，"+ name + "，" + mobile + "。请准时就诊，谢谢！";
 		reservationSMS.run(msg,String.valueOf(mobile).toString());	
 		
 		
