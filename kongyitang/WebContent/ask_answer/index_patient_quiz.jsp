@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
   	
-  	<form method="post" name="ASKForm" id="ASKForm" action="AskResult.jsp">
+  	<form method="post" name="ASKForm" id="ASKForm" action="AskResult.jsp" encType="multipart/form-data" >
 	      <fieldset data-role="fieldcontain">
 	      
 	 <link rel="stylesheet" href="../css/ask.css" />
@@ -27,11 +27,29 @@
 			</tr>
 			<tr><td><hr></td></tr>
 			<tr>
-				<td align="center" width="100%"><div id="ASKPhoto">从相册中选择</div></td>
+				<td align="center" width="100%">
+				<style>
+				.file {
+    		position:absolute;
+    		filter:alpha(opacity=0);
+    		-moz-opacity:0;  
+    		opacity:0;  
+    		width:130px;
+    		height:35px;
+    	}
+				
+				</style>			
+				<div id="ASKPhoto" onclick = "browseBtnClick();" >从相册中选择</div>
+
+				<input type="file" id="uploadImage" name="uploadImage" onchange="checkImg();"  value="浏览"/>
+<!--				<input size="1" type="file" id="uploadImage" name="uploadImage" onchange="checkImg();" style="display:none"  />-->
+
+				</td>
 			</tr>
 			<tr><td><hr color="<%=sysFontColor %>"></td></tr>
 			<tr>
 				<td align="center">
+					<div id="msgImg"></div>
 					<div id="UploadPhotoCancel" onclick="UploadPhotoCancel()">取&nbsp;&nbsp;消</div>
 				</td>
 			</tr>
@@ -131,6 +149,7 @@
 	<br>
 	<div id="msgASK"></div>
 	<div id="ASKSubmit" style="width:95%" onclick="ASKSubmit()"><big>提&nbsp;&nbsp;交</big></div>
+	<div id="ASKWaiting" style="width:95%;display:none;" ><div id="SubmitButton"><big>正在提交，请稍后...</big></div></div>
 				
 	</center>
 		</fieldset>

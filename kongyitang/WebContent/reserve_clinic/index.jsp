@@ -231,7 +231,7 @@ $().ready(function() {
 				<input id="department" name="department" type="hidden">
 				<!-- 预约的医生id -->
 				<input id="doctorid" name="doctorid" type="hidden">
-				<!-- 预约的门诊id(2014-05-01 星期四 上午 普通门诊) -->
+				<!-- 预约的门诊id(2014-05-01 星期四 上午 中医门诊) -->
 				<input id="outpatientid" name="outpatientid" type="hidden">
 				<!-- 预约的门诊的目的 -->
 				<input id="purpose" name="purpose" type="hidden">

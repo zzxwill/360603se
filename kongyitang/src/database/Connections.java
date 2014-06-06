@@ -8,10 +8,10 @@ public class Connections {
 //public class connectionACE {
  
     public static Connection getConnection(){
-    	String username = "db4sm1ji23kix8uy";
-    	String password = "liliming1990";
-    	String databaseName = username;
-    	String host = "rdsayenemanerj2.mysql.rds.aliyuncs.com";
+    	String username = "root2";
+    	String password = "123qwe";
+    	String databaseName = "db4sm1ji23kix8uy";
+    	String host = "121.201.7.153";
     	String port = "3306";
     	String driverName = "com.mysql.jdbc.Driver";
     	String dbUrl = "jdbc:mysql://";

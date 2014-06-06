@@ -193,7 +193,7 @@ $().ready(function() {
 					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
 						width="100%" class="listTable" >				
 						<tr>
-							<td class="xuetang_button"><strong>科普学堂</strong></td>
+							<td class="xuetang_button"><strong>社区学堂</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit_no"  style="width:100px" onclick="">
 									<big>报&nbsp;&nbsp;名</big>

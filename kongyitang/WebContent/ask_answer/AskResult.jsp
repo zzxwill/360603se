@@ -48,42 +48,57 @@
 <script>
 
 </script>
-  	
+	<%@ include file="../ask_answer/index_patient_upload.jsp"%> 
 	<%
-
-		String ASKKeShi = request.getParameter("ASKKeShi");
-  		String ASKGender = request.getParameter("ASKGender");
-  		String ASKAge = request.getParameter("ASKAge");
+		String ASKKeShi = su.getRequest().getParameter("ASKKeShi");
+  		String ASKGender = su.getRequest().getParameter("ASKGender");
+  		String ASKAge = su.getRequest().getParameter("ASKAge");
 		//UserDaoPatient userDaoPatient = new UserDaoPatient();
 		if(null==ASKKeShi||ASKKeShi.equals("")||null==ASKGender||ASKGender.equals("")||
 				null==ASKAge||ASKAge.equals("")){
+			//System.out.println("setup-null\n");
 			%>
 			<script language='javascript' type='text/javascript'>
 					window.location = "<%=url %>";
 			</script>
 			<%	
 	  	}else{
-	  		String QuestionText = request.getParameter("QuestionText");
-	  		String ASKTel = request.getParameter("ASKTel");
+
+	  		String picture_path = null;
+	  		
+	  		if(sign==true){
+	  			picture_path = filename;
+	  		}else{
+	  			picture_path = null;
+	  		}
+	  		//System.out.println("picture_path:" + picture_path + "\n");
+	  		
+	  		String QuestionText = su.getRequest().getParameter("QuestionText");
+	  		String ASKTel = su.getRequest().getParameter("ASKTel");
 	  		int ASKGender_int = 0;
 	  		ASKGender_int = Integer.parseInt(ASKGender);
-	  		/*
-	  		if(ASKGender.equals("男")){
-	  			ASKGender_int = 1;
-	  		}else if(ASKGender.equals("女")){
-	  			ASKGender_int = 0;
-	  		}*/
+
 	  		int ASKKeShi_int = Integer.parseInt(ASKKeShi);
 	  		int ASKAge_int = Integer.parseInt(ASKAge);
-	  		
-	  		//TODO
-	  		String picture_path  = "http://www.baidu.com";
 	  		
 	  		ASKPatient askPatient = new ASKPatient();
 	  		askPatient.insertQuestion(USERID,QuestionText,picture_path,ASKKeShi_int,ASKGender_int,ASKAge_int,ASKTel);
 	  	%>
+	  	<br><br>
 	  	<div>您所关心的问题是：</div><br>
 	  	<div style="color:<%=sysFontColor %>"><%=QuestionText %></div><br>
+	  	<%
+	  	if((null==picture_path)||(picture_path.equals(""))){
+	  		;
+	  	}else{
+	  		%>
+	  		<center>
+	  		<img src="<%=P_IMAGES %><%=picture_path %>" border = "0px" width="50%"/>
+	  		</center>
+	  		<%
+	  	}
+	  	%>
+	  	<br>
 	  	<div>我们会安排相关领域的专家医生尽快为您解答，请您注意查看提问记录！</div><br>
 	  	<div>孔医堂全体员工再次祝您身体健康！</div>
 	  	<%

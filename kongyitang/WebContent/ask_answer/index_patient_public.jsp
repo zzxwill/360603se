@@ -98,6 +98,7 @@
 	  			departmentID = askPatient_doctor.departments_Condition[i];
 	  			departmentName = departmentDao.getDepartmentName(departmentID);
 	  			int answerFlag =  askPatient_doctor.answered_flags_Condition[i];
+
 	  			//System.out.println("qID:" + qID + "\n");
 	  		%>
 			
@@ -120,6 +121,20 @@
 						</tr>
 					</table>
 					<div align="left" id="ask_questions"><%=askPatient_doctor.contents_Condition[i] %></div>
+					
+					<%
+					String pic_path = askPatient_doctor.picture_paths_Condition[i];
+					if((null==pic_path)||(pic_path.equals(""))){
+						;
+					}else{
+						%>
+						<center>
+	  						<img src="<%=P_IMAGES %><%=pic_path %>" border = "0px" width="80%"/>
+	  					</center>
+						<%
+					} 
+					%>
+
 					<div align="left"  id="ask_answers">
 					<%
 						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");

@@ -1,3 +1,5 @@
+var ImgOK = true;
+
 function SelectKeShi(){
 	document.getElementById('SelectKeShi').style.display='block';
 }
@@ -16,10 +18,20 @@ function UploadPhoto(){
 }
 
 function UploadPhotoCancel(){
+	var uploadImage = document.getElementById('uploadImage') ;
+	uploadImage.outerHTML = uploadImage.outerHTML;
+	//uploadImage.value = null;
+	document.getElementById("msgImg").style.display = "none";
 	document.getElementById('UploadPhoto').style.display='none';
 }
 
+function browseBtnClick() {
+//	document.getElementById("uploadImage").click(); 
+	document.getElementById("uploadImage").click(); 
+}
+
 function ASKSubmit(){
+
 	
 	var QuestionText = document.getElementById("QuestionText").value;
 	var ASKKeShi = $('input:radio[name="ASKKeShi"]:checked').val();
@@ -39,14 +51,7 @@ function ASKSubmit(){
 	 	  message = "请您填写各项完整信息！";
 		  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 	}
-	/*
-	if(flag==1){
-		if((ASKGender!="男")&&(ASKGender!="女")){
-			flag = 0;
-		 	message = "请您正确填写性别信息，如 “男”！";
-			msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
-		}
-	}*/
+
 	if(flag==1){
 		if(!( /^[123456789]|([0-9]{2})$/.test(ASKAge))){
 			 flag = 0;
@@ -63,6 +68,8 @@ function ASKSubmit(){
 		 }
 	}
 	if(flag==1){
+		document.getElementById("ASKSubmit").style.display = "none";
+		document.getElementById("ASKWaiting").style.display = "block";
 		var ASKForm = document.getElementById("ASKForm");
 		ASKForm.submit(); 
 	}
@@ -88,3 +95,56 @@ function OwnASKButton(){
 	document.getElementById('OthersASKButton').style.backgroundColor='';
 	document.getElementById('OthersASKButton').style.color="#FF8C47";
 }
+
+
+function checkImg(){
+
+	var uploadImage = document.getElementById("uploadImage").value;
+	var msg = document.getElementById("msgImg");
+	
+	var pos = uploadImage.lastIndexOf(".");
+	var lastname = uploadImage.substring(pos,uploadImage.length);
+	//var uploadImage = lastname.toLowerCase();
+	var ext = ['.jpg', '.jpeg', '.png','.bmp','.JPG','.JPEG','.PNG','.BMP','.gif','.GIF'];//jpg,jpeg,bmp,png,gif
+	var flag = false;
+	for(var i = 0; i < ext.length; i++)
+	{
+		//alert(ext[i]);
+		if (uploadImage.indexOf(ext[i]) > 0)
+		{
+			flag = true;
+			break;
+		}
+	}
+	
+	if(flag == false){
+		 ImgOK = false;
+		 
+		 document.getElementById("msgImg").style.display = "block";
+		 message = "只能上传.jpg、.jpeg、.bmp、.png、.gif、格式的图片!";
+		 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+	}else{
+		ImgOK = true;
+		message = "上传成功，请稍后...";
+	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+	    setTimeout(" document.getElementById('UploadPhoto').style.display='none' ",1500);
+		document.getElementById("msgImg").style.display = "none";
+		//document.getElementById('UploadPhoto').style.display='none';
+		//var uploadForm = document.getElementById("uploadForm");
+		//uploadForm.submit(); 
+		//document.getElementById("msg").style.display = "block";
+	}
+}
+/*
+function callback(msg)
+{
+	//alert("callback");
+	document.getElementById("ImgSubmit").style.display = "none";
+	document.getElementById("ImgWait").style.display = "none";
+	document.getElementById("ImgCompletd").style.display = "block";
+	
+	//document.getElementById("file").outerHTML = document.getElementById("file").outerHTML;
+	document.getElementById("msg").innerHTML = "<font color=red>"+msg+"</font>";
+}
+
+*/

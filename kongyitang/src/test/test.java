@@ -168,6 +168,16 @@ public class test {
 		ipDao.modifyStatus(userID, role);
 		*/
 		
+		/*
+		//修改患者密码
+		PasswordUtil GP = new PasswordUtil();
+    	String pw = "liming";
+    	String mobile = "15210983731";
+		pw = GP.generatePassword(pw);
+		UserDaoPatient patient = new UserDaoPatient();
+		patient.modifyPassword_Patient(mobile, pw);
+		*/
+		
 	}
 
 }

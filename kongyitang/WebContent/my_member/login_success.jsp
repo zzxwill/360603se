@@ -83,7 +83,7 @@
 	<%		
 	}else{
 		Validate validate = new Validate();
-		if(validate.validate(0, loginName, loginPW)){
+		if(validate.validate(0, loginName, loginPW)){//患者
 			
 			UserDaoPatient userDaoPatient = new UserDaoPatient();
 			int userID = userDaoPatient.getUserId_by_Tel_Patient(loginName);
@@ -108,7 +108,7 @@
 			//System.out.println("Patient success!");
 			curPath = request.getParameter("curPath");
 			//System.out.println("curPath0:" + curPath + "\n");
-			if(null==curPath||curPath.equals("")){
+			if(null==curPath||curPath.equals("")||curPath.equals("null")){
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
@@ -128,7 +128,7 @@
 				//response.setHeader("Location",newLocn);				
 			}
 
-		}else if(validate.validate(1, loginName, loginPW)){
+		}else if(validate.validate(1, loginName, loginPW)){//医生
 			
 			UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 			int userID = userDaoDoctor.getUserId_by_Tel_Doctor(loginName);
@@ -156,7 +156,7 @@
 			//System.out.println("Doctor success!");
 			curPath = request.getParameter("curPath");
 			//System.out.println("curPath1:" + curPath + "\n");
-			if(null==curPath||curPath.equals("")){
+			if(null==curPath||curPath.equals("")||curPath.equals("null")){
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
@@ -178,6 +178,7 @@
 	
 		}else{
 			curPath = request.getParameter("curPath");
+			//System.out.println("curPath11:" + curPath + "\n");	
 			%>
 			<input id="curPath" name="curPath" type="hidden"  value="<%=curPath %>" />
 	    	<table width="90%" cellspacing="0" cellpadding="0" border=0px style="margin-top:20px;">

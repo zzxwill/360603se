@@ -21,6 +21,7 @@ String LGRole = null;
 String curPath = null;
 String sysName = "孔医堂！";
 String hrSize  = "999 1px";
-
+String P_IMAGES = "http://121.201.7.153/KYTPic/IllnessDes/";
+String D_IMAGES = "http://121.201.7.153/KYTPic/Portrait/";
 
 %>
