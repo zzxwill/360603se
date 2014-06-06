@@ -29,13 +29,12 @@ public class UserDaoDoctor {
 	public String UserDoctorTels[];
 	
 	//新建用户
-	public void insertUser_Doctor(String userName, int userGender, int userAge, int userRole, String userTel, 
-			String master, String doctor_criteria, int department, String title, String userPWD) {
+	public void insertUser_Doctor(String userName, int userGender, int userAge, int userRole, String userTel, String userPWD) {
 		
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04user_doctor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into 04user_doctor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
 			int id = tool.generateID("04user_doctor");
@@ -48,16 +47,22 @@ public class UserDaoDoctor {
 			ps.setInt(4, userAge);
 			ps.setInt(5, userRole);
 			ps.setString(6, userTel);
-			ps.setString(7, master);
-			ps.setString(8, doctor_criteria);
-			ps.setInt(9, department);
-			ps.setString(10, title);
-			ps.setString(11, userPWD);
-			ps.setInt(12, 0); //validate_flag
-			ps.setInt(13, 1);//belong_outpatient_department
+			ps.setString(7, "");
+			ps.setString(8, "");
+			ps.setString(9, "");
+			ps.setString(10, "");
+			ps.setString(11, "");
+			ps.setString(12, "");
+			ps.setString(13, "");
+			ps.setInt(14, 0);
+			ps.setString(15, userPWD);
+			ps.setInt(16, 0); //validate_flag
+			ps.setString(17, "");
+			ps.setString(18, "");
+			ps.setInt(19, 1);//belong_outpatient_department
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
-			ps.setTimestamp(14, ts);
-			ps.setTimestamp(15, ts);
+			ps.setTimestamp(20, ts);
+			ps.setTimestamp(21, ts);
 
 			ps.execute();
 			//System.out.println("doctor insert success!");
@@ -179,11 +184,32 @@ public class UserDaoDoctor {
 		}
 	}
 	
-	//查询Doctor用户是否禁用
+	//根据mobile查询Doctor用户是否禁用
 	public int IsDoctorExist(String mobile) throws SQLException {
 		int flag = 0;
 		conn = Connections.getConnection();
 		String sql = "select * from 04user_doctor where mobile='" + mobile + "'"
+			+ " and validate_flag = '" + 1 + "'" ;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				flag = 1;
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	//根据userID查询Doctor用户是否禁用
+	public int IsDoctorExist_by_userID(int id) throws SQLException {
+		int flag = 0;
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where id='" + id + "'"
 			+ " and validate_flag = '" + 1 + "'" ;
 		try {
 			stmt = conn.createStatement();
@@ -220,6 +246,59 @@ public class UserDaoDoctor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	//医生认证
+	public void authentication_Doctor(int id, String identity_ID, String doctor_criteria, 
+			String certified_type, String title, String hospital_owned, String department, 
+				String master, String doctor_criteria_photo, String doctor_portrait) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		
+		String sql = "update 04user_doctor set identity_ID = '" + identity_ID + "'"
+				+ " , doctor_criteria = '" + doctor_criteria + "'" 
+				+ " , certified_type = '" + certified_type + "'" 
+				+ " , title = '" + title + "'" 
+				+ " , hospital_owned = '" + hospital_owned + "'" 
+				+ " , department = '" + department + "'" 
+				+ " , master = '" + master + "'" 
+				+ " , doctor_criteria_photo = '" + doctor_criteria_photo + "'" 
+				+ " , doctor_portrait = '" + doctor_portrait + "'" 
+				+ " , auth_submit = '" + 1 + "'" 
+			 	+ " , updateDate = '" + ts + "'" 
+			 		+ " where id = '" + id + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//根据userID查询Doctor用户是否提交认证资料
+	public int IsDoctorSubmitAuth_by_userID(int id) throws SQLException {
+		int flag = 0;
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where id='" + id + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				flag = rs.getInt("auth_submit");
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
 	}
 	
 	

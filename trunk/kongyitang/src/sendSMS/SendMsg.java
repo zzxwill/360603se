@@ -56,7 +56,7 @@ public class SendMsg {
 			//tel = "15210983731";
 			//Tool tool = new Tool();
 			//String str_code = tool.GenRandomNum(); 
-			message = "您的验证码是：" + str_code + " ";
+			message = "您的验证码是：" + str_code + " " + ",三十分钟内有效！";
 			SendMsgProces(message,tel);
 			System.out.println("在" + ts + "时刻: 验证码【" + str_code + "】发送成功。\n");
 		} catch (SQLException e1) {

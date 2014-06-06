@@ -19,7 +19,7 @@ public class IPDao {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
-	private long interval = 15*60*1000; //十五分钟间隔
+	private long interval = 30*60*1000; //三十分钟间隔
 		
 	//新建IP
 	public void insertIP(int userID, int role, String address) {

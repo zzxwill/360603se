@@ -52,6 +52,7 @@
 				 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 			 }
 	    }
+	    /*
 		if(flag==1){
 		   if(radio%2==1){//医生有效
 			   if(null==registerShiCheng||registerShiCheng==""||null==registerZhengJian||registerZhengJian==""||
@@ -69,7 +70,7 @@
 				  
 			   }
 		   }
-		}
+		}*/
 	   if(flag==1){
 		   //registerNext
 		   

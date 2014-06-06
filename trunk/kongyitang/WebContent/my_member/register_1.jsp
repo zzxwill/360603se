@@ -81,12 +81,12 @@
     					<tr>
     					
     						<td valign="middle" align="right" width="15%">
-    							<input type="radio" checked name="registerRole" id="registerRole" value="0" onclick="changeRadio()">
+    							<input type="radio" checked name="registerRole" id="registerRole" value="0" >
     						</td>
     						<td align="left" width="45%" valign="middle">&nbsp;&nbsp;普通用户</td>
     						 
     						<td valign="middle" align="right" width="15%">
-    							<input type="radio" name="registerRole" id="registerRole" value="1" onclick="changeRadio()" >
+    							<input type="radio" name="registerRole" id="registerRole" value="1" >
     						<td align="left" width="25%" valign="middle">&nbsp;&nbsp;医生</td>
     					
     					</tr>
@@ -95,97 +95,7 @@
 				<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
     		</tr>
     	</table>
-    
-    	<div id="registerDoctor" style="display:none" >
-	    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	    		<tr>
-	    			<td width="25%"><div id="MyInput">师&nbsp;&nbsp;&nbsp;&nbsp;承</div></td>
-	    			<td width="75%"><input id="registerShiCheng" name="registerShiCheng" type="text" value="" /></td>
-	    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
-	    		</tr>
-	    		<tr>
-	    			<td width="25%"><div id="MyInput">医师证号</div></td>
-	    			<td width="75%"><input id="registerZhengJian" name="registerZhengJian" type="text" value="" /></td>
-	    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
-	    		</tr>
-	    		<tr>
-	    			<td width="25%"><div id="MyInput">科&nbsp;&nbsp;&nbsp;&nbsp;室</div></td>
-	    			<td width="75%">
-	    				<div id="InputBorder" align="center" onclick="SelectKeShi()">
-	    					<div id="SelectedKeShi" style="display:none;float: left;"></div>
-	    					<div id="SelectKeShiAttention">选择科室&nbsp;&nbsp;&nbsp;&nbsp;
-	    					<img src="../images/down.png" border = "0px"  width="20px"/></div>
-	    				</div>
-	    			</td>
-	    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
-	    		</tr>
-	    		<tr>
-	    			<td width="25%"><div id="MyInput">职&nbsp;&nbsp;&nbsp;&nbsp;称</div></td>
-	    			<td width="75%"><input id="registerZhiCheng" name="registerZhiCheng" type="text" value="" /></td>
-	    			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
-	    		</tr>
-    		</table>
-	    </div>
-	    
-	        		
-    <div id="SelectKeShi" class="SelectKeShi" >
-		<table width="100%" cellpadding="0" cellspacing="0px"  border="0"  >
-			<tr>
-				<td align="center" width="70%"><big>中医内科</big></td>
-				<td valign="middle" align="left" width="30%">
-					<input type="radio" name="registerKeShi" id="registerKeShi" value="1">
-				</td>
-			</tr>
-		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
-			<tr>
-				<td align="center" width="70%"><big>中医外科</big></td>
-				<td valign="middle" align="left" width="30%">
-					<input type="radio" name="registerKeShi" id="registerKeShi" value="2">
-				</td>
-			</tr>
-		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
-			<tr>
-				<td align="center" width="70%"><big>妇&nbsp;&nbsp;科</big></td>
-				<td valign="middle" align="left" width="30%">
-					<input type="radio" name="registerKeShi" id="registerKeShi" value="3">
-				</td>
-			</tr>
-		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
-			<tr>
-				<td align="center" width="70%"><big>儿&nbsp;&nbsp;科</big></td>
-				<td valign="middle" align="left" width="30%">
-					<input type="radio" name="registerKeShi" id="registerKeShi" value="4">
-				</td>
-			</tr>
-		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
-			<tr>
-				<td align="center" width="70%"><big>针推科</big></td>
-				<td valign="middle" align="left" width="30%">
-					<input type="radio" name="registerKeShi" id="registerKeShi" value="5">
-				</td>
-			</tr>
-		</table>
-		<table width="100%"><tr><td><hr color="<%=sysFontColor %>"></td></tr></table>
-		<table width="100%" >
-			<tr>
-				<td width="50%" align="center">
-					<div id="SelectKeshiCertain" onclick="SelectKeshiCertain()"><big>确&nbsp;&nbsp;认</big></div>
-				</td>
-				<td align="center">
-					<div id="SelectKeshiCancel" onclick="SelectKeshiCancel()"><big>取&nbsp;&nbsp;消</big></div>
-				</td>
-			</tr>
-		</table>
-
-	 </div>   
+  
 	    <script>
 	    $(document).ready(function(){
 	   		 $("#registerTel").parent().css("-webkit-border-radius",".6em");

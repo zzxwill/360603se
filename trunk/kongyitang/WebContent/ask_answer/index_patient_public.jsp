@@ -90,7 +90,8 @@
 		  	
 		  	AnswerDao answerDao_Patient = new AnswerDao();
 						
-	  		for(int i=1;i<=questionNum;i++){
+	  		//for(int i=1;i<=questionNum;i++){//正序
+		  	for(int i=questionNum;i>=1;i--){ //逆序
 	  			//qID = i;
 	  			qID = askPatient_doctor.ids_Condition[i];
 	  			answerDao_Patient.getAnswers_Given(qID);
