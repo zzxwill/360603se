@@ -76,6 +76,18 @@
 							</tr>
 						</table>
 						<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
+						<%
+						String pic_path = askPatient.picture_paths_Given[i];
+						if((null==pic_path)||(pic_path.equals(""))){
+							;
+						}else{
+							%>
+							<center>
+		  						<img src="<%=P_IMAGES %><%=pic_path %>" border = "0px" width="80%"/>
+		  					</center>
+							<%
+						} 
+						%>
 					</div>
 					<br>
 				<%
@@ -188,6 +200,20 @@
 					</tr>
 				</table>
 				<div align="left"  id="questions"><%=askPatient_doctor.content %></div>
+				
+				<%
+				String pic_path = askPatient_doctor.picture_path;
+				if((null==pic_path)||(pic_path.equals(""))){
+					;
+				}else{
+					%>
+					<center>
+  						<img src="<%=P_IMAGES %><%=pic_path %>" border = "0px" width="80%"/>
+  					</center>
+					<%
+				} 
+				%>
+				
 				<div align="left"  id="answers">
 					<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>
 					专家答复&nbsp;：&nbsp;<%=answerDao_Doctor.answers_Given_Doctor[i] %>

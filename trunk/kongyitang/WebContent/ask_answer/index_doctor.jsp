@@ -153,6 +153,18 @@
 						</tr>
 					</table>
 					<div align="left" id="questions"><%=askPatient_doctor.contents_Condition[i] %></div>
+					<%
+					String pic_path = askPatient_doctor.picture_paths_Condition[i];
+					if((null==pic_path)||(pic_path.equals(""))){
+						;
+					}else{
+						%>
+						<center>
+	  						<img src="<%=P_IMAGES %><%=pic_path %>" border = "0px" width="80%"/>
+	  					</center>
+						<%
+					} 
+					%>
 					<br>
 					<div style="width:30%" id="reply_yes" class="reply_yes" onclick="AnswerSubmit(<%=qID %>)">回答</div>
 				</div>
