@@ -115,7 +115,8 @@
 	  		int departmentID = 0;
 		  	String departmentName = null;
 		  	DepartmentDao departmentDao = new DepartmentDao();
-	  		for(int i=1;i<=questionNum;i++){
+	  		//for(int i=1;i<=questionNum;i++){//正序
+	  		for(int i=questionNum;i>=1;i--){ //逆序
 	  			//qID = i;
 	  			qID = askPatient_doctor.ids_Condition[i];
 	  			departmentID = askPatient_doctor.departments_Condition[i];
@@ -166,7 +167,14 @@
 					} 
 					%>
 					<br>
-					<div style="width:30%" id="reply_yes" class="reply_yes" onclick="AnswerSubmit(<%=qID %>)">回答</div>
+					<%
+					UserDaoDoctor userDaoDoctor_answer = new UserDaoDoctor();
+					int flag = 0;
+					flag = userDaoDoctor_answer.IsDoctorExist_by_userID(USERID);
+					if(flag==1){
+					%>
+						<div style="width:30%" id="reply_yes" class="reply_yes" onclick="AnswerSubmit(<%=qID %>)">回答</div>
+					<%} %>
 				</div>
 					
 				</center>

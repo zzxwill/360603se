@@ -136,13 +136,6 @@
 		    		</tr>
 		   		</table>
 				<%
-				if(registerRole_int==1){//医生
-				%>
-				<input id="registerShiCheng" name="registerShiCheng" type="hidden" value="<%=registerShiCheng %>" />
-				<input id="registerZhengJian" name="registerZhengJian" type="hidden" value="<%=registerZhengJian %>" />
-				<input id="registerKeShi" name="registerKeShi" type="hidden" value="<%=registerKeShi %>" />
-				<input id="registerZhiCheng" name="registerZhiCheng" type="hidden" value="<%=registerZhiCheng %>" />
-				<%}
 		 	}
 		 }%>
 		 <br>

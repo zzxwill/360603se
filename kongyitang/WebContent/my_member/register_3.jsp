@@ -103,8 +103,7 @@
 					//System.out.println("doctor register!\n");
 					UserDaoDoctor doctor = new UserDaoDoctor();
 					doctor.insertUser_Doctor(registerName, registerGender_int, registerAge_int,
-							registerRole_int, registerTel, registerShiCheng, registerZhengJian,
-							registerKeShi_int, registerZhiCheng, registerPW);
+							registerRole_int, registerTel, registerPW);
 					
 					int userID = doctor.getUserId_by_Tel_Doctor(registerTel);
 					
@@ -122,7 +121,7 @@
 					IPDao ipDao = new IPDao();
 					//ipDao.modifyAddress(userID,0,TMP_IPAdress);
 					//需要审核，先不加入ip列表
-					//ipDao.insertIP(userID,1,TMP_IPAdress);
+					ipDao.insertIP(userID,1,TMP_IPAdress);
 					%>
 					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册医生账号孔医堂，请等候身份审核！</p>
 					<%

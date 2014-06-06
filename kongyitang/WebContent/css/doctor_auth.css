@@ -1,0 +1,116 @@
+#MyInput{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#d8a14f;
+	height:34px;
+	line-height:35px;
+	background:#d8a14f;
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:0px 0px;
+    border-bottom-right-radius:0px 0px;
+    border-bottom-left-radius:10px 10px;
+    text-align:center;
+    margin:5px 0;
+}
+
+#InputBorder{
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#AAAAAA;
+	height:34px;
+	line-height:34px;
+	background: ;
+	color:#000000;
+	
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+   
+    //text-align:center;
+}
+
+
+#SelectKeShi{ 
+    display: none; 
+    position: absolute; 
+    top: 25%; 
+    left: 35%; 
+    width: 45%; 
+    //height: 60%; 
+    padding: 10px; 
+    border: 1px solid #d8a14f; 
+    background-color: white; 
+    z-index:1002; 
+    overflow: auto; 
+}
+
+#SelectKeshiCertain{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#d8a14f;
+	height:25px;
+	line-height:25px;
+	background:#d8a14f;
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}
+
+#SelectKeshiCancel{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#BFBFBF;
+	height:30px;
+	line-height:30px;
+	background: ;
+	color:#000000;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}
+
+#UploadPhoto{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#d8a14f;
+	height:40px;
+	line-height:40px;
+	background:#d8a14f;
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}
+
+#PhotoButton{ 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#d8a14f;
+	height:30px;
+	line-height:30px;
+	background:#d8a14f;
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;
+}
+
+#UploadCriteriaPhoto,#UploadPortraitPhoto { 
+    display: none; 
+    position: absolute; 
+    top: 20%; 
+    left: 25%; 
+    width: 45%; 
+    //height: 60%; 
+    padding: 10px; 
+    border: 1px solid #d8a14f; 
+    background-color: white; 
+    z-index:1002; 
+    overflow: auto; 
+}
+

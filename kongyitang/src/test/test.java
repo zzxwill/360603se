@@ -178,6 +178,15 @@ public class test {
 		patient.modifyPassword_Patient(mobile, pw);
 		*/
 		
+		//注册医生
+		PasswordUtil GP = new PasswordUtil();
+    	String userName = "doctor";
+		String pw = "doctor";
+		pw = GP.generatePassword(pw);
+		UserDaoDoctor doctor = new UserDaoDoctor();
+		//doctor.insertUser_Doctor(userName, userGender, userAge, userRole, userTel, userPWD);
+		doctor.insertUser_Doctor(userName, 0, 23, 1, userName , pw);
+		
 	}
 
 }
