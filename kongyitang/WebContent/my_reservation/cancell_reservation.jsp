@@ -48,11 +48,13 @@
     
     request.setCharacterEncoding("utf-8");
 	 long clinic_reservation_normal_id = Long.parseLong(request.getParameter("clinic_reservation_normal_id"));
+	 String type= request.getParameter("type");
 	 
 	
 	 
 	 HashMap hm = new HashMap();
 	 hm.put("clinic_reservation_normal_id", clinic_reservation_normal_id);
+	 hm.put("type", type);
 	 
 	
 	 
