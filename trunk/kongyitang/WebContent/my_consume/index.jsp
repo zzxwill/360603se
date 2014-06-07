@@ -9,6 +9,7 @@
 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%> 
+	 <%@ include file="../include/SpecificssJS.jsp"%>
 	
 	<link rel="stylesheet" href="../css/my.css" />
 	<script src="../js/my.js"></script>

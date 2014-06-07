@@ -28,7 +28,7 @@
 	<%if(reserveClinicDao.clinic_site.size()!=0){  %>
 	<table width="100%">
 		<tr>
-			<td align="center" colspan="4"><strong>门诊预约</strong></td>
+			<td align="center" colspan="5"><strong>门诊预约</strong></td>
 
 		</tr>
 		<tr>
@@ -78,7 +78,7 @@
 				%>	
 			<div align="center" class="ASKSubmit"
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
-										<a id="submit_adjust_link" style="color: white;" href="../my_reservation/cancell_reservation.jsp?clinic_reservation_normal_id=<%=reserveClinicDao.clinic_reservation_normal_id.get(i) %>" ><big>取消</big></a>
+										<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=normal&clinic_reservation_normal_id=<%=reserveClinicDao.clinic_reservation_normal_id.get(i) %>" ><big>取消</big></a>
 									</div>	
 								
 		
@@ -102,7 +102,7 @@
 
 
 		<tr>
-			<td align="center" colspan="5"><strong>健康服务</strong></td>
+			<td align="center" colspan="6"><strong>健康服务</strong></td>
 
 		</tr>
 
@@ -112,6 +112,7 @@
 			<td align="center" width="20%"><strong>时间</strong></td>
 			<td align="center" width="20%"><strong>老师</strong></td>
 			<td align="center" width="20%"><strong>报名者</strong></td>
+			<td align="center" width="20%"><strong>操作</strong></td>
 		</tr>
 
 
@@ -126,6 +127,39 @@
 			<td align="center"><%=reserveClinicDao.shanggongfang_adjust_book_date.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.shanggongfang_adjust_book_master.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.shanggongfang_adjust_name.get(i) %></td>
+			<td align="center">
+				<%Date currentTime = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String date = dateFormat.format(currentTime);
+				if(reserveClinicDao.shanggongfang_adjust_treat_flag.get(i) == 2){
+				%>
+				<div align="center" class="ASKSubmit_no"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已取消
+										</div>
+				<%
+				
+				}else if(date.compareTo(reserveClinicDao.shanggongfang_adjust_book_date.get(i).substring(0,10))>=0 && reserveClinicDao.shanggongfang_adjust_treat_flag.get(i) != 2){
+				%>
+				
+				<div align="center" class="ASKSubmit_no"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >取消
+										</div>
+				
+				
+				
+				<%	
+				}else {
+					%>	
+				<div align="center" class="ASKSubmit"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
+											<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=adjust&clinic_reservation_normal_id=<%=reserveClinicDao.shanggongfang_adjust_id.get(i) %>" ><big>取消</big></a>
+										</div>	
+									
+			
+				
+				<%
+				}%>
+			</td>
 		</tr>
 		<%} %>
 
@@ -139,6 +173,39 @@
 			<td align="center"><%=reserveClinicDao.shanggongfang_assess_book_date.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.shanggongfang_assess_book_master.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.shanggongfang_assess_name.get(i) %></td>
+			<td align="center">
+				<%Date currentTime = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String date = dateFormat.format(currentTime);
+				if(reserveClinicDao.shanggongfang_assess_treat_flag.get(i) == 2){
+				%>
+				<div align="center" class="ASKSubmit_no"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已取消
+										</div>
+				<%
+				
+				}else if(date.compareTo(reserveClinicDao.shanggongfang_assess_book_date.get(i).substring(0,10))>=0 && reserveClinicDao.shanggongfang_assess_treat_flag.get(i) != 2){
+				%>
+				
+				<div align="center" class="ASKSubmit_no"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >取消
+										</div>
+				
+				
+				
+				<%	
+				}else {
+					%>	
+				<div align="center" class="ASKSubmit"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
+											<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=assess&clinic_reservation_normal_id=<%=reserveClinicDao.shanggongfang_assess_id.get(i) %>" ><big>取消</big></a>
+										</div>	
+									
+			
+				
+				<%
+				}%>
+			</td>
 		</tr>
 		<%} %>
 
@@ -166,6 +233,7 @@
 		<tr>
 			<td align="center" width="50%"><strong>学堂名称</strong></td>
 			<td align="center" width="50%"><strong>报名者</strong></td>
+			<td align="center" width="20%"><strong>操作</strong></td>
 
 		</tr>
 
@@ -181,6 +249,32 @@
 		<tr>
 			<td align="center"><%=reserveClinicDao.xuetang.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.xuetang_name.get(i) %></td>
+			 <td align="center">
+				<%Date currentTime = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String date = dateFormat.format(currentTime);
+				if(reserveClinicDao.xuetang_treat_flag.get(i) == 2){
+				%>
+				<div align="center" class="ASKSubmit_no"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已取消
+										</div>
+				
+				
+				
+				
+				<%	
+				}else {
+					%>	
+				<div align="center" class="ASKSubmit"
+											style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
+											<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=xuetang&clinic_reservation_normal_id=<%=reserveClinicDao.xuetang_id.get(i) %>" ><big>取消</big></a>
+										</div>	
+									
+			
+				
+				<%
+				}%>
+			</td> 
 		</tr>
 		<%} %>
 	</table>
