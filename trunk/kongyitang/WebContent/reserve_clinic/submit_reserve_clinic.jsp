@@ -56,11 +56,27 @@
     request.setCharacterEncoding("utf-8");
 	 String site = request.getParameter("site");
 	 String department = request.getParameter("department");
+	 String illness_name = request.getParameter("illness_name");
+	 
+	 if(site == null || department ==null || illness_name == null){
+	%>	 
+		 <center>
+			<div style="color:red"><big>禁止重复提交！
+				<br>正在返回预约前界面，请稍后...</big>
+			</div>
+			</center>
+			<script language='javascript' type='text/javascript'>
+				setTimeout(" window.location = 'index.jsp' ",2000);
+			</script>	 
+	<%	 
+	 }else{
+	 
+	 
 	 int doctorid = Integer.valueOf(request.getParameter("doctorid")).intValue();
 	 int outpatientid = Integer.valueOf(request.getParameter("outpatientid")).intValue();
 	 //int outpatientid = 100001;
 	 
-	 String illness_name = request.getParameter("illness_name");
+	 
 	 String purpose = request.getParameter("purpose");
 	 
 	 
@@ -77,41 +93,35 @@
 		String msg = "孔医堂门诊-" + site + "：" + department + "，"+ name + "，" + mobile + "。请准时就诊，谢谢！";
 		reservationSMS.run(msg,String.valueOf(mobile).toString());	
 		
+		String notification = "恭喜您 " + name + "，您已成功预约“门诊-" + site + "“！";
 		
-    %>
-	   <!--  <script>
-			self.location = '../index.jsp';
-	    </script> -->
-	
-    <br>
-    
-    
-   
-    <% String url="index.jsp"; %>	
-			<br><br>
+				notification = java.net.URLEncoder.encode(notification, "UTF-8");
+					System.out.println(notification);
+					notification = java.net.URLEncoder.encode(notification, "UTF-8");
+					System.out.println(notification);
+					String url= "../reserve_xuetang/notify_reserve_xuetang.jsp?notification=" + notification;
+		
+		
+		%>	
+			<%-- <br><br>
 			<center>
 			<div style="color:red"><big>恭喜您 <%=name %> ，您已成功预约"门诊-<%=site %>"！
 				<br>正在返回预约前界面，请稍后...</big>
 			</div>
-			</center>
+			</center> --%>
 			<script language='javascript' type='text/javascript'>
-				setTimeout(" window.location = '<%=url %>' ",2000);
+				window.location.href = "<%=url%>";
 			</script>
-
+	<%} %>   
 
   </div>
 
-  <%//@ include file="../include/buttonStyle.jsp"
-  %>
+
 
 	<div data-role="footer" data-id="myfooter" data-position="fixed">
 	  
 	    <script>
-		function CloseWin(){
-			//window.opener=null; 
-			//window.close(); 
-			WeixinJSBridge.call('closeWindow');
-		}
+		
 		
 		//返回微信主界面  Will  5/19/2014
 		function return_to_wechat_main(){
@@ -123,11 +133,11 @@
 		
 		
 	    </script>
-	    <table width="100%">
+<!-- 	    <table width="100%">
 	    	<tr><td>
 	<a id='button-special' type="button" data-theme="b" data-mini="true" data-icon="arrow-r" data-iconpos="right" onclick="CloseWin()">我知道了</a>
 	  		</td></tr>
-	  	</table>
+	  	</table> -->
 	</div>
 
 </div> 

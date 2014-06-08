@@ -67,11 +67,21 @@ function return_to_wechat_main(){
 	
 				
 		</div>
-		<div id="SubmitButton" style="width:90%"  onclick="return_to_wechat_main();">我知道了</div>
+		
+<!-- 		<center>
+			<div id="SubmitButton" style="width:90%"  onclick="return_to_wechat_main();">我知道了</div>
+		</center> -->
 
 		<div data-role="footer" data-id="myfooter" data-position="fixed">
 
-<
+			<table width="100%">
+				<tr>
+					<td><a id='button-special' type="button" data-theme="b"
+						data-mini="true" data-icon="arrow-r" data-iconpos="right"
+						onclick="CloseWin()">我知道了</a></td>
+				</tr>
+			</table>
+
 		</div>
 
 	</div>
