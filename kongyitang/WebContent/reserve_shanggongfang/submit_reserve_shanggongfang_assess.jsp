@@ -45,16 +45,33 @@
 
 
 					</table> -->
-  	
-    <p>预约成功！<br>
 
-    <%
+			<p>
+				<!-- 预约成功！<br> -->
+
+				<%
 	Dao dao = new Dao();
     
     request.setCharacterEncoding("utf-8");
 	 String type = request.getParameter("type_assess");
 	 String site = request.getParameter("site_assess");
 	 String name = request.getParameter("name_assess");
+	 
+	 if(type == null || site == null || name == null){
+		
+	%>
+				<center>
+			<div style="color:red"><big>禁止重复提交！
+				<br>正在返回预约前界面，请稍后...</big>
+			</div>
+			</center>
+			<script language='javascript' type='text/javascript'>
+				setTimeout(" window.location = 'index.jsp' ", 2000);
+			</script>	 
+	<%	 
+		 
+	 }else{
+	 
 	 String  gender_str= request.getParameter("gender_assess");
 	 int gender = 2;
 	 String gender_sms = "";
@@ -65,10 +82,19 @@
 		 gender = 1;
 		 gender_sms = "女";
 	 }
-	 int age =Integer.valueOf(request.getParameter("age_assess")).intValue();
-	 String mobile_str = request.getParameter("mobile_assess");
-	 long mobile = Long.parseLong(mobile_str);
 	 
+	 int age = 0;
+	 if(request.getParameter("age_assess") != null){
+		 age =Integer.valueOf(request.getParameter("age_assess")).intValue();
+	 }
+	 
+	 
+	 String mobile_str = request.getParameter("mobile_assess");
+	 
+	 long mobile = 0;
+	 if(mobile_str !=null){
+		mobile =  Long.parseLong(mobile_str);
+	 }
 	 String  adjust_programe = new String();
 	 String  book_date = request.getParameter("book_date_assess");
 	 String  adjust_master= new String();
@@ -107,29 +133,28 @@
 	//发送成功预约的短信	
 	ReservationSMS reservationSMS = new ReservationSMS();
 	String msg = "健康服务-" + type + "-" + site + "：" + name + "，" + gender_sms  + "，" +age  + "，" + mobile + "。";
-	reservationSMS.run(msg,String.valueOf(mobile).toString());		
-	 
-	 
-
-		
-		
-    %>
-	   <!--  <script>
-			self.location = '../index.jsp';
-	    </script> -->
+	reservationSMS.run(msg,String.valueOf(mobile).toString());	
 	
-    <br>
-
-			<% String url="index.jsp"; %>	
-			<br><br>
-			<center>
+	String notification = "恭喜您 " + name + "，您已成功预约“上工坊健康会所-" + type + "“！";
+	 
+	 
+	notification = java.net.URLEncoder.encode(notification, "UTF-8");
+	System.out.println(notification);
+	notification = java.net.URLEncoder.encode(notification, "UTF-8");
+	System.out.println(notification);
+	String url= "../reserve_xuetang/notify_reserve_xuetang.jsp?notification=" + notification;
+	 %>
+				<br>
+				<br>
+<%-- 			<center>
 			<div style="color:red"><big>恭喜您 <%=name %> ，您已成功预约"上工坊健康会所-<%=type %>"！
 				<br>正在返回预约前界面，请稍后...</big>
 			</div>
-			</center>
+			</center> --%>
 			<script language='javascript' type='text/javascript'>
-				setTimeout(" window.location = '<%=url %>' ",2000);
+				window.location.href = "<%=url %>";
 			</script>
+		<%} %>
   </div>
 
   <%//@ include file="../include/buttonStyle.jsp"
