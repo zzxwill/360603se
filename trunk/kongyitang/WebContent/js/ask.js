@@ -125,10 +125,13 @@ function checkImg(){
 		 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 	}else{
 		ImgOK = true;
-		message = "上传成功，请稍后...";
-	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
-	    setTimeout(" document.getElementById('UploadPhoto').style.display='none' ",1500);
+		alert("恭喜您，照片上传成功！ \n\r照片名：" + uploadImage);
+		document.getElementById('UploadPhoto').style.display='none';
 		document.getElementById("msgImg").style.display = "none";
+		//message = "上传成功，请稍后...";
+		//msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+	    //setTimeout(" document.getElementById('UploadPhoto').style.display='none' ",1500);
+		//document.getElementById("msgImg").style.display = "none";
 		//document.getElementById('UploadPhoto').style.display='none';
 		//var uploadForm = document.getElementById("uploadForm");
 		//uploadForm.submit(); 

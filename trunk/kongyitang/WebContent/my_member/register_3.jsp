@@ -35,6 +35,7 @@
 		<%
 	    request.setCharacterEncoding("UTF-8");
 	 	String url = "register_1.jsp";
+	 	String indexUrl  = "index.jsp";
 	 	
 	 	String role = request.getParameter("role");
 	 	//System.out.println("role:" + role +"\n");
@@ -50,11 +51,11 @@
 			String registerAge = request.getParameter("registerAge");
 			String registerRole = request.getParameter("registerRole");
 			
-			String registerShiCheng = request.getParameter("registerShiCheng");
-			String registerZhengJian = request.getParameter("registerZhengJian");
+			//String registerShiCheng = request.getParameter("registerShiCheng");
+			//String registerZhengJian = request.getParameter("registerZhengJian");
 			//var registerKeShi =$('input:radio[name="registerKeShi"]:checked').val();
-			String registerKeShi = request.getParameter("registerKeShi");
-			String registerZhiCheng = request.getParameter("registerZhiCheng");
+			//String registerKeShi = request.getParameter("registerKeShi");
+			//String registerZhiCheng = request.getParameter("registerZhiCheng");
 			
 			String registerTel = request.getParameter("registerTel");
 			String registerPW = request.getParameter("registerPW_2");  
@@ -95,11 +96,22 @@
 					//ipDao.modifyAddress(userID,0,TMP_IPAdress);
 					ipDao.insertIP(userID,0,TMP_IPAdress);
 					%>
-					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册孔医堂！</p>
+					
+					<center>
+					<br>
+					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册孔医堂！
+					<br>
+					<br>正在返回“会员中心”，请稍后...</p>
+					<br>
+					
+					<script language='javascript' type='text/javascript'>
+						setTimeout(" window.location = '<%=indexUrl %>' ",1500);
+					</script>
+					</center>
 					<%
 					
 				}else if(role.equals("doctor")){
-					int registerKeShi_int = Integer.parseInt(registerKeShi);
+					//int registerKeShi_int = Integer.parseInt(registerKeShi);
 					//System.out.println("doctor register!\n");
 					UserDaoDoctor doctor = new UserDaoDoctor();
 					doctor.insertUser_Doctor(registerName, registerGender_int, registerAge_int,
@@ -123,7 +135,17 @@
 					//需要审核，先不加入ip列表
 					ipDao.insertIP(userID,1,TMP_IPAdress);
 					%>
-					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册医生账号孔医堂，请等候身份审核！</p>
+					<center>
+					<br>
+					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册医生账号孔医堂，请等候身份审核！
+					<br>
+					<br>正在返回“会员中心”，请稍后...</p>
+					<br>
+					
+					<script language='javascript' type='text/javascript'>
+						setTimeout(" window.location = '<%=indexUrl %>' ",1500);
+					</script>
+					</center>
 					<%
 					
 				}

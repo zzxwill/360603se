@@ -15,7 +15,7 @@
 </style>
 
 </head>
-  <%@ include file="../exit/exit.jsp"%>
+  <%//@ include file="../exit/exit.jsp"%>
  <body>
   <div data-role="page">
 	<div data-role="header">
@@ -42,9 +42,10 @@
     <form method="post" name="registerForm" id="registerForm" action="register_2.jsp">
 	     	 <fieldset data-role="fieldcontain">
 	     	 
-<link rel="stylesheet" href="../css/my.css" />
- <script src="../js/register.js"></script>
-	
+<link rel="stylesheet" href="../css/my.css"/>
+<!-- <script src="../js/register.js"></script>-->
+<%@ include file="../my_member/register_js.jsp"%>
+ 	
     	<table  width="100%" border="0" cellspacing="0" cellpadding="0">
     		<tr>
     			<td width="25%"><div id="MyInput">姓&nbsp;&nbsp;&nbsp;&nbsp;名</div></td>
@@ -124,7 +125,7 @@
 			 }
 
 		   if(flagTel==1){
-			   <%
+			<%
 			   UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 			   userDaoDoctor.getAllUserTel_Doctor();
 			   //int j=1;
@@ -225,8 +226,8 @@
     	</table>
     	<br>
     	<div id="msgRegister" ></div>
-    	<div id="registerNext"><div id="SubmitButton" onclick="checkRegister()">下一步</div></div>
-
+    	<div id="registerNext"><div id="SubmitButton" onclick="checkRegister();">下一步</div></div>
+    	
     	</fieldset>
 	</form>	
 

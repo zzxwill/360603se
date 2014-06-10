@@ -112,14 +112,14 @@
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
-					setTimeout(" window.location = 'index.jsp' ",1500);
+					setTimeout(" window.location = 'index.jsp' ",500);
 				</script>
 				<%	
 			}else{
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
-					setTimeout(" window.location = '<%=curPath %>' ",1500);
+					setTimeout(" window.location = '<%=curPath %>' ",500);
 				</script>
 				<%
 				//System.out.println("curPath00:" + curPath + "\n");
@@ -160,14 +160,14 @@
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
-					setTimeout(" window.location = 'index.jsp' ",1500);
+					setTimeout(" window.location = 'index.jsp' ",500);
 				</script>
 				<%	
 			}else{
 				%>
 				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
-					setTimeout(" window.location = '<%=curPath %>' ",1500);
+					setTimeout(" window.location = '<%=curPath %>' ",500);
 				</script>
 				<%
 				//response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);

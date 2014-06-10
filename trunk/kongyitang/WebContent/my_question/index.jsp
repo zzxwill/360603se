@@ -60,7 +60,8 @@
 		int question_num_patient = askPatient.num_Given;
 		if(question_num_patient>0){
 			
-			for(int i=1;i<=askPatient.num_Given;i++){
+			//for(int i=1;i<=askPatient.num_Given;i++){
+			for(int i=askPatient.num_Given;i>=1;i--){
 				
 				departmentID = askPatient.departments_Given[i];
 				departmentName = departmentDao.getDepartmentName(departmentID);
@@ -158,7 +159,13 @@
 						</tr>
 						<tr>
 							<td width="50%" align="center"><%=userDaoDoctor.doctor_Title_Given %></td>
-							<td width="50%" align="center"><div id="doctors"><%=userDaoDoctor.doctor_Department_Given %></div></td>
+							<td width="50%" align="center">
+								<div id="doctors">
+								<%String department = userDaoDoctor.doctor_Department_Given;
+								%>
+								<%=null==department||department.equals("")?"医生":department %>
+		 						</div>
+							</td>
 						</tr>
 					</table>
 				</td>
@@ -193,7 +200,8 @@
 			int question_num_doctor = answerDao_Doctor.num_Given_Doctor;
 			if(question_num_doctor>0){
 				
-				for(int i=1;i<=answerDao_Doctor.num_Given_Doctor;i++){
+				//for(int i=1;i<=answerDao_Doctor.num_Given_Doctor;i++){
+				for(int i=answerDao_Doctor.num_Given_Doctor;i>=1;i--){
 					questionID = answerDao_Doctor.questions_ids_Given_Doctor[i];
 					
 					ASKPatient askPatient_doctor = new ASKPatient();

@@ -97,7 +97,7 @@
 			<tr><td><hr></td></tr>
 			<tr>
 				<td align="center" width="100%">		
-				<div id="CriteriaPhotoButton" style="position:relative;">从相册中选择
+				<div id="PhotoButton" style="position:relative;">从相册中选择
 					<input style="position:absolute;left:0;top:-35;width:100%;height:100%;opacity:0;" 
 					type="file" id="uploadCriteriaImage" name="uploadCriteriaImage" onchange="checkCriteriaImg();" />
 				</div>
