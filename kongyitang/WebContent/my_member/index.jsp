@@ -34,7 +34,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;"><a href="window.location.href='../main/index.jsp'">返回</a></div>
+				<div id="backButton" style="width:60px;"><a href="../main/index.jsp">返回</a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">登&nbsp;&nbsp;陆</a></td>
 			<td width="33%" align="right">
