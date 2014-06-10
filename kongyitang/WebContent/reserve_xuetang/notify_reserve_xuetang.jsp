@@ -78,7 +78,7 @@ function return_to_wechat_main(){
 				<tr>
 					<td><a id='button-special' type="button" data-theme="b"
 						data-mini="true" data-icon="arrow-r" data-iconpos="right"
-						onclick="CloseWin()">我知道了</a></td>
+						onclick="return_to_wechat_main()">我知道了</a></td>
 				</tr>
 			</table>
 

@@ -86,21 +86,26 @@ public class ReserveClinicDao {
 	public ArrayList<Integer> clinic_reservation_normal_id = new ArrayList<Integer>();
 	public ArrayList<Integer> clinic_treat_flag = new ArrayList<Integer>();
 	
-	
+	public ArrayList<Long> shanggongfang_adjust_id = new ArrayList<Long>();
 	public ArrayList<String> shanggongfang_adjust_type = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_adjust_programe = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_adjust_book_date = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_adjust_book_master = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_adjust_name = new ArrayList<String>();
+	public ArrayList<Integer> shanggongfang_adjust_treat_flag = new ArrayList<Integer>();
 	
+	public ArrayList<Long> shanggongfang_assess_id = new ArrayList<Long>();
 	public ArrayList<String> shanggongfang_assess_type = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_assess_programe = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_assess_book_date = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_assess_book_master = new ArrayList<String>();
 	public ArrayList<String> shanggongfang_assess_name = new ArrayList<String>();
+	public ArrayList<Integer> shanggongfang_assess_treat_flag = new ArrayList<Integer>();
 	
+	public ArrayList<Long> xuetang_id = new ArrayList<Long>();
 	public ArrayList<String> xuetang = new ArrayList<String>();
 	public ArrayList<String> xuetang_name = new ArrayList<String>();
+	public ArrayList<Integer> xuetang_treat_flag = new ArrayList<Integer>();
 	
 	//医生预约信息
 	//SELECT  `site`, n.`department`, i.name, i.purpose , `date` FROM   reservation_normal n,  reservation_patient_illness i where n.patient_illness_id = i.id
@@ -295,9 +300,9 @@ public class ReserveClinicDao {
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 		String sql = "SELECT  `site`, n.`department`, d.name,  o.date, o.time, n.id, n.treat_flag  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
-		String sql_shanggongfang_adjust = "SELECT type, `adjust_programe`, `book_date` as shanggongfang_adjust_book_date, `adjust_master`, name  as shanggongfang_adjust_name  FROM  " + table_prefix + "reservation_shanggongfang_adjust WHERE  username =  " + userid;
-		String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
-		String sql_xuetang = "SELECT `xuetang`, `name` as xuetang_name FROM   " + table_prefix + "reservation_xuetang WHERE  username =  " + userid;
+		String sql_shanggongfang_adjust = "SELECT type, `adjust_programe`, `book_date` as shanggongfang_adjust_book_date, `adjust_master`, name  as shanggongfang_adjust_name, id , treat_flag FROM  " + table_prefix + "reservation_shanggongfang_adjust WHERE  username =  " + userid;
+		String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name, id, treat_flag  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
+		String sql_xuetang = "SELECT `xuetang`, `name`, id, treat_flag as xuetang_name FROM   " + table_prefix + "reservation_xuetang WHERE  username =  " + userid;
 		
 
 		try {
@@ -337,6 +342,8 @@ public class ReserveClinicDao {
 				shanggongfang_adjust_book_date.add(rs_shanggongfang_adjust.getString(3));
 				shanggongfang_adjust_book_master.add(rs_shanggongfang_adjust.getString(4));
 				shanggongfang_adjust_name.add(rs_shanggongfang_adjust.getString(5));
+				shanggongfang_adjust_id.add(rs_shanggongfang_adjust.getLong(6));
+				shanggongfang_adjust_treat_flag.add(rs_shanggongfang_adjust.getInt(7));
 				index++;
 			}
 			
@@ -349,6 +356,8 @@ public class ReserveClinicDao {
 				shanggongfang_assess_book_date.add(rs_shanggongfang_assess.getString(3));
 				shanggongfang_assess_book_master.add(rs_shanggongfang_assess.getString(4));
 				shanggongfang_assess_name.add(rs_shanggongfang_assess.getString(5));
+				shanggongfang_assess_id.add(rs_shanggongfang_assess.getLong(6));
+				shanggongfang_assess_treat_flag.add(rs_shanggongfang_assess.getInt(7));
 				index++;
 			}
 			
@@ -358,6 +367,9 @@ public class ReserveClinicDao {
 				
 				xuetang.add(rs_xuetang.getString(1));
 				xuetang_name.add(rs_xuetang.getString(2));
+				xuetang_id.add(rs_xuetang.getLong(3));
+				xuetang_treat_flag.add(rs_xuetang.getInt(4));
+				
 			
 				index++;
 			}

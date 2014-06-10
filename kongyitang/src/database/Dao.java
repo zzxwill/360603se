@@ -246,11 +246,27 @@ public class Dao {
 		public void cancell_reservation(HashMap hm) {
 
 			long clinic_reservation_normal_id = (Long) hm.get("clinic_reservation_normal_id");
+			String type= (String) hm.get("type");
+
+			String table_name = new String();
+			if("normal".equals(type)){
+				table_name = "04reservation_normal";
+			}else if("adjust".equals(type)){
+				table_name = "04reservation_shanggongfang_adjust";
+			}else if("assess".equals(type)){
+				table_name = "04reservation_shanggongfang_assess";
+			}else if("xuetang".equals(type)){
+				table_name = "04reservation_xuetang";
+			}
+			
+			Connection conn = Connections.getConnection();
+			
+			
+			
+			
 			
 
-			Connection conn = Connections.getConnection();
-
-			String sql = "UPDATE `04reservation_normal` SET `treat_flag`=2 WHERE id = " + clinic_reservation_normal_id;
+			String sql = "UPDATE " + table_name + " SET `treat_flag`=2 WHERE id = " + clinic_reservation_normal_id;
 
 		
 			try {

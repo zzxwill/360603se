@@ -239,12 +239,12 @@
 	
 	
 	
-	//取消预约时的确认  Will 6/7/2014
+/* 	//取消预约时的确认  Will 6/7/2014
 	function show_confirm() 
 { 
  return confirm("确认取消预约?"); 
 
-} 
+}  */
 	
 	
 	
