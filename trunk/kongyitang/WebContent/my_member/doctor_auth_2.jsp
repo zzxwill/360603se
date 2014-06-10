@@ -55,7 +55,7 @@
  	
 	  	%>
 
-    	<form method="post" name="authForm" id="authForm" action="doctor_auth_3.jsp">
+    	<form method="post" name="authForm" id="authForm" action="doctor_auth_3.jsp" encType="multipart/form-data" >
 	     	 <fieldset data-role="fieldcontain">
 	     	 
 		<link rel="stylesheet" href="../css/doctor_auth.css" />
@@ -97,17 +97,16 @@
 			<tr><td><hr></td></tr>
 			<tr>
 				<td align="center" width="100%">		
-				<div id="PhotoButton" >从相册中选择</div>
-<!--				<div id="PhotoButton" onclick = "browseBtnClick();" >从相册中选择</div>-->
-<!--				<input type="file" id="uploadImage" name="uploadImage" onchange="checkImg();"  value="浏览"/>-->
-<!--				<input size="1" type="file" id="uploadImage" name="uploadImage" onchange="checkImg();" style="display:none"  />-->
-
+				<div id="CriteriaPhotoButton" style="position:relative;">从相册中选择
+					<input style="position:absolute;left:0;top:-35;width:100%;height:100%;opacity:0;" 
+					type="file" id="uploadCriteriaImage" name="uploadCriteriaImage" onchange="checkCriteriaImg();" />
+				</div>
 				</td>
 			</tr>
 			<tr><td><hr color="<%=sysFontColor %>"></td></tr>
 			<tr>
 				<td align="center">
-					<div id="msgImg"></div>
+					<div id="msgCriteriaImg"></div>
 					<div id="UploadCriteriaPhotoCancel" onclick="UploadCriteriaPhotoCancel()">取&nbsp;&nbsp;消</div>
 				</td>
 			</tr>
@@ -123,17 +122,16 @@
 			<tr><td><hr></td></tr>
 			<tr>
 				<td align="center" width="100%">		
-				<div id="PhotoButton" >从相册中选择</div>
-<!--				<div id="PhotoButton" onclick = "browseBtnClick();" >从相册中选择</div>-->
-<!--				<input type="file" id="uploadImage" name="uploadImage" onchange="checkImg();"  value="浏览"/>-->
-<!--				<input size="1" type="file" id="uploadImage" name="uploadImage" onchange="checkImg();" style="display:none"  />-->
-
+				<div id="PhotoButton" style="position:relative;">从相册中选择
+					<input  style="position:absolute;left:0;top:-35;width:100%;height:100%;opacity:0;" 
+					type="file" id="uploadPortraitImage" name="uploadPortraitImage" onchange="checkPortraitImg();"/>
+				</div>
 				</td>
 			</tr>
 			<tr><td><hr color="<%=sysFontColor %>"></td></tr>
 			<tr>
 				<td align="center">
-					<div id="msgImg"></div>
+					<div id="msgPortraitImg"></div>
 					<div id="UploadPortraitPhotoCancel" onclick="UploadPortraitPhotoCancel()">取&nbsp;&nbsp;消</div>
 				</td>
 			</tr>
@@ -142,7 +140,7 @@
 	
 		 <br><br>
 		<div id="msgAuth" ></div>
-   		<div id="authSubmit"><div id="submitButton" onclick="authSubmit()">提交审核</div></div>
+   		<div id="authSubmit"  style="width:90%"><div id="submitButton" onclick="authSubmit()">提交审核</div></div>
     	<div id="authWait" style="display:none;width:90%"><div id="submitButton">正在提交，请稍后...</div></div>
     	<br>
     	</center>
