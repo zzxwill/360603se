@@ -150,11 +150,14 @@
     	}else{
     		//ImgOK = true;
     		ImgCriteriaPhoto =  true;
-    		document.getElementById("msgCriteriaImg").style.display = "block";
-    		message = "医生证照上传成功，请稍后...";
-    	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
-    	    setTimeout(" document.getElementById('UploadCriteriaPhoto').style.display='none' ",1500);
+    		alert("恭喜您，医生证照上传成功！ \n\r照片名：" + uploadImage);
+    		document.getElementById('UploadCriteriaPhoto').style.display='none';
     		document.getElementById("msgCriteriaImg").style.display = "none";
+    		//document.getElementById("msgCriteriaImg").style.display = "block";
+    		//message = "医生证照上传成功，请稍后...";
+    	   // msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+    	    //setTimeout(" document.getElementById('UploadCriteriaPhoto').style.display='none' ",1500);
+    		//document.getElementById("msgCriteriaImg").style.display = "none";
     		//document.getElementById("UploadCriteriaPhoto").style.display = "none";
     	}
     }
@@ -191,11 +194,14 @@
     		
     		//ImgOK = true;
     		ImgPortraitPhoto = true;
-    		document.getElementById("msgPortraitImg").style.display = "block";
-    		message = "医生头像上传成功，请稍后...";
-    	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
-    	    setTimeout(" document.getElementById('UploadPortraitPhoto').style.display='none' ",1500);
+    		alert("恭喜您，医生头像上传成功！ \n\r照片名：" + uploadImage);
+    		document.getElementById('UploadPortraitPhoto').style.display='none';
     		document.getElementById("msgPortraitImg").style.display = "none";
+    		//document.getElementById("msgPortraitImg").style.display = "block";
+    		//message = "医生头像上传成功，请稍后...";
+    	    //msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+    	    //setTimeout(" document.getElementById('UploadPortraitPhoto').style.display='none' ",1000);
+    		//document.getElementById("msgPortraitImg").style.display = "none";
     		//document.getElementById("UploadPortraitPhoto").style.display = "none";
     	}
     }

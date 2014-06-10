@@ -1,13 +1,12 @@
+<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
+
+ <script>
 	
-	var radio=0;
-	
-	function test(){
-		alert("setup:\rtest");
-	}
-	
-    function checkRegister()
-    {
-    	 alert("setup:\r");
+var radio=0;
+
+ function checkRegister()
+ {
+ 	 //alert("setup:\r");
 	   var registerName = document.getElementById("registerName").value;
 	   var registerGender = document.getElementById("registerGender").value;
 	   var registerAge = document.getElementById("registerAge").value;
@@ -72,5 +71,7 @@
 	
 			}
 	   }
-    }
-    
+ }
+ 
+ 
+ </script>

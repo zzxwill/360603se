@@ -97,11 +97,6 @@
 			String registerGender = request.getParameter("registerGender");
 			String registerAge = request.getParameter("registerAge");
 			
-			String registerShiCheng = request.getParameter("registerShiCheng");
-			String registerZhengJian = request.getParameter("registerZhengJian");
-			String registerKeShi = request.getParameter("registerKeShi");
-			String registerZhiCheng = request.getParameter("registerZhiCheng");
-			
 			String registerTel = request.getParameter("registerTel");
 			String registerCode = request.getParameter("registerCode");  
 			
