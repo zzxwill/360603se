@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.*; 
 import java.text.*;
 
-import login.Validate;
-import security.PasswordUtil;
-import database.*;
+//import login.Validate;
+//import security.PasswordUtil;
+//import database.*;
 
 public class test {
 
@@ -48,13 +48,14 @@ public class test {
 		//System.out.println("isUserDel:" + userDao.IsUserDel(4));
 		
 		//密码验证
-		Validate check = new Validate();
+		//Validate check = new Validate();
 		//PasswordUtil GP = new PasswordUtil();
     	//String pw = "admin";
     	//pw = GP.generatePassword(pw);
 		//UserDao userDao = new UserDao();
 		//userDao.modifyUserByAdmin(3, pw, "3333333", 1, 0);
-		//System.out.println("validate:" + check.validate("admin", "admin"));
+		System.out.println("validate:");
+		
 	}
 
 }
