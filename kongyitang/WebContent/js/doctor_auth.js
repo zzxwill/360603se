@@ -1,5 +1,7 @@
 
 	var  ImgOK = false;
+	var ImgCriteriaPhoto = false;
+	var ImgPortraitPhoto = false;
 
  	function setNull() {  
 		document.getElementById("authShiCheng").value = "";
@@ -77,6 +79,9 @@
     	SelectedKeShi.innerHTML = "<a>" + message + "</a>";
     }
     
+    
+    //上传照片js
+    
     function UploadCriteriaPhoto(){
     	document.getElementById('UploadCriteriaPhoto').style.display='block';
     	document.getElementById('UploadPortraitPhoto').style.display='none';
@@ -86,7 +91,7 @@
     	//var uploadImage = document.getElementById('uploadImage') ;
     	//uploadImage.outerHTML = uploadImage.outerHTML;
     	//uploadImage.value = null;
-    	document.getElementById("msgImg").style.display = "none";
+    	document.getElementById("msgCriteriaImg").style.display = "none";
     	document.getElementById('UploadCriteriaPhoto').style.display='none';
     }
     
@@ -99,19 +104,25 @@
     	//var uploadImage = document.getElementById('uploadImage') ;
     	//uploadImage.outerHTML = uploadImage.outerHTML;
     	//uploadImage.value = null;
-    	document.getElementById("msgImg").style.display = "none";
+    	document.getElementById("msgPortraitImg").style.display = "none";
     	document.getElementById('UploadPortraitPhoto').style.display='none';
     }
 
-    function browseBtnClick() {
+    function browseCriteriaBtnClick() {
 //    	document.getElementById("uploadImage").click(); 
-    	document.getElementById("uploadImage").click(); 
+    	document.getElementById("uploadCriteriaImage").click(); 
     }
     
-    function checkImg(){
-
-    	var uploadImage = document.getElementById("uploadImage").value;
-    	var msg = document.getElementById("msgImg");
+    function browsePortraitBtnClick() {
+//    	document.getElementById("uploadImage").click(); 
+    	document.getElementById("uploadPortraitImage").click(); 
+    }
+    
+    
+    function checkCriteriaImg(){
+    	
+    	var uploadImage = document.getElementById("uploadCriteriaImage").value;
+    	var msg = document.getElementById("msgCriteriaImg");
     	
     	var pos = uploadImage.lastIndexOf(".");
     	var lastname = uploadImage.substring(pos,uploadImage.length);
@@ -129,38 +140,92 @@
     	}
     	
     	if(flag == false){
+    		
+    		 ImgCriteriaPhoto = false;
     		 ImgOK = false;
     		 
-    		 document.getElementById("msgImg").style.display = "block";
+    		 document.getElementById("msgCriteriaImg").style.display = "block";
     		 message = "只能上传.jpg、.jpeg、.bmp、.png、.gif、格式的图片!";
     		 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
     	}else{
-    		ImgOK = true;
-    		message = "上传成功，请稍后...";
+    		//ImgOK = true;
+    		ImgCriteriaPhoto =  true;
+    		document.getElementById("msgCriteriaImg").style.display = "block";
+    		message = "医生证照上传成功，请稍后...";
     	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
-    	    setTimeout(" document.getElementById('UploadPhoto').style.display='none' ",1500);
-    		document.getElementById("msgImg").style.display = "none";
-    		//document.getElementById('UploadPhoto').style.display='none';
-    		//var uploadForm = document.getElementById("uploadForm");
-    		//uploadForm.submit(); 
-    		//document.getElementById("msg").style.display = "block";
+    	    setTimeout(" document.getElementById('UploadCriteriaPhoto').style.display='none' ",1500);
+    		document.getElementById("msgCriteriaImg").style.display = "none";
+    		//document.getElementById("UploadCriteriaPhoto").style.display = "none";
     	}
     }
     
-    ImgOK = true;
+    function checkPortraitImg(){
+    	
+    	var uploadImage = document.getElementById("uploadPortraitImage").value;
+    	var msg = document.getElementById("msgPortraitImg");
+    	
+    	var pos = uploadImage.lastIndexOf(".");
+    	var lastname = uploadImage.substring(pos,uploadImage.length);
+    	//var uploadImage = lastname.toLowerCase();
+    	var ext = ['.jpg', '.jpeg', '.png','.bmp','.JPG','.JPEG','.PNG','.BMP','.gif','.GIF'];//jpg,jpeg,bmp,png,gif
+    	var flag = false;
+    	for(var i = 0; i < ext.length; i++)
+    	{
+    		//alert(ext[i]);
+    		if (uploadImage.indexOf(ext[i]) > 0)
+    		{
+    			flag = true;
+    			break;
+    		}
+    	}
+    	
+    	if(flag == false){
+    		
+    		 ImgOK = false;
+    		 ImgPortraitPhoto = false;
+    		 
+    		 document.getElementById("msgPortraitImg").style.display = "block";
+    		 message = "只能上传.jpg、.jpeg、.bmp、.png、.gif、格式的图片!";
+    		 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+    	}else{
+    		
+    		//ImgOK = true;
+    		ImgPortraitPhoto = true;
+    		document.getElementById("msgPortraitImg").style.display = "block";
+    		message = "医生头像上传成功，请稍后...";
+    	    msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+    	    setTimeout(" document.getElementById('UploadPortraitPhoto').style.display='none' ",1500);
+    		document.getElementById("msgPortraitImg").style.display = "none";
+    		//document.getElementById("UploadPortraitPhoto").style.display = "none";
+    	}
+    }
     
     function authSubmit()
     {
     	
 	   var message = null;
 	   var msg = document.getElementById("msgAuth");
-
-	   if(ImgOK){
+	   
+	   if(ImgCriteriaPhoto&&ImgPortraitPhoto){
+	   //if(ImgOK){
+		   document.getElementById('msgAuth').style.display='none';
 		   document.getElementById('authSubmit').style.display='none';
 		   document.getElementById('authWait').style.display='block';
 		   msg.innerHTML = "";
 		   var authForm = document.getElementById("authForm");
 		   authForm.submit(); 
+	   }else if(ImgCriteriaPhoto){
+		   document.getElementById('msgAuth').style.display='block';
+		   message = "请上传医生头像！";
+		   msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+	   }else if(ImgPortraitPhoto){
+		   document.getElementById('msgAuth').style.display='block';
+		   message = "请上传医生证照！";
+		   msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+	   }else{
+		   document.getElementById('msgAuth').style.display='block';
+		   message = "请上传医生证照和头像！";
+		   msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
 	   }
     }
     

@@ -42,7 +42,7 @@
 		
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
 		    <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
-		    	<%@ include file="../my_reservation/index.jsp"%> 
+		    	<%//@ include file="../my_reservation/index.jsp"%> 
 			</div> 
 		</center>
 		<div id="AskedRecords" class="AskedRecords">
@@ -136,20 +136,29 @@
 		UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
 		int flag = 0;
 		flag = userDaoDoctor.IsDoctorExist_by_userID(USERID);
+		userDaoDoctor.getAllUserInfo_Doctor(USERID);
 	%>
 		<div style="width:90%" id="consumerInfos" class="consumerInfos">
 			<table width="95%">
 			<tr>
-				<td width="15%" align="right"><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
+				<td width="15%" align="right">
+					<% String doctor_portrait = null;
+					doctor_portrait = userDaoDoctor.doctor_Portrait_Given;
+					if(null==doctor_portrait||doctor_portrait.equals("")){ 
+					%>
+						<img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
+					<%}else{ %>
+						<img src="<%=D_IMAGES %><%=doctor_portrait %>" border = "0px"  width="40px"/></td>
+					<%}%>
 				<td width="60%">
 					<table width="100%">
 						<tr>
-							<td width="50%" align="center"><big><big><strong><%=userDaoDoctor.getUserName_Doctor(USERID) %></strong></big></big></td>
+							<td width="50%" align="center"><big><big><strong><%=userDaoDoctor.doctor_Name_Given %></strong></big></big></td>
 							<td width="50%" align="center"><img src="../images/v.png" border = "0px"  width="20px"/></td>
 						</tr>
 						<tr>
-							<td width="50%" align="center">主治医生</td>
-							<td width="50%" align="center"><div id="doctors">中医外科</div></td>
+							<td width="50%" align="center"><%=userDaoDoctor.doctor_Title_Given %></td>
+							<td width="50%" align="center"><div id="doctors"><%=userDaoDoctor.doctor_Department_Given %></div></td>
 						</tr>
 					</table>
 				</td>

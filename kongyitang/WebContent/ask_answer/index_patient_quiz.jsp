@@ -27,22 +27,12 @@
 			</tr>
 			<tr><td><hr></td></tr>
 			<tr>
-				<td align="center" width="100%">
-				<style>
-				.file {
-    		position:absolute;
-    		filter:alpha(opacity=0);
-    		-moz-opacity:0;  
-    		opacity:0;  
-    		width:130px;
-    		height:35px;
-    	}
+				<td align="center" width="100%">			
 				
-				</style>			
-				<div id="ASKPhoto" onclick = "browseBtnClick();" >从相册中选择</div>
-
-				<input type="file" id="uploadImage" name="uploadImage" onchange="checkImg();"  value="浏览"/>
-<!--				<input size="1" type="file" id="uploadImage" name="uploadImage" onchange="checkImg();" style="display:none"  />-->
+<!--				<input type="file" id="uploadImage" name="uploadImage" onchange="checkImg();"  value="从相册中选择"/>-->
+				<div id="ASKPhoto" style="position:relative;">从相册中选择
+					<input style="position:absolute;left:0;top:-35;width:100%;height:100%;opacity:0;" type="file" id="uploadImage" name="uploadImage" onchange="checkImg();" />
+				</div>
 
 				</td>
 			</tr>

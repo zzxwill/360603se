@@ -28,6 +28,11 @@ public class UserDaoDoctor {
 	public int UserDoctorNum = 0;
 	public String UserDoctorTels[];
 	
+	public String doctor_Name_Given = null;
+	public String doctor_Title_Given = null;
+	public String doctor_Department_Given = null;
+	public String doctor_Portrait_Given = null;
+	
 	//新建用户
 	public void insertUser_Doctor(String userName, int userGender, int userAge, int userRole, String userTel, String userPWD) {
 		
@@ -176,6 +181,28 @@ public class UserDaoDoctor {
 				index++;
 			}
 			UserDoctorNum = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询指定用户USERID的个人信息
+	public void getAllUserInfo_Doctor(int id) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04user_doctor where id = '" + id + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				doctor_Name_Given = rs.getString("name");
+				doctor_Title_Given  = rs.getString("title");
+				doctor_Department_Given = rs.getString("department");
+				doctor_Portrait_Given = rs.getString("doctor_portrait");
+			}
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
