@@ -42,7 +42,7 @@
 		
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
 		    <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
-		    	<%//@ include file="../my_reservation/index.jsp"%> 
+		    	<%@ include file="../my_reservation/index.jsp"%> 
 			</div> 
 		</center>
 		<div id="AskedRecords" class="AskedRecords">
