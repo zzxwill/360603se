@@ -17,6 +17,9 @@
 <%@ include file="../include/tableCSS.jsp"%>
 <%@ include file="../include/custom.jsp"%>
 
+
+
+
 </head>
 
 <body>
@@ -24,13 +27,30 @@
 
 
 	<center>
+		<h1>
+			<p style='color: red;'><%=sysName %></p>
+		</h1>
+		
+		<div>
+		<table align="right">
+						<tr>
+							<td>Welcome&nbsp;,&nbsp;<%=loginedUserName %>&nbsp;!&nbsp;&nbsp;&nbsp;
+							</td>
+							<td><a class="btn btn-warning" contenteditable="true"
+								onclick="jumpOut()">退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						</tr>
+					</table>
+		</div>
+	
+	
+	
 		<div style="width: 1200px;">
 			<table>
 				<tr>
 
 					<td>
 						<!-- 左侧菜单 -->
-						<table border="1" cellspacing="0" cellpadding="0">
+						<table border="1" cellspacing="0" cellpadding="0"  style="position:absolute; left:177px; top:58px;">
 							<tr>
 								<td><a onclick="show_hidden('reservation','question','user','null');">预约管理</a></td>
 							</tr>
@@ -229,10 +249,10 @@
 
 
 	<center>
-		<h1>
+		<%-- <h1>
 			<p style='color: red;'><%=sysName %></p>
 		</h1>
-
+ --%>
 		<div style="width: 1200px;">
 
 			<div class="tabbable" id="tabs-652502">
@@ -254,7 +274,7 @@
 				<script language='javascript' type='text/javascript'>
 		window.location = "<%=url%>";
 	</script>
-				<%}else if(adminCheck.endsWith("true")){ %>
+				<%}else if(adminCheck.endsWith("true222")){ %>
 					<li class="active"><a href="#panel-user_doctor" data-toggle="tab" contenteditable="true" style="cursor: pointer">医生列表</a></li>
 					
 					<li><a href="#panel-user_patient" data-toggle="tab" contenteditable="true" style="cursor: pointer">患者列表</a></li>
@@ -277,7 +297,7 @@
 					
 					<li class=""><a href="#panel-chart" data-toggle="tab"
 						contenteditable="true" style="cursor: pointer">统计报表</a></li>
-				<%}else if(adminCheck.startsWith("staff")){ %>
+				<%}else if(adminCheck.startsWith("staff222")){ %>
 					<li class="active"><a href="#panel-user_doctor" data-toggle="tab" contenteditable="true" style="cursor: pointer">医生列表</a></li>
 					
 					<!-- <li><a href="#panel-user_patient" data-toggle="tab" contenteditable="true" style="cursor: pointer">患者列表</a></li> -->
@@ -301,14 +321,14 @@
 					<li class=""><a href="#panel-chart" data-toggle="tab"
 						contenteditable="true" style="cursor: pointer">统计报表</a></li> -->
 				<%} %>
-					<table align="right">
+		<%-- 			<table align="right">
 						<tr>
 							<td>Welcome&nbsp;,&nbsp;<%=loginedUserName %>&nbsp;!&nbsp;&nbsp;&nbsp;
 							</td>
 							<td><a class="btn btn-warning" contenteditable="true"
 								onclick="jumpOut()">退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>
-					</table>
+					</table> --%>
 				</ul>
 
 				<%
@@ -319,7 +339,7 @@
 				<script language='javascript' type='text/javascript'>
 		window.location = "<%=url%>";
 	</script>
-				<%}else if(adminCheck.endsWith("true")){ %>
+				<%}else if(adminCheck.endsWith("true222")){ %>
 
 				<div class="tab-content">
 					<%//医生列表 %>
@@ -377,7 +397,7 @@
 					<div class="tab-pane" id="panel-chart">已删除</div>
 
 				</div>
-				<%}else if(adminCheck.endsWith("staff_wjg")){ %>
+				<%}else if(adminCheck.endsWith("staff_wjg222")){ %>
 				<div class="tab-content">
 					<%//医生列表 %>
 					<div class="tab-pane active" id="panel-user_doctor">
