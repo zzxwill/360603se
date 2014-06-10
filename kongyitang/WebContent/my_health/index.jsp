@@ -28,7 +28,7 @@ table td
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" onclick="window.location.href='../main/index.jsp'">返回</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">健康自测</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

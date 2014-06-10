@@ -211,7 +211,7 @@ $().ready(function() {
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="return_to_wechat_main()">返回</a>
+							<a id="return_link" onclick="window.location.href='../main/index.jsp'">返回</a>
 						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约孔医堂</a></td>
