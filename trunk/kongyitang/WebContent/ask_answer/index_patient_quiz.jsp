@@ -23,9 +23,10 @@
 		<div><big>上传照片</big></div><br>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="100%"> <div id="ASKPhoto">拍&nbsp;&nbsp;照</div></td>
+			<td></td>
+<!--				<td align="center" width="100%"> <div id="ASKPhoto">拍&nbsp;&nbsp;照</div></td>-->
 			</tr>
-			<tr><td><hr></td></tr>
+<!--			<tr><td><hr></td></tr>-->
 			<tr>
 				<td align="center" width="100%">			
 				

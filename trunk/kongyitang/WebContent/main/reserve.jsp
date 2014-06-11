@@ -30,27 +30,31 @@
 	</table>
  	</div>
 
-<table width="100%" bgColor="#fffef0" cellspacing="0"
-						cellpadding="0" class="Introtable">
+	<table width="100%" bgColor="#fffef0" cellspacing="0"
+			cellpadding="0" class="Introtable">
 
-						<tr>
-							<td align="center"><span class="title">孔医堂预约</span></br></br></td>
+		<tr>
+			<td align="center"><span class="title">孔医堂预约</span></br></br></td>
 
-						</tr>
-						
-					</table>
-
-
-
-
-		
-		
-		
+		</tr>		
+	</table>
+	
+    <script>
+    function reserve_clinic(){
+    	window.location = "../reserve_clinic/index.jsp";
+     }
+    function reserve_shanggongfang(){
+    	window.location = "../reserve_shanggongfang/index.jsp";
+     }
+    function reserve_xuetang(){
+    	window.location = "../reserve_xuetang/index.jsp";
+     }
+    </script>
 				<table bgColor="#fffef0" border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px;" >
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div  style="background:#7B68EE; color:white"><a href="../reserve_clinic/index.jsp" style="color:white;">门诊预约</a></div></br></td>
+				<td width="60%" align="center"><div  id="reserveListButton" onclick="reserve_clinic();">门诊预约</div></br></td>
 				
 				
 				<td width="20%"></td>
@@ -60,14 +64,14 @@
 			
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div style="background:#7B68EE; color:white"><a href="../reserve_shanggongfang/index.jsp" style="color:white;">健康服务预约</a></div></br></td>
+				<td width="60%" align="center"><div id="reserveListButton" onclick="reserve_shanggongfang();">健康服务预约</a></div></br></td>
 				
 				
 				<td width="20%"></td>
 			</tr>
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div style="background:#7B68EE; color:white"><a href="../reserve_xuetang/index.jsp" style="color:white;">招生在线</a></div></td>
+				<td width="60%" align="center"><div id="reserveListButton" onclick="reserve_xuetang();">招生在线</div></td>
 				
 				
 				<td width="20%"></td>

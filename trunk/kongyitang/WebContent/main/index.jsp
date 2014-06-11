@@ -30,25 +30,42 @@
 	</table>
  	</div>
 
-<table width="100%" bgColor="#fffef0" cellspacing="0"
-						cellpadding="0" class="Introtable">
+		<table width="100%" bgColor="#fffef0" cellspacing="0"
+			cellpadding="0" class="Introtable">
 
-						<tr>
-							<td align="center"><span class="title">孔医堂</span></td>
+			<tr>
+				<td align="center"><span class="title">孔医堂</span></td>
 
-						</tr>
-						
-					</table>
-
-
-
+			</tr>
+			
+		</table>
+		
+    <script>
+    function reserve(){
+    	window.location = "reserve.jsp";
+     }
+    function reserve_product(){
+    	window.location = "../reserve_product/index.jsp";
+     }
+    
+    function ask_answer(){
+    	window.location = "../ask_answer/index.jsp";
+     }
+    
+    function my_member(){
+    	window.location = "../my_member/index.jsp";
+     }
+    function my_health(){
+    	window.location = "../my_health/index.jsp";
+     }
+    </script>
 
 		<table bgColor="#fffef0" border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px ;" >
 			<tr>
 			 	<td width="20%"></td>
-				<td width="30%" align="center"><div  style="background:#7B68EE; color:white" ><a href="../ask_answer/index.jsp" style="color:white;">提问</a></div></td>
-				<td width="30%" align="center"><div style="background:#EE7600; color:white" ><a href="reserve.jsp" style="color:white;">预约</a></div></td>
+				<td width="30%" align="center" ><div id="mainListLeftButton" onclick="ask_answer();">提&nbsp;&nbsp;问</div></td>
+				<td width="30%" align="center"><div id="mainListRightButton" onclick="reserve();" >预&nbsp;&nbsp;约</div></td>
 				<td width="20%"></br></br></td>
 			</tr>
 		
@@ -61,7 +78,7 @@
 						width="100%"  style="border-top: 1px;" >
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div  style="background:#00CD00; color:white"><a href="../reserve_product/index.jsp" style="color:white;">产品展示</a></div></br></td>
+				<td width="60%" align="center"><div  id="mainListButton" onclick="reserve_product();" >产品展示</div></br></td>
 				
 				
 				<td width="20%"></td>
@@ -71,14 +88,14 @@
 			
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div style="background:#00CD00; color:white"><a href="../my_health/index.jsp" style="color:white;">健康自测</a></div></br></td>
+				<td width="60%" align="center"><div id="mainListButton"  onclick="my_health();" >健康自测</div></br></td>
 				
 				
 				<td width="20%"></td>
 			</tr>
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div style="background:#00CD00; color:white"><a href="../my_member/index.jsp" style="color:white;">会员中心</a></div></td>
+				<td width="60%" align="center"><div id="mainListButton" onclick="my_member();">会员中心</div></td>
 				
 				
 				<td width="20%"></td>
