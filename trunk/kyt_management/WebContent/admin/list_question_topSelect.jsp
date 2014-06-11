@@ -37,7 +37,7 @@
 
 	
 	<div id="SelectKeShiTop" class="SelectKeShiTop" >
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" cellpadding="0" cellspacing="0px"  border="0">
 			<tr>
 				<td align="center" width="70%">全部科室</td>
 				<td valign="middle" align="left" width="30%">
@@ -45,46 +45,46 @@
 				</td>
 			</tr>
 		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
-			<tr>
-				<td align="center" width="70%">中医内科</td>
+		<table width="100%" border="0"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0">
+			<tr height="30px">
+				<td align="center" width="70%" height="30px">中医内科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==1?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="1" onclick="KeshiChanged();">
 				</td>
 			</tr>
 		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
-			<tr>
-				<td align="center" width="70%">中医外科</td>
+		<table width="100%" border="0"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0">
+			<tr height="30px">
+				<td align="center" width="70%" height="30px">中医外科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==2?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="2" onclick="KeshiChanged();">
 				</td>
 			</tr>
 		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" border="0"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  border="0">
 			<tr>
-				<td align="center" width="70%">妇&nbsp;&nbsp;科</td>
+				<td align="center" width="70%" height="30px">妇&nbsp;&nbsp;科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==3?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="3" onclick="KeshiChanged();">
 				</td>
 			</tr>
-		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
-			<tr>
-				<td align="center" width="70%">儿&nbsp;&nbsp;科</td>
+		</table> 
+		<table width="100%" border="0"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
+			<tr height="30px">
+				<td align="center" width="70%" height="30px">儿&nbsp;&nbsp;科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==4?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="4" onclick="KeshiChanged();">
 				</td>
 			</tr>
 		</table>
-		<table width="100%"><tr><td><hr></td></tr></table>
-		<table width="100%" cellpadding="0" cellspacing="0px"  >
+		<table width="100%" border="0"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  border="0">
 			<tr>
-				<td align="center" width="70%">针推科</td>
+				<td align="center" width="70%" height="30px">针推科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==5?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="5" onclick="KeshiChanged();">
 				</td>

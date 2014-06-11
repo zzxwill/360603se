@@ -53,33 +53,94 @@
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td><div class=" btn btn-primary btn-block" onclick="show_hidden('reservation','question','user','null');">预约管理</div></td>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('reservation','question','adminUser','doctor','patient','changguan','xuetang','beixuan');">
+								预约管理</div></td>
 							</tr>
 							<tr>
-								<td><div class=" btn btn-primary btn-block" onclick="show_hidden('question','reservation','user','null');">问题列表</div></td>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('question','reservation','adminUser','doctor','patient','changguan','xuetang','beixuan');">
+								问题列表</div></td>
 							</tr>
 							<tr>
-								<td><div class=" btn btn-primary btn-block" onclick="show_hidden('user','reservation','question','null');">用户列表</div></td>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('adminUser','reservation','question','doctor','patient','changguan','xuetang','beixuan');">
+								后台用户</div></td>
 							</tr>
 							<tr>
-								<td><div class=" btn btn-primary btn-block">内容管理</div></td>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('doctor','reservation','question','adminUser','patient','changguan','xuetang','beixuan');">
+								医生管理</div></td>
+							</tr>
+							<tr>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('patient','reservation','question','adminUser','doctor','changguan','xuetang','beixuan');">
+								患者管理</div></td>
+							</tr>
+							<tr>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('changguan','reservation','question','adminUser','doctor','patient','xuetang','beixuan');">
+								场馆管理</div></td>
+							</tr>
+							<tr>
+								<td><div class=" btn btn-primary btn-block"
+								onclick="show_hidden('xuetang','reservation','question','adminUser','doctor','patient','changguan','beixuan');">
+								学堂管理</div></td>
+							</tr>
+							<tr>
+								<td><div class=" btn btn-primary btn-block"
+								onclick="show_hidden('beixuan','reservation','question','adminUser','doctor','patient','changguan','xuetang');">
+								备用选项</div></td>
 							</tr>
 						</table>
 					</td>
 
-					<td width="1100px">
-					
-						<div id="reservation" >
+					<td width="1100px" valign="top">
+						
+						<%//预约管理 %>
+						<div id="reservation"  >
 							<%@ include file="index_reservation_test.jsp"%>
 						</div>
 						
-						<div id="question" style="display: none;">
+						<%//问题列表 %>
+						<div id="question" style="display: none;"  >
 							<%@ include file="../admin/list_question.jsp"%>
 						</div>
-						<div id="user" style="display: none;">
+						
+						<%//后台用户 %>
+						<div id="adminUser" style="display: none;"  >
 							<%@ include file="../admin/insertUser.jsp"%>
 							<%@ include file="../admin/editUser.jsp"%>
+						</div>
+						
+						<%//医生管理 %>
+						<div id="doctor" style="display: none;" >
+						<%// %>
 							<%@ include file="../admin/list_doctor.jsp"%>
+						</div>	
+						
+						<%//患者管理 %>
+						<div id="patient" style="display: none;" >
+							<%// %>
+							关于患者管理选项，程序猿们正在努力的开发中， 客官请稍后！
+						</div>	
+						
+						<%//场馆管理 %>
+						<div id="changguan" style="display: none;" >
+							<%// %>
+							关于场馆管理选项，程序猿们正在努力的开发中， 客官请稍后！
+						</div>	
+						
+						<%//学堂管理 %>
+						<div id="xuetang" style="display: none;"  >
+						<%// %>
+							关于学堂管理选项，程序猿们正在努力的开发中， 客官请稍后！
+						</div>	
+						
+						<%//备用选项 %>
+						<div id="beixuan" style="display: none;"  >
+						<%// %>
+							关于备用选项选项，程序猿们正在努力的开发中， 客官请稍后！
 						</div>	
 					
 					</td>
