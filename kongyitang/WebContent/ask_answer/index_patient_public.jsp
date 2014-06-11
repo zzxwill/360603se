@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
+<%@page import="database.*" %> 
   	
   	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="index.jsp?tabDisplay=public">
 	      <fieldset data-role="fieldcontain">
@@ -94,6 +95,14 @@
 		  	for(int i=questionNum;i>=1;i--){ //逆序
 	  			//qID = i;
 	  			qID = askPatient_doctor.ids_Condition[i];
+	  			
+	  			//问题删除判断
+	  			DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
+	  			int deleteFlag = 0;
+	  			deleteFlag = deleteQuestionDao.IsQuestionExist(qID);
+	  			if(deleteFlag==0){//未删除
+	  			//判断完毕
+	  			
 	  			answerDao_Patient.getAnswers_Given(qID);
 	  			
 	  			departmentID = askPatient_doctor.departments_Condition[i];
@@ -150,6 +159,7 @@
 				</center>
 			<br>
 			<%}
+		  	}
 	  	}
   	%>	  	
   		</fieldset>

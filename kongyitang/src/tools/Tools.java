@@ -80,9 +80,17 @@ public class Tools {
 		else if(flag.equals("04answer")){
 			sql = "select max(id) as id from 04answer";
 		}
-		else if(flag.equals("04validate_code")){
-			sql = "select max(id) as id from 04validate_code";
+		
+		else if(flag.equals("04question_delete_list")){
+			sql = "select max(id) as id from 04question_delete_list";
 		}
+		
+		
+		/*
+		else if(flag.equals("usercharts")){
+			sql = "select max(userID) as userID from usercharts";
+		}
+		*/	
 		
 		//System.out.println(sql);
 		try {
@@ -113,10 +121,17 @@ public class Tools {
 				else if(flag.equals("04answer")){
 					id = rs.getInt("id");
 				}
-				else if(flag.equals("04validate_code")){
+				
+				else if(flag.equals("04question_delete_list")){
 					id = rs.getInt("id");
 				}
 				
+				
+				/*
+				else if(flag.equals("usercharts")){
+					id = rs.getInt("userID");
+				}
+				*/
 				id++;
 			}
 			stmt.close();
