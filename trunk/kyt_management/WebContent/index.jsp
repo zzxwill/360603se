@@ -16,7 +16,7 @@
 <br>
 <h1><p style='color:red;'><%=sysName %></p></h1>
 <br>
-    <form class="form-horizontal"  action="servlet/loginServlet" method="post">
+    <form class="form-horizontal"  action="sys/loginServlet" method="post">
     	 
 	 <%@ include file="include/meta.jsp"%> 
 	 <%@ include file="include/cssJSMain.jsp"%> 

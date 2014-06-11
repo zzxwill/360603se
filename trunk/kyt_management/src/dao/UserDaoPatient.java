@@ -12,42 +12,45 @@ import database.Connections;
 import tools.Tools;
 //import security.PasswordUtil;
 
-public class AnswerDao {
+public class UserDaoPatient {
 
-	int NUM = 1000;
-	
 	private Statement stmt = null;
 	private ResultSet rs = null;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
-	public String answers_Given_Patient[]; 
-	public int num_Given_Patient = 0;
+	private int NUM = 1000;
 	
-	public String answers_Given_Doctor[]; 
-	public int questions_ids_Given_Doctor[];
-	public int num_Given_Doctor = 0;
+	public String UserName = null;
+	public String UserTel = null;
+	public int UserGroup = 0;
 	
-	//新建答案
-	public void insertAnswer(String answer, int doctor_id, int question_id) {
+	public int UserPatientNum = 0;
+	public String UserPatientTels[];
+	
+	//新建用户
+	public void insertUser_Patient(String userName, int userGender, int userAge, int userRole, String userTel, String userPWD) {
 		
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04answer values(?,?,?,?,?,?)";
+		String sql = "insert into 04user values(?,?,?,?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
-			int id = tool.generateID("04answer");
+			int id = tool.generateID("04user");
 			if (id == -1) {
 				return;
 			}
 			ps.setInt(1, id);
-			ps.setString(2, answer);
-			ps.setInt(3, doctor_id);
-			ps.setInt(4, question_id);
+			ps.setString(2, userName);
+			ps.setInt(3, userGender);
+			ps.setInt(4, userAge);
+			ps.setInt(5, userRole);
+			ps.setString(6, userTel);
+			ps.setString(7, userPWD);
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
-			ps.setTimestamp(5, ts);
-			ps.setTimestamp(6, ts);
+			ps.setTimestamp(8, ts);
+			ps.setTimestamp(9, ts);
 
 			ps.execute();
 			
@@ -60,17 +63,17 @@ public class AnswerDao {
 		}
 	}
 	
-	//根据id查询答案
-	public String getAnswer(int id) throws SQLException {
+	//根据id查询用户名
+	public String getUserName_Patient(int id) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04answer where id=" + id;
-		String answer= null;
+		String sql = "select * from 04user where id=" + id;
+		String userName= null;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
-				answer = rs.getString("answer");
+				userName = rs.getString("name");
 			}
 			stmt.close();
 			conn.close();
@@ -78,65 +81,14 @@ public class AnswerDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return answer;
+		return userName;
 	}
 	
-	//根据doctorID查询问题列表
-	public void getQuestions_Given(int doctor_id) throws SQLException {
-		
-		answers_Given_Doctor = new String[NUM]; 
-		questions_ids_Given_Doctor = new int[NUM];
-		
-		conn = Connections.getConnection();
-		String sql = "select * from 04answer where doctor_id=" + doctor_id;
-		try {
-			int index = 1;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				questions_ids_Given_Doctor[index] = rs.getInt("question_id");
-				answers_Given_Doctor[index] = rs.getString("answer");;
-				index++;
-			}
-			num_Given_Doctor = index-1;
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	//根据question_id查询答案
-	public void getAnswers_Given(int question_id) throws SQLException {
-		
-		answers_Given_Patient = new String[NUM];
-		
-		conn = Connections.getConnection();
-		String sql = "select * from 04answer where question_id=" + question_id;
-		try {
-			int index = 1;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				answers_Given_Patient[index] = rs.getString("answer");;
-				index++;
-			}
-			num_Given_Patient = index-1;
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	/*
-	//根据weixinID查询id
-	public int getID_By_WeixinID(String weixinID) throws SQLException {
+	//根据用户名查询id
+	public int getUserId_Patient(String name) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
+		String sql = "select * from 04user where name='" + name + "'";
 		int id= 0;
 		try {
 			stmt = conn.createStatement();
@@ -153,17 +105,39 @@ public class AnswerDao {
 		return id;
 	}
 	
-	//根据weixinID查询userID
-	public int getUserID_By_WeixinID(String weixinID) throws SQLException {
+	
+	//根据id查询Tel
+	public String getUserTel_Patient(int id) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
+		String sql = "select * from 04user where id=" + id;
+		String userTel= null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				userTel = rs.getString("mobile");
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userTel;
+	}
+	
+	//根据Tel查询id
+	public int getUserId_by_Tel_Patient(String tel) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04user where mobile='" + tel + "'";
 		int id= 0;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
-				id = rs.getInt("userID");
+				id = rs.getInt("id");
 			}
 			stmt.close();
 			conn.close();
@@ -174,17 +148,38 @@ public class AnswerDao {
 		return id;
 	}
 	
-	//根据weixinID查询role
-	public int getRole_By_WeixinID(String weixinID) throws SQLException {
-
+	//查询所有Tel
+	public void getAllUserTel_Patient() throws SQLException {
+		UserPatientTels = new String[NUM];
 		conn = Connections.getConnection();
-		String sql = "select * from 04weixinMapUser where weixinID='" + weixinID + "'";
-		int role= 0;
+		String sql = "select * from 04user ";
+		try {
+			int index = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				UserPatientTels[index] = rs.getString("mobile");
+				index++;
+			}
+			UserPatientNum = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询Patient用户是否禁用
+	public int IsPatientExist(String mobile) throws SQLException {
+		int flag = 0;
+		conn = Connections.getConnection();
+		String sql = "select * from 04user where mobile='" + mobile + "'";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
-				role = rs.getInt("role");
+				flag = 1;
 			}
 			stmt.close();
 			conn.close();
@@ -192,10 +187,31 @@ public class AnswerDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return role;
+		return flag;
 	}
 	
-	*/
+	//患者修改密码
+	public void modifyPassword_Patient(String mobile, String password) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		
+		String sql = "update 04user set password = '" + password + "'"
+			 	+ " , updateDate = '" + ts + "'" 
+			 	+ " where mobile = '" + mobile + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	/*
 
@@ -226,6 +242,9 @@ public class AnswerDao {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 	
 	//管理员修改用户信息
 	public void modifyUserByAdmin(int userID, String userPWD, String userTel, int userGroup, int deleteUser) throws SQLException {
