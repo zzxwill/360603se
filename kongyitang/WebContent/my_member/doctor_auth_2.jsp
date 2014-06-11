@@ -92,9 +92,10 @@
 		<div><big>上传医生证照</big></div><br>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="100%"> <div id="PhotoButton">拍&nbsp;&nbsp;照</div></td>
+			<td></td>
+<!--				<td align="center" width="100%"> <div id="PhotoButton">拍&nbsp;&nbsp;照</div></td>-->
 			</tr>
-			<tr><td><hr></td></tr>
+<!--			<tr><td><hr></td></tr>-->
 			<tr>
 				<td align="center" width="100%">		
 				<div id="PhotoButton" style="position:relative;">从相册中选择
@@ -117,9 +118,10 @@
 		<div><big>上传医生头像</big></div><br>
 		<table width="100%" cellpadding="0" cellspacing="0px"  >
 			<tr>
-				<td align="center" width="100%"> <div id="PhotoButton">拍&nbsp;&nbsp;照</div></td>
+			<td></td>
+<!--				<td align="center" width="100%"> <div id="PhotoButton">拍&nbsp;&nbsp;照</div></td>-->
 			</tr>
-			<tr><td><hr></td></tr>
+<!--			<tr><td><hr></td></tr>-->
 			<tr>
 				<td align="center" width="100%">		
 				<div id="PhotoButton" style="position:relative;">从相册中选择

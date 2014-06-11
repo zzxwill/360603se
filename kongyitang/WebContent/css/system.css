@@ -90,3 +90,64 @@ img{
 	height: 50px;
 	
 }
+
+
+#mainListLeftButton{
+
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#7B68EE;
+	height:35px;
+	line-height:35px;
+	background:#7B68EE; 
+	color:white;
+	border-top-left-radius:10px 10px;
+    //border-top-right-radius:10px 10px;
+    //border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;	
+}
+
+#mainListRightButton{
+
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#EE7600;
+	height:35px;
+	line-height:35px;
+	background:#EE7600; 
+	color:white;
+	//border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    //border-bottom-left-radius:10px 10px;	
+}
+
+#mainListButton{
+
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#00CD00;
+	height:35px;
+	line-height:35px;
+	background:#00CD00; 
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;	
+}
+
+#reserveListButton{
+
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#7B68EE;
+	height:35px;
+	line-height:35px;
+	background:#7B68EE; 
+	color:white;
+	border-top-left-radius:10px 10px;
+    border-top-right-radius:10px 10px;
+    border-bottom-right-radius:10px 10px;
+    border-bottom-left-radius:10px 10px;	
+}
