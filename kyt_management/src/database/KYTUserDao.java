@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-import database.connection;
+//import database.connection;
 
 public class KYTUserDao {
 	private static final long USERID = 0;

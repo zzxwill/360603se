@@ -4,10 +4,6 @@
 <%@ include file="../check/index.jsp"%> 
 <%@ include file="../check/checkAdmin.jsp"%>  
 
-<table width="95%">
-	<tr>
-		<td>
-
 <!--  	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" target="hidden_question_frame">-->
 	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" > 
 	      <fieldset data-role="fieldcontain">
@@ -118,8 +114,7 @@
 				      <fieldset data-role="fieldcontain">
 			
 				 <link rel="stylesheet" href="../css/my.css" />
-				<div class="view"> 
-
+				
 				<script >
 					function AnswerSubmit(qID){
 						//alert("qID:" + qID);
@@ -163,48 +158,21 @@
 					} 
 					%>
 					<br>
-					
-				<!-- Button to trigger modal --> 
-			       <table width="70%">
+					<center>
+					<table width="70%">
 						<tr>
 							<td align="center" width="50%">
-			      				<a id="myModalLinkUser<%=qID %>" href="#myModalContainerUser<%=qID %>" role="button" class="btn btn-primary" data-toggle="modal">
-			       				回答	</a> 
-			       			</td>
+								<div style="90%" id="reply_yes" class="reply_yes" onclick="AnswerSubmit(<%=qID %>)">回答</div>
+							</td>
 							<td align="center" width="50%">
-<!--								<div style="90%" id="delete_questiion" class="delete_questiion" onclick="DeleteSubmit(<%//=qID %>)">删除</div>-->
+								<div style="90%" id="delete_questiion" class="delete_questiion" onclick="DeleteSubmit(<%=qID %>)">删除</div>
 							</td>
 						</tr>
 					</table>
-			       	</center>
-			       </div>
-			       <!-- Modal -->
-			       <div id="myModalContainerUser<%=qID %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUser<%=qID %>" aria-hidden="true">
-			         <div class="modal-header">
-			           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			           <h3 id="myModalLabelUser<%=qID %>" contenteditable="true">编辑用户信息</h3>
-			         </div>
-			         
-					<div class="modal-body">
+					</center>
+				</div>
 					
-					</div>
-			         
-			         <div class="modal-footer">
-			         <table width="95%">
-			         	<tr>
-			         		<td width="66%" align="center" valign="top">&nbsp;
-			         			<div id="msgUser<%=qID %>"></div>
-			         		</td>
-			         		<td width="17%" align="center"  valign="bottom">
-			          			 <button class="btn" data-dismiss="modal" aria-hidden="true" contenteditable="true">取消</button>
-			          		</td>
-							<td width="17%" align="center"  valign="bottom">
-			           			<input class="btn btn-primary" type="button" value="保存设置"  onclick="checkEditUserInput(<%=qID %>)"/>
-			           		</td>
-			           	</tr>
-			          </table>
-			         </div>
-			       </div>
+				</center>
 				</fieldset>
 			</form>	
 			<br>
@@ -216,7 +184,3 @@
 		  	<iframe name='hidden_question_frame' id="hidden_question_frame" style='display:none'></iframe>
   		</fieldset>
 	</form>	
-	
-	</td>
-</tr>
-</table>

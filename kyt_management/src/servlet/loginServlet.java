@@ -121,7 +121,7 @@ public class loginServlet extends HttpServlet {
 	        	String message = check.message;
 	        	request.setAttribute("message", message);
 	        	response.setContentType("text/html; charset=utf-8");
-	        	response.sendRedirect("../admin");
+	        	response.sendRedirect("../sys");
 	            //request.getRequestDispatcher("/").forward(request, response);
 	        }
 	   }
