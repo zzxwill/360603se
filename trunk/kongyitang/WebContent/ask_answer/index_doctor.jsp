@@ -119,6 +119,15 @@
 	  		for(int i=questionNum;i>=1;i--){ //逆序
 	  			//qID = i;
 	  			qID = askPatient_doctor.ids_Condition[i];
+	  			
+	  			//问题删除判断
+	  			DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
+	  			int deleteFlag = 0;
+	  			deleteFlag = deleteQuestionDao.IsQuestionExist(qID);
+	  			if(deleteFlag==0){//未删除
+	  			//判断完毕
+	  			
+	  			
 	  			departmentID = askPatient_doctor.departments_Condition[i];
 	  			departmentName = departmentDao.getDepartmentName(departmentID);
 	  			int answerFlag =  askPatient_doctor.answered_flags_Condition[i];
@@ -182,6 +191,7 @@
 			</form>	
 			<br>
 			<%}
+	  		}
 	  	}
   	%>
 <!--  			</fieldset>-->

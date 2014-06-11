@@ -63,6 +63,15 @@
 			//for(int i=1;i<=askPatient.num_Given;i++){
 			for(int i=askPatient.num_Given;i>=1;i--){
 				
+				int questionID = askPatient.ids_Given[i];
+				
+				//问题删除判断
+	  			DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
+	  			int deleteFlag = 0;
+	  			deleteFlag = deleteQuestionDao.IsQuestionExist(questionID);
+	  			if(deleteFlag==0){//未删除
+	  			//判断完毕
+				
 				departmentID = askPatient.departments_Given[i];
 				departmentName = departmentDao.getDepartmentName(departmentID);
 				answerFlag = askPatient.answered_flags_Given[i];
@@ -94,7 +103,7 @@
 					<br>
 				<%
 				}else{
-					int questionID = askPatient.ids_Given[i];
+					questionID = askPatient.ids_Given[i];
 					AnswerDao answerDao_Patient = new AnswerDao();
 					answerDao_Patient.getAnswers_Given(questionID);
 					%>
@@ -121,6 +130,8 @@
 				<%
 				}
 			}
+			}
+			
 		}else{
 		%>
 		<center>
@@ -202,7 +213,15 @@
 				
 				//for(int i=1;i<=answerDao_Doctor.num_Given_Doctor;i++){
 				for(int i=answerDao_Doctor.num_Given_Doctor;i>=1;i--){
+					
 					questionID = answerDao_Doctor.questions_ids_Given_Doctor[i];
+					
+					//问题删除判断
+		  			DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
+		  			int deleteFlag = 0;
+		  			deleteFlag = deleteQuestionDao.IsQuestionExist(questionID);
+		  			if(deleteFlag==0){//未删除
+		  			//判断完毕
 					
 					ASKPatient askPatient_doctor = new ASKPatient();
 					askPatient_doctor.getQuestionInfo(questionID);
@@ -241,7 +260,8 @@
 					</div>
 				</div>
 				<br>
-			<%}
+				<%}
+				}
 			}else{
 			%>
 				<center>
