@@ -6,7 +6,8 @@ import java.text.*;
 
 //import login.Validate;
 //import security.PasswordUtil;
-//import database.*;
+import dao.*;
+import database.*;
 
 public class test {
 
@@ -54,6 +55,10 @@ public class test {
     	//pw = GP.generatePassword(pw);
 		//UserDao userDao = new UserDao();
 		//userDao.modifyUserByAdmin(3, pw, "3333333", 1, 0);
+		
+		//添加删除问题列表
+		//DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
+		//deleteQuestionDao.insertDelQuestion(40,0);
 		System.out.println("validate:");
 		
 	}
