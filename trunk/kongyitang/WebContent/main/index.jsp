@@ -22,24 +22,15 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+			&nbsp;
+<!--				<div id="backButton" style="width:60px;" >&nbsp;</div>-->
 			</td>
 			<td align="center" width="34%"><a style="color:white;">孔医堂</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
 		</tr>
 	</table>
  	</div>
-
-		<table width="100%" bgColor="#fffef0" cellspacing="0"
-			cellpadding="0" class="Introtable">
-
-			<tr>
-				<td align="center"><span class="title">孔医堂</span></td>
-
-			</tr>
-			
-		</table>
-		
+		<br>
     <script>
     function reserve(){
     	window.location = "reserve.jsp";
@@ -59,7 +50,7 @@
     	window.location = "../my_health/index.jsp";
      }
     </script>
-
+    
 		<table bgColor="#fffef0" border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px ;" >
 			<tr>
