@@ -25,7 +25,8 @@
 	String info = null;
 	String type = request.getParameter("type");
 	String doctor_id_str = request.getParameter("doctor_id");
-	if(null==type || doctor_id_str == null){
+	String radio_str = request.getParameter("radio"+doctor_id_str);
+	if(null==type || doctor_id_str == null || radio_str == null){
 %>
 
 	<center>
@@ -43,14 +44,19 @@
 			System.out.println("edit\n");
 			 
 				long doctor_id = Long.parseLong(doctor_id_str);
+				
+				int radio = Integer.parseInt(radio_str);
+				
 				HashMap hm = new HashMap();
 				hm.put("doctor_id", doctor_id);
 				
 				UserDao user_dao = new UserDao();
-				user_dao.approve_doctor(hm);
-				
-				
-			
+				//int flag = 1;
+				if(radio==1){
+					user_dao.approve_doctor(hm,1);
+				}else if(radio==0){
+					user_dao.approve_doctor(hm,0);
+				}
 		}
 		else if(type.equals("new")){ //新建
 				}
