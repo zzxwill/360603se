@@ -47,6 +47,10 @@ public class UserDao {
 	public ArrayList<String> doctor_department = new ArrayList<String>();
 	public ArrayList<String> doctor_title = new ArrayList<String>();
 	public ArrayList<String> doctor_validate_flag = new ArrayList<String>();
+	
+	//医生证件照、头像
+	public ArrayList<String> doctor_criteria_photo = new ArrayList<String>();
+	public ArrayList<String> doctor_portrait = new ArrayList<String>();
 
 	
 	
@@ -68,7 +72,7 @@ public class UserDao {
 
 		conn = Connections4WeChat.getConnection();
 		
-		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag  FROM `04user_doctor` d  ";
+		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait`  FROM `04user_doctor` d  ";
 		
 		if("staff_wjg".equals(user_role)){
 			sql += ",04site_doctor s where s.doctor_id = d.id";
@@ -90,6 +94,9 @@ public class UserDao {
 				doctor_department.add(rs.getString(8));
 				doctor_title.add(rs.getString(9));
 				doctor_validate_flag.add(rs.getString(10));
+				//医生证件照、头像
+				doctor_criteria_photo.add(rs.getString(11));
+				doctor_portrait.add(rs.getString(12));
 			}
 			stmt.close();
 			conn.close();
@@ -129,12 +136,12 @@ public class UserDao {
 	
 
 	//审核医生  Will 6/8/2014
-		public void approve_doctor(HashMap hm) throws SQLException {
+		public void approve_doctor(HashMap hm,int flag) throws SQLException {
 			long dcotor_id = (Long) hm.get("doctor_id");
 			
 			
 			conn = Connections4WeChat.getConnection();
-			String sql = "update `04user_doctor` set validate_flag = '1' where id = " + dcotor_id;
+			String sql = "update `04user_doctor` set validate_flag = '"+ flag + "' where id = " + dcotor_id;
 			
 			
 			try {	
