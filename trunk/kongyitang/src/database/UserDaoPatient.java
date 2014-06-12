@@ -34,7 +34,7 @@ public class UserDaoPatient {
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04user values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into 04user values(?,?,?,?,?,?,?,?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
 			int id = tool.generateID("04user");
@@ -51,6 +51,7 @@ public class UserDaoPatient {
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
 			ps.setTimestamp(8, ts);
 			ps.setTimestamp(9, ts);
+			ps.setInt(10, 0);
 
 			ps.execute();
 			
