@@ -172,12 +172,13 @@ public class test {
 		//修改患者密码
 		PasswordUtil GP = new PasswordUtil();
     	String pw = "liming";
-    	String mobile = "15210983731";
+    	String mobile = "15210983730";
 		pw = GP.generatePassword(pw);
 		UserDaoPatient patient = new UserDaoPatient();
 		patient.modifyPassword_Patient(mobile, pw);
 		*/
 		
+		/*
 		//注册医生
 		PasswordUtil GP = new PasswordUtil();
     	String userName = "doctor";
@@ -186,6 +187,7 @@ public class test {
 		UserDaoDoctor doctor = new UserDaoDoctor();
 		//doctor.insertUser_Doctor(userName, userGender, userAge, userRole, userTel, userPWD);
 		doctor.insertUser_Doctor(userName, 0, 23, 1, userName , pw);
+		*/
 		
 	}
 

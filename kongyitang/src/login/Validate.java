@@ -26,7 +26,8 @@ public class Validate {
 		conn = Connections.getConnection();
 		String sql = null;
 		if(role==0){//patient
-			sql = "select * from 04user where mobile = '" + userName + "'" ;
+			sql = "select * from 04user where mobile = '" + userName + "'" 
+			+ " and deletePatient = '" + 0 + "'";
 		}else if(role==1){
 			sql = "select * from 04user_doctor where mobile = '" + userName + "'"  ;
 			//	+ " and validate_flag = '" + 1 + "'";
