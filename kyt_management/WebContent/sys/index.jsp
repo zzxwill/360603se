@@ -122,7 +122,7 @@
 						<%//患者管理 %>
 						<div id="patient" style="display: none;" >
 							<%// %>
-							关于患者管理选项，程序猿们正在努力的开发中， 客官请稍后！
+							<%@ include file="../admin/list_patient.jsp"%>
 						</div>	
 						
 						<%//场馆管理 %>

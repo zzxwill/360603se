@@ -12,7 +12,7 @@ import database.Connections;
 import tools.Tools;
 //import security.PasswordUtil;
 
-public class UserDaoPatient {
+public class DeletePatientDao {
 
 	private Statement stmt = null;
 	private ResultSet rs = null;
@@ -20,65 +20,42 @@ public class UserDaoPatient {
 	private PreparedStatement ps = null;
 	
 	private int NUM = 1000;
+
 	
-	public String UserName = null;
-	public String UserTel = null;
-	public int UserGroup = 0;
-	
-	public int UserPatientNum = 0;
-	public int UserPatientIds[];
-	public String UserPatientNames[];
-	public String UserPatientGenders[];
-	public int UserPatientAges[];
-	public String UserPatientMobiles[];
-	public int UserPatientDels[];
-	
-	
-	
-	//查询所有患者
-	public void getAllUserInfo_Patient() throws SQLException {
-		UserPatientIds = new int[NUM];
-		UserPatientNames = new String[NUM];
-		UserPatientGenders = new String[NUM];
-		UserPatientAges = new int[NUM];
-		UserPatientMobiles = new String[NUM];
-		UserPatientDels = new int[NUM];
+	//新建删除患者列表
+	public void insertDelPatient(int patientID) {
 		
 		conn = Connections.getConnection();
-		String sql = "select * from 04user ";
+		Tools tool = new Tools();
+
+		String sql = "insert into 04user_patient_delete_list values(?,?,?)";
 		try {
-			int index = 1;
-			int tmpGender = 0;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				UserPatientIds[index] = rs.getInt("id");
-				UserPatientNames[index] = rs.getString("name");
-				tmpGender = rs.getInt("gender");
-				if(tmpGender==1){
-					UserPatientGenders[index] = "男";
-				}else{
-					UserPatientGenders[index] = "女";
-				}
-				UserPatientAges[index] = rs.getInt("age");
-				UserPatientMobiles[index] = rs.getString("mobile");
-				UserPatientDels[index] = rs.getInt("deletePatient");
-				index++;
+			ps = conn.prepareStatement(sql);
+			int id = tool.generateID("04user_patient_delete_list");
+			if (id == -1) {
+				return;
 			}
-			UserPatientNum = index-1;
-			stmt.close();
+			ps.setInt(1, id);
+			ps.setInt(2, patientID);
+			Timestamp ts = new Timestamp(System.currentTimeMillis());  
+			ps.setTimestamp(3, ts);
+
+			ps.execute();
+			
+			ps.close();
 			conn.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	//查询Patient用户是否存在
-	public int IsPatientExist(String mobile) throws SQLException {
+	//查询删除患者列表中patientID是否存在
+	public int IsQuestionExist(int patientID) throws SQLException {
 		int flag = 0;
 		conn = Connections.getConnection();
-		String sql = "select * from 04user where mobile='" + mobile + "'";
+		String sql = "select * from 04user_patient_delete_list where patientID='" + patientID + "'";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -94,15 +71,15 @@ public class UserDaoPatient {
 		return flag;
 	}
 	
-	//患者修改密码
-	public void modifyPassword_Patient(String mobile, String password) throws SQLException {
+	//用户修改患者用户审核状态
+	public void modifyPatientStatus(int patientID, int flag) throws SQLException {
 		
 		conn = Connections.getConnection();
+		String sql = null;
 		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
 		
-		String sql = "update 04user set password = '" + password + "'"
-			 	+ " , updateDate = '" + ts + "'" 
-			 	+ " where mobile = '" + mobile + "'";
+		sql = "update 04user set deletePatient = '" + flag + "'"
+			+ " , updateDate = '" + ts + "'" + " where id = " + patientID ;
 
 		try {	
 			stmt = conn.createStatement();
@@ -116,6 +93,7 @@ public class UserDaoPatient {
 		}
 	}
 	
+		
 	
 	/*
 

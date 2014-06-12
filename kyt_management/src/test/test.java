@@ -59,6 +59,13 @@ public class test {
 		//添加删除问题列表
 		//DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
 		//deleteQuestionDao.insertDelQuestion(40,0);
+		
+		/*
+		//添加删除患者列表
+		DeletePatientDao deletePatientDao = new DeletePatientDao();
+		deletePatientDao.insertDelPatient(2);
+		*/
+		
 		System.out.println("validate:");
 		
 	}
