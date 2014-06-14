@@ -13,7 +13,7 @@
 	//限制总上传数据的长度。
 	su.setTotalMaxFileSize(2*MAXFILE);
 	//设定允许上传的文件（通过扩展名限制）
-	su.setAllowedFilesList("JPG,jpg,JPEG,jpeg,GIF,gif,BMP,bmp,PNG,png");
+	su.setAllowedFilesList("JPG,jpg,JPEG,jpeg,GIF,gif,BMP,bmp,PNG,png,,");
 	
 	boolean sign = true;
 	String filename = null;
@@ -38,18 +38,50 @@
 		String ext02 = myFile02.getFileExt();
 		int file_size02 =myFile02.getSize();
 		
-		if((file_size>MAXFILE)||(null==ext)||ext.equals("")||(file_size02>MAXFILE)||(null==ext02)||ext02.equals("")){
+		//if((file_size>MAXFILE)||(null==ext)||ext.equals("")||(file_size02>MAXFILE)||(null==ext02)||ext02.equals("")){
+		if((file_size>MAXFILE||file_size02>MAXFILE)){
 			//System.out.println("file_size:" + file_size +"\n");
+			//out.print ("<script>alert('上传失败！文件大小:"+file_size/1024+"K超出了限定的范围\n\r(最大为"+ MAXFILE/1024+"K)');</script>");
 		%>
 			<script>
+				alert('上传失败！文件大小:' +file_size/1024+'K超出了限定范围!\n\r最大为'+ MAXFILE/1024+'K');
 				window.location="index.jsp";
 			</script>
 		<%
-		}else{
+		}
+		if((file_size<=MAXFILE)&&(file_size>0)){
 
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
-			Timestamp ts02 = new Timestamp(System.currentTimeMillis()+1);
+			//Timestamp ts02 = new Timestamp(System.currentTimeMillis()+1);
 			filename = String.valueOf(ts.getTime());
+			//filename02 = String.valueOf(ts02.getTime());
+			
+			//本地PC
+			//String ImageUrl = "E:\\code\\web-java\\file\\" ;
+			//青云服务器
+			String ImageUrl = "/usr/local/software/apache-tomcat-8.0.8/webapps/KYTPic/Portrait/" ;
+			String ImageUrl02 = ImageUrl;
+			
+			 if((null==ext)||ext.equals("")){
+				ImageUrl += filename; //保存路径  
+					//filename = filename;
+			 }else{
+				 ImageUrl += filename + "." + ext; //保存路径  
+				 filename = filename + "." + ext;
+			 }
+			
+			//ImageUrl02 += filename02 + "." + ext02; //保存路径  
+			//filename02 = filename02 + "." + ext02;
+			
+			//将上传文件保存到指定目录
+			myFile.saveAs(ImageUrl);
+			//myFile02.saveAs(ImageUrl02);
+		}
+		if((file_size02<=MAXFILE)&&(file_size02>0)){
+
+			//Timestamp ts = new Timestamp(System.currentTimeMillis());
+			Timestamp ts02 = new Timestamp(System.currentTimeMillis()+1);
+			//filename = String.valueOf(ts.getTime());
 			filename02 = String.valueOf(ts02.getTime());
 			
 			//本地PC
@@ -57,14 +89,18 @@
 			//青云服务器
 			String ImageUrl = "/usr/local/software/apache-tomcat-8.0.8/webapps/KYTPic/Portrait/" ;
 			String ImageUrl02 = ImageUrl;
-			ImageUrl += filename + "." + ext; //保存路径  
-			filename = filename + "." + ext;
-			
-			ImageUrl02 += filename02 + "." + ext02; //保存路径  
-			filename02 = filename02 + "." + ext02;
+			//ImageUrl += filename + "." + ext; //保存路径  
+			//filename = filename + "." + ext;
+			 if((null==ext)||ext.equals("")){
+				ImageUrl02 += filename02; //保存路径  
+				//filename = filename;
+			 }else{
+					ImageUrl02 += filename02 + "." + ext02; //保存路径  
+					filename02 = filename02 + "." + ext02;
+			 }
 			
 			//将上传文件保存到指定目录
-			myFile.saveAs(ImageUrl);
+			//myFile.saveAs(ImageUrl);
 			myFile02.saveAs(ImageUrl02);
 		}
 		

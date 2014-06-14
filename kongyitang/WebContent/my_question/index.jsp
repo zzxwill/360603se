@@ -169,7 +169,11 @@
 							<td width="50%" align="center"><img src="../images/v.png" border = "0px"  width="20px"/></td>
 						</tr>
 						<tr>
-							<td width="50%" align="center"><%=userDaoDoctor.doctor_Title_Given %></td>
+							<td width="50%" align="center">
+								<%String title = userDaoDoctor.doctor_Title_Given;
+								%>
+								<%=null==title||title.equals("")?"未认证":title %>
+							</td>
 							<td width="50%" align="center">
 								<div id="doctors">
 								<%String department = userDaoDoctor.doctor_Department_Given;

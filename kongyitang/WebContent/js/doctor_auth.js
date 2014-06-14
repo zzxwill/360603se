@@ -122,6 +122,7 @@
     function checkCriteriaImg(){
     	
     	var uploadImage = document.getElementById("uploadCriteriaImage").value;
+    	//alert("上传医生证照名：" + uploadImage);
     	var msg = document.getElementById("msgCriteriaImg");
     	
     	var pos = uploadImage.lastIndexOf(".");
@@ -137,6 +138,10 @@
     			flag = true;
     			break;
     		}
+    	}
+    	
+    	if(pos==-1){
+    		flag = true;
     	}
     	
     	if(flag == false){
@@ -165,6 +170,7 @@
     function checkPortraitImg(){
     	
     	var uploadImage = document.getElementById("uploadPortraitImage").value;
+    	//alert("上传医生头像名：" + uploadImage);
     	var msg = document.getElementById("msgPortraitImg");
     	
     	var pos = uploadImage.lastIndexOf(".");
@@ -180,6 +186,10 @@
     			flag = true;
     			break;
     		}
+    	}
+    	
+    	if(pos==-1){
+    		flag = true;
     	}
     	
     	if(flag == false){

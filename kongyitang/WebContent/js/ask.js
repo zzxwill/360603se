@@ -100,9 +100,11 @@ function OwnASKButton(){
 function checkImg(){
 
 	var uploadImage = document.getElementById("uploadImage").value;
+	//alert("上传症状照片名：" + uploadImage);
 	var msg = document.getElementById("msgImg");
 	
-	var pos = uploadImage.lastIndexOf(".");
+	var pos = uploadImage.lastIndexOf(".");//无后缀名pos = -1;
+	//alert("pos:" + pos);
 	var lastname = uploadImage.substring(pos,uploadImage.length);
 	//var uploadImage = lastname.toLowerCase();
 	var ext = ['.jpg', '.jpeg', '.png','.bmp','.JPG','.JPEG','.PNG','.BMP','.gif','.GIF'];//jpg,jpeg,bmp,png,gif
@@ -116,7 +118,9 @@ function checkImg(){
 			break;
 		}
 	}
-	
+	if(pos==-1){
+		flag = true;
+	}
 	if(flag == false){
 		 ImgOK = false;
 		 
