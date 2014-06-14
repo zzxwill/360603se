@@ -166,13 +166,17 @@
 					<table width="100%">
 						<tr>
 							<td width="50%" align="center"><big><big><strong><%=userDaoDoctor.doctor_Name_Given %></strong></big></big></td>
-							<td width="50%" align="center"><img src="../images/v.png" border = "0px"  width="20px"/></td>
+							<td width="50%" align="center">
+								<%int validate = userDaoDoctor.doctor_Validate_Flag_Given;
+								%>
+								<%=validate==1?"<img src='../images/v.png' border = '0px'  width='20px'/>":"" %>
+							</td>
 						</tr>
 						<tr>
 							<td width="50%" align="center">
 								<%String title = userDaoDoctor.doctor_Title_Given;
 								%>
-								<%=null==title||title.equals("")?"未认证":title %>
+								<%=validate==0|null==title||title.equals("")?"未认证":title %>
 							</td>
 							<td width="50%" align="center">
 								<div id="doctors">

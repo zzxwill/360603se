@@ -32,6 +32,7 @@ public class UserDaoDoctor {
 	public String doctor_Title_Given = null;
 	public String doctor_Department_Given = null;
 	public String doctor_Portrait_Given = null;
+	public int doctor_Validate_Flag_Given = 0;
 	
 	//新建用户
 	public void insertUser_Doctor(String userName, int userGender, int userAge, int userRole, String userTel, String userPWD) {
@@ -202,6 +203,7 @@ public class UserDaoDoctor {
 				doctor_Title_Given  = rs.getString("title");
 				doctor_Department_Given = rs.getString("department");
 				doctor_Portrait_Given = rs.getString("doctor_portrait");
+				doctor_Validate_Flag_Given = rs.getInt("validate_flag");
 			}
 			stmt.close();
 			conn.close();
