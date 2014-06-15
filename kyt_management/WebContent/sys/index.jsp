@@ -128,19 +128,21 @@
 						<%//场馆管理 %>
 						<div id="changguan" style="display: none;" >
 							<%// %>
-							关于场馆管理选项，程序猿们正在努力的开发中， 客官请稍后！
+							<%@ include file="../admin/insertChangGuan.jsp"%>
+							<%@ include file="../admin/editChangGuan.jsp"%>
 						</div>	
 						
 						<%//学堂管理 %>
 						<div id="xuetang" style="display: none;"  >
 						<%// %>
-							关于学堂管理选项，程序猿们正在努力的开发中， 客官请稍后！
+							<%@ include file="../admin/insertXueTang.jsp"%>
+							<%@ include file="../admin/editXueTang.jsp"%>
 						</div>	
 						
 						<%//备用选项 %>
 						<div id="beixuan" style="display: none;"  >
 						<%// %>
-							关于备用选项选项，程序猿们正在努力的开发中， 客官请稍后！
+							此选项仅用于后续备用环节！
 						</div>	
 					
 					</td>
