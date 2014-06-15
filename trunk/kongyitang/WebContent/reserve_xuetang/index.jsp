@@ -131,7 +131,7 @@ $().ready(function() {
 
 			<table width="100%">
 				<tr>
-					<td width="33%" align="center">
+					<td width="33%">
 						<!-- <div id="backButton" style="width: 60px;"
 							onclick="return_to_wechat_main()"></div> -->
 							<div id="backButton" style="width: 60px;">
@@ -146,7 +146,7 @@ $().ready(function() {
 
 		</div>
 
-		<div data-role="content">
+		<div data-role="content" style="margin-bottom: 20px;">
 			<form name="verifyForm" id="verifyForm" method="post"
 				action="submit_reserve_xuetang.jsp">
 

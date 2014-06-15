@@ -10,7 +10,7 @@
 
 
 #xuetang_td{ 
-	width: 30%; 
+	width: 80px; 
 	text-align: center;	
 }
     
@@ -29,7 +29,7 @@
 #ASKSubmit{ 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#d8a14f;
+	border-color:#744501;
 	height:36px;
 	line-height:36px;
 	background:#d8a14f;
@@ -45,17 +45,17 @@
 #ASKInput{ 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#d8a14f;
-	height:35px;
-	line-height:35px;
+	border-color:#744501;
+	height:44px;
+	line-height:44px;
 	background:#d8a14f;
 	color:white;
-
+	width:80px;
 	border-top-left-radius:10px 10px;
     border-top-right-radius:0px 0px;
     border-bottom-right-radius:0px 0px;
     border-bottom-left-radius:10px 10px;
-    border-top: 0;
+    border-right: 0;
     font-size: 16px;
 }
 
