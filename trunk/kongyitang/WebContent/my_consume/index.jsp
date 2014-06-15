@@ -42,7 +42,7 @@
 		</table>
 		
 		<center>
-		<table width="60%" cellpadding="0" cellspacing="1"  >
+		<table width="60%" cellpadding="0" cellspacing="1" style="margin: 15px auto;" >
 			<tr>
 				<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white" id="ConsumerRecordsButton" class="ConsumerRecordsButton"  onclick="ConsumerRecordsButton();">我的预约</div></td>
 				<td align="center" width="50%"><div style="color:<%=sysFontColor %>" id="AskedRecordsButton" class="AskedRecordsButton" onclick="AskedRecordsButton();">提问记录</div></td>

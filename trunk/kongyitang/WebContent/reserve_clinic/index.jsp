@@ -186,7 +186,7 @@ $().ready(function() {
 	{
 		if($(vid).css("border-bottom-width")=="0px")
 		{
-			$(vid).css("background","#fffef0");
+			$(vid).css("background","#feedd3");
 			$(vid).children("img")[0].src="../resources/css/images/reserver_clinic/left.gif";
 			$(vid).css("border-bottom","1px solid #d8a14f");
 		}
@@ -209,13 +209,13 @@ $().ready(function() {
 		<div data-role="header">
 			<table width="100%">
 				<tr>
-					<td width="33%" align="center">
-						<div id="backButton" style="width: 60px;">
+					<td width="23%" >
+						<div id="backButton">
 							<a id="return_link" onclick="window.location.href='../main/index.jsp'"></a>
 						</div>
 					</td>
-					<td align="center" width="34%"><a style="color: white;">预约孔医堂</a></td>
-					<td width="33%">&nbsp;&nbsp;</td>
+					<td align="center" width="54%"><a style="color: white;">预约孔医堂</a></td>
+					<td width="23%">&nbsp;&nbsp;</td>
 				</tr>
 			</table>
 		</div>
@@ -239,7 +239,7 @@ $().ready(function() {
 				<!-- 预约孔医堂首页 -->
 				<div id="kongyitang_reservation_index" style="display:">
 
-					<table width="100%" bgColor="#fffef0" cellspacing="0"
+					<table width="100%"  cellspacing="0"
 						cellpadding="0" class="Introtable">
 
 						<tr>

@@ -51,7 +51,7 @@
      }
     </script>
     
-		<table bgColor="#fffef0" border="0" cellspacing="0" cellpadding="0"
+		<table  border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px ;" >
 			<tr>
 			 	<td width="20%"></td>
@@ -65,7 +65,7 @@
 		</br>
 		
 		
-				<table bgColor="#fffef0" border="0" cellspacing="0" cellpadding="0"
+				<table  border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px;" >
 			<tr>
 			 	<td width="20%"></td>

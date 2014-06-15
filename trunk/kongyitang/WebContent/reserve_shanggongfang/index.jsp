@@ -177,7 +177,7 @@ $().ready(function() {
 				<!-- 预约上工坊健康会所首页 -->
 				<div id="xuetang_reservation_index" style="display:">
 
-					<table width="100%" bgColor="#fffef0" cellspacing="0"
+					<table width="100%"  cellspacing="0"
 						cellpadding="0" class="Introtable">
 
 						<!-- <tr bgColor="#000000">
