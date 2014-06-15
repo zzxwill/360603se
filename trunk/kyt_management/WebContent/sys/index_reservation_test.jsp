@@ -198,7 +198,7 @@
 
 <td ><INPUT id="u93" type="submit" class="u93" value="删除"   ><td >
 
-<td ><INPUT id="u94" type="submit" class="u94" value="添加排期"  onclick="ShowModalWithResult('../admin/add_outpatient_info.jsp?type=add','450px','680px');" ><td >
+<td ><INPUT id="u94" type="submit" class="u94" value="添加排期"  onclick="ShowModalWithResult('../admin/add_outpatient_info.jsp?type=add','600px','800px');;return false"" ><td >
 										</tr>
 										
 										<tr>

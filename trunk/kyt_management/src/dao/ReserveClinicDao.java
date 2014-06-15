@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.HashMap;
 
 import database.Connections;
-import database.Connections4WeChat;
 import tools.Tools;
 //import security.PasswordUtil;
 
@@ -170,7 +169,7 @@ public class ReserveClinicDao {
 		long site_id = (Long) hm.get("site_id");
 		long department_id = (Long) hm.get("department_id");
 			
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		String sql = "select u.id, u.name from 04user_doctor u ,04site_doctor s where u.id = s.doctor_id and u.department = " + department_id +" and s.id=" + site_id;	
 		try {
 			stmt = conn.createStatement();
@@ -205,7 +204,7 @@ public class ReserveClinicDao {
 	 */
 	public void retrive_outpatient() throws SQLException {
 
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
 		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
@@ -255,7 +254,7 @@ public class ReserveClinicDao {
 	 */
 	public void retrive_patien_reservation(int userid) throws SQLException {
 
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 		String sql = "SELECT  `site`, n.`department`, d.name,  `date` FROM  " + table_prefix + "reservation_normal n, " + table_prefix + "reservation_patient_illness i,  " + table_prefix + "user_doctor d where n.patient_illness_id = i.id and n.doctorid = d.id and userid =  " + userid;
@@ -340,7 +339,7 @@ public class ReserveClinicDao {
 	
 	public void retrive_doctor_reservation(String user_role) throws SQLException {
 
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 		String sql = "SELECT  `site`, n.`department`, i.name, i.purpose , `date` FROM   " + table_prefix + "reservation_normal n,  " + table_prefix + "reservation_patient_illness i where n.patient_illness_id = i.id ";
@@ -395,7 +394,7 @@ public class ReserveClinicDao {
 	 */
 	public ArrayList retrive_sites() throws SQLException {		
 	
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		String sql = "SELECT id, name FROM `04site` where status = '1'";	
 		try {
 			stmt = conn.createStatement();
@@ -430,7 +429,7 @@ public class ReserveClinicDao {
 	 */
 	public void retrive_department() throws SQLException {		
 		
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		String sql = "SELECT id, name FROM `04department` where status = '1'";
 		//department_id = new ArrayList();
 		try {

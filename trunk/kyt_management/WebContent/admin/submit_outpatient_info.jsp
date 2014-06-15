@@ -132,7 +132,9 @@ function return_to_wechat_main(){
 			%>
 
 			 <script language='javascript' type='text/javascript'>
-				 window.location.href = "<%=url%>"; 
+				 //window.location.href = "<%=url%>";
+				 window.opener.parent.document.location.reload();
+                 window.close();
 			</script>
 		<%} %>		
 		

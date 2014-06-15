@@ -70,7 +70,7 @@ public class UserDao {
 		
 		
 
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		
 		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait`  FROM `04user_doctor` d  ";
 		
@@ -110,7 +110,7 @@ public class UserDao {
 	
 	public void retrive_patients() throws SQLException {
 
-		conn = Connections4WeChat.getConnection();
+		conn = Connections.getConnection();
 		String sql = "SELECT `id`, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile` FROM `04user`  ";
 		
 		try {
@@ -140,7 +140,7 @@ public class UserDao {
 			long dcotor_id = (Long) hm.get("doctor_id");
 			
 			
-			conn = Connections4WeChat.getConnection();
+			conn = Connections.getConnection();
 			String sql = "update `04user_doctor` set validate_flag = '"+ flag + "' where id = " + dcotor_id;
 			
 			
