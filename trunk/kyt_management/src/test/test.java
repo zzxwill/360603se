@@ -66,8 +66,31 @@ public class test {
 		deletePatientDao.insertDelPatient(2);
 		*/
 		
-		System.out.println("validate:");
+		//System.out.println("validate:");
 		
+		/*
+		//新建场馆
+		ChangGuanDao changGuanDao = new ChangGuanDao();
+		String name = "测试场馆";
+		int NeiKe = 1;
+		int WaiKe =1;
+		int FuKe =0;
+		int ErKe =1;
+		int ZhenTuiKe =1;
+		int PingGu =0;
+		int TiaoLi =0;
+		int ShaLong =1;
+		int JiangZuo = 0;
+		//changGuanDao.insertChangGuan(name, NeiKe, WaiKe, FuKe, ErKe, ZhenTuiKe, PingGu, TiaoLi, ShaLong, JiangZuo);
+		changGuanDao.modifyChangGuan(id, NeiKe, WaiKe, FuKe, ErKe, ZhenTuiKe, PingGu, TiaoLi, ShaLong, JiangZuo, deleteChangGuan);
+		changGuanDao.deleteChangGuan(1);
+		*/
+		
+		/*
+		//新建学堂
+		XueTangDao xueTangDao = new XueTangDao();
+		xueTangDao.insertXueTang("测试学堂");
+		*/
 	}
 
 }
