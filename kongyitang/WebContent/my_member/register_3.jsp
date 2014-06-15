@@ -22,7 +22,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" >
+					<a onclick="closeWin();"></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">注册成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -101,7 +103,7 @@
 					<br>
 					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册孔医堂！
 					<br>
-					<br>正在返回“会员中心”，请稍后...</p>
+					<br>正在“会员中心”，请稍后...</p>
 					<br>
 					
 					<script language='javascript' type='text/javascript'>
@@ -139,7 +141,7 @@
 					<br>
 					<p style='color:red;'>恭喜您 <strong><%=registerName %> </strong> ，您已成功注册医生账号孔医堂，请等候身份审核！
 					<br>
-					<br>正在返回“会员中心”，请稍后...</p>
+					<br>正在“会员中心”，请稍后...</p>
 					<br>
 					
 					<script language='javascript' type='text/javascript'>

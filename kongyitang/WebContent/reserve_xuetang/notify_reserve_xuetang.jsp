@@ -15,7 +15,7 @@
 </style>
 
 <script type="text/javascript">
-//返回微信主界面  Will  5/19/2014
+//微信主界面  Will  5/19/2014
 function return_to_wechat_main(){
 		WeixinJSBridge.call('closeWindow');
 
@@ -42,8 +42,8 @@ function return_to_wechat_main(){
 					<td width="33%" align="center">				
 
 						<div id="backButton" style="width: 60px;"
-							onclick="return_to_wechat_main()">返回
-							
+							>
+							<a onclick="return_to_wechat_main()"></a>
 							</div>
 
 					</td>

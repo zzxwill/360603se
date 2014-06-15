@@ -9,7 +9,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)"></a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提问列表</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

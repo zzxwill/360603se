@@ -1,21 +1,19 @@
 
 
 .ui-bar-a {
-    border: 1px solid #333;
-    background: #111;
-    color: #fff;
-    font-weight: 700;
-    text-shadow: 0 -1px 0 #000;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#111));
-    background-image: -webkit-linear-gradient(#3c3c3c,#111);
-    background-image: -moz-linear-gradient(#3c3c3c,#111);
-    background-image: -ms-linear-gradient(#3c3c3c,#111);
-    background-image: -o-linear-gradient(#3c3c3c,#111);
-    background-image: linear-gradient(#3c3c3c,#111);
+	
+	background: #d8a14f;
+	color: #fff;
+	font-weight: 700;
 }
-
+.ui-bar-a table{
+height: 50px;
+line-height: 50px;
+font-size: 22px;
+border-bottom: 1px solid #744501;
+}
     .ui-bar-a, .ui-bar-a input, .ui-bar-a select, .ui-bar-a textarea, .ui-bar-a button {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
     }
 
         .ui-bar-a .ui-link-inherit {
@@ -742,7 +740,7 @@ a.ui-link-inherit {
      -webkit-border-top-right-radius : .6em;
      -webkit-border-bottom-right-radius: .6em;
     border-left:0px;	
-     border-color:#d8a14f;
+     border-color:#744501;
 }
 
 .ui-br {
@@ -3869,8 +3867,8 @@ input.ui-input-text, textarea.ui-input-text {
     background-image: none;
     padding: .4em;
     margin: .5em 0;
-    min-height: 1.4em;
-    line-height: 1.4em;
+    min-height: 32px;
+    line-height: 32px;
     font-size: 16px;
     display: block;
     width: 100%;

@@ -22,7 +22,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" >
+					<a onclick="closeWin();"></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">登&nbsp;&nbsp;陆</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -110,14 +112,14 @@
 			//System.out.println("curPath0:" + curPath + "\n");
 			if(null==curPath||curPath.equals("")||curPath.equals("null")){
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = 'index.jsp' ",500);
 				</script>
 				<%	
 			}else{
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = '<%=curPath %>' ",500);
 				</script>
@@ -158,14 +160,14 @@
 			//System.out.println("curPath1:" + curPath + "\n");
 			if(null==curPath||curPath.equals("")||curPath.equals("null")){
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回会员中心，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在会员中心，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = 'index.jsp' ",500);
 				</script>
 				<%	
 			}else{
 				%>
-				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在返回登陆前界面，请稍后...</big></div>
+				<div style="color:red"><big>恭喜您 <%=loginName %>，登陆成功！<br>正在登陆前界面，请稍后...</big></div>
 				<script language='javascript' type='text/javascript'>
 					setTimeout(" window.location = '<%=curPath %>' ",500);
 				</script>

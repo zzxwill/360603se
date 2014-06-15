@@ -22,7 +22,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" >
+				<a onclick="closeWin();"></a>				
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">认证成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -97,7 +99,7 @@
 	  		window.location = "index.jsp";
 	  	}
   	</script>
-	<div id="submitButton"  style="width:90%;margin-top:10px;" onclick="GoBack()">返回“会员中心”</div>
+	<div id="submitButton"  style="width:90%;margin-top:10px;" onclick="GoBack()">“会员中心”</div>
   	</center>
   	<%
   	}
