@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.HashMap;
 
 import database.Connections;
-import database.Connections4WeChat;
 import tools.Tools;
 //import security.PasswordUtil;
 
@@ -138,7 +137,7 @@ public class OutpatientDao {
 		
 		String sql = new String();
 		for(int i=0; i < day_list.length; i++){
-			conn = Connections4WeChat.getConnection();
+			conn = Connections.getConnection();
 			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] +"'  and type = '" + type + "'";
 			sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
 			try {
@@ -158,7 +157,7 @@ public class OutpatientDao {
 					}					
 				}else{
 					//某天 某个上下午 某个时间段 存在，则应该去修改操作
-					//outpatient_id = rs.getLong("id");
+					outpatient_id = rs.getLong("id");
 				}
 				
 				sql = "INSERT INTO `04outpatient_doctor`(`outpatient_id`, `doctor_id`, `total_amount`) VALUES ( "+ outpatient_id + "," + doctor_id+ "," +  amount_list[i] +")";
