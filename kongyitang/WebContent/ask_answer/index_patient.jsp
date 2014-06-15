@@ -8,7 +8,7 @@
 
 	<table width="100%">
 		<tr>
-			<td width="33%" align="center">
+			<td width="33%">
 				<!-- <div id="backButton" style="width:60px;" onclick="closeWin();"></div> -->
 				<div id="backButton" style="width:60px;" >
 					<a href='../main/index.jsp'></a>
@@ -35,14 +35,14 @@
 	if(flag == 1){//显示查看其它患者提问
 	%>
 	<center>
-		<table width="100%" cellpadding="0" cellspacing="1" >
+		<table width="80%" cellpadding="0" cellspacing="0"  style="margin-top: 20px;">
 			<tr>
-				<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="OwnASKButton" class="OwnASKButton" onclick="OwnASKButton();" >亲自提问</div></td>
-				<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white" id="OthersASKButton" class="OthersASKButton"  onclick="OthersASKButton();">现有问题</div></td>
+				<td align="center" width="50%"><div style="color:#744501;border-right: 0;" id="OwnASKButton" class="OwnASKButton" onclick="OwnASKButton();" >亲自提问</div></td>
+				<td align="center" width="50%"><div style="background-color:#d8a14f;color:white" id="OthersASKButton" class="OthersASKButton"  onclick="OthersASKButton();">现有问题</div></td>
 			</tr>
 		</table>
+		<div  style="border-top: #754501 1px solid;margin-top: 10px;background-color: #fffef0;">
 		
-		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
 		
 		<div id="OwnASK" class="OwnASK" style="display:none">
 			<%@ include file="../ask_answer/index_patient_quiz.jsp"%>
@@ -51,21 +51,21 @@
 		<div id="OthersASK"  class="OthersASK" >
 			<%@ include file="../ask_answer/index_patient_public.jsp"%>
 		</div>
-		
+		</div>
 	</center>
 	<%	
 	}else{//显示提问
 	%>
 
 	<center>
-		<table width="100%" cellpadding="0" cellspacing="1"  >
+			<table width="80%" cellpadding="0" cellspacing="0"  style="margin-top: 20px;">
 			<tr>
-				<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white"  id="OwnASKButton" class="OwnASKButton" onclick="OwnASKButton();" >亲自提问</div></td>
-				<td align="center" width="50%"><div style="color:<%=sysFontColor %>" id="OthersASKButton" class="OthersASKButton"  onclick="OthersASKButton();">现有问题</div></td>
+				<td align="center" width="50%"><div style="background-color:#d8a14f;color:white"  id="OwnASKButton" class="OwnASKButton" onclick="OwnASKButton();" >亲自提问</div></td>
+				<td align="center" width="50%"><div style="color:#744501" id="OthersASKButton" class="OthersASKButton"  onclick="OthersASKButton();">现有问题</div></td>
 			</tr>
 		</table>
 		
-		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
+	<div  style="border-top: #754501 1px solid;margin-top: 10px;background-color: #fffef0;">
 		
 		<div id="OwnASK" class="OwnASK" >
 			<%@ include file="../ask_answer/index_patient_quiz.jsp"%>
@@ -74,7 +74,7 @@
 		<div id="OthersASK"  class="OthersASK" style="display:none">
 			<%@ include file="../ask_answer/index_patient_public.jsp"%>
 		</div>
-		
+		</div>
 	</center>
 	<%
 	}

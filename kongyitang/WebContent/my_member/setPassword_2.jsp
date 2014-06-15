@@ -111,7 +111,7 @@
 				%>
 				<input id="setPasswordTel" name="setPasswordTel" type="hidden" value="<%=setPasswordTel %>" />
 		
-				<table width="100%">
+				<table width="100%" cellpadding="0" cellspacing="0"  border="0">
 		   			<tr>
 		    			<td width="45%"><div id="MyInput">请输入新密码</div></td>
 		    			<td width="54%"><input id="setPasswordPW_1" name="setPasswordPW_1" type="password" value="" /></td>

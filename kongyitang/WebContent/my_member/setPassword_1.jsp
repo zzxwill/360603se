@@ -11,7 +11,10 @@
 	 <%@ include file="../include/cssJS.jsp"%> 
 
 <style type="text/css">
+.ui-btn-corner-all {
 
+-webkit-border-radius:1em;
+}
 </style>
 
 </head>
@@ -47,7 +50,8 @@
 	<script>
 	
 	    $(document).ready(function(){
-	   		 $("#setPasswordTel").parent().css("-webkit-border-radius",".6em");
+	   		 $("#setPasswordTel").parent().css("-webkit-border-radius",".6em").css("border-left","1px solid #744501");
+	   		
 	    });
 	    function setTelNull() {  
 			document.getElementById("setPasswordTel").value = "";

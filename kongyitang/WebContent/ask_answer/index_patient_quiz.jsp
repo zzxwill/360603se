@@ -5,9 +5,10 @@
 	      
 	 <link rel="stylesheet" href="../css/ask.css" />
 	<script src="../js/ask.js"></script>
+
 	<center>
 	<div>请详细描述您的病情、症状、发病时间、治疗情况:</div><br>
-	<textarea style="min-height:120px;width:90%" name="QuestionText" id="QuestionText" wrap=virtual 
+	<textarea style="min-height:120px;width:90%;-webkit-border-radius: .6em;border: 1px solid;border-color: #744501;" name="QuestionText" id="QuestionText" wrap=virtual 
 		placeholder=" ">
 	</textarea>
 	<br>
@@ -106,21 +107,21 @@
 	</div>
 	
 	<br>
-	<table width="95%" cellpadding="0" cellspacing="1"  border="0">
+	<table width="95%" cellpadding="0" cellspacing="0"  border="0">
 		<tr>
 			<td width="30" align="center"><div id="ASKInput">性&nbsp;&nbsp;别</div></td>
 <!--			<td width="70%"><input id="ASKGender" name="ASKGender" type="text" value="" /></td>-->
 			<td width="70%"><div id="InputBorderASK">
-   				<table width="100%">
+   				<table width="100%" height="44px">
    					<tr>
-   						<td valign="middle" align="right" width="15%">
+   						<td valign="middle" align="right" width="25%">
    							<input type="radio" checked name="ASKGender" id="ASKGender" value="1">
    						</td>
-   						<td align="left" width="35%">&nbsp;&nbsp;男</td>
+   						<td align="left" width="25%">&nbsp;&nbsp;男</td>
    						 
-   						<td valign="middle" align="right" width="15%">
-   							<input type="radio" name="ASKGender" id="ASKGender" value="0">
-   						<td align="left" width="35%">&nbsp;&nbsp;女</td>
+   						<td valign="middle" align="right" width="25%">
+   							<input type="radio" name="ASKGender" id="ASKGender" value="0"></td>
+   						<td align="left" width="25%">&nbsp;&nbsp;女</td>
    					</tr>
 				</table></div>
 			</td>
