@@ -8,6 +8,18 @@
  <body>
   <div data-role="page">
 	<div data-role="header">
+<!--	style="heght:50px;font-sise:25px" -->
+	<table width="100%">
+		<tr>
+			<td width="33%">
+				<div id="backButton" style="width:60px;"><a href="../main/index.jsp"></a></div>
+			</td>
+			<td align="center" width="34%"><a style="color:white;">会员中心</a></td>
+			<td width="33%" align="right">
+			&nbsp;&nbsp;
+				</td>
+		</tr>
+	</table>
  	</div>
   	<div data-role="content">
   	<center>
@@ -23,24 +35,24 @@
 	
 	%>
 	 	<div style="width:90%" id="consumerInfos" class="consumerInfos"">
-			<table width="95%">
+			<table width="100%">
 				<tr>
-					<td width="25%" align="center"><img src="../images/touxiang.png" border = "0px"  width="40px"/></td>
-					<td width="50%" align="left">&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
-					<td width="25%" align="right"><div id="exitButton" style="width:95%" onclick="exitLogin()">退出</div>
+					<td width="50px" align="center"><img src="../images/touxiang.png" border = "0px"  width="50px" height="50px"/></td>
+					<td width="auto" align="left">&nbsp;&nbsp;<big><%=userDaoPatient.getUserName_Patient(USERID) %></big></td>
+					<td width="100px" align="right"><div id="exitButton"  onclick="exitLogin()">退出</div>
 					</td>
 				</tr>
 			</table>
-		</div>
+			</div>
 		<center>
-		<table width="60%" cellpadding="0" cellspacing="1"  >
+		<table width="60%" cellpadding="0" cellspacing="0" style="margin-top:25px" >
 			<tr>
-				<td align="center" width="50%"><div style="color:<%=sysFontColor %>"  id="ConsumerRecordsButton" class="ConsumerRecordsButton"  onclick="ConsumerRecordsButton();">我的预约<!-- 消费记录 --></div></td>
-				<td align="center" width="50%"><div style="background-color:<%=sysColor %>;color:white" id="AskedRecordsButton" class="AskedRecordsButton" onclick="AskedRecordsButton();">提问记录</div></td>
+				<td align="center" width="50%"><div style="color:#744501;border-right: 0;"  id="ConsumerRecordsButton" class="ConsumerRecordsButton"  onclick="ConsumerRecordsButton();">我的预约<!-- 消费记录 --></div></td>
+				<td align="center" width="50%"><div style="background-color:#d8a14f;color:white" id="AskedRecordsButton" class="AskedRecordsButton" onclick="AskedRecordsButton();">提问记录</div></td>
 			</tr>
 		</table>
 		
-		<table width="100%"><tr><td><hr color="<%=sysFontColor %>" ></td></tr></table>
+		
 		    <div id="ConsumerRecords"  class="ConsumerRecords" style="display:none">
 		    	<%@ include file="../my_reservation/index.jsp"%> 
 			</div> 
@@ -173,6 +185,7 @@
 							</td>
 						</tr>
 						<tr>
+							<td width="50%" align="center"><%=userDaoDoctor.doctor_Title_Given %></td>
 							<td width="50%" align="center">
 								<%String title = userDaoDoctor.doctor_Title_Given;
 								%>
