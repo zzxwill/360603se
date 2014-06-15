@@ -60,6 +60,13 @@
 	
 	
 	
+	function ShowModalWithResult(url,height,width){
+	    var sFeatures = "dialogHeight:"+height+";dialogWidth:"+width+";";
+	    sFeatures = sFeatures + "center:yes;edge:raised;help:no;scroll:yes;status:no;unadorned:yes;resizable:no";
+	    var result= window.showModalDialog(url,null,sFeatures);
+	    return result;
+	}
+	
 	
 	
 	

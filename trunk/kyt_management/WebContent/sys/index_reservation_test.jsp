@@ -184,14 +184,11 @@
 
 											</td>
 							
-							<td >
+								<td >
 											<select id="site"
 								name="site">
 									<option selected value="0">选择时间</option>
-									<option  value="望京馆">望京馆</option>
-									<option value="五棵松馆">五棵松馆</option>
-									<option value="展览路馆">展览路馆</option>
-									<option value="三里屯SOHO馆">三里屯SOHO馆</option>							
+									<option  value="周一上午9:30-11:30">周一上午9:30-11:30</option>					
 							</select>
 							</td>
 							
@@ -199,8 +196,19 @@
 
 <td ><INPUT id="u93" type="submit" class="u93" value="查询"   ><td >
 
-<td ><INPUT id="u94" type="submit" class="u94" value="添加排期"   ><td >
+<td ><INPUT id="u93" type="submit" class="u93" value="删除"   ><td >
+
+<td ><INPUT id="u94" type="submit" class="u94" value="添加排期"  onclick="ShowModalWithResult('../admin/add_outpatient_info.jsp?type=add','450px','680px');" ><td >
 										</tr>
+										
+										<tr>
+											<td colspan="7">
+												<%@ include file="../admin/manage_outpatient.jsp"%>
+											
+											</td>
+										
+										</tr>
+										
 										<tr>
 											<td colspan="7"><hr color="<%=sysFontColor%>"></td>
 										</tr>

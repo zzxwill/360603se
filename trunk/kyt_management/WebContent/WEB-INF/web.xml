@@ -14,4 +14,17 @@
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/sys/loginServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>retrieve_doctor</display-name>
+    <servlet-name>retrieve_doctor</servlet-name>
+    <servlet-class>servlet.RetrieveDoctor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>retrieve_doctor</servlet-name>
+    <url-pattern>/admin/retrieve_doctor</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
