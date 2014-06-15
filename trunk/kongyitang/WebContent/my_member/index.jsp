@@ -34,7 +34,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;"><a href="../main/index.jsp">返回</a></div>
+				<div id="backButton" style="width:60px;"><a href="../main/index.jsp"></a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">登&nbsp;&nbsp;陆</a></td>
 			<td width="33%" align="right">
@@ -92,7 +92,7 @@
 		
     	<table width="90%" cellspacing="0" cellpadding="0" border=0px style="margin-top:20px;">
     		<tr>
-    			<td width="50px"><div id="MyInput"><img src="../images/user.png" style="width:20px;height:20px;margin-top:8px" /></div></td>
+    			<td width="50px"><div id="MyInput"><img src="../images/user.png" style="width:20px;height:20px;margin-top:10px" /></div></td>
     			<td><input id="loginName" name="loginName" type="text" value="请输入手机号" onfocus="setTelNull()" /></td>
     		</tr>
     		<tr>
@@ -100,7 +100,7 @@
     		</tr>
     		
     		<tr>
-    			<td width="50px"><div id="MyInput"><img src="../images/pwd.png" style="width:20px;height:20px;margin-top:8px" /></div></td>
+    			<td width="50px"><div id="MyInput"><img src="../images/pwd.png" style="width:20px;height:20px;margin-top:10px" /></div></td>
     			<td><input id="loginPW" name="loginPW" type="password" value="" /></td>
     		</tr>
     	</table>
@@ -117,7 +117,7 @@
     	}
     	%>
     	<div id="msgLogin" ></div>
-    	<div align=right style="width:90%;color:blue;" onclick="setPassword();"><u><i>忘记密码？</i></u></div>
+    	<div align=right style="width:90%;color:b30f0e;" onclick="setPassword();"><u>忘记密码</u>？</div>
     	<div id="loginSubmit"><div id="SubmitButton" style="width:90%"  onclick="checkLogin()">登录</div></div>
     	<div id="loginWait" style="display:none;width:90%" ><div id="SubmitButton">正在登陆，请稍后...</div></div>
 

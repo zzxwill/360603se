@@ -15,7 +15,7 @@
 </style>
 
 <script type="text/javascript">
-//返回微信主界面  Will  5/19/2014
+//微信主界面  Will  5/19/2014
 function return_to_wechat_main(){
 		WeixinJSBridge.call('closeWindow');
 
@@ -35,11 +35,13 @@ function return_to_wechat_main(){
 					<td width="33%" align="center">
 
 					<!-- 	<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="location.href='index.jsp'">返回</a>
+							<a id="return_link" onclick="location.href='index.jsp'"></a>
 						</div> -->
 
 						<div id="backButton" style="width: 60px;"
-							onclick="return_to_wechat_main()">返回</div>
+							>
+							<a onclick="return_to_wechat_main()"></a>
+							</div>
 										
 
 					</td>
@@ -65,7 +67,7 @@ function return_to_wechat_main(){
 	%>
 	<center>
 			<div style="color:red"><big>禁止重复提交！
-				<br>正在返回预约前界面，请稍后...</big>
+				<br>正在预约前界面，请稍后...</big>
 			</div>
 			</center>
 			<script language='javascript' type='text/javascript'>

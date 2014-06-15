@@ -9,8 +9,10 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<!-- <div id="backButton" style="width:60px;" onclick="closeWin();">返回</div> -->
-				<div id="backButton" style="width:60px;" onclick="window.location.href='../main/index.jsp'">返回</div>
+				<!-- <div id="backButton" style="width:60px;" onclick="closeWin();"></div> -->
+				<div id="backButton" style="width:60px;" >
+					<a href='../main/index.jsp'></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提&nbsp;&nbsp;问</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

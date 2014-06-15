@@ -211,7 +211,7 @@ $().ready(function() {
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="window.location.href='../main/index.jsp'">返回</a>
+							<a id="return_link" onclick="window.location.href='../main/index.jsp'"></a>
 						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">预约孔医堂</a></td>
@@ -314,7 +314,7 @@ $().ready(function() {
 
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('reservation_specific_location', 'kongyitang_reservation_index');">返回</button></td>
+									onclick="display_return_page('reservation_specific_location', 'kongyitang_reservation_index');"></button></td>
 							<td align="center" colspan="2" style="color: white;">预约孔医堂</td>
 
 						</tr>
@@ -484,7 +484,7 @@ $().ready(function() {
 					<!-- <table width="100%" cellpadding="0" cellspacing="0">
 						<tr bgColor="#000000">
 							<td align="left" width="20%"><button type="button"
-									onclick="display_return_page('reservation_specific_doctor', 'reservation_specific_location');">返回</button></td>
+									onclick="display_return_page('reservation_specific_doctor', 'reservation_specific_location');"></button></td>
 							<td align="center" style="color: white;">预约</td>
 
 						</tr>
@@ -567,7 +567,7 @@ $().ready(function() {
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');">返回</button></td>
+									onclick="display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');"></button></td>
 							<td align="center" style="color: white;">预约</td>
 
 						</tr>

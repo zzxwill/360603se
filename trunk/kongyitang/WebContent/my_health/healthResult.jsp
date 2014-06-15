@@ -27,7 +27,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" >
+					<a onclick="closeWin();"></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">健康自测结果</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

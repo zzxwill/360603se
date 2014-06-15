@@ -34,7 +34,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" onclick="closeWin();">
+					<a onclick="closeWin();"></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">提问成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -121,7 +123,7 @@
 	<table width="100%">
 		<tr>
 			<td width="33%" align="center">
-				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)">返回</a></div>
+				<div id="backButton" style="width:60px;"><a href="javascript:history.back(-1)"></a></div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">问题详情</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>

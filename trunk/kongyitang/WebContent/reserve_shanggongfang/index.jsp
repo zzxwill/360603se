@@ -158,9 +158,9 @@ $().ready(function() {
 				<tr>
 					<td width="33%" align="center">
 						<!-- <div id="backButton" style="width: 60px;"
-							onclick="location.href='../index.jsp';">返回</div> -->
+							onclick="location.href='../index.jsp';"></div> -->
 							<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="window.location.href='../main/index.jsp'">返回</a>
+							<a id="return_link" onclick="window.location.href='../main/index.jsp'"></a>
 						</div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
@@ -181,7 +181,7 @@ $().ready(function() {
 						cellpadding="0" class="Introtable">
 
 						<!-- <tr bgColor="#000000">
-							<td align="left" style="width: 20%"><button type="button">返回</button></td>
+							<td align="left" style="width: 20%"><button type="button"></button></td>
 							<td align="center" style="color: white;">预约孔医堂</td>
 
 						</tr> -->
@@ -255,7 +255,7 @@ $().ready(function() {
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
+									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');"></button></td>
 							<td align="center" style="color: white;">健康服务</td>
 
 						</tr>
@@ -267,7 +267,7 @@ $().ready(function() {
 						<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');">返回</button></td>
+									onclick="display_return_page('xuetang_reservation_content', 'xuetang_reservation_index');"></button></td>
 							<td align="center">健康服务</td>
 
 						</tr>
@@ -397,7 +397,7 @@ $().ready(function() {
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');">返回</button></td>
+									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');"></button></td>
 							<td align="center" style="color: white;">健康服务</td>
 
 						</tr>
@@ -409,7 +409,7 @@ $().ready(function() {
 						<!-- 
 						<tr>
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');">返回</button></td>
+									onclick="display_return_page('xuetang_reservation_content_assess', 'xuetang_reservation_index');"></button></td>
 							<td align="center">健康服务</td>
 
 						</tr>

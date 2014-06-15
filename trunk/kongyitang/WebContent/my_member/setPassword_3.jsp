@@ -22,7 +22,9 @@
 	<table width="100%">
 		<tr>
 			<td width="33%">
-				<div id="backButton" style="width:60px;" onclick="closeWin();">返回</div>
+				<div id="backButton" style="width:60px;" >
+					<a onclick="closeWin();"></a>
+				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">重置密码成功</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
@@ -67,7 +69,7 @@
 					<center>
 					<br><br>
 					<p style='color:red;'>您已成功重置孔医堂账号为 <%=setPasswordTel %> 的密码！</p>
-					<br>正在返回登陆界面，请稍后...
+					<br>正在登陆界面，请稍后...
 					</center>
 					<%
 					
@@ -78,7 +80,7 @@
 					<center>
 					<br><br>
 					<p style='color:red;'>您已成功重置孔医堂账号为 <%=setPasswordTel %> 的密码！</p>
-					<br>正在返回登陆界面，请稍后...
+					<br>正在登陆界面，请稍后...
 					</center>
 					<%
 				}

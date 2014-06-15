@@ -27,11 +27,11 @@
 					<td width="33%" align="center">
 
 						<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="location.href='index.jsp'">返回</a>
+							<a id="return_link" onclick="location.href='index.jsp'"></a>
 						</div>
 
 						<!-- <div id="backButton" style="width: 60px;"
-							onclick="return_to_wechat_main()">返回</div> -->
+							onclick="return_to_wechat_main()"></div> -->
 
 					</td>
 					<td align="center" width="34%"><a style="color: white;">取消预约</a></td>
@@ -78,7 +78,7 @@
 			<br><br>
 			<center>
 		 	<div style="color:red"><big>取消成功！
-				<br>正在返回预约前界面，请稍后...</big>
+				<br>正在预约前界面，请稍后...</big>
 			</div> 
 			</center>
 			<script language='javascript' type='text/javascript'>

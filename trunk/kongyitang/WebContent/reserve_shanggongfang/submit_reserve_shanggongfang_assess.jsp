@@ -26,7 +26,7 @@
 				<tr>
 					<td width="33%" align="center">
 						<div id="backButton" style="width: 60px;"
-							onclick="return_to_wechat_main()">返回</div>
+							><a onclick="return_to_wechat_main()"></a></div>
 					</td>
 					<td align="center" width="34%"><a style="color: white;">健康服务</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
@@ -38,7 +38,7 @@
   		<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor= "#000000">
 							<td align="left" style="width: 20%"><button type="button"
-									onclick="location='index.jsp'">返回</button></td>
+									onclick="location='index.jsp'"></button></td>
 							<td align="center" style="color: white;">健康服务</td>
 
 						</tr>
@@ -62,7 +62,7 @@
 	%>
 				<center>
 			<div style="color:red"><big>禁止重复提交！
-				<br>正在返回预约前界面，请稍后...</big>
+				<br>正在预约前界面，请稍后...</big>
 			</div>
 			</center>
 			<script language='javascript' type='text/javascript'>
@@ -148,7 +148,7 @@
 				<br>
 <%-- 			<center>
 			<div style="color:red"><big>恭喜您 <%=name %> ，您已成功预约"上工坊健康会所-<%=type %>"！
-				<br>正在返回预约前界面，请稍后...</big>
+				<br>正在预约前界面，请稍后...</big>
 			</div>
 			</center> --%>
 			<script language='javascript' type='text/javascript'>
