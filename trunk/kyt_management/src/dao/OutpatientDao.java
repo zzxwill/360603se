@@ -138,8 +138,8 @@ public class OutpatientDao {
 		String sql = new String();
 		for(int i=0; i < day_list.length; i++){
 			conn = Connections.getConnection();
-			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] +"'  and type = '" + type + "'";
-			sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
+			sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] +"'  and type = '" + type + "'";
+			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
 			try {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
@@ -162,6 +162,7 @@ public class OutpatientDao {
 				
 				sql = "INSERT INTO `04outpatient_doctor`(`outpatient_id`, `doctor_id`, `total_amount`) VALUES ( "+ outpatient_id + "," + doctor_id+ "," +  amount_list[i] +")";
 				stmt = conn.createStatement();
+				
 				//stmt.equals(sql);
 				stmt.execute(sql);
 				
@@ -169,16 +170,53 @@ public class OutpatientDao {
 				
 				
 				
-			stmt.close();
-			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			
 		}
 		
-
+		stmt.close();
+		conn.close();
 
 	}
+	
+	
+	public void cancell_outpatient(HashMap hm) {
+
+		long outpatient_id = (Long) hm.get("outpatient_id");
+		long doctor_id = (Long) hm.get("doctor_id");
+		
+		
+		Connection conn = Connections.getConnection();
+		
+		
+		
+		
+		
+
+		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where outpatient_id=" + outpatient_id + " and doctor_id = " + doctor_id;
+
+	
+		try {
+			PreparedStatement ps;
+
+		
+				ps = conn.prepareStatement(sql);
+			
+
+			ps.execute();
+
+			conn.close(); 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 }

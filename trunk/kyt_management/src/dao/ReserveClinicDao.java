@@ -54,6 +54,7 @@ public class ReserveClinicDao {
 	public ArrayList<String> time = new ArrayList<String>();
 	public ArrayList<String> outpatient_type = new ArrayList<String>();
 	public ArrayList<Integer> amount = new ArrayList<Integer>();
+	public ArrayList<Integer> status = new ArrayList<Integer>();
 	
 	
 	
@@ -208,7 +209,7 @@ public class ReserveClinicDao {
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
 		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
-		String sql = "select i.id, s.site,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1'";
+		String sql = "select i.id, s.site,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1'";
 
 		try {
 			stmt = conn.createStatement();
@@ -224,6 +225,8 @@ public class ReserveClinicDao {
 			clinic_department = new ArrayList();
 			clinic_doctor_name = new ArrayList();
 			
+			doctor_id.clear();
+			
 			while (rs.next()) {
 				outpatient_id.add(rs.getInt(1));				
 				clinic_site.add(rs.getString(2));
@@ -233,7 +236,9 @@ public class ReserveClinicDao {
 				outpatient_day.add(rs.getString(6));
 				ampm.add(rs.getString(7));				
 				time.add(rs.getString(8));				
-				amount.add(rs.getInt(9));			
+				amount.add(rs.getInt(9));	
+				doctor_id.add(rs.getLong(10));
+				status.add(rs.getInt(11));
 				index++;				
 			}
 			department_num = index;
@@ -430,7 +435,7 @@ public class ReserveClinicDao {
 	public void retrive_department() throws SQLException {		
 		
 		conn = Connections.getConnection();
-		String sql = "SELECT id, name FROM `04department` where status = '1'";
+		String sql = "SELECT id, name FROM `04department` where valid = '1'";
 		//department_id = new ArrayList();
 		try {
 			stmt = conn.createStatement();
