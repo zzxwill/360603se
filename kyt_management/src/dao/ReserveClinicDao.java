@@ -10,32 +10,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import database.Connections;
 import database.Connections4WeChat;
 import tools.Tools;
 //import security.PasswordUtil;
 
-/**
- * @function: 
- * @author:   Will Zhou
- * @date:     7:05:56 PM
- */
-/**
- * @function: 
- * @author:   Will Zhou
- * @date:     12:12:47 AM
- */
-/**
- * @function: 
- * @author:   Will Zhou
- * @date:     12:12:55 AM
- */
-/**
- * @function: 
- * @author:   Will Zhou
- * @date:     12:13:08 AM
- */
 public class ReserveClinicDao {
 
 	private Statement stmt = null;
@@ -62,17 +43,24 @@ public class ReserveClinicDao {
 	
 	//医生信息  Will Zhou  5/13/2014
 	public int department_num;
-	public int  department_id[];	
+	//public int  department_id[];	
 	public String  department[];
 	
 	
 	//可预约门诊时间信息  Will Zhou  5/13/2014
 	//public int department_num;
 	public ArrayList<Integer> outpatient_id = new ArrayList<Integer>();
-	public ArrayList<String> outpatient_date = new ArrayList<String>();
+	public ArrayList<String> outpatient_day = new ArrayList<String>();
+	public ArrayList<String> ampm = new ArrayList<String>();
 	public ArrayList<String> time = new ArrayList<String>();
 	public ArrayList<String> outpatient_type = new ArrayList<String>();
 	public ArrayList<Integer> amount = new ArrayList<Integer>();
+	
+	
+	
+	
+	
+	
 	
 	//患者的预约信息  Will Zhou  5/13/2014
 	//public ArrayList<Long> clinic_id = new ArrayList<Long>();
@@ -107,13 +95,26 @@ public class ReserveClinicDao {
 	public ArrayList<String> clinic_doctor_purpose = new ArrayList<String>();
 	public ArrayList<String> clinic_doctor_date = new ArrayList<String>();
 	
+	//医生信息
+	public ArrayList<Long> doctor_id = new ArrayList<Long>();
+	public ArrayList<String> dcotor_name = new ArrayList<String>();
+	
+	
+	//场馆信息  Will  20140615
+	public ArrayList<Long> site_id = new ArrayList<Long>();
+	public ArrayList<String> site_name = new ArrayList<String>();
+	
+	//科室信息  Will  20140615
+		public ArrayList<Long> department_id = new ArrayList<Long>();
+		public ArrayList<String> department_name = new ArrayList<String>();
+	
 	
 	
 	
 	
 	
 	public int doctor_num;
-	public int  doctor_id[];
+	//public int  doctor_id[];
 	public String  name[];
 	public String  title[];
 	public int  doctor_available_amount[];
@@ -127,10 +128,10 @@ public class ReserveClinicDao {
 	 * @author:   Will Zhou
 	 * @date:     May 13, 2014 10:37:40 PM 
 	 */
-	public void retrive_deparment() throws SQLException {
+	/*public void retrive_deparment() throws SQLException {
 
 		conn = Connections4WeChat.getConnection();
-		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
+	
 
 		String sql = "SELECT id as department_id, name as department FROM " + table_prefix + "department";
 
@@ -144,8 +145,6 @@ public class ReserveClinicDao {
 			while (rs.next()) {
 				department_id[index] = rs.getInt(1);
 				department[index] = rs.getString(2);
-				//name[index] = rs.getString(2);
-				//title[index] = rs.getString(3);
 				
 				index++;
 				
@@ -158,77 +157,41 @@ public class ReserveClinicDao {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
 	//
-	public void retrive_doctors_by_deparment(int department_id) throws SQLException {
-
+	
+	/**
+	 * @function: 添加排期时，根据场馆和科室 显示医生
+	 * @author:   Will Zhou
+	 * @date:     Jun 14, 2014 7:51:14 PM 
+	 */
+	public ArrayList retrive_doctors(HashMap hm) throws SQLException {		
+		long site_id = (Long) hm.get("site_id");
+		long department_id = (Long) hm.get("department_id");
+			
 		conn = Connections4WeChat.getConnection();
-		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
-		
-		//当前日期    Will Zhou   5/24/2014
-		Date currentTime = new Date();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String date = dateFormat.format(currentTime);
-		
-		//当周周日的日期
-		//date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) 
-		//当前医生还剩余的号  当天--周日
-		//String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
-		
-		
-
+		String sql = "select u.id, u.name from 04user_doctor u ,04site_doctor s where u.id = s.doctor_id and u.department = " + department_id +" and s.id=" + site_id;	
 		try {
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-		
-			
-			
-			int index = 0;
-			doctor_id = new int[NUM];
-			name = new String[NUM];
-			title = new String[NUM];
-			doctor_available_amount = new int[NUM];
-			
-			
+			rs = stmt.executeQuery(sql);			
 			while (rs.next()) {
-				//department[index] = rs.getString(1);
-				doctor_id[index] =rs.getInt(1);
-				
-				
-				
-				name[index] = rs.getString(2);
-				title[index] = rs.getString(3);
-				
-				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
-				sql_doctor_available_amount += rs.getInt(1);
-				conn_doctor_avaialble_amount = Connections4WeChat.getConnection();
-				stmt_doctor_avaialble_amount = conn_doctor_avaialble_amount.createStatement();
-				rs_doctor_avaialble_amount = stmt_doctor_avaialble_amount.executeQuery(sql_doctor_available_amount);
-				/*private Statement  = null;
-				private ResultSet  = null;
-				private Connection  = null;
-				private PreparedStatement ps_doctor_avaialble_amount = null;*/
-				doctor_available_amount[index]=0;
-				while(rs_doctor_avaialble_amount.next()){
-					doctor_available_amount[index] = rs.getInt(1);
-				}
-				
-				
-				
-				
-				
-				index++;
-				
+				doctor_id.add((long) rs.getInt(1));
+				dcotor_name.add(rs.getString(2));	
 			}
-			doctor_num = index;
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ArrayList<ArrayList<?>> doctor_list = new ArrayList<ArrayList<?>>();
+		doctor_list.add(doctor_id);
+		doctor_list.add(dcotor_name);
+		
+		
+		return doctor_list;
 
 	}
 	
@@ -245,8 +208,8 @@ public class ReserveClinicDao {
 		conn = Connections4WeChat.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
-		String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
-
+		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
+		String sql = "select i.id, s.site,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1'";
 
 		try {
 			stmt = conn.createStatement();
@@ -258,17 +221,21 @@ public class ReserveClinicDao {
 			public ArrayList<String> outpatient_type = new ArrayList<String>();*/
 		/*	department = new String[NUM];
 			department_id = new int[NUM];*/
-			while (rs.next()) {
-				outpatient_id.add(rs.getInt(1));
-				outpatient_date.add(rs.getString(2));
-				time.add(rs.getString(3));
-				outpatient_type.add(rs.getString(4));
-				amount.add(rs.getInt(5));
-				
+			clinic_site = new ArrayList();
+			clinic_department = new ArrayList();
+			clinic_doctor_name = new ArrayList();
 			
-				
-				index++;
-				
+			while (rs.next()) {
+				outpatient_id.add(rs.getInt(1));				
+				clinic_site.add(rs.getString(2));
+				outpatient_type.add(rs.getString(3));
+				clinic_department.add(rs.getString(4));
+				clinic_doctor_name.add(rs.getString(5));				
+				outpatient_day.add(rs.getString(6));
+				ampm.add(rs.getString(7));				
+				time.add(rs.getString(8));				
+				amount.add(rs.getInt(9));			
+				index++;				
 			}
 			department_num = index;
 			stmt.close();
@@ -419,6 +386,71 @@ public class ReserveClinicDao {
 		}
 
 	}
+
+	
+	/**
+	 * @function: 获取各个场馆
+	 * @author:   Will Zhou
+	 * @date:     Jun 15, 2014 9:26:37 AM 
+	 */
+	public ArrayList retrive_sites() throws SQLException {		
+	
+		conn = Connections4WeChat.getConnection();
+		String sql = "SELECT id, name FROM `04site` where status = '1'";	
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);			
+			while (rs.next()) {
+				site_id.add((long) rs.getInt(1));
+				site_name.add(rs.getString(2));	
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ArrayList<ArrayList<?>> doctor_list = new ArrayList<ArrayList<?>>();
+		doctor_list.add(doctor_id);
+		doctor_list.add(dcotor_name);
+		
+		
+		return doctor_list;
+
+	}
+	
+	
+	
+	
+	/**
+	 * @function: 获取各个科室
+	 * @author:   Will Zhou
+	 * @date:     Jun 15, 2014 10:36:10 AM 
+	 */
+	public void retrive_department() throws SQLException {		
+		
+		conn = Connections4WeChat.getConnection();
+		String sql = "SELECT id, name FROM `04department` where status = '1'";
+		//department_id = new ArrayList();
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);			
+			while (rs.next()) {
+				department_id.add((long) rs.getInt(1));
+				department_name.add(rs.getString(2));	
+			}
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+
+	}
+	
 	
 	public static void main(String args[]) throws SQLException{
 		ReserveClinicDao d = new ReserveClinicDao();
