@@ -12,7 +12,7 @@ function ConsumerRecordsButton(){
 	document.getElementById('ConsumerRecordsButton').style.backgroundColor='#d8a14f';
 	document.getElementById('ConsumerRecordsButton').style.color="white";
 	document.getElementById('AskedRecordsButton').style.backgroundColor='';
-	document.getElementById('AskedRecordsButton').style.color="#FF8C47";
+	document.getElementById('AskedRecordsButton').style.color="#754503";
 
 }
 
@@ -23,7 +23,7 @@ function AskedRecordsButton(){
 	document.getElementById('AskedRecordsButton').style.backgroundColor='#d8a14f';
 	document.getElementById('AskedRecordsButton').style.color="white";
 	document.getElementById('ConsumerRecordsButton').style.backgroundColor='';
-	document.getElementById('ConsumerRecordsButton').style.color="#FF8C47";
+	document.getElementById('ConsumerRecordsButton').style.color="#754503";
 }
 
 //医生

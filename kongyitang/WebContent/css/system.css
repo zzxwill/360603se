@@ -15,7 +15,10 @@ body
 img{
 	max-width:95%;
 }	
-
+.Introtable
+{
+	background: #feedd3;
+}
 .Introtable p
 {
 	margin:5px auto;
@@ -32,12 +35,12 @@ img{
 	display:block;
 	margin:10px 0px;
 	margin-top:20px;
-	color:#d8a14f;
+	color:#744501;
 }
 .ASKSubmit {
 	border-style: solid;
 	border-width: 1px;
-	border-color: #d8a14f;
+	border-color: #744501;
 	height: 42px;
 	line-height: 42px;
 	background: #d8a14f;
@@ -83,10 +86,10 @@ img{
 	padding-left:30px;
 }
 .listTable{
-	border-top: 1px solid #d8a14f;
+	border-top: 1px solid #744501;
 }
 .listTable tr{
-	border-bottom: 1px solid #d8a14f;
+	border-bottom: 1px solid #744501;
 	height: 50px;
 	
 }

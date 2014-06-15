@@ -57,7 +57,7 @@ border-bottom: 1px solid #744501;
 }
 
 .ui-body-a, .ui-body-a input, .ui-body-a select, .ui-body-a textarea, .ui-body-a button {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
 }
 
     .ui-body-a .ui-link-inherit {
@@ -136,7 +136,7 @@ border-bottom: 1px solid #744501;
     }
 
 .ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 
@@ -155,7 +155,7 @@ border-bottom: 1px solid #744501;
 }
 
     .ui-bar-b, .ui-bar-b input, .ui-bar-b select, .ui-bar-b textarea, .ui-bar-b button {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     }
 
         .ui-bar-b .ui-link-inherit {
@@ -199,7 +199,7 @@ border-bottom: 1px solid #744501;
 }
 
 .ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
 }
 
     .ui-body-b .ui-link-inherit {
@@ -278,7 +278,7 @@ border-bottom: 1px solid #744501;
     }
 
 .ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 
@@ -318,7 +318,7 @@ border-bottom: 1px solid #744501;
         }
 
     .ui-bar-c, .ui-bar-c input, .ui-bar-c select, .ui-bar-c textarea, .ui-bar-c button {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     }
 
 .ui-body-c, .ui-overlay-c {
@@ -340,7 +340,7 @@ border-bottom: 1px solid #744501;
 }
 
 .ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
 }
 
     .ui-body-c .ui-link-inherit {
@@ -419,7 +419,7 @@ border-bottom: 1px solid #744501;
     }
 
 .ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 
@@ -438,7 +438,7 @@ border-bottom: 1px solid #744501;
 }
 
     .ui-bar-d, .ui-bar-d input, .ui-bar-d select, .ui-bar-d textarea, .ui-bar-d button {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     }
 
         .ui-bar-d .ui-link-inherit {
@@ -481,7 +481,7 @@ border-bottom: 1px solid #744501;
 }
 
 .ui-body-d, .ui-body-d input, .ui-body-d select, .ui-body-d textarea, .ui-body-d button {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
 }
 
     .ui-body-d .ui-link-inherit {
@@ -561,7 +561,7 @@ border-bottom: 1px solid #744501;
     }
 
 .ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 
@@ -580,7 +580,7 @@ border-bottom: 1px solid #744501;
 }
 
     .ui-bar-e, .ui-bar-e input, .ui-bar-e select, .ui-bar-e textarea, .ui-bar-e button {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family:Microsoft Yahei, Helvetica,Arial,sans-serif;
     }
 
         .ui-bar-e .ui-link-inherit {
@@ -623,7 +623,7 @@ border-bottom: 1px solid #744501;
 }
 
 .ui-body-e, .ui-body-e input, .ui-body-e select, .ui-body-e textarea, .ui-body-e button {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
 }
 
     .ui-body-e .ui-link-inherit {
@@ -702,7 +702,7 @@ border-bottom: 1px solid #744501;
     }
 
 .ui-btn-up-e, .ui-btn-hover-e, .ui-btn-down-e {
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 
@@ -724,7 +724,7 @@ a.ui-link-inherit {
     background-image: -ms-linear-gradient(#5393c5,#6facd5);
     background-image: -o-linear-gradient(#5393c5,#6facd5);
     background-image: linear-gradient(#5393c5,#6facd5);
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Microsoft Yahei,Helvetica,Arial,sans-serif;
 }
 
     .ui-btn-active:visited, .ui-btn-active:hover, .ui-btn-active a.ui-link-inherit {

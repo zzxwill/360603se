@@ -31,7 +31,7 @@
 	</table>
  	</div>
 
-<table width="100%" bgColor="#fffef0" cellspacing="0"
+<table width="100%" cellspacing="0"
 						cellpadding="0" class="Introtable">
 
 						<tr>

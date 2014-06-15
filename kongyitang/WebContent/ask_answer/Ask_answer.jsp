@@ -29,7 +29,7 @@
 		<tr>
 			<td width="33%">
 				<div id="backButton" style="width:60px;" >
-					<a onclick="closeWin();"></a>
+					<a href="javascrpt:closeWin();"></a>
 				</div>
 			</td>
 			<td align="center" width="34%"><a style="color:white;">回复成功</a></td>
