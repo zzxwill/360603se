@@ -59,6 +59,7 @@
 	border-color:#744501;
 	height:30px;
 	line-height:30px;
+	width:60px;
 }
 
 #reply_no{
@@ -67,7 +68,7 @@
     border-bottom-right-radius:10px 10px;
     border-bottom-left-radius:10px 10px;
     background: ;
-    color:#744501;
+    color:#FF8C47;
 }
 #reply_yes{
 	border-top-left-radius:10px 10px;

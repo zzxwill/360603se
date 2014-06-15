@@ -52,19 +52,19 @@
     			<td width="75%"><input id="registerName" name="registerName" type="text" value="" /></td>
     			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
     		</tr>
-    		<tr height="35px">
+    		<tr height="35px" style="line-height:45px">
     			<td width="25%"><div id="MyInput">性&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
-    			<td width="75%"><div id="InputBorder">
-    				<table width="100%">
+    			<td width="75%"><div id="InputBorder" >
+    				<table width="100%" height=" 45px">
     					<tr>
-    						<td valign="middle" align="right" width="15%">
+    						<td valign="middle" align="right" width="25%">
     							<input type="radio" checked name="registerGender" id="registerGender" value="0">
     						</td>
-    						<td align="left" width="35%">&nbsp;&nbsp;男</td>
+    						<td align="left" width="25%">&nbsp;&nbsp;男</td>
     						 
-    						<td valign="middle" align="right" width="15%">
-    							<input type="radio" name="registerGender" id="registerGender" value="1">
-    						<td align="left" width="35%">&nbsp;&nbsp;女</td>
+    						<td valign="middle" align="right" width="25%">
+    							<input type="radio" name="registerGender" id="registerGender" value="1"></td>
+    						<td align="left" width="25%">&nbsp;&nbsp;女</td>
     					</tr>
 					</table></div>
 				</td>
@@ -75,19 +75,19 @@
     			<td width="75%"><input id="registerAge" name="registerAge" type="text" value="" /></td>
     			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
     		</tr>
-    		<tr height="35px">
+    		<tr height="35px" style="line-height:45px">
     			<td width="25%"><div id="MyInput">类&nbsp;&nbsp;&nbsp;&nbsp;别</div></td>
     			<td width="75%"><div id="InputBorder">
-    				<table width="100%">
+    				<table width="100%" height=" 45px">
     					<tr>
     					
-    						<td valign="middle" align="right" width="15%">
+    						<td valign="middle" align="right" width="25%">
     							<input type="radio" checked name="registerRole" id="registerRole" value="0" >
     						</td>
-    						<td align="left" width="45%" valign="middle">&nbsp;&nbsp;普通用户</td>
+    						<td align="left" width="25%" valign="middle">普通用户</td>
     						 
-    						<td valign="middle" align="right" width="15%">
-    							<input type="radio" name="registerRole" id="registerRole" value="1" >
+    						<td valign="middle" align="right" width="25%">
+    							<input type="radio" name="registerRole" id="registerRole" value="1" ></td>
     						<td align="left" width="25%" valign="middle">&nbsp;&nbsp;医生</td>
     					
     					</tr>
@@ -99,7 +99,7 @@
   
 	    <script>
 	    $(document).ready(function(){
-	   		 $("#registerTel").parent().css("-webkit-border-radius",".6em");
+	   		 $("#registerTel").parent().css("-webkit-border-radius",".6em").css("border-left","1px solid #744501");
 	    });
 	    function setTelNull() {  
 			document.getElementById("registerTel").value = "";
