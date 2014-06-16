@@ -26,7 +26,8 @@
 				</tr>				
 						<%
 					ReserveClinicDao outpatient_dao = new ReserveClinicDao();
-						outpatient_dao.retrive_outpatient();
+						HashMap hm = new HashMap();
+						outpatient_dao.retrive_outpatient(hm);
 					for(int i=0;i<outpatient_dao.outpatient_id.size();i++){
 				
 					
@@ -46,13 +47,13 @@
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
 									</div>
 									<%} else { %>
-									<a id="submit_adjust_link"  onclick="return show_confirm();" href="../admin/cancell_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>&doctor_id=<%=outpatient_dao.doctor_id.get(i) %>" ><big>停诊</big></a>
+									<a id="submit_adjust_link"  onclick="return show_confirm();" href="../admin/cancell_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>" ><big>停诊</big></a>
 									<%-- <a
 										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">停诊
 									</a> --%>
 									<%}%>
 									<a
-										onclick="ShowModalWithResult('../admin/add_outpatient_info.jsp?type=add','600px','800px');return false">编辑
+										onclick="ShowModalWithResult('../admin/edit_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>','600px','800px');return false">编辑
 									</a>
 								</td>
 
