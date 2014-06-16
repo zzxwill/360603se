@@ -511,8 +511,8 @@ $().ready(function() {
 								for ( int i = 0; i< reserveClinicDao.outpatient_id.size(); i++){
 								
 								%>
-									<option selected="" value='<%=reserveClinicDao.outpatient_id.get(i)%>'>
-									<%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %></option>
+									<option selected="" value='<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %>'>
+									<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %></option>
 								
 								<%} %>
 
