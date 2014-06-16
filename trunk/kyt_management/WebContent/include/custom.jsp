@@ -27,6 +27,7 @@
 	}
 	
 	var module = getModuleParameter();
+	document.getElementById("reservation").style.display = "none";
 	//alert("module:" + module);
 	$(document).ready(function(){
 		if(module=="reservation"){
