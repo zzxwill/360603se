@@ -72,6 +72,9 @@ public class ChangGuanDao {
 
 			ps.execute();
 			
+			//同步更新到04site表中
+			insertSite(name);
+			
 			ps.close();
 			conn.close();
 
@@ -80,6 +83,59 @@ public class ChangGuanDao {
 			e.printStackTrace();
 		}
 	}
+	
+	//同步更新到04site表中
+	//新建场馆列表
+	public void insertSite(String name) {
+		
+		conn = Connections.getConnection();
+		Tools tool = new Tools();
+
+		String sql = "insert into 04site values(?,?,?)";
+		try {
+			ps = conn.prepareStatement(sql);
+			int id = tool.generateID("04site");
+			if (id == -1) {
+				return;
+			}
+			ps.setInt(1, id);
+			ps.setString(2, name);
+			ps.setInt(3, 1);
+
+			ps.execute();
+			
+			ps.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//修改更新场馆
+	public void modifySite(int id,int flag) throws SQLException {
+		
+		conn = Connections.getConnection();
+		String sql = null;
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+
+		sql = "update 04site set status = '" + flag + "'"
+		 	+ " where id = '" + id + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	//查询所有场馆信息
 	public void getAllChangGuanInfo() throws SQLException {
@@ -178,6 +234,14 @@ public class ChangGuanDao {
 			stmt = conn.createStatement();
 			stmt.execute(sql);
 			
+			//同步更新04site
+			if(deleteChangGuan==1){
+				modifySite(id,0);
+			}else if(deleteChangGuan==0){
+				modifySite(id,1);
+			}
+			
+			
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
@@ -194,11 +258,15 @@ public class ChangGuanDao {
 		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
 
 		sql = "update 04changguan set deleteChangGuan = '" + 1 + "'"
+			+ " , updateDate = '" + ts + "'" 
 		 	+ " where id = '" + id + "'";
 
 		try {	
 			stmt = conn.createStatement();
 			stmt.execute(sql);
+			
+			//同步更新04site
+			modifySite(id,0);
 			
 			stmt.close();
 			conn.close();
