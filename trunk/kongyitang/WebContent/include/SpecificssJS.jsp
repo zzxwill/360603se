@@ -51,6 +51,8 @@
 		
 		//$("#outpatient_table").style.display = "none";
 		document.getElementById("outpatient_table").style.display = "none";
+		document.getElementById("outpatient_reserve").style.display = "";
+		display_hidden_outpatient_table();
 		
 		return;
 		
