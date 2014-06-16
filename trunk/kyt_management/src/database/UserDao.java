@@ -178,7 +178,7 @@ public class UserDao {
 			long site_doctor_id =0;
 			conn = Connections.getConnection();
 			
-			String sql = "SELECT id FROM `04outpatient_info` WHERE dcotor_id =" + dcotor_id;
+			String sql = "SELECT id FROM `04site_doctor` WHERE doctor_id =" + dcotor_id;
 			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
 			try {
 				stmt = conn.createStatement();
