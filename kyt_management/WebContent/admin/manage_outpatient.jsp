@@ -51,10 +51,11 @@
 									<%-- <a
 										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">停诊
 									</a> --%>
-									<%}%>
 									<a
 										onclick="ShowModalWithResult('../admin/edit_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>','600px','800px');return false">编辑
 									</a>
+									<%}%>
+									
 								</td>
 
 							</tr>
