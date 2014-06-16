@@ -151,7 +151,7 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
-		String sql = "SELECT id as department_id, name as department FROM " + table_prefix + "department";
+		String sql = "SELECT id as department_id, name as department FROM " + table_prefix + "department where type=0";
 
 
 		try {
@@ -468,12 +468,13 @@ public class ReserveClinicDao {
 			rs = stmt.executeQuery(sql);
 			int index = 0;
 			String dayofweek = new String();
+			int day_number = 0;
 			while (rs.next()) {
 				outpatient_id.add(rs.getInt(1));
 				day.add(rs.getString(2));
 				dayofweek = rs.getString(2);
-				dayofweek = day_to_DAYNUMBER(dayofweek);
-				date.add(day_to_datemain(dayofweek));
+				day_number = day_to_DAYNUMBER(dayofweek);
+				date.add(day_to_datemain(day_number));
 				
 				
 				
@@ -500,31 +501,31 @@ public class ReserveClinicDao {
 	 * @author:   Will Zhou
 	 * @date:     Jun 16, 2014 4:08:19 PM 
 	 */
-	public String day_to_DAYNUMBER(String day){
-		String DAY = new String();
+	public int day_to_DAYNUMBER(String day){
+		int DAY = 0;
 		if(day.endsWith("一")){
-			DAY = "MONDAY";
+			DAY = 2;
 		}else if(day.endsWith("二")){
-			DAY = "TUESDAY";
+			DAY = 3;
 		}else if(day.endsWith("三")){
-			DAY = "WEDNESDAY";
+			DAY = 4;
 		}else if(day.endsWith("四")){
-			DAY = "THURSDAY";
+			DAY = 5;
 		}else if(day.endsWith("五")){
-			DAY = "FRIDAY";
+			DAY = 6;
 		}else if(day.endsWith("六")){
-			DAY = "SATURDAY";
+			DAY = 7;
 		}else if(day.endsWith("日")){
-			DAY = "SUNDAY";
+			DAY = 1;
 		}
 		
 		
 		return DAY;
 	}
 	
-	public String  day_to_datemain(String DAY) throws SQLException{
+	public String  day_to_datemain(int DAY) throws SQLException{
 		Calendar c = Calendar.getInstance();
-		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		c.set(Calendar.DAY_OF_WEEK, DAY);
 		//System.out.println("Date " + c.getTime());
 		
 		
