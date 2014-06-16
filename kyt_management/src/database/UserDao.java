@@ -191,7 +191,7 @@ public class UserDao {
 					
 					sql = "select max(id) as id  from 04outpatient_info";
 					stmt = conn.createStatement();
-					rs = stmt.executeQuery(sql);
+					rs2 = stmt.executeQuery(sql);
 					if(rs2.next()){
 						site_doctor_id = rs2.getLong("id");
 					}					
