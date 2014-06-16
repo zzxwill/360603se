@@ -206,33 +206,34 @@
 	
 	
 	//显示或隐藏出诊表  Will  5/16/2014
-	function display_hidden_outpatient_table(){
-		if($("#outpatient_reserve").is(':hidden')){
+	function display_hidden_outpatient_ltable(){
+
 			$("#outpatient_table").hide();		
 			$("#outpatient_reserve").show();
 			$("#tab_yu").css("background","#d8a14f");
 			$("#tab_yu").css("color","#fff");
-			$("#tab_yuimg").css("background","#d8a14f");
-			$("#tab_yuimg").children("img").css("display","");
+			
 			
 			$("#tab_cz").css("background","#fff");
-			$("#tab_cz").css("color","#000");
-			$("#tab_czimg").css("background","#fff");
-			$("#tab_czimg").children("img").css("display","none");
-		}else{
+			$("#tab_cz").css("color","#744501");
+			
+		
+		
+	}
+	//显示或隐藏出诊表  Will  5/16/2014
+	function display_hidden_outpatient_rtable(){
+		
 			
 			$("#outpatient_table").show();
 			$("#outpatient_reserve").hide();
 			$("#tab_cz").css("background","#d8a14f");
 			$("#tab_cz").css("color","#fff");
-			$("#tab_czimg").css("background","#d8a14f");
-			$("#tab_czimg").children("img").css("display","");
+			
 			
 			$("#tab_yu").css("background","#fff");
-			$("#tab_yu").css("color","#000");
-			$("#tab_yuimg").css("background","#fff");
-			$("#tab_yuimg").children("img").css("display","none");
-		}
+			$("#tab_yu").css("color","#744501");
+		
+	
 		
 	}
 	

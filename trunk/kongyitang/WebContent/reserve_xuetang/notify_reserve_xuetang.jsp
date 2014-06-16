@@ -12,6 +12,10 @@
 <%@ include file="../include/cssJS.jsp"%>
    <%@ include file="../check/index.jsp"%> 
 <style type="text/css">
+.ui-btn-corner-all {
+-webkit-border-radius: 1em;
+border: 1px solid #044062;
+}
 </style>
 
 <script type="text/javascript">
@@ -39,9 +43,9 @@ function return_to_wechat_main(){
 		<div data-role="header">
 			<table width="100%">
 				<tr>
-					<td width="33%" align="center">				
+					<td width="33%" >				
 
-						<div id="backButton" style="width: 60px;"
+						<div id="backButton" 
 							>
 							<a onclick="return_to_wechat_main()"></a>
 							</div>

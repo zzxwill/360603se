@@ -42,8 +42,8 @@
 						width="100%"  style="border-top: 1px ;margin-top: 150px;" >
 			<tr>
 			 	<td width="20%"></td>
-			 	<td width="30%" align="center"><div id="mainListLeftButton" onclick="reserve();" >预&nbsp;&nbsp;约</div></td>
-				<td width="30%" align="center" ><div id="mainListRightButton" onclick="ask_answer();">提&nbsp;&nbsp;问</div></td>
+			 	<td width="30%" align="center"><div class="mainListLeftButton" onclick="reserve();" >预&nbsp;&nbsp;约</div></td>
+				<td width="30%" align="center" ><div class="mainListRightButton" onclick="ask_answer();">提&nbsp;&nbsp;问</div></td>
 				
 				<td width="20%"></br></br></td>
 			</tr>
