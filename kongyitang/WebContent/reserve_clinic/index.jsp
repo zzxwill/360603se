@@ -49,7 +49,7 @@
 .Reservation
 {
 	margin:20px;
-	border: 1px solid #d8a14f;
+	border: 1px solid #744501;
 	background: #fff;
 }
 #reservation_specific_location_name
@@ -62,7 +62,7 @@
 }
 .Reservation #u8_rtf
 {
-	border-top: 1px solid #d8a14f;
+	border-top: 1px solid #744501;
 	height: 50px;
 	line-height: 50px;
 	font-size: 17px;
@@ -75,17 +75,18 @@
 }
 .tab
 {
-	border-bottom: 1px solid #d8a14f;
+	
 	height: 40px;
-	background: #fff;
+	
 	line-height: 40px;
 	font-size: 17px;
+	margin:20px auto;	
 }
 
 .DoctorsList
 {
 	margin:5px auto	;
-	border: 1px dotted #d8a14f;
+	border: 1px dotted #744501;
 	border-bottom:0px;
 	width:98%;
 }
@@ -319,25 +320,16 @@ $().ready(function() {
 
 						</tr>
 					</table> -->
-					<table width="100%" class="tab">
+					<table width="60%" class="tab">
 						<tr>
-							<td id="tab_yu" width="50%" align="center" onclick="display_hidden_outpatient_table();"  style="background:#d8a14f;color:#fff">
-								预约
+							<td  width="50%" align="center"> <div id="tab_yu" class="mainListLeftButton"   onclick="display_hidden_outpatient_ltable();">预约 </div>
+								
 							</td>
-							<td id="tab_cz" width="50%" align="center" onclick="display_hidden_outpatient_table();" style="border-left: 1px solid #d8a14f;">
-								出诊表
+							<td  width="50%" align="center"> <div id="tab_cz" class="mainListRightButton"  onclick="display_hidden_outpatient_rtable();" style="background: #fff;color: #744501;">
+								出诊表</div>
 							</td>
 						</tr>
-						<tr>
-							<td id="tab_yuimg" width="50%" height="10px" align="center" onclick="display_hidden_outpatient_table();" style="background:#d8a14f;color:#fff">
-								<img src="../resources/css/images/reserver_clinic/tab_set.gif"  style="position:relative;top:1px"
-										width="8" height="10" alt="" />
-							</td>
-							<td id="tab_czimg" width="50%" align="center" onclick="display_hidden_outpatient_table();" style="border-left: 1px solid #d8a14f;">
-								<img src="../resources/css/images/reserver_clinic/tab_set.gif"  style="position:relative;top:1px;display:none"
-										width="8" height="10"  alt="" />
-							</td>
-						</tr>
+						
 					</table>
 					<div id="outpatient_reserve" class="Reservation">
 			
@@ -585,7 +577,7 @@ $().ready(function() {
 					
 					%>
 							<tr style="height: 40px; line-height: 40px;">
-								<td id="clinic_text"  style="font-size:13px;"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<!-- 星期X -->&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
+								<td id="clinic_text"  style="font-size:13px;" align="left" ><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<!-- 星期X -->&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
 								<td>
 									<% if (outpatient_dao.amount.get(i) < 50){ %>
 									<div align="center" class="ASKSubmit_no"
@@ -644,7 +636,7 @@ $().ready(function() {
 								</tr>
 							
 								<tr>
-									<td id="xuetang_td"><div id="ASKInput" align="center">预约目的</div></td>
+									<td id="xuetang_td"><div id="ASKInput" align="center" style="height: 36px;line-height: 36px;">预约目的</div></td>
 									<td><label><input type="checkbox"
 											name="purpose_chk" value="诊断" />诊断</label></td>
 									<td><label><input type="checkbox"
@@ -662,7 +654,7 @@ $().ready(function() {
 										<div align="left">病情描述及相关检查结果</div>
 									
 										<p>
-											<textarea style="-webkit-border-radius:0.6em;border-left:1px;border-color: #d8a14f;" name="detail" rows="3" cols="30"></textarea>
+											<textarea style="-webkit-border-radius:0.6em;border: 1px solid #744501;" name="detail" rows="3" cols="30"></textarea>
 										</p></td>
 								</tr>
 								<tr>
