@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//WebContent/my_reservation/index.jsp=UTF-8
+encoding//WebContent/reserve_xuetang/notify_reserve_xuetang.jsp=UTF-8
 encoding//WebContent/resources/css/reserver_clinic/axurerp_pagespecificstyles.css=UTF-8
 encoding//WebContent/resources/css/reserver_clinic/reserve_clinic_deparment.css=UTF-8
+encoding//src/com/github/x0001/weixin/WeiXin.java=gbk
 encoding/<project>=UTF-8
