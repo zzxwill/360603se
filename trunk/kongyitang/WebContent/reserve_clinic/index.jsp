@@ -433,13 +433,64 @@ $().ready(function() {
 							<td width="25%">下</td>
 							<td width="25%">晚</td>
 						</tr>
-						<tr>
-							<td>一</td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
+						<%
+							ReserveClinicDao outpatient_table_dao = new ReserveClinicDao();
+							HashMap hm4outpatienttable = new HashMap();
+							hm4outpatienttable.put("type", "门诊");
+							outpatient_table_dao.retrive_outpatient_doctor(hm4outpatienttable);
+							String tr = new String();
+							/* 	String tr2 = new String();
+								String tr3 = new String();
+								String tr4 = new String();
+								String tr5 = new String();
+								String tr6 = new String();
+								String tr7 = new String(); */
+
+								String td1 = new String();
+								String td2 = new String();
+								String td3 = new String();
+							
+							
+
+							String days[] = { "一", "二", "三", "四", "五", "六", "日" };
+
+							for (int j = 0; j < days.length; j++) {
+								tr += "<tr><td>"+ days[j] +"</td>";
+								td1 = "<td>";
+								td2 = "<td>";
+								td3 = "<td>";
+								for (int t = 0; t < outpatient_table_dao.clinic_doctor_name
+										.size(); t++) {
+									if (outpatient_table_dao.day.get(t).endsWith(days[j])) {
+
+										//tr += "<tr><td>"+ days[j] +"</td>";
+										if (outpatient_table_dao.ampm.get(t).equals("上午")) {
+											td1 += outpatient_table_dao.clinic_doctor_name
+													.get(t) + "</br>";
+										} else if (outpatient_table_dao.ampm.get(t)
+												.equals("下午")) {
+											td2 += outpatient_table_dao.clinic_doctor_name
+													.get(t) + "</br>";
+										} else if (outpatient_table_dao.ampm.get(t)
+												.equals("晚上")) {
+											td3 += outpatient_table_dao.clinic_doctor_name
+													.get(t) + "</br>";
+										}
+
+									}
+								}
+
+								td1 += "</td>";
+								td2 += "</td>";
+								td3 += "</td>";
+
+								tr += td1 + td2 + td3 + "</tr>";
+							}
+						%>
+
+						<%=tr %>
+						
+						<!-- <tr>
 							<td>二</td>
 							<td>肖强<br />徐晓凝</td>
 							<td>肖强<br />徐晓凝</td>
@@ -474,7 +525,7 @@ $().ready(function() {
 							<td></td>
 							<td></td>
 							<td></td>
-						</tr>
+						</tr> -->
 					</table>
 
 				</div>
