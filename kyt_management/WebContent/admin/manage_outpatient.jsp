@@ -20,7 +20,7 @@
 					<td align="center" width=""><strong>科室</strong></td>
 					<td align="center" width=""><strong>医生</strong></td>
 					<td align="center" width=""><strong>出诊时间</strong></td>
-					<td align="center" width=""><strong>预约限额</strong></td>					
+					<td align="center" width=""><strong>预约剩余数</strong></td>					
 					<td align="center" width=""><strong>操作</strong></td>
 					
 				</tr>				
@@ -47,7 +47,7 @@
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
 									</div>
 									<%} else { %>
-									<a id="submit_adjust_link"  onclick="return show_confirm();" href="../admin/cancell_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>" ><big>停诊</big></a>
+									<a id="submit_adjust_link"  onclick="return show_confirm();" href="../admin/cancell_outpatient_info.jsp?outpatient_doctor_id=<%=outpatient_dao.outpatient_doctor_id.get(i) %>" ><big>停诊</big></a>
 									<%-- <a
 										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">停诊
 									</a> --%>

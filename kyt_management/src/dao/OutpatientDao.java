@@ -146,7 +146,7 @@ public class OutpatientDao {
 				
 				
 				if(!rs.next()){
-					sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`, `amount`) VALUES ( '"+ day_list[i] + "','" + ampm_list[i]+ "','" +  time_list[i]+ "','" + type + "','" + amount_list[i] + "')";
+					sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`) VALUES ( '"+ day_list[i] + "','" + ampm_list[i]+ "','" +  time_list[i]+ "','" + type + "')";
 					stmt.execute(sql);
 					
 					sql = "select max(id) as id  from 04outpatient_info";
@@ -186,7 +186,7 @@ public class OutpatientDao {
 	
 	public void cancell_outpatient(HashMap hm) {
 
-		long outpatient_id = (Long) hm.get("outpatient_id");
+		long outpatient_doctor_id = (Long) hm.get("outpatient_doctor_id");
 		//long doctor_id = (Long) hm.get("doctor_id");
 		
 		
@@ -197,17 +197,19 @@ public class OutpatientDao {
 		
 		
 
-		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where id=" + outpatient_id;
+		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where id=" + outpatient_doctor_id;
 
 	
 		try {
 			PreparedStatement ps;
 
 		
-				ps = conn.prepareStatement(sql);
+				/*ps = conn.prepareStatement(sql);
 			
 
-			ps.execute();
+			ps.execute();*/
+			stmt = conn.createStatement();
+			stmt.execute(sql);
 
 			conn.close(); 
 
@@ -252,7 +254,7 @@ public class OutpatientDao {
 			
 			
 			if(!rs.next()){
-				sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`, ) VALUES ( '"+ day + "','" + ampm+ "','" +  time+ "','" + type + "')";
+				sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`) VALUES ( '"+ day + "','" + ampm+ "','" +  time+ "','" + type + "')";
 				stmt.execute(sql);
 				
 				sql = "select max(id) as id  from 04outpatient_info";
