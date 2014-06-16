@@ -209,8 +209,8 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
-		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
-		String sql = "select i.id, s.site,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1'";
+		//String sql = "select i.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d ,04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and s.site_id and st.id and u.auth_submit = '1'";
+		String sql = "select i.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d, 04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1' and st.id = s.site_id";
 		if(hm.get("outpatient_id") != null){
 			sql += " and i.id = " + hm.get("outpatient_id");
 		}

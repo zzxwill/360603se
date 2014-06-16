@@ -6,9 +6,9 @@
 
 <script type="text/javascript">
 	//取消预约时的确认  Will 6/16/2014
-	function show_confirm() 
+	function show_confirm(msg) 
 { 
- return confirm("确认停诊？"); 
+ return confirm(msg); 
 
 } 
 	</script>
@@ -43,11 +43,12 @@
 							
 								<td>
 									<% if(outpatient_dao.status.get(i) == 0){ %>
-									<div align="center" class="ASKSubmit_no"
+									<!-- <div align="center" class="ASKSubmit_no"
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
-									</div>
+									</div> -->
+									<a id="submit_adjust_link"  onclick="return show_confirm('确认恢复停诊？');" href="../admin/cancell_outpatient_info.jsp?type=enable&outpatient_doctor_id=<%=outpatient_dao.outpatient_doctor_id.get(i) %>" ><big>恢复停诊</big></a>
 									<%} else { %>
-									<a id="submit_adjust_link"  onclick="return show_confirm();" href="../admin/cancell_outpatient_info.jsp?outpatient_doctor_id=<%=outpatient_dao.outpatient_doctor_id.get(i) %>" ><big>停诊</big></a>
+									<a id="submit_adjust_link"  onclick="return show_confirm('确认恢复停诊？');" href="../admin/cancell_outpatient_info.jsp?type=disable&outpatient_doctor_id=<%=outpatient_dao.outpatient_doctor_id.get(i) %>" ><big>停诊</big></a>
 									<%-- <a
 										onclick="set_reservation_specific_doctor_value('<%=outpatient_dao.outpatient_id.get(i) %>');show_hidden('reservation_specific_doctor');show_hidden('reservation_patient_sickinfo');">停诊
 									</a> --%>

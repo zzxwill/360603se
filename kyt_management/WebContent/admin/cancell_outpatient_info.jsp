@@ -51,6 +51,7 @@
 
     
 	 long outpatient_doctor_id = Long.parseLong(request.getParameter("outpatient_doctor_id"));
+	 
 	// long doctor_id = Long.parseLong(request.getParameter("doctor_id"));
 	 String type= request.getParameter("type");
 	 
@@ -58,7 +59,7 @@
 	 
 	 HashMap hm = new HashMap();
 	 hm.put("outpatient_doctor_id", outpatient_doctor_id);
-	// hm.put("doctor_id", doctor_id);
+	hm.put("type", type);
 	 
 	 
 	
@@ -87,7 +88,7 @@
 			</div> 
 			</center>
 			<script language='javascript' type='text/javascript'>
-				alert("停诊成功！");
+				alert("操作成功！");
 				window.location = '<%=url %>' ;
 			</script>
 				

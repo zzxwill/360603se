@@ -187,17 +187,21 @@ public class OutpatientDao {
 	public void cancell_outpatient(HashMap hm) {
 
 		long outpatient_doctor_id = (Long) hm.get("outpatient_doctor_id");
-		//long doctor_id = (Long) hm.get("doctor_id");
+		String type = (String) hm.get("type");
 		
 		
 		Connection conn = Connections.getConnection();
 		
 		
 		
-		
-		
+		int status = 2;
+		if("enable".equals(type)){
+			status = 1;
+		}else if("disable".equals(type)){
+			status = 0;
+		}
 
-		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where id=" + outpatient_doctor_id;
+		String sql = "UPDATE `04outpatient_doctor` SET status = " + status + " where id=" + outpatient_doctor_id;
 
 	
 		try {

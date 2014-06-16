@@ -23,6 +23,7 @@ public class UserDao {
 
 	private Statement stmt = null;
 	private ResultSet rs = null;
+	private ResultSet rs2 = null;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	
@@ -174,16 +175,40 @@ public class UserDao {
 			long dcotor_id = (Long) hm.get("doctor_id");
 			long site_id = (Long) hm.get("site_id");
 		
-			
-			
-			
+			long site_doctor_id =0;
 			conn = Connections.getConnection();
-			String sql = "INSERT INTO `04site_doctor`(`site_id`, `doctor_id`) VALUES ("+ site_id + "," + dcotor_id + ")";
 			
-			
-			try {	
+			String sql = "SELECT id FROM `04outpatient_info` WHERE dcotor_id =" + dcotor_id;
+			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
+			try {
 				stmt = conn.createStatement();
-				stmt.execute(sql);
+				rs = stmt.executeQuery(sql);
+				
+				
+				if(!rs.next()){
+					sql = "INSERT INTO `04site_doctor`(`site_id`, `doctor_id`) VALUES ("+ site_id + "," + dcotor_id + ")";
+					stmt.execute(sql);
+					
+					sql = "select max(id) as id  from 04outpatient_info";
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(sql);
+					if(rs2.next()){
+						site_doctor_id = rs2.getLong("id");
+					}					
+				}else{
+					//某天 某个上下午 某个时间段 存在，则应该去修改操作
+					site_doctor_id = rs.getLong("id");
+				}
+			
+			
+			
+			sql = "update `04site_doctor` set site_id="+ site_id + " where id=" + site_doctor_id ;
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			
+		
+				
 				
 				stmt.close();
 				conn.close();
