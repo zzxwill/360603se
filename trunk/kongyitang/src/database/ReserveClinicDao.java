@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import database.Connections;
@@ -34,6 +35,11 @@ import tools.Tools;
  * @function: 
  * @author:   Will Zhou
  * @date:     12:13:08 AM
+ */
+/**
+ * @function: 
+ * @author:   Will Zhou
+ * @date:     4:08:07 PM
  */
 public class ReserveClinicDao {
 
@@ -72,6 +78,11 @@ public class ReserveClinicDao {
 	public ArrayList<String> time = new ArrayList<String>();
 	public ArrayList<String> outpatient_type = new ArrayList<String>();
 	public ArrayList<Integer> amount = new ArrayList<Integer>();
+	
+	public ArrayList<String> date = new ArrayList<String>();
+	public ArrayList<String> day = new ArrayList<String>();
+	public ArrayList<String> ampm = new ArrayList<String>();
+	
 	
 	//患者的预约信息  Will Zhou  5/13/2014
 	//public ArrayList<Long> clinic_id = new ArrayList<Long>();
@@ -169,7 +180,7 @@ public class ReserveClinicDao {
 	}
 	
 	//
-	public void retrive_doctors_by_deparment(int department_id) throws SQLException {
+	public ArrayList retrive_doctors_by_deparment(int department_id) throws SQLException {
 
 		conn = Connections.getConnection();
 		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
@@ -237,6 +248,7 @@ public class ReserveClinicDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return amount;
 
 	}
 	
@@ -299,7 +311,7 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
-		String sql = "SELECT  `site`, n.`department`, d.name,  o.date, o.time, n.id, n.treat_flag  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
+		String sql = "SELECT  `site`, n.`department`, d.name,  o.day, o.time, n.id, n.treat_flag  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
 		String sql_shanggongfang_adjust = "SELECT type, `adjust_programe`, `book_date` as shanggongfang_adjust_book_date, `adjust_master`, name  as shanggongfang_adjust_name, id , treat_flag FROM  " + table_prefix + "reservation_shanggongfang_adjust WHERE  username =  " + userid;
 		String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name, id, treat_flag  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
 		String sql_xuetang = "SELECT `xuetang`, `name`, id, treat_flag as xuetang_name FROM   " + table_prefix + "reservation_xuetang WHERE  username =  " + userid;
@@ -435,9 +447,103 @@ public class ReserveClinicDao {
 
 	}
 	
+	
+	/**
+	 * @function: 显示预约时，可以预约的时间
+	 * @author:   Will Zhou
+	 * @date:     Jun 16, 2014 3:23:11 PM 
+	 */
+	public void retrive_outpatient_time(String type) throws SQLException {
+
+		conn = Connections.getConnection();
+		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
+
+		String sql = "SELECT `id`, `day`, `ampm`, `time`, `type`  FROM `04outpatient_info` where type = '" + type + "'";
+
+		outpatient_id.clear();
+		
+
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			int index = 0;
+			String dayofweek = new String();
+			while (rs.next()) {
+				outpatient_id.add(rs.getInt(1));
+				day.add(rs.getString(2));
+				dayofweek = rs.getString(2);
+				dayofweek = day_to_DAYNUMBER(dayofweek);
+				date.add(day_to_datemain(dayofweek));
+				
+				
+				
+				
+				ampm.add(rs.getString(3));
+				time.add(rs.getString(4));
+				
+				
+			
+			}
+		
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+
+	/**
+	 * @function: 将周几转化为MONDAY/TUESDAY
+	 * @author:   Will Zhou
+	 * @date:     Jun 16, 2014 4:08:19 PM 
+	 */
+	public String day_to_DAYNUMBER(String day){
+		String DAY = new String();
+		if(day.endsWith("一")){
+			DAY = "MONDAY";
+		}else if(day.endsWith("二")){
+			DAY = "TUESDAY";
+		}else if(day.endsWith("三")){
+			DAY = "WEDNESDAY";
+		}else if(day.endsWith("四")){
+			DAY = "THURSDAY";
+		}else if(day.endsWith("五")){
+			DAY = "FRIDAY";
+		}else if(day.endsWith("六")){
+			DAY = "SATURDAY";
+		}else if(day.endsWith("日")){
+			DAY = "SUNDAY";
+		}
+		
+		
+		return DAY;
+	}
+	
+	public String  day_to_datemain(String DAY) throws SQLException{
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		//System.out.println("Date " + c.getTime());
+		
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = dateFormat.format(c.getTime());
+		//System.out.println(date);
+		return date;
+	}
+	
+	
 	public static void main(String args[]) throws SQLException{
-		ReserveClinicDao d = new ReserveClinicDao();
-		d.retrive_doctor_reservation(3);
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		System.out.println("Date " + c.getTime());
+		
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = dateFormat.format(c.getTime());
+		System.out.println(date);
 	}
 	
 }

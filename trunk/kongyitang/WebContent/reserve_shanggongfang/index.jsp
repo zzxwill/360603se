@@ -353,10 +353,18 @@ $().ready(function() {
 						<tr>
 							<td id="xuetang_td"><div id="ASKInput" style="height: 39px;line-height: 39px;">预约时间</div></td>
 							<td colspan="2"><select id="book_date" name="book_date">
-									<option selected="" value="06-06 星期一 10:00">05-06
-										星期一 10:00</option>
-									<option value="06-06 星期三 12:00">06-06 星期三
-										12:00</option>
+
+								<% 
+									ReserveClinicDao reserveClinicDao = new ReserveClinicDao();
+								reserveClinicDao.retrive_outpatient_time("健康服务");
+								for ( int i = 0; i< reserveClinicDao.outpatient_id.size(); i++){
+								
+								%>
+									<option selected="" value='<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %>'>
+									<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %></option>
+								
+								<%} %>
+
 							</select></td>
 						</tr>
 
@@ -496,10 +504,18 @@ $().ready(function() {
 							<td id="xuetang_td"><div id="ASKInput" align="center"  style="height: 39px;line-height: 39px;">预约时间</div></td>
 							<td colspan="2"><select id="book_date"
 								name="book_date_assess">
-									<option selected="" value="06-06 星期一 10:00">05-06
-										星期一 10:00</option>
-									<option value="06-06 星期三 12:00">06-06 星期三
-										12:00</option>
+
+									<% 
+									//ReserveClinicDao reserveClinicDao = new ReserveClinicDao();
+								reserveClinicDao.retrive_outpatient_time("健康服务");
+								for ( int i = 0; i< reserveClinicDao.outpatient_id.size(); i++){
+								
+								%>
+									<option selected="" value='<%=reserveClinicDao.outpatient_id.get(i)%>'>
+									<%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %></option>
+								
+								<%} %>
+
 							</select></td>
 						</tr>
 

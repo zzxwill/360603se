@@ -378,8 +378,7 @@ $().ready(function() {
 													width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>		
 													<td valign="bottom"   width="50%"><span style="text-align: left;font-size: 15px;font-weight: 700"><%=doctor_dao.name[j] %></span><img src="../resources/css/images/reserver_clinic/V.gif" 
 													width="15" height="15" /></td>
-													<td valign="bottom" align="center"  width="50%"><div align="center" class="ASKSubmit_blue" style="height: 25px; line-height: 25px;width:60px;margin:5px"><%=deparment_dao.department[i] %></div></td>
-													
+													<td valign="bottom" align="center"  width="50%"><div align="center" class="ASKSubmit_blue" style="height: 25px; line-height: 25px;width:60px;margin:5px"><%=deparment_dao.department[i] %></div></td>													
 													
 												</tr>
 												<tr>

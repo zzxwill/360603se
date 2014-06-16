@@ -97,6 +97,12 @@
 	 }
 	 String  adjust_programe = new String();
 	 String  book_date = request.getParameter("book_date_assess");
+	 long outpatient_id  = 0;
+	 if(book_date != null){
+		 outpatient_id = Long.parseLong(book_date);
+	 }
+	 
+	 
 	 String  adjust_master= new String();
 	 
 
