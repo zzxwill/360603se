@@ -24,7 +24,7 @@
  
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys";
+	String url = "../sys/index.jsp?module=xuetang";
 	String info = null;
 	String type = request.getParameter("type");
 	String XueTangID_tostring = request.getParameter("XueTangId");
@@ -51,6 +51,7 @@
 				if(radio.equals("1")){
 					xueTangDao.deleteXueTang(id);
 				}else if(radio.equals("0")){
+					//System.out.println("radio:" + radio);
 				    xueTangDao.modifyXueTang(id,0);
 				}
 			}

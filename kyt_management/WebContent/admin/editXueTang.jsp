@@ -75,10 +75,10 @@ for(k=1;k<=XueTangNum;k++){
 
 </script>
 
-					<table width="60%" align="center" border="0" cellpadding="0" cellspacing="0">
+					<table width="65%" align="center" border="0" cellpadding="0" cellspacing="0">
 						<tr style="color: #CC3300">
-							<td align="left" width="49%" style="color:red">删除学堂:</td>
-							<td align="center" width="50%">
+							<td align="left" width="55%" style="color:red">删除学堂:</td>
+							<td align="center" width="45%">
 							<table width="100%">
 								<tr>
 								<%
@@ -105,14 +105,14 @@ for(k=1;k<=XueTangNum;k++){
 								<%} %>
 									<td align="right" width="10%">&nbsp;</td>
 								</tr>
-								<tr>
-									<td align="left" width="55%">学堂名:</td>
-									<td align="center" width="45%">
-										<input style="height: 30px" type="text" name="XueTangName<%=XueTangId %>" id="XueTangName<%=XueTangId %>" style="width:90%;" value="<%=xueTangDao.names[k] %>" readonly/></td>
-									<td width="1%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
-								</tr>
 							</table>
 							</td>
+							<td width="1%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
+						</tr>
+						<tr>
+							<td align="left" width="55%">学堂名:</td>
+							<td align="center" width="45%">
+								<input style="height: 30px" type="text" name="XueTangName<%=XueTangId %>" id="XueTangName<%=XueTangId %>" style="width:90%;" value="<%=xueTangDao.names[k] %>" readonly/></td>
 							<td width="1%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
 						</tr>
 					</table>

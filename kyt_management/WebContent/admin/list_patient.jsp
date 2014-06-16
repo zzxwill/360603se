@@ -83,7 +83,7 @@
 										<td valign="middle" align="left" width="15%">
 											<input type="radio" checked name="radio<%=i %>" value="0"></td>
 			
-										<td align="right" width="35%">删除</td>
+										<td align="right" width="35%">禁用</td>
 										<td valign="middle" align="left" width="15%">
 											<input type="radio" name="radio<%=i %>" value="1"></td>
 									</tr>
