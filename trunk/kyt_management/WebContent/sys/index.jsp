@@ -104,9 +104,11 @@
 							    //alert("url:" + url);
 							    var parameter = null;
 							    if (url.indexOf("?")!= -1) {
-							    	document.getElementById("reservation").style.display = "none";
 							    	var pos = url.lastIndexOf("=");
 							    	parameter = url.substring(pos+1,url.length);
+							    	if(parameter!="reservation"){
+							    		document.getElementById("reservation").style.display = "none";
+							    	}
 							    }
 							    return parameter;
 							}
