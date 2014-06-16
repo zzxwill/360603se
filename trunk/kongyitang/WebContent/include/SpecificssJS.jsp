@@ -50,9 +50,25 @@
 		
 		
 		//$("#outpatient_table").style.display = "none";
-		document.getElementById("outpatient_table").style.display = "none";
-		document.getElementById("outpatient_reserve").style.display = "";
+		if(  null != document.getElementById("outpatient_table")){
+			document.getElementById("outpatient_table").style.display = "none";
+		}
+		if ( null !=  document.getElementById("outpatient_reserve")){
+			document.getElementById("outpatient_reserve").style.display = "";
+		}
+		
 		display_hidden_outpatient_table();
+		
+		//回到当前预约首页时，重新给返回键添加onclick事件 Will  6/17/2014            xuetang_reservation_content
+		if(current_page == "reservation_specific_location" || current_page == "xuetang_reservation_content" || current_page == "xuetang_reservation_content_assess" ){
+			$("#return_link").attr("onclick", "window.location.href='../main/index.jsp'" );
+			
+		}
+	
+		
+		
+		
+		
 		
 		return;
 		
