@@ -51,14 +51,14 @@
 
     
 	 long outpatient_id = Long.parseLong(request.getParameter("outpatient_id"));
-	 long doctor_id = Long.parseLong(request.getParameter("doctor_id"));
+	// long doctor_id = Long.parseLong(request.getParameter("doctor_id"));
 	 String type= request.getParameter("type");
 	 
 	
 	 
 	 HashMap hm = new HashMap();
 	 hm.put("outpatient_id", outpatient_id);
-	 hm.put("doctor_id", doctor_id);
+	// hm.put("doctor_id", doctor_id);
 	 
 	 
 	

@@ -38,11 +38,15 @@ function return_to_wechat_main(){
    	OutpatientDao dao = new OutpatientDao();
     
     request.setCharacterEncoding("utf-8");
-	 String site_id_str = request.getParameter("site");
+    String outpatient_id_str = request.getParameter("outpatient_id");
+    long outpatient_id =0;
+	if(outpatient_id_str != null){
+		outpatient_id = Long.parseLong(outpatient_id_str);
+	}
 	 //String name = request.getParameter("name");
 	 
 	 
-	 if(site_id_str == null ){
+	 if(outpatient_id == 0 ){
 		 
 	%>
 	<center>
@@ -65,53 +69,45 @@ function return_to_wechat_main(){
 			<td align="center" width=""><strong>操作</strong></td> */
 	 
 					//String  site= request.getParameter("site");
-			long site_id = Long.parseLong(site_id_str);
+		
+	 
+	 
+	 String  day= request.getParameter("day");
+	 String  ampm= request.getParameter("ampm");
+	 String  time= request.getParameter("time");
+	 String  amount_str= request.getParameter("amount");
+	 
 	 String  type= request.getParameter("type");
-	 String  department_id_str = request.getParameter("department");
-	 
-	 long department_id = 0;
-	 if(department_id_str != null){
-		 department_id = Long.parseLong(department_id_str);
-	 }
-	 
-	 
-	 String  doctor_name_str= request.getParameter("doctor_name");
-	 long doctor_id = 0;
-	 if(doctor_name_str != null){
-		 doctor_id = Long.parseLong(doctor_name_str);
-	 }
 	 
 	 
 	 
-	 String  day_array= request.getParameter("day_list");
-	 String  ampm_array= request.getParameter("ampm_list");
-	 String  time_array= request.getParameter("time_list");
-	 String  amount_array= request.getParameter("amount_list");
+	int amount =0;
+	if(amount_str != null){
+		amount = Integer.parseInt(amount_str);
+	}
 	 
-	 if (day_array==null || amount_array ==null || ampm_array ==null || time_array == null){
-		 return ;
-	 }
-	 
-	 
-	 String day_list[] = day_array.split(",");
-	 String ampm_list[] = ampm_array.split(",");
-	 String time_list[] = time_array.split(",");
-	 String amount_list[] = amount_array.split(",");
+
+	 String doctor_id_str = request.getParameter("doctor_id");
+	    long doctor_id =0;
+		if(doctor_id_str != null){
+			doctor_id = Long.parseLong(doctor_id_str);
+		}
+
 	 
 	 
 	 
 	 HashMap hm = new HashMap();
-	 hm.put("site_id", site_id);
-	 hm.put("type", type);
-	 hm.put("department_id", department_id);
+	 hm.put("outpatient_id", outpatient_id);
 	 hm.put("doctor_id", doctor_id);
-	 hm.put("day_list", day_list);
-	 hm.put("ampm_list", ampm_list);
-	 hm.put("time_list", time_list);
-	 hm.put("amount_list", amount_list);
+
+	 hm.put("day", day);
+	 hm.put("ampm", ampm);
+	 hm.put("time", time);
+	 hm.put("amount", amount);
+	 hm.put("type",type);
 	 
 	 
-	 dao.add_outpatient(hm);
+	 dao.update_outpatient(hm);
 	// dao.submit_reservation_xuetang(hm);
 	 
 	 

@@ -187,7 +187,7 @@ public class OutpatientDao {
 	public void cancell_outpatient(HashMap hm) {
 
 		long outpatient_id = (Long) hm.get("outpatient_id");
-		long doctor_id = (Long) hm.get("doctor_id");
+		//long doctor_id = (Long) hm.get("doctor_id");
 		
 		
 		Connection conn = Connections.getConnection();
@@ -197,7 +197,7 @@ public class OutpatientDao {
 		
 		
 
-		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where outpatient_id=" + outpatient_id + " and doctor_id = " + doctor_id;
+		String sql = "UPDATE `04outpatient_doctor` SET status = 0 where id=" + outpatient_id;
 
 	
 		try {
@@ -208,6 +208,72 @@ public class OutpatientDao {
 			
 
 			ps.execute();
+
+			conn.close(); 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void update_outpatient(HashMap hm) {
+
+		long outpatient_id = (Long) hm.get("outpatient_id");
+		long doctor_id = (Long) hm.get("doctor_id");
+		
+		String day = (String) hm.get("day");
+		String ampm = (String) hm.get("ampm");
+		String time = (String) hm.get("time");
+		int amount = (Integer) hm.get("amount");
+		
+		/* int amount = 0;
+		 if(amount_str != null){
+			 amount = Integer.parseInt(amount_str);
+		 }*/
+		 String type = (String) hm.get("type");
+		
+	
+		//long doctor_id = (Long) hm.get("doctor_id");
+		
+		
+		Connection conn = Connections.getConnection();
+		
+		
+		long outpatient_id_db = 0 ;
+		
+		//conn = Connections.getConnection();
+		String sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day + "' and ampm = '" + ampm + "' and time ='"+ time +"'  and type = '" + type + "'";
+		//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			
+			if(!rs.next()){
+				sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`, ) VALUES ( '"+ day + "','" + ampm+ "','" +  time+ "','" + type + "')";
+				stmt.execute(sql);
+				
+				sql = "select max(id) as id  from 04outpatient_info";
+				stmt = conn.createStatement();
+				rs2 = stmt.executeQuery(sql);
+				if(rs2.next()){
+					outpatient_id_db = rs2.getLong("id");
+				}					
+			}else{
+				//某天 某个上下午 某个时间段 存在，则应该去修改操作
+				outpatient_id_db = rs.getLong("id");
+			}
+			
+			
+			sql = "UPDATE `04outpatient_doctor` SET `outpatient_id`="+ outpatient_id_db +",`total_amount`="+amount+" WHERE outpatient_id = " + outpatient_id + "  and doctor_id="+ doctor_id;
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			
+			
+			
 
 			conn.close(); 
 
