@@ -24,7 +24,7 @@
  
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys";
+	String url = "../sys/index.jsp?module=changguan";
 	String info = null;
 	String type = request.getParameter("type");
 	String ChangGuanId_tostring = request.getParameter("ChangGuanId");

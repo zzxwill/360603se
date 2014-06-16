@@ -123,7 +123,7 @@ public class XueTangDao {
 		String sql = null;
 		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
 		
-		sql = "update 04changguan set updateDate = '" + ts + "'" 
+		sql = "update 04xuetang set updateDate = '" + ts + "'" 
 			+ " , deleteXueTang = '" + deleteXueTang + "'" 
 			+ " where id = '" + id + "'" ;
 

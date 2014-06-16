@@ -23,7 +23,7 @@
  <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../sys">
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys";
+	String url = "../sys/index.jsp?module=adminUser";
 	String info = null;
 	String type = request.getParameter("type");
 	String userID_tostring = request.getParameter("userId");

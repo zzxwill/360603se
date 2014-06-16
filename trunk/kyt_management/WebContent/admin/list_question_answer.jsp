@@ -24,7 +24,7 @@
 	<%
 	
 	request.setCharacterEncoding("UTF-8");
- 	String url = "../sys/index.jsp?type=question";
+ 	String url = "../sys/index.jsp?module=question";
 
 	String qID = request.getParameter("qID");
 

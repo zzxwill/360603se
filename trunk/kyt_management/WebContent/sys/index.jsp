@@ -18,8 +18,6 @@
 <%@ include file="../include/custom.jsp"%>
 
 
-
-
 </head>
 
 <body>
@@ -64,11 +62,6 @@
 							</tr>
 							<tr>
 								<td><div class=" btn btn-primary btn-block" 
-								onclick="show_hidden('adminUser','reservation','question','doctor','patient','changguan','xuetang','beixuan');">
-								后台用户</div></td>
-							</tr>
-							<tr>
-								<td><div class=" btn btn-primary btn-block" 
 								onclick="show_hidden('doctor','reservation','question','adminUser','patient','changguan','xuetang','beixuan');">
 								医生管理</div></td>
 							</tr>
@@ -88,10 +81,15 @@
 								学堂管理</div></td>
 							</tr>
 							<tr>
+								<td><div class=" btn btn-primary btn-block" 
+								onclick="show_hidden('adminUser','reservation','question','doctor','patient','changguan','xuetang','beixuan');">
+								后台用户</div></td>
+							</tr>
+<!--							<tr>
 								<td><div class=" btn btn-primary btn-block"
 								onclick="show_hidden('beixuan','reservation','question','adminUser','doctor','patient','changguan','xuetang');">
 								备用选项</div></td>
-							</tr>
+							</tr>-->
 						</table>
 					</td>
 
