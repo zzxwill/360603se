@@ -13,58 +13,6 @@
 	
 	
 	<script type="text/javascript" > 
-
-
-   function getModuleParameter() {
-	    var url = location.search; //获取url中"?"符后的字串
-	    //alert("url:" + url);
-	    var parameter = null;
-	    if (url.indexOf("?")!= -1) {
-	    	var pos = url.lastIndexOf("=");
-	    	parameter = url.substring(pos+1,url.length);
-	    }
-	    return parameter;
-	}
-	
-	var module = getModuleParameter();
-	document.getElementById("reservation").style.display = "none";
-	//alert("module:" + module);
-	$(document).ready(function(){
-		if(module=="reservation"){
-			document.getElementById("reservation").style.display = "block";
-			
-		}else if(module=="question"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById("question").style.display = "block";
-		}
-		else if(module=="adminUser"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById("adminUser").style.display = "block";
-		}
-		else if(module=="doctor"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById("doctor").style.display = "block";
-		}
-		else if(module=="patient"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById("patient").style.display = "block";
-		}
-		else if(module=="changguan"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById("changguan").style.display = "block";
-		}
-		else if(module=="xuetang"){
-			document.getElementById("reservation").style.display = "none";
-			document.getElementById('xuetang').style.display = 'block';
-			
-		}
-		else if(module=="beixuan"){
-			$("#reservation").style.display = "none";
-			$("#beixuan").style.display = "block";
-		}
- 
-   });
-
 	   
 	function show_hidden(div1,div2,div3,div4,div5,div6,div7,div8){
 		var obj1 = document.getElementById(div1);
