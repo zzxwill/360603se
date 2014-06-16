@@ -26,9 +26,9 @@
 				<tr>
 					<td width="33%" align="center">
 
-						<div id="backButton" style="width: 60px;">
+						<!-- <div id="backButton" style="width: 60px;">
 							<a id="return_link" onclick="location.href='index.jsp'">返回</a>
-						</div>
+						</div> -->
 
 						<!-- <div id="backButton" style="width: 60px;"
 							onclick="return_to_wechat_main()">返回</div> -->
@@ -50,14 +50,14 @@
     
 
     
-	 long outpatient_id = Long.parseLong(request.getParameter("outpatient_id"));
+	 long outpatient_doctor_id = Long.parseLong(request.getParameter("outpatient_doctor_id"));
 	// long doctor_id = Long.parseLong(request.getParameter("doctor_id"));
 	 String type= request.getParameter("type");
 	 
 	
 	 
 	 HashMap hm = new HashMap();
-	 hm.put("outpatient_id", outpatient_id);
+	 hm.put("outpatient_doctor_id", outpatient_doctor_id);
 	// hm.put("doctor_id", doctor_id);
 	 
 	 
@@ -82,12 +82,13 @@
 			<% String url= "../sys/loginServlet" ; %>	
 			<br><br>
 			<center>
-		 	<div style="color:red"><big>停诊成功！
-				<br>正在返回主页面，请稍后...</big>
+		 	<div style="color:red"><big>
+				<br><!-- 正在返回主页面，请稍后... --></big>
 			</div> 
 			</center>
 			<script language='javascript' type='text/javascript'>
-				setTimeout(" window.location = '<%=url %>' ",1000);
+				alert("停诊成功！");
+				window.location = '<%=url %>' ;
 			</script>
 				
 		</div>

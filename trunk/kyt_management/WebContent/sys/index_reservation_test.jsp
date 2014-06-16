@@ -222,7 +222,7 @@
 									
 									
 									<div id="reservation_record_manage" style="display: ;">
-								       开发中。。。
+								       
 								       
 									
 									
