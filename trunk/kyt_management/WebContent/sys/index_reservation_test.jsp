@@ -10,9 +10,9 @@
 								<td>
 									<table>
 										<tr>
-											<td><div class=" btn btn-primary btn-block" 
+											<!-- <td><div class=" btn btn-primary btn-block" 
 								onclick="show_hidden('reservation_category_manage','outpatient_time_manage','reservation_record_manage','','','','','');">
-								预约类目管理</div></td>
+								预约类目管理</div></td> -->
 											<td><div class=" btn btn-primary btn-block" 
 								onclick="show_hidden('outpatient_time_manage','reservation_category_manage','reservation_record_manage','','','','','');">
 								出诊时间管理</div></td>
@@ -29,7 +29,7 @@
 								<!-- 右侧内容 -->
 								<td>
 								
-									<div id="reservation_category_manage" style="display: ;">
+									<%-- <div id="reservation_category_manage" style="display:none ;">
 									<table width="100%" border="0" cellpadding="0" cellspacing="0"
 										style='border-collapse: collapse; table-layout: fixed;' >
 										<tr height="19" style='height: 14.25pt;'>
@@ -151,7 +151,7 @@
 										</tr>
 									</table>
 
-									</div>
+									</div> --%>
 									
 									
 									<div id="outpatient_time_manage" style="display: ;">
