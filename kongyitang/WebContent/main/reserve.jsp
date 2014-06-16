@@ -16,7 +16,7 @@
 </head>
   
  <body>
-  <div data-role="page">
+  <div data-role="page" style="background-image: url(../images/reservebg.gif);background-attachment: fixed;background-color: rgb(254, 231, 197);background-position: 50% 0%;background-repeat: no-repeat;">
 	<div data-role="header">
 <!--	style="heght:50px;font-sise:25px" -->
 	<table width="100%">
@@ -26,7 +26,7 @@
 					<a href='../main/index.jsp'></a>
 				</div>
 			</td>
-			<td align="center" width="34%"><a style="color:white;">预约</a></td>
+			<td align="center" width="34%"><a style="color:white;">预约中心</a></td>
 			<td width="33%">&nbsp;&nbsp;</td>
 		</tr>
 	</table>
@@ -44,7 +44,7 @@
      }
     </script>
 				<table  border="0" cellspacing="0" cellpadding="0"
-						width="100%"  style="border-top: 1px;" >
+						width="100%"  style="border-top: 1px;margin-top: 100px;" >
 			<tr>
 			 	<td width="20%"></td>
 				<td width="60%" align="center"><div  id="reserveListButton" onclick="reserve_clinic();">门诊预约</div></br></td>

@@ -16,21 +16,8 @@
 </head>
   
  <body>
-  <div data-role="page">
-	<div data-role="header">
-<!--	style="heght:50px;font-sise:25px" -->
-	<table width="100%">
-		<tr>
-			<td width="33%">
-			&nbsp;
-<!--				<div id="backButton" style="width:60px;" >&nbsp;</div>-->
-			</td>
-			<td align="center" width="34%"><a style="color:white;">孔医堂</a></td>
-			<td width="33%">&nbsp;&nbsp;</td>
-		</tr>
-	</table>
- 	</div>
-		<br>
+  <div data-role="page" style="background-image: url(../images/shouyebg.gif);background-attachment: fixed;background-color: rgb(254, 231, 197);background-position: 50% 0%;background-repeat: no-repeat;">
+
     <script>
     function reserve(){
     	window.location = "reserve.jsp";
@@ -52,11 +39,12 @@
     </script>
     
 		<table  border="0" cellspacing="0" cellpadding="0"
-						width="100%"  style="border-top: 1px ;" >
+						width="100%"  style="border-top: 1px ;margin-top: 150px;" >
 			<tr>
 			 	<td width="20%"></td>
-				<td width="30%" align="center" ><div id="mainListLeftButton" onclick="ask_answer();">提&nbsp;&nbsp;问</div></td>
-				<td width="30%" align="center"><div id="mainListRightButton" onclick="reserve();" >预&nbsp;&nbsp;约</div></td>
+			 	<td width="30%" align="center"><div id="mainListLeftButton" onclick="reserve();" >预&nbsp;&nbsp;约</div></td>
+				<td width="30%" align="center" ><div id="mainListRightButton" onclick="ask_answer();">提&nbsp;&nbsp;问</div></td>
+				
 				<td width="20%"></br></br></td>
 			</tr>
 		

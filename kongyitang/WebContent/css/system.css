@@ -99,40 +99,42 @@ img{
 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#7B68EE;
+	border-color:#744501;
 	height:35px;
 	line-height:35px;
-	background:#7B68EE; 
+	background:#d8a14f; 
 	color:white;
 	border-top-left-radius:10px 10px;
     //border-top-right-radius:10px 10px;
     //border-bottom-right-radius:10px 10px;
     border-bottom-left-radius:10px 10px;	
+    
 }
 
 #mainListRightButton{
 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#EE7600;
+	border-color:#744501;
 	height:35px;
 	line-height:35px;
-	background:#EE7600; 
+	background:#d8a14f; 
 	color:white;
 	//border-top-left-radius:10px 10px;
     border-top-right-radius:10px 10px;
     border-bottom-right-radius:10px 10px;
     //border-bottom-left-radius:10px 10px;	
+    border-left:0;
 }
 
 #mainListButton{
 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#00CD00;
+	border-color:#744501;
 	height:35px;
 	line-height:35px;
-	background:#00CD00; 
+	background:#d8a14f; 
 	color:white;
 	border-top-left-radius:10px 10px;
     border-top-right-radius:10px 10px;
@@ -144,10 +146,10 @@ img{
 
 	border-style:solid; 
 	border-width:1px; 
-	border-color:#7B68EE;
+	border-color:#744501;
 	height:35px;
 	line-height:35px;
-	background:#7B68EE; 
+	background:#d8a14f; 
 	color:white;
 	border-top-left-radius:10px 10px;
     border-top-right-radius:10px 10px;
