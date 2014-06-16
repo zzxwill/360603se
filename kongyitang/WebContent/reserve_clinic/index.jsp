@@ -534,7 +534,7 @@ $().ready(function() {
 					
 					%>
 							<tr style="height: 40px; line-height: 40px;">
-								<td id="clinic_text"  style="font-size:13px;"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;星期X&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
+								<td id="clinic_text"  style="font-size:13px;"><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<!-- 星期X -->&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
 								<td>
 									<% if (outpatient_dao.amount.get(i) < 50){ %>
 									<div align="center" class="ASKSubmit_no"
