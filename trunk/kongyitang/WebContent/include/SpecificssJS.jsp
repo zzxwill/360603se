@@ -48,6 +48,10 @@
 			$("#return_link").attr("onclick", "display_return_page('reservation_patient_sickinfo', 'reservation_specific_doctor');");
 		}
 		
+		
+		//$("#outpatient_table").style.display = "none";
+		document.getElementById("outpatient_table").style.display = "none";
+		
 		return;
 		
 		
@@ -87,6 +91,9 @@
 		
 		//$("."+department + "_"+doctorid).remove();
 		$("#department_specific").find("."+department + "_"+doctorid).remove();
+		
+		
+		
 		
 		return;
 		
