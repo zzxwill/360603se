@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import database.Connections;
 import tools.Tools;
@@ -533,6 +534,63 @@ public class ReserveClinicDao {
 		String date = dateFormat.format(c.getTime());
 		//System.out.println(date);
 		return date;
+	}
+	
+	
+	/**
+	 * @function: 查询出诊信息,生成就诊表
+	 * @author:   Will Zhou
+	 * @date:     May 20, 2014 7:06:42 PM 
+	 */
+	public void retrive_outpatient_doctor(HashMap hm) throws SQLException {
+		
+		
+		conn = Connections.getConnection();
+		
+		String type = (String) hm.get("type");
+		
+		String sql = "select i.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d, 04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1' and st.id = s.site_id and i.type = '" + type +"'";
+		
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			int index = 0;
+			/*public ArrayList<Integer>  = new ArrayList<Integer>();
+			public ArrayList<String>  = new ArrayList<String>();
+			public ArrayList<String>  = new ArrayList<String>();
+			public ArrayList<String> outpatient_type = new ArrayList<String>();*/
+		/*	department = new String[NUM];
+			department_id = new int[NUM];*/
+			clinic_site = new ArrayList();
+			clinic_department = new ArrayList();
+			clinic_doctor_name = new ArrayList();
+			
+			//doctor_id.clear();
+			
+			while (rs.next()) {
+				//outpatient_id.add(rs.getInt(1));				
+				//clinic_site.add(rs.getString(2));
+				//outpatient_type.add(rs.getString(3));
+				//clinic_department.add(rs.getString(4));
+				clinic_doctor_name.add(rs.getString(5));				
+				day.add(rs.getString(6));
+				ampm.add(rs.getString(7));				
+				//time.add(rs.getString(8));				
+				//amount.add(rs.getInt(9));	
+				/*doctor_id.add(rs.getLong(10));*/
+				/*status.add(rs.getInt(11));*/
+				//outpatient_doctor_id.add(rs.getLong(12));
+				index++;
+			}
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 	
 	
