@@ -45,8 +45,8 @@
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
 			filename = String.valueOf(ts.getTime());
 			
-			 String ImageUrl = "E:\\code\\web-java\\file\\" ;
-			 //String ImageUrl = "/usr/local/software/apache-tomcat-8.0.8/webapps/KYTPic/IllnessDes/" ;
+			// String ImageUrl = "E:\\code\\web-java\\file\\" ;
+			 String ImageUrl = "/usr/local/software/apache-tomcat-8.0.8/webapps/KYTPic/IllnessDes/" ;
 			 if((null==ext)||ext.equals("")){
 				ImageUrl += filename; //保存路径  
 				//filename = filename;
