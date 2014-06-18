@@ -224,6 +224,53 @@ public class OutpatientDao {
 	}
 	
 	
+	public void set_reservation_status(HashMap hm) {
+
+		long clinic_reservation_id = (Long) hm.get("clinic_reservation_id");
+		String type = (String) hm.get("type");
+		
+		
+		Connection conn = Connections.getConnection();
+		
+		
+		
+		int status = 4;
+		if("cancel".equals(type)){
+			status = 2;
+		}else if("unvisited".equals(type)){
+			status = 3;
+		}else if("visited".equals(type)){
+		status = 1;
+	}
+		//when 0 then '未就诊' when 1 then '履约' when 2 then '已取消' when 3 then '爽约' 
+
+		String sql = "UPDATE `04reservation_normal` SET status = " + status + " where id=" + clinic_reservation_id;
+
+	
+		try {
+			PreparedStatement ps;
+
+		
+				/*ps = conn.prepareStatement(sql);
+			
+
+			ps.execute();*/
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+
+			conn.close(); 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
 	public void update_outpatient(HashMap hm) {
 
 		long outpatient_id = (Long) hm.get("outpatient_id");
