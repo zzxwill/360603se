@@ -47,10 +47,16 @@
     function my_health(){
     	window.location = "my_health/index.jsp";
      }
+    function admin(){
+    	window.location = "admin/index.jsp";
+     }
     </script>
     	<h1>欢迎来到孔医堂！</h1>
     	<h2>《 首页 》</h2>
+    	<br><br>   	
+    <h2>	  <div onclick="admin();" style="color=red">&nbsp;&nbsp;&nbsp;&nbsp;录入医生信息 >> </div><br> 	</h2>
     	   	
+    	   	<br><br>
     	<h3>目录：</h3>
     	<p>预约：<p/>
     	<div onclick="reserve_clinic();" >&nbsp;&nbsp;&nbsp;&nbsp;门诊预约 >> </div><br>

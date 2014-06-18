@@ -17,11 +17,14 @@
  
      <center>
 
-	<form action="upload.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" target="hidden_frame" >
+	<form action="../admin/doctor_auth.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" target="hidden_frame" >
 		<script src="../js/upload.js"></script>
 		
-		<input type="file" id="uploadImage" name="uploadImage" onchange="hiddenMsg();" style="display:none"/>
+<!--		<input type="file" id="uploadImage" name="uploadImage" onchange="hiddenMsg();" style="display:none"/>-->
 		<div id="submitButton" onclick="uploadImage.click();" >浏览</div>
+		<br>
+		dddddd:<input type="file" id="uploadImage" name="uploadImage"  />
+		<button type="submit">提交</button>
 		
 		<br>
 		<span id="msg"></span>
@@ -32,7 +35,7 @@
 		
 		<br>
 		<font color="red">支持JPG,JPEG,GIF,BMP,PNG文件的上传</font>              
-		<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
+<!--		<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>-->
 	</form>
 	
 	</center>
