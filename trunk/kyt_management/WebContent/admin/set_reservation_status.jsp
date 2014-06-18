@@ -65,8 +65,8 @@
 	
 	 
 	 
-	 
-	 dao.cancell_outpatient(hm);
+	 dao.set_reservation_status(hm);
+	 //dao.cancell_outpatient(hm);
 	 
 	 
 	 
