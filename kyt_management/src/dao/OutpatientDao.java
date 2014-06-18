@@ -244,7 +244,7 @@ public class OutpatientDao {
 	}
 		//when 0 then '未就诊' when 1 then '履约' when 2 then '已取消' when 3 then '爽约' 
 
-		String sql = "UPDATE `04reservation_normal` SET status = " + status + " where id=" + clinic_reservation_id;
+		String sql = "UPDATE `04reservation_normal` SET treat_flag = " + status + " where id=" + clinic_reservation_id;
 
 	
 		try {

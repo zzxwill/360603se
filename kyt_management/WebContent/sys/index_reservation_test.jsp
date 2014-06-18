@@ -214,7 +214,7 @@
 
 
 			
-			<div id="reservation_record_manage" style="display:;">
+			<div id="reservation_record_manage" style="display:none;">
 				<!-- <table 
 										style='width: 486.00pt; border-collapse: collapse; table-layout: fixed;'> -->
 				<table>
