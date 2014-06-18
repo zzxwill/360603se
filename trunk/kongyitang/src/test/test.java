@@ -57,7 +57,8 @@ public class test {
     	String pw = "doctor";
 		pw = GP.generatePassword(pw);
 		UserDaoDoctor doctor = new UserDaoDoctor();
-		doctor.insertUser_Doctor("doctor", 0, 20, 0, "15210983333", "张三丰", "85", 2, "护士" ,pw);
+		doctor.insertUser_Doctor("doctor_test", 0, 20, 1, "15210980333", pw);
+		//doctor.insertUser_Doctor(userName, userGender, userAge, userRole, userTel, userPWD);
 		*/
 		
 		/*
@@ -189,6 +190,22 @@ public class test {
 		doctor.insertUser_Doctor(userName, 0, 23, 1, userName , pw);
 		*/
 		
+		/*
+		//后台新建医生账号：
+		
+		InsertDoctorInfo insertDoctorInfo = new InsertDoctorInfo();
+		String userName = "LiMing";  
+		int userGender = 0;
+		String userTel = "8090";
+		String doctor_portrait = "LiMing.jpg";
+		int visti_fee = 300;
+		String introduction = "这是LiMing医生的测试程序！";
+		int site_id = 1;
+		//insertDoctorInfo.insert_site_doctor(site_id, doctor_id);
+		//insertDoctorInfo.insertUser_Doctor(userName, userGender, department, userTel, title, master, certified_type, doctor_portrait, visti_fee, introduction, site_id)
+		insertDoctorInfo.insertUser_Doctor(userName, userGender, userTel, doctor_portrait, visti_fee, introduction, site_id); 
+		System.out.println("success:\n");
+		*/
 	}
 
 }

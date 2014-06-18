@@ -40,7 +40,12 @@ public class UserDaoDoctor {
 		conn = Connections.getConnection();
 		Tools tool = new Tools();
 
-		String sql = "insert into 04user_doctor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into 04user_doctor values(" +
+				"?,?,?,?,?," +
+				"?,?,?,?,?," +
+				"?,?,?,?,?," +
+				"?,?,?,?,?," +
+				"?,?,?)";
 		try {
 			ps = conn.prepareStatement(sql);
 			int id = tool.generateID("04user_doctor");
@@ -65,10 +70,12 @@ public class UserDaoDoctor {
 			ps.setInt(16, 0); //validate_flag
 			ps.setString(17, "");
 			ps.setString(18, "");
-			ps.setInt(19, 1);//belong_outpatient_department
+			ps.setInt(19, 0);//visti_fee
+			ps.setString(20, "");//introduction
+			ps.setInt(21, 1);//belong_outpatient_department
 			Timestamp ts = new Timestamp(System.currentTimeMillis());  
-			ps.setTimestamp(20, ts);
-			ps.setTimestamp(21, ts);
+			ps.setTimestamp(22, ts);
+			ps.setTimestamp(23, ts);
 
 			ps.execute();
 			//System.out.println("doctor insert success!");

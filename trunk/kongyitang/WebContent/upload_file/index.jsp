@@ -16,8 +16,8 @@
   <body>
  
      <center>
-
-	<form action="../ask_answer/index_patient_upload.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" target="hidden_frame" >
+<form action="../admin/doctor_auth_upload.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" target="hidden_frame" >
+<!--	<form action="../ask_answer/index_patient_upload.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" target="hidden_frame" >-->
 <!--		<form action="upload.jsp" id="uploadForm" name="uploadForm" encType="multipart/form-data"  method="post" >-->
 		<script src="../js/upload.js"></script>
 		
