@@ -194,8 +194,19 @@
 							<td width="50%" align="center">
 								<div id="doctors">
 								<%String department = userDaoDoctor.doctor_Department_Given;
+								if(null==department||department.equals("")){
+									%>
+									医生
+									<%
+								}else{
+									DepartmentDao  departmentDao_my = new DepartmentDao();
+									int departmentID = Integer.parseInt(department);
+									String departmentName = departmentDao_my.getDepartmentName(departmentID);
+									%>
+									<%=departmentName %>
+									<%
+								}
 								%>
-								<%=null==department||department.equals("")?"医生":department %>
 		 						</div>
 							</td>
 						</tr>

@@ -74,8 +74,8 @@
   		
   		//TODO 照片处理
   		
-  		DepartmentDao departmentDao = new DepartmentDao();
-  		authKeShi = departmentDao.getDepartmentName(Integer.parseInt(authKeShi));
+  		//DepartmentDao departmentDao = new DepartmentDao();
+  		//authKeShi = departmentDao.getDepartmentName(Integer.parseInt(authKeShi));
   		
   		UserDaoDoctor userDaoDoctor = new UserDaoDoctor();
   		userDaoDoctor.authentication_Doctor(USERID,authShenFenZhenghao,authYiShiZhengHao,authZhiYeLeiXing,
