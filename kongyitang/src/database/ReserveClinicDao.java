@@ -129,7 +129,9 @@ public class ReserveClinicDao {
 	
 	
 	
+	public ArrayList<Long> site_id = new ArrayList<Long>();
 	
+	public ArrayList<String> site_name = new ArrayList<String>();
 	
 	
 	public int doctor_num;
@@ -584,6 +586,43 @@ public class ReserveClinicDao {
 				index++;
 			}
 			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
+	/**
+	 * @function: 获取场馆
+	 * @author:   Will Zhou
+	 * @date:     Jun 20, 2014 2:35:18 AM 
+	 */
+	public void retrive_site() throws SQLException {
+
+		conn = Connections.getConnection();
+		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
+
+		String sql = "SELECT id ,name FROM 04site where status=1";
+
+
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			int index = 0;
+		/*	department = new String[NUM];
+			department_id = new int[NUM];*/
+			while (rs.next()) {
+				site_id.add(rs.getLong(1));
+				site_name.add(rs.getString(2));
+			
+				
+			}
+		
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
