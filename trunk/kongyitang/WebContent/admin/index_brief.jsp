@@ -66,7 +66,17 @@
     		</tr>
     		<tr>
     			<td width="25%"><div id="MyInput">科&nbsp;&nbsp;&nbsp;&nbsp;室</div></td>
-    			<td width="75%"><input id="department" name="department" type="text" value="" /></td>
+    			<td width="75%">
+	    			<select name="department" id="department">	
+						<option value="firstOption"><-请选择-> </option>
+								<option value="1" >中医内科</option>
+								<option value="2" >中医外科</option>
+								<option value="3" >妇科</option>
+								<option value="4" >儿科</option>
+								<option value="5" >针推科</option>
+								<option value="6" >男科</option>
+					</select>
+    			</td>
     			<td><a style="color:red;">&nbsp;&nbsp;*</a></td>
     		</tr>
     		<tr>

@@ -44,14 +44,8 @@
   	doctor_portrait = su.getRequest().getParameter("doctor_portrait");
   	//System.out.println("doctor_portrait:" + doctor_portrait + "\n");
   	
-  	if(sign==true){
-  		doctor_portrait = filename;
-	}else{
-		doctor_portrait = null;
-	}
-  	
   	if(null==userName||userName.equals("")||null==userGender_string||userGender_string.equals("")
-  	||null==site_id_string||site_id_string.equals("")
+  	||null==site_id_string||site_id_string.equals("")||null==doctor_portrait||doctor_portrait.equals("")
   	||null==department||department.equals("")||null==introduction||introduction.equals("")){
 		%>
 		<script language='javascript' type='text/javascript'>
@@ -60,6 +54,12 @@
 		</script>
 		<%	
   	}else{
+  		
+  	  	if(sign==true){
+  	  		doctor_portrait = filename;
+  		}else{
+  			doctor_portrait = null;
+  		}
   		
   		//TODO 照片处理
   		
