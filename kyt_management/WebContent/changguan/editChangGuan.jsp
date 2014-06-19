@@ -39,7 +39,7 @@ int ChangGuanId = role;
 		</td>
 		<td align="center" valign="middle" >
 				
-			<form class="form-horizontal" id="ChangGuanForm<%=ChangGuanId %>" method="post" action="../admin/editChangGuanInfo.jsp?type=edit&ChangGuanId=<%=ChangGuanId %>">	
+			<form class="form-horizontal" id="ChangGuanForm<%=ChangGuanId %>" method="post" action="../changguan/editChangGuanInfo.jsp?type=edit&ChangGuanId=<%=ChangGuanId %>">	
 				<div class="view"> 
 			       <!-- Button to trigger modal --> 
 			       <div align="right">

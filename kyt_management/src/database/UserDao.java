@@ -73,7 +73,7 @@ public class UserDao {
 		//request.setCharacterEncoding("utf-8");
 	    //String checkedName = (String)session.getAttribute("loginedUserName");
 		
-		
+		int GROUP_INTERVAL = 100;
 		
 
 		conn = Connections.getConnection();

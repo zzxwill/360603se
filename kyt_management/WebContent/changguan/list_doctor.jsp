@@ -27,9 +27,9 @@
 
 	<%
 		request.setCharacterEncoding("utf-8");
-		//String user_role = (String)request.getsession().getAttribute("adminCheck");
-    	//String checkedName = (String)session.getAttribute("loginedUserName");
-    	String user_role = (String)session.getAttribute("adminCheck");
+
+		String user_role =  role + "";
+		//String user_role = (String)session.getAttribute("adminCheck");
 	
 	
 		UserDao doctor_dao = new UserDao();
