@@ -368,14 +368,14 @@ $().ready(function() {
 												<tr>
 												<td style="padding:5px;width:50px" rowspan="2"><img src="../resources/images/upload/doctor_male.jpg" 
 													width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>		
-													<td valign="bottom"   width="50%"><span style="text-align: left;font-size: 15px;font-weight: 700"><%=doctor_dao.name[j] %></span><img src="../resources/css/images/reserver_clinic/V.gif" 
+													<td valign="bottom" ><span style="text-align: left;font-size: 15px;font-weight: 700"><%=doctor_dao.name[j] %></span><img src="../resources/css/images/reserver_clinic/V.gif" 
 													width="15" height="15" /></td>
 													<td valign="bottom" align="center"  width="50%"><div align="center" class="ASKSubmit_blue" style="height: 25px; line-height: 25px;width:60px;margin:5px"><%=deparment_dao.department[i] %></div></td>													
 													
 												</tr>
 												<tr>
 
-													<td width="50%" ><span><%=doctor_dao.title[j] %></span></td>
+													<td  ><span><%=doctor_dao.title[j] %></span></td>
 													<td width="50%" align="center" >剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
 													
 												</tr>
@@ -415,6 +415,18 @@ $().ready(function() {
 
 
 				<!-- 出诊表 -->
+				<div class="outpatient_table" id="o1" style="display: none;background: #fff;margin:20px;">
+					1
+				</div>
+				<div class="outpatient_table" id="o2" style="display: none;background: #fff;margin:20px;">
+					2
+				</div>
+				<div class="outpatient_table" id="o3" style="display: none;background: #fff;margin:20px;">
+					3
+				</div>
+				<div class="outpatient_table" id="o4" style="display: none;background: #fff;margin:20px;">
+					4
+				</div>
 				<div id="outpatient_table" style="display: none;background: #fff;margin:20px;">
 
 					<table border="1" cellspacing="0" cellpadding="0"
