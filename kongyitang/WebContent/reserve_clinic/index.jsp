@@ -416,16 +416,16 @@ $().ready(function() {
 
 				<!-- 出诊表 -->
 				<div class="outpatient_table" id="o1" style="display: none;background: #fff;margin:20px;">
-					1
+					<img src="../images/CG/o13.jpg" width="100%"/>
 				</div>
 				<div class="outpatient_table" id="o2" style="display: none;background: #fff;margin:20px;">
-					2
+					<img src="../images/CG/o23.jpg" width="100%"/>
 				</div>
 				<div class="outpatient_table" id="o3" style="display: none;background: #fff;margin:20px;">
-					3
+					医馆功能筹备中，敬请期待！
 				</div>
 				<div class="outpatient_table" id="o4" style="display: none;background: #fff;margin:20px;">
-					4
+					<img src="../images/CG/o43.jpg" width="100%"/>
 				</div>
 				<div id="outpatient_table" style="display: none;background: #fff;margin:20px;">
 

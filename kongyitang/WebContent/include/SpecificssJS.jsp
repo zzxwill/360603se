@@ -51,7 +51,7 @@
 		
 		//$("#outpatient_table").style.display = "none";
 		if(  null != document.getElementById("outpatient_table")){
-			document.getElementById("outpatient_table").style.display = "none";
+			$(".outpatient_table").hide();		
 		}
 		if ( null !=  document.getElementById("outpatient_reserve")){
 			document.getElementById("outpatient_reserve").style.display = "";
@@ -240,7 +240,7 @@
 	//显示或隐藏出诊表  Will  5/16/2014
 	function display_hidden_outpatient_ltable(){
 
-			$("#outpatient_table").hide();		
+			$(".outpatient_table").hide();		
 			$("#outpatient_reserve").show();
 			$("#tab_yu").css("background","#d8a14f");
 			$("#tab_yu").css("color","#fff");
@@ -255,8 +255,22 @@
 	//显示或隐藏出诊表  Will  5/16/2014
 	function display_hidden_outpatient_rtable(){
 		
-			
-			$("#outpatient_table").show();
+			if(document.getElementById("site").value=="望京馆")
+			{
+				$("#o1").show();
+			}
+			if(document.getElementById("site").value=="五棵松馆")
+			{
+				$("#o2").show();
+			}
+			if(document.getElementById("site").value=="展览路馆")
+			{
+				$("#o3").show();
+			}
+			if(document.getElementById("site").value=="三里屯SOHO馆")
+			{
+				$("#o4").show();
+			}
 			$("#outpatient_reserve").hide();
 			$("#tab_cz").css("background","#d8a14f");
 			$("#tab_cz").css("color","#fff");
