@@ -20,7 +20,7 @@ public class DepartmentDao {
 	private PreparedStatement ps = null;
 
 	
-	//根据id查询weixinID
+	//根据id查询科室
 	public String getDepartmentName(int id) throws SQLException {
 
 		conn = Connections.getConnection();

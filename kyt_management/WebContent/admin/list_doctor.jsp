@@ -33,7 +33,7 @@
     	//String user_role = (String)session.getAttribute("adminCheck");
     	String user_role =  role + "";
 	
-	
+    	DepartmentDao  departmentDao_admin = new DepartmentDao();
 		UserDao doctor_dao = new UserDao();
 
 		doctor_dao.retrive_doctors(user_role);
@@ -53,7 +53,19 @@
 			<%=(null==doctor_dao.doctor_doctor_criteria.get(i)||doctor_dao.doctor_doctor_criteria.get(i).equals(""))?"暂无":doctor_dao.doctor_doctor_criteria.get(i)%>
 		</td>
 		<td align="center">
-			<%=(null==doctor_dao.doctor_department.get(i)||doctor_dao.doctor_department.get(i).equals(""))?"暂无":doctor_dao.doctor_department.get(i)%>
+		<%
+			if(null==doctor_dao.doctor_department.get(i)||doctor_dao.doctor_department.get(i).equals("")){
+			%>
+				暂无
+			<%	
+			}else{
+				int departmentID = Integer.parseInt(doctor_dao.doctor_department.get(i));
+				String departmentName = departmentDao_admin.getDepartmentName(departmentID);
+				%>
+				<%=departmentName %>
+				<%	
+			}
+		%>
 		</td>
 		<td align="center">
 			<%=(null==doctor_dao.doctor_title.get(i)||doctor_dao.doctor_title.get(i).equals(""))?"暂无":doctor_dao.doctor_title.get(i)%>
