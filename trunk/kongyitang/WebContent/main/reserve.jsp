@@ -64,7 +64,7 @@
 			</tr>
 			<tr>
 			 	<td width="20%"></td>
-				<td width="60%" align="center"><div id="reserveListButton" onclick="reserve_xuetang();">招生在线</div></td>
+				<td width="60%" align="center"><div id="reserveListButton" onclick="reserve_xuetang();">学院介绍</div></td>
 				
 				
 				<td width="20%"></td>

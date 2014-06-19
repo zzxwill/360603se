@@ -59,13 +59,13 @@
 		<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
 						width="100%"  style="border-top: 1px solid #d8a14f;" id="xuanzhetab">
 			<tr>
-				<td width="50%" align="center"><div id="ProductButton" onclick="MedicalPS()">医疗产品服务</div></td>
-				<td width="50%" align="center"><div id="ProductButton_no">非医疗产品服务</div></td>
+				<td width="50%" align="center"><div id="ProductButton" onclick="window.location.href='product_jiankang.jsp'">服务产品</div></td>
+				<td width="50%" align="center"><div id="ProductButton" onclick="window.location.href='product_chanping.jsp'">健康产品</div></td>
 			</tr>
-			<tr>
+			<!--  <tr>
 				<td width="50%" align="center"><div id="ProductButton_no">健康管理卡</div></td>
 				<td width="50%" align="center"><div id="ProductButton_no">孔伯华学院</div></td>
-			</tr>
+			</tr>-->
 		</table>
 
   </div>
