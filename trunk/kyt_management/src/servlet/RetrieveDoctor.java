@@ -86,8 +86,10 @@ public class RetrieveDoctor extends HttpServlet {
 		
 			try {
 				ArrayList doctor_list = retrieveDoctor(request, response);
-				
+				//解决乱码问题
+				response.setCharacterEncoding("utf-8");
 				PrintWriter pw = response.getWriter();
+				
 				pw.print(doctor_list);
 				//pw.print("hello");
 				pw.flush();
