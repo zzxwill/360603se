@@ -128,6 +128,15 @@
 				</td>
 			</tr>
 		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px" border="0" >
+			<tr>
+				<td align="center" width="70%"><big>男&nbsp;&nbsp;科</big></td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" name="authKeShi" id="authKeShi" value="6">
+				</td>
+			</tr>
+		</table>
 		<table width="100%"><tr><td><hr color="<%=sysFontColor %>"></td></tr></table>
 		<table width="100%" >
 			<tr>
