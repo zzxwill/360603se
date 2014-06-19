@@ -28,6 +28,7 @@
 					<%=ASKKeShiTop_radio==3?"妇&nbsp;&nbsp;科":"" %>
 					<%=ASKKeShiTop_radio==4?"儿&nbsp;&nbsp;科":"" %>
 					<%=ASKKeShiTop_radio==5?"针推科":"" %>
+					<%=ASKKeShiTop_radio==6?"男&nbsp;&nbsp;科":"" %>
 				&nbsp;&nbsp;
 				<img src="../images/down.png" border = "0px"  width="20px"/></div>
 	    	</div>
@@ -87,6 +88,15 @@
 				<td align="center" width="70%">针推科</td>
 				<td valign="middle" align="left" width="30%">
 					<input type="radio" <%=ASKKeShiTop_radio==5?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="5" onclick="KeshiChanged();">
+				</td>
+			</tr>
+		</table>
+		<table width="100%"><tr><td><hr></td></tr></table>
+		<table width="100%" cellpadding="0" cellspacing="0px"  >
+			<tr>
+				<td align="center" width="70%">男&nbsp;&nbsp;科</td>
+				<td valign="middle" align="left" width="30%">
+					<input type="radio" <%=ASKKeShiTop_radio==6?"checked":"" %> name="ASKKeShiTop" id="ASKKeShiTop" value="6" onclick="KeshiChanged();">
 				</td>
 			</tr>
 		</table>
