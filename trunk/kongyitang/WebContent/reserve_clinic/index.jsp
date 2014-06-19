@@ -228,6 +228,7 @@ $().ready(function() {
 
 				<!-- 预约的地点 -->
 				<input id="site" name="site" type="hidden">
+				<input id="site_id" name="site_id" type="hidden">
 				<!-- 预约的科室 -->
 				<input id="department" name="department" type="hidden">
 				<!-- 预约的医生id -->
@@ -262,7 +263,24 @@ $().ready(function() {
 					<!-- <div class="table-site"> -->
 					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
 						width="100%" class="listTable">
+						
+						<%
+						ReserveClinicDao reserver_clinic_site_dao = new ReserveClinicDao();
+						reserver_clinic_site_dao.retrive_site();
+						for (int i = 0; i < reserver_clinic_site_dao.site_id.size(); i++){
+						%>
 						<tr>
+							<td class="xuetang_button"><strong><%=reserver_clinic_site_dao.site_name.get(i) %></strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_kongyitang_reservation_index_value('<%=reserver_clinic_site_dao.site_name.get(i) %>');set_kongyitang_reservation_index_siteid_value('<%=reserver_clinic_site_dao.site_id.get(i) %>');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									预&nbsp;&nbsp;约
+								</div>
+							</td>
+						
+						<%} %>
+						
+						<!-- <tr>
 							<td class="xuetang_button"><strong>望京馆</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"
@@ -297,7 +315,7 @@ $().ready(function() {
 									预&nbsp;&nbsp;约
 								</div>
 							</td>
-						</tr>
+						</tr> -->
 
 
 					</table>
