@@ -76,6 +76,9 @@
     	else if(authKeShi==5){
     		message = "针推科";
     	}
+    	else if(authKeShi==6){
+    		message = "男&nbsp;&nbsp;科";
+    	}
     	SelectedKeShi.innerHTML = "<a>" + message + "</a>";
     }
     
