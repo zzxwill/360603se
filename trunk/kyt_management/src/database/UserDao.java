@@ -101,7 +101,9 @@ public class UserDao {
 				doctor_mobile.add(rs.getString(5));
 				doctor_master.add(rs.getString(6));
 				doctor_doctor_criteria.add(rs.getString(7));
+				
 				doctor_department.add(rs.getString(8));
+				
 				doctor_title.add(rs.getString(9));
 				doctor_validate_flag.add(rs.getString(10));
 				//医生证件照、头像
