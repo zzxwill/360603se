@@ -11,7 +11,7 @@
 <%@ include file="../include/meta.jsp"%>
 <%@ include file="../include/cssJS.jsp"%>
 <%@ include file="../include/SpecificssJS.jsp"%>
-   <%@ include file="../check/index.jsp"%> 
+  
 <link rel="stylesheet" href="../css/screen.css" />
 <link rel="stylesheet" href="../css/reservation_xuetang.css" />
 
@@ -37,7 +37,7 @@
 
 			<table width="100%">
 				<tr>
-					<td width="33%">
+					<td width="23%">
 						<!-- <div id="backButton" style="width: 60px;"
 							onclick="return_to_wechat_main()"></div> -->
 							<div id="backButton" style="width: 60px;">
@@ -45,8 +45,8 @@
 						</div>
 							
 					</td>
-					<td align="center" width="34%"><a style="color: white;">健康评估</a></td>
-					<td width="33%">&nbsp;&nbsp;</td>
+					<td align="center" width="54%"><a style="color: white;">健康评估</a></td>
+					<td width="23%">&nbsp;&nbsp;</td>
 				</tr>
 			</table>
 

@@ -433,27 +433,27 @@ $().ready(function() {
 
 
 				<!-- 出诊表 -->
-				<div class="outpatient_table" id="o1" style="display: none;background: #fff;margin:20px;">
+				<div class="outpatient_table" id="o1" style="display: none;text-align:center;margin:20px;">
 					<img src="../images/CG/o13.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o11.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o12.jpg" width="100%"/>
 				</div>
-				<div class="outpatient_table" id="o2" style="display: none;background: #fff;margin:20px;">
+				<div class="outpatient_table" id="o2" style="display: none;text-align:center;margin:20px;">
 					<img src="../images/CG/o23.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o21.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o22.jpg" width="100%"/>
 				</div>
-				<div class="outpatient_table" id="o3" style="display: none;background: #fff;margin:20px;">
+				<div class="outpatient_table" id="o3" style="display: none;text-align:center;margin:20px;">
 					医馆功能筹备中，敬请期待！
 					<img src="../images/CG/o31.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o32.jpg" width="100%"/>
 				</div>
-				<div class="outpatient_table" id="o4" style="display: none;background: #fff;margin:20px;">
+				<div class="outpatient_table" id="o4" style="display: none;text-align:center;margin:20px;">
 					<img src="../images/CG/o43.jpg" width="100%"/>
 					<br/>
 					<img src="../images/CG/o41.jpg" width="100%"/>
