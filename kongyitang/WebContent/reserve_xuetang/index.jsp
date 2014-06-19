@@ -135,11 +135,11 @@ $().ready(function() {
 						<!-- <div id="backButton" style="width: 60px;"
 							onclick="return_to_wechat_main()"></div> -->
 							<div id="backButton" style="width: 60px;">
-							<a id="return_link" onclick="window.location.href='../main/index.jsp'"></a>
+							<a id="return_link" onclick="window.location.href='../main/reserve.jsp'"></a>
 						</div>
 							
 					</td>
-					<td align="center" width="34%"><a style="color: white;">招生在线</a></td>
+					<td align="center" width="34%"><a style="color: white;">学院介绍</a></td>
 					<td width="33%">&nbsp;&nbsp;</td>
 				</tr>
 			</table>
@@ -193,25 +193,25 @@ $().ready(function() {
 					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
 						width="100%" class="listTable" >				
 						<tr>
-							<td class="xuetang_button"><strong>社区学堂</strong></td>
+							<td class="xuetang_button"><strong>陈氏太极拳</strong></td>
 							<td align="right">
-								<div align="center" class="ASKSubmit_no"  style="width:100px" onclick="">
-									<big>报&nbsp;&nbsp;名</big>
+								<div align="center" class="ASKSubmit"  style="width:100px" onclick=" window.location.href='xuetangtaiji.jsp'">
+									<big>介&nbsp;&nbsp;绍</big>
 								</div>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="xuetang_button"><strong>紫禁学堂</strong></td>
+							<td class="xuetang_button"><strong>中医师承教育</strong></td>
 							<td align="right">
-								<div align="center" class="ASKSubmit_no" style="width:100px" onclick="">
-									<big>报&nbsp;&nbsp;名</big>
+								<div align="center" class="ASKSubmit" style="width:100px" onclick=" window.location.href='xuetangzhongyi.jsp' ">
+									<big>介&nbsp;&nbsp;绍</big>
 								</div>
 							</td>
 						</tr>
 
 
-						<tr>
+						<!--  <tr>
 							<td class="xuetang_button"><strong>国医学堂</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"
@@ -228,7 +228,7 @@ $().ready(function() {
 									<big>报&nbsp;&nbsp;名</big>
 								</div>
 							</td>
-						</tr>
+						</tr>-->
 
 					</table>
 

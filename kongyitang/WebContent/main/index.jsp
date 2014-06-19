@@ -34,7 +34,7 @@
     	window.location = "../my_member/index.jsp";
      }
     function my_health(){
-    	window.location = "../my_health/index.jsp";
+    	window.location = "../my_health/index_new.jsp";
      }
     </script>
     
