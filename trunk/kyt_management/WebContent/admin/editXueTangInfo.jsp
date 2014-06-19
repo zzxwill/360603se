@@ -6,7 +6,7 @@
  <%@ include file="../include/package.jsp"%> 
  <%//@ page import="database.*" %>  
  <%@ include file="../check/index.jsp"%> 
- <%@ include file="../check/checkAdmin.jsp"%>  
+ <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

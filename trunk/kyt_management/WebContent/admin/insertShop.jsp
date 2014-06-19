@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!--<form class="form-horizontal" id="financialForm" method="post" action="../sys/index.jsp">-->
 <form class="form-horizontal" id="shopForm" method="post" action="../admin/editShopInfo.jsp?type=new">

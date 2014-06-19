@@ -2,7 +2,7 @@
  
  <%@ include file="../include/package.jsp"%>  
  <%@ include file="../check/index.jsp"%> 
- <%@ include file="../check/checkAdmin.jsp"%>  
+ <%//@ include file="../check/checkAdmin.jsp"%>  
  <%String checkedName = (String)session.getAttribute("loginedUserName"); %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

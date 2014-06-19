@@ -8,7 +8,7 @@
 <html>
   <head>
   
-    <title>“云海肴”在线财务核算系统</title>
+    <title>孔医堂后台管理系统</title>
 	 
 	 <%@ include file="../include/meta.jsp"%> 
 	 <%@ include file="../include/cssJS.jsp"%> 
@@ -20,7 +20,7 @@
      <center>
     <%   
     	session.removeAttribute("loginedUserName");   
-   		session.removeAttribute("adminCheck"); 
+   		session.removeAttribute("role"); 
     	//session 删除
     	session.invalidate();   
     	//设置无缓存   

@@ -17,7 +17,7 @@
 </head>
 
 <%@ include file="/check/index.jsp"%> 
-<%@ include file="/check/checkAdmin.jsp"%>  
+<%//@ include file="/check/checkAdmin.jsp"%>  
   
  <body>
   	

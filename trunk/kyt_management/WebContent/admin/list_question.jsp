@@ -2,7 +2,7 @@
 <%@page import="dao.*" %>
 
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <table width="95%">
 	<tr>

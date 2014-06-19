@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
+<%@page import="dao.*" %>
+
 <%@ include file="../check/index.jsp"%>
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <form class="form-horizontal" id="userForm" method="post" action="../admin/editUserInfo.jsp?type=new">
 
@@ -98,25 +100,20 @@
 			    		<tr>
 			    			<td valign="middle" align="left" width="25%">权 &nbsp;限:</td>
 			    			<td align="center" width="70%">
-			    				<table width="100%">
-			    					<tr>
-			    						<td align="right" width="25%">普通</td>
-			    						<td valign="middle" align="left" width="20%">
-			    							<input type="radio" checked name="authorityNew" value="0"></td>
-			    						
-			    						<td align="right" width="25%">管理员</td> 
-			    						<td valign="middle" align="left" width="20%">
-			    							<input type="radio" name="authorityNew" value="1"></td> 
-			    						<td align="right" width="10%">&nbsp;</td>
-			    						
-			    						<td align="right" width="25%">场馆工作人员（望京馆）</td> 
-			    						<td valign="middle" align="left" width="20%">
-			    							<input type="radio" name="authorityNew" value="2"></td> 
-			    						<td align="right" width="10%">&nbsp;</td>
-			    						
-			    						
-			    					</tr>
-								</table>
+			    			
+			    				<select name="authorityNew" id="authorityNew">	
+<!--									<option value="firstOption">《请选择权限分类》 </option>-->
+									<option value="0" selected>普 &nbsp;通</option>
+									<%
+									ChangGuanDao UserChangGuanDaoNew = new ChangGuanDao();
+									UserChangGuanDaoNew.getAllChangGuanName();
+									int num = UserChangGuanDaoNew.name_nums;
+									for(int i=1;i<=num;i++){
+									%>
+										<option value="<%=i+GROUP_INTERVAL %>" ><%=UserChangGuanDaoNew.name_infos[i] %></option>
+									<%} %>
+									<option value="1" >管理员</option>
+								</select>
 							</td>
 			    			<td width="5%"><a style="color:red;">&nbsp;&nbsp;*</a></td>
 			    		</tr>

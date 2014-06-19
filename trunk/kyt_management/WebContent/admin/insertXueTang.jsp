@@ -4,7 +4,7 @@
 <%@page import="dao.*" %>
 
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!--<form class="form-horizontal" id="financialForm" method="post" action="../sys/index.jsp">-->
 <form class="form-horizontal" id="XueTangForm" method="post" action="../admin/editXueTangInfo.jsp?type=new">

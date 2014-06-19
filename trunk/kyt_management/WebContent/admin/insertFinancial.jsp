@@ -2,7 +2,7 @@
 
 <%@page import="database.*" %>
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!--<form class="form-horizontal" id="financialForm" method="post" action="../sys/index.jsp">-->
 <form class="form-horizontal" id="financialForm" method="post" action="../admin/editFinancialInfo.jsp?type=new">
