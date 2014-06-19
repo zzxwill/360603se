@@ -35,6 +35,18 @@ public class ChangGuanDao {
 	public int JiangZuos[];
 	public int deletes[];
 	
+	public String name;
+	public int NeiKe;
+	public int WaiKe;
+	public int FuKe;
+	public int ErKe;
+	public int ZhenTuiKe;
+	public int PingGu;
+	public int TiaoLi;
+	public int ShaLong;
+	public int JiangZuo;
+	public int delete;
+	
 	public int name_nums;
 	public String name_infos[];
 	
@@ -176,6 +188,35 @@ public class ChangGuanDao {
 				index++;
 			}
 			nums = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询指定id场馆信息
+	public void getChangGuanInfo_by_id(int id) throws SQLException {
+
+		conn = Connections.getConnection();
+		String sql = "select * from 04changguan where id = '" + id + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				name = rs.getString("name");
+				NeiKe = rs.getInt("NeiKe");
+				WaiKe = rs.getInt("WaiKe");
+				FuKe = rs.getInt("FuKe");
+				ErKe = rs.getInt("ErKe");
+				ZhenTuiKe = rs.getInt("ZhenTuiKe");
+				PingGu = rs.getInt("PingGu");
+				TiaoLi = rs.getInt("TiaoLi");
+				ShaLong = rs.getInt("ShaLong");
+				JiangZuo = rs.getInt("JiangZuo");
+				delete = rs.getInt("deleteChangGuan");
+			}
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {

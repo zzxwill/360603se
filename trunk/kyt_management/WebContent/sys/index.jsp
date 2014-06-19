@@ -68,10 +68,8 @@
 			<%				
 			}else if(role>GROUP_INTERVAL){
 				role = role - GROUP_INTERVAL;//场馆id
-				ChangGuanDao changGuanDao = new ChangGuanDao();
-				String name = changGuanDao.getChangGuanName_by_id(role);
 				%>
-				<%@ include file="changguan.jsp"%>
+				<%@ include file="../changguan/index.jsp"%>
 				<%
 			}
 		}
