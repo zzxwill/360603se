@@ -14,10 +14,10 @@
 					<!-- <td><div class=" btn btn-primary btn-block" 
 								onclick="show_hidden('reservation_category_manage','outpatient_time_manage','reservation_record_manage','','','','','');">
 								预约类目管理</div></td> -->
-					<td><div class=" btn btn-primary btn-block"
+					<td><div class=" btn btn-primary btn-block" style="width: 120px;"
 							onclick="show_hidden('outpatient_time_manage','reservation_category_manage','reservation_record_manage','','','','','');">
 							出诊时间管理</div></td>
-					<td><div class=" btn btn-primary btn-block"
+					<td><div class=" btn btn-primary btn-block" style="width: 120px;"
 							onclick="show_hidden('reservation_record_manage','outpatient_time_manage','reservation_category_manage','','','','','');">
 							预约记录管理</div></td>
 

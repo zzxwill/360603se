@@ -2,7 +2,7 @@
 
 	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
-	<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap.css" />
 	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
 	
 	<link rel="stylesheet" href="../css/system.css" />
