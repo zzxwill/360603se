@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="../js/changguan.js"></script> 
-	<table>
+	<table width="100%">
 		<tr>
 
 			<td width="120px" valign="top">
@@ -70,7 +70,7 @@
 				<%//医生管理 %>
 				<div id="doctor" style="display: none;" >
 				<%// %>
-					<%//@ include file="../changguan/list_doctor.jsp"%>
+					<%@ include file="../changguan/list_doctor.jsp"%>
 				</div>	
 				
 				<%//备用选项 %>
