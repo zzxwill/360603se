@@ -173,18 +173,13 @@ $().ready(function() {
 
 				<!-- 预约的上工坊健康会所的类型 -->
 				<!-- <input id="type" name="type" type="hidden"> -->
-
-				<!-- 预约上工坊健康会所首页 -->
-				<div id="xuetang_reservation_index" style="display:">
+				
+				
+				<!-- 预约孔医堂首页 -->
+				<div id="shanggongfang_reservation_pre_index" style="display:">
 
 					<table width="100%"  cellspacing="0"
 						cellpadding="0" class="Introtable">
-
-						<!-- <tr bgColor="#000000">
-							<td align="left" style="width: 20%"><button type="button"></button></td>
-							<td align="center" style="color: white;">预约孔医堂</td>
-
-						</tr> -->
 
 						<tr>
 							<td align="center"><span class="title">健康调理</span></td>
@@ -200,6 +195,89 @@ $().ready(function() {
 
 						</tr>
 					</table>
+					<!-- </br> -->
+
+					<!-- <div class="table-site"> -->
+					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
+						width="100%" class="listTable">
+						<tr>
+							<td class="xuetang_button"><strong>望京馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_shanggongfang_reservation_pre_index_value('望京馆');show_hidden('shanggongfang_reservation_pre_index');show_hidden('xuetang_reservation_index');show_hidden('reservation_specific_location');">
+									预&nbsp;&nbsp;约
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="xuetang_button"><strong>五棵松馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_shanggongfang_reservation_pre_index_value('五棵松馆');show_hidden('shanggongfang_reservation_pre_index');show_hidden('xuetang_reservation_index');show_hidden('reservation_specific_location');">
+									预&nbsp;&nbsp;约
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="xuetang_button"><strong>展览路馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit_no" style="width:100px" >
+									<!-- <div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_kongyitang_reservation_index_value('展览路馆');show_hidden('xuetang_reservation_pre_index');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');"> -->
+									<div align="center" class="ASKSubmit_no" style="width:100px">									
+									预&nbsp;&nbsp;约
+								</div>
+							</td>
+						</tr>
+						
+					
+						
+						
+						<tr>
+							<td class="xuetang_button"><strong>三里屯SOHO馆</strong></td>
+							<td align="right">
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="set_shanggongfang_reservation_pre_index_value('三里屯SOHO馆');show_hidden('shanggongfang_reservation_pre_index');show_hidden('xuetang_reservation_index');show_hidden('reservation_specific_location');">
+									预&nbsp;&nbsp;约
+								</div>
+							</td>
+						</tr>
+
+
+					</table>
+			
+
+
+
+				</div>
+				
+
+				<!-- 预约上工坊健康会所首页 -->
+				<div id="xuetang_reservation_index" style="display:none">
+
+					<table width="100%"  cellspacing="0"
+						cellpadding="0" class="Introtable">
+
+						<!-- <tr bgColor="#000000">
+							<td align="left" style="width: 20%"><button type="button"></button></td>
+							<td align="center" style="color: white;">预约孔医堂</td>
+
+						</tr> -->
+
+						<tr>
+							<td align="center"><span class="title">预约</span></td>
+
+						</tr>
+					<!-- 	<tr>
+							<td>
+							<div style="margin-bottom: 20px">
+								<p>提供健康咨询、健康评估、健康指导、就医指导、健康管理、健康教育及各项基础保健项目（全身经络推导和局部穴位刺激）。</p>
+								<p>非介入人能自然疗法，辩证调养身心健康。</p>
+							</div>
+							</td>
+
+						</tr> -->
+					</table>
 
 					<table bgColor="#FFFFFF" border="0" cellspacing="0" cellpadding="0"
 						width="100%" class="listTable" >				
@@ -212,7 +290,7 @@ $().ready(function() {
 							</td>
 						</tr>
 
-						<tr>
+						<!-- <tr>
 							<td class="xuetang_button"><strong>健康调理</strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"  onclick="set_shanggongfang_reservation_index_value('健康调理');show_hidden('xuetang_reservation_index');show_hidden('xuetang_reservation_content');">
@@ -238,7 +316,7 @@ $().ready(function() {
 									<big>预&nbsp;&nbsp;约</big>
 								</div>
 							</td>
-						</tr>
+						</tr> -->
 
 					</table>
 
@@ -250,6 +328,9 @@ $().ready(function() {
 				<!-- 上工坊健康会所 具体预约页面 -->
 				<div id="xuetang_reservation_content" style="display: none;margin:0 auto;width:90%">
 					<form id="adjust_form" action="submit_reserve_shanggongfang.jsp" method="post">
+					<!-- 预约的地点 -->
+					<!-- <input id="site_assess" name="site_assess" type="hidden"> -->
+					
 					<!-- 预约的上工坊健康会所的类型 -->
 					<input id="type_adjust" name="type_adjust" type="hidden">
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
@@ -402,6 +483,7 @@ $().ready(function() {
 				<form id="assess_form" action="submit_reserve_shanggongfang_assess.jsp" method="post">
 					<!-- 预约的上工坊健康会所的类型 -->
 					<input id="type_assess" name="type_assess" type="hidden">
+					<input id="site_assess" name="site_assess" type="hidden">
 					<!-- <table width="100%" cellspacing="0" cellpadding="0">
 						<tr bgColor="#000000">
 							<td align="left" style="width: 20%"><button type="button"
@@ -432,7 +514,7 @@ $().ready(function() {
 
 
 					<table  width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
+						<!-- <tr>
 							<td id="xuetang_td"><div id="ASKInput" style="height: 39px;line-height: 39px;">诊疗机构</div></td>
 							<td colspan="2"><select id="site_assess"
 								name="site_assess">
@@ -441,7 +523,7 @@ $().ready(function() {
 									<option value="展览路馆">展览路馆</option>
 									<option value="三里屯SOHO馆">三里屯SOHO馆</option>							
 							</select></td>
-						</tr>
+						</tr> -->
 						
 						<tr>
 							<!-- <td id="ASKInput">：</td> -->
