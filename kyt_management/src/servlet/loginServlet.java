@@ -99,6 +99,11 @@ public class loginServlet extends HttpServlet {
 	        	HttpSession session = request.getSession();
 	        	session.setAttribute("loginedUserName", loginedUserName);
 	        	
+	        	int role = userDao.check_user_role(loginedUserName);
+	        	String role_string = role + "";
+	        	session.setAttribute("role", role_string);
+	        	
+	        	/*
 	        	if(userDao.IsUserAdmin(loginedUserName)==1){
 	        		session.setAttribute("adminCheck", "true");
 	        		//System.out.println("adminCheck:" + "admin" + "\n");
@@ -111,7 +116,7 @@ public class loginServlet extends HttpServlet {
 	        		session.setAttribute("adminCheck", "staff_wjg");
 	        		//System.out.println("adminCheck:" + "admin" + "\n");
 	        	}
-	        	
+	        	*/
 	        	
 	        	
 	        	session.setMaxInactiveInterval(60*20);//

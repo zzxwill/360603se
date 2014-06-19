@@ -2,7 +2,7 @@
 
 <%@page import="dao.*" %>
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <script type="text/javascript">
 	//取消预约时的确认  Will 6/16/2014

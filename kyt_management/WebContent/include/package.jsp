@@ -9,6 +9,8 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String adminCheck = null;
 String loginedUserName = null;
+int GROUP_INTERVAL = 100;
+String loginRole = null;
 
 String sysName = "孔医堂后台管理系统";
 String sysColor = "#d8a14f";//#FF8C47

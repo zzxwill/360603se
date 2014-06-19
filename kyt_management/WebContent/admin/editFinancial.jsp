@@ -2,7 +2,7 @@
 
 <%@page import="database.*" %>
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <%
 FinancialDao financialAdminDao = new FinancialDao();

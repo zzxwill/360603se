@@ -1,8 +1,10 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%@page import="database.*" %>
+<%@page import="dao.*" %>
+
 <%@ include file="../check/index.jsp"%> 
-<%@ include file="../check/checkAdmin.jsp"%>  
+<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <table width="100%" align="center" border="1" cellpadding="0" cellspacing="0" rules=rows>
 	<tr align="center" bgcolor="#D5D5D5">
@@ -18,6 +20,9 @@
 	int userNum = 0;
 	userNum = userAdminDao.getUserNum();
 	
+	ChangGuanDao UserChangGuanDao = new ChangGuanDao();
+	
+	int group = 0;
 	int id = 0;
 	for(id=1;id<=userNum;id++){
 		userAdminDao.getUserInfo(id);
@@ -28,7 +33,21 @@
 		<td align="center"><%=userAdminDao.UserName %></td>
 		<td align="center"><%=userAdminDao.UserTel %></td>
 		<td align="center">
-			<%=(userAdminDao.UserGroup==1)?"管理员":"普&nbsp;通" %>				
+			<%
+			group = userAdminDao.UserGroup;
+			if(group==0){
+				%>普&nbsp;通<%
+			}else if(group==1){
+				%>管理员<%
+			}else{
+				int group_min = group - GROUP_INTERVAL; 
+				//System.out.println("group_min:" +group_min);
+				String name =  UserChangGuanDao.getChangGuanName_by_id(group_min);
+				%>
+				<%=name %>主
+				<%
+			}
+			%>			
 		</td>
 		<td align="center" >
 			<%=(userAdminDao.IsUserDel(id)==1)?"<p style='color: red;'>禁&nbsp;用</p>":"<p style='color: green;'>正&nbsp;常</p>" %>
@@ -129,33 +148,20 @@
 						<tr>
 							<td align="left" width="25%">权 &nbsp;限:</td>
 							<td align="center" width="70%">
-							<table width="100%" border="0" cellpadding="0" cellspacing="0" >
-								<tr>
-								<%
-								if(userAdminDao.UserGroup==1){
-								%>
-									<td align="right" width="25%">普通</td>
-									<td valign="middle" align="left" width="20%">
-										<input type="radio"  name="authority<%=id %>" value="0"></td>
-		
-									<td align="right" width="25%">管理员</td>
-									<td valign="middle" align="left" width="20%">
-										<input type="radio" checked name="authority<%=id %>"value="1"></td>
-								
-								<%
-								}else{
-								%>
-									<td align="right" width="25%">普通</td>
-									<td valign="middle" align="left" width="20%">
-										<input type="radio" checked name="authority<%=id %>"value="0"></td>
-		
-									<td align="right" width="25%">管理员</td>
-									<td valign="middle" align="left" width="20%">
-										<input type="radio" name="authority<%=id %>"value="1"></td>
-								<%} %>
-									<td align="right" width="10%">&nbsp;</td>
-								</tr>
-							</table>
+								<select name="authority<%=id %>" id="authority<%=id %>">	
+<!--									<option value="firstOption">《请选择权限分类》 </option>-->
+									<option value="0" selected>普 &nbsp;通</option>
+									<%
+									//int num = UserChangGuanDao.name_nums;
+									UserChangGuanDao.getAllChangGuanName();
+									//System.out.println(UserChangGuanDao.name_nums);
+									for(int j=1;j<=UserChangGuanDao.name_nums;j++){
+									%>
+										<option value="<%=j+GROUP_INTERVAL %>" ><%=UserChangGuanDao.name_infos[j] %></option>
+									<%} %>
+									<option value="1">管理员</option>
+								</select>
+
 							</td>
 							<td width="5%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
 						</tr>

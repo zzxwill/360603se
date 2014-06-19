@@ -1,8 +1,10 @@
  <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
+
+<%@page import="dao.*" %>
  
  <%@ include file="../include/package.jsp"%>  
  <%@ include file="../check/index.jsp"%> 
- <%@ include file="../check/checkAdmin.jsp"%>  
+ <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -16,11 +18,11 @@
   </head>
   
 <script language=javascript> 
-	setTimeout("document.editUserForm.submit()",200); 
+	//setTimeout("document.editUserForm.submit()",200); 
 </script> 
 
   <body>
- <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../sys">
+ <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../sys?module=adminUser">
 <%
 	request.setCharacterEncoding("UTF-8");
 	String url = "../sys/index.jsp?module=adminUser";
@@ -63,7 +65,7 @@
 						String tel = request.getParameter("telephone"+id);
 						//String email = request.getParameter("email"+id);
 						int auth = Integer.parseInt(auth_tostring);
-						
+
 					    if(null==pw||pw.equals("")){
 					    	userAdminDao.modifyUserByAdmin(id,"",tel,auth,0);
 					    }
@@ -100,6 +102,7 @@
 				String tel = request.getParameter("telephoneNew");
 				String email = request.getParameter("emailNew");
 				int auth = Integer.parseInt(auth_tostring);
+
 				PasswordUtil GP = new PasswordUtil();
 		    	pw = GP.generatePassword(pw);
 		    	UserDao userAdminDao = new UserDao();
@@ -110,7 +113,9 @@
 		}
 	}
 %>
-
 </form>
+<script language='javascript' type='text/javascript'>
+		window.location = "<%=url%>";
+	</script>
 </body>
 </html>

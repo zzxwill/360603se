@@ -209,6 +209,29 @@ public class ChangGuanDao {
 		}
 	}
 	
+	//根据id查询场馆名字
+	public String getChangGuanName_by_id(int id) throws SQLException {
+		
+		String name = null;
+		conn = Connections.getConnection();
+		String sql = "select * from 04changguan where id = '" + id + "'";
+		try {
+			int index = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				name = rs.getString("name");
+			}
+			name_nums = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return name;
+	}
+	
 	//修改场馆.未删除的场馆有效
 	public void modifyChangGuan(int id, int NeiKe, int WaiKe, int FuKe, int ErKe, int ZhenTuiKe,
 			int PingGu, int TiaoLi, int ShaLong, int JiangZuo, int deleteChangGuan) throws SQLException {

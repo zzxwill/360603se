@@ -482,11 +482,31 @@ public class UserDao {
 		return flag;
 	}
 	
-	//查询用户是否为管理员
+	//查询用户角色
 		public int check_user_role(String userName) throws SQLException {
 			int flag = 0;
 			conn = Connections.getConnection();
 			String sql = "select * from usercharts where userName = '" + userName + "'";
+			try {
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(sql);
+				if (rs.next()) {
+					flag = rs.getInt("userGroup");
+				}
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return flag;
+		}
+		
+		//查询用户角色
+		public int check_user_role(int userID) throws SQLException {
+			int flag = 0;
+			conn = Connections.getConnection();
+			String sql = "select * from usercharts where userID = '" + userID + "'";
 			try {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
