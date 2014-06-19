@@ -12,7 +12,7 @@
 
 <style type="text/css">
 </style>
-  <%@ include file="../check/index.jsp"%> 
+  <%//@ include file="../check/index.jsp"%> 
 </head>
   
  <body>

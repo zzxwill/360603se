@@ -16,7 +16,7 @@
 
 </head>
   <%//@ include file="../exit/exit.jsp"%>
-   <%@ include file="../check/index.jsp"%> 
+   <%//@ include file="../check/index.jsp"%> 
  <body>
   <div data-role="page">
 	<div data-role="header">
