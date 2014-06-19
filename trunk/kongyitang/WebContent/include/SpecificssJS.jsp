@@ -166,6 +166,22 @@
 	}
 	
 	
+	
+	//存储shanggongfang_reservation_pre_index页面选定的值
+	function set_shanggongfang_reservation_pre_index_value(site){
+		document.getElementById("site_assess").value = site;
+		
+		$("#return_link").attr("onclick", "display_return_page('xuetang_reservation_index', 'xuetang_reservation_pre_index');");
+		
+		//reservation_specific_location_name 具体预约某个馆时，顶上显示不同的名字
+		//$("#reservation_specific_location_name").get(0).innerText = site;
+		
+		
+		//如果没有reutrn, 会提交表单
+		return;
+	}
+	
+	
 	//存储shanggongfang_reservation_index页面选定的值
 	function set_shanggongfang_reservation_index_value(site){
 		if("健康调理"==site){
