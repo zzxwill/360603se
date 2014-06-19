@@ -48,7 +48,7 @@
     	window.location = "my_health/index.jsp";
      }
     function admin(){
-    	window.location = "admin/index.jsp";
+    	window.location = "admin/index_brief.jsp";
      }
     </script>
     	<h1>欢迎来到孔医堂！</h1>
