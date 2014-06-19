@@ -26,7 +26,7 @@
 	<%@ include file="../admin/doctor_auth_upload.jsp"%> 
 	<%
     request.setCharacterEncoding("UTF-8");
- 	String url = "index.jsp";
+ 	String url = "index_brief.jsp";
   	String userName = su.getRequest().getParameter("userName");
   	String userGender_string = su.getRequest().getParameter("userGender");
   	//String userTel = su.getRequest().getParameter("userTel");
