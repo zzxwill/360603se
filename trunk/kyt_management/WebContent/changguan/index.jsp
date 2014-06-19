@@ -64,7 +64,7 @@
 				   });
 				</script>
 					
-					<%//@ include file="../changguan/editChangGuan.jsp"%>
+					<%@ include file="../changguan/editChangGuan.jsp"%>
 				</div>	
 				
 				<%//医生管理 %>
