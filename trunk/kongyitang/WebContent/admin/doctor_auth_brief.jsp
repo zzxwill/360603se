@@ -89,11 +89,11 @@
   	<br><br>
   	<script>
 	  	function GoBack(){
-	  		window.location = "index.jsp";
+	  		window.location = "index_brief.jsp";
 	  	}
   	</script>
   	
-	<a href="index.jsp">继续录入</a>
+	<a href="index_brief.jsp">继续录入</a>
 	
   	</center>
   	<%
