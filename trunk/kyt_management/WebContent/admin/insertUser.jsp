@@ -16,7 +16,7 @@
        <div id="myModalContainerUser" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUser" aria-hidden="true">
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-           <h3 id="myModalLabelUser" contenteditable="true">新建用户</h3>
+           <h3 style="float: left;margin: 10px;" id="myModalLabelUser" contenteditable="true">新建用户</h3>
          </div>
          <div class="modal-body" style="line-height:200%" >
          

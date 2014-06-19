@@ -14,7 +14,7 @@
 	
 	<script type="text/javascript" > 
 	   
-	function show_hidden(div1,div2,div3,div4,div5,div6,div7,div8){
+	function show_hidden(div1,div2,div3,div4,div5,div6,div7,div8,t){
 		var obj1 = document.getElementById(div1);
 		var obj2 = document.getElementById(div2);
 		var obj3 = document.getElementById(div3);
@@ -27,7 +27,11 @@
 		if(obj1!=null ){
 			obj1.style.display = "";
 			//return;
+			
 		}
+		$(".div-menusel").removeClass("div-menusel").addClass("div-menu");
+		$("#"+t).removeClass("div-menu");
+		$("#"+t).addClass("div-menusel");
 		
 		if(obj2!=null ){
 			obj2.style.display = "none";
@@ -57,6 +61,8 @@
 			obj8.style.display = "none";
 			//return;
 		}
+		
+		
 	}
 	
 	
