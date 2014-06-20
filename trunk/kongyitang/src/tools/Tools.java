@@ -89,6 +89,10 @@ public class Tools {
 			sql = "select max(id) as id from 04site_doctor";
 		}
 		
+		else if(flag.equals("04validate_code")){
+			sql = "select max(id) as id from 04validate_code";
+		}
+		
 		
 		/*
 		else if(flag.equals("usercharts")){
@@ -134,7 +138,11 @@ public class Tools {
 					id = rs.getInt("id");
 				}
 				
-
+				else if(flag.equals("04validate_code")){
+					id = rs.getInt("id");
+				}
+				
+				
 				/*
 				else if(flag.equals("usercharts")){
 					id = rs.getInt("userID");
