@@ -384,7 +384,7 @@ $().ready(function() {
 											<table width="100%" style="font-size: 13px;">
 
 												<tr>
-												<td style="padding:5px;width:50px" rowspan="2"><img src="../resources/images/upload/doctor_male.jpg" 
+												<td style="padding:5px;width:50px" rowspan="2"><img src="<%=D_IMAGES %><%=doctor_dao.doctor_portrait[i] %>" 
 													width="40" height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>		
 													<td valign="bottom" ><span style="text-align: left;font-size: 15px;font-weight: 700"><%=doctor_dao.name[j] %></span><img src="../resources/css/images/reserver_clinic/V.gif" 
 													width="15" height="15" /></td>

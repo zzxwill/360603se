@@ -138,6 +138,8 @@ public class ReserveClinicDao {
 	public int  doctor_id[];
 	public String  name[];
 	public String  title[];
+	//医生头像
+	public String  doctor_portrait[];
 	public int  doctor_available_amount[];
 	
 	private int NUM = 1000;
@@ -186,7 +188,7 @@ public class ReserveClinicDao {
 	public ArrayList retrive_doctors_by_deparment(int department_id) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
+		String sql = "SELECT u.id as doctor_id ,u.name, u.title, u.doctor_portrait FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
 		
 		//当前日期    Will Zhou   5/24/2014
 		Date currentTime = new Date();
@@ -211,6 +213,9 @@ public class ReserveClinicDao {
 			doctor_id = new int[NUM];
 			name = new String[NUM];
 			title = new String[NUM];
+			//医生头像
+			doctor_portrait = new String[NUM];
+			
 			doctor_available_amount = new int[NUM];
 			
 			
@@ -222,6 +227,9 @@ public class ReserveClinicDao {
 				
 				name[index] = rs.getString(2);
 				title[index] = rs.getString(3);
+				//医生头像
+				//doctor_portrait[index] = rs.getString("doctor_portrait");
+				doctor_portrait[index] = rs.getString(4);
 				
 				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
 				sql_doctor_available_amount += rs.getInt(1);
