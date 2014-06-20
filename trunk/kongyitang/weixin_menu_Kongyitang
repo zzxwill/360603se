@@ -1,0 +1,49 @@
+//kongyitang:http://121.201.7.153/kongyitang/
+
+http://wx.kongyitang.com/
+{
+     "button":[
+     {	
+          "name":"预约",
+		   "sub_button":[
+			{
+			   "type":"view",
+			   "name":"门诊预约",
+			   "url":"http://wx.kongyitang.com/kongyitang/reserve_clinic/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"健康服务",
+			   "url":"http://wx.kongyitang.com/kongyitang/reserve_shanggongfang/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"学院介绍",
+			   "url":"http://wx.kongyitang.com/kongyitang/reserve_xuetang/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":" 产品展示",
+			   "url":"http://wx.kongyitang.com/kongyitang/reserve_product/index.jsp"
+			}]
+      },
+      {
+		   "type":"view",
+		   "name":"提问",
+		   "url":"http://wx.kongyitang.com/kongyitang/ask_answer/index.jsp"
+      },
+      {
+           "name":"我的",
+		   "sub_button":[
+			{
+			   "type":"view",
+			   "name":"会员中心",
+			   "url":"http://wx.kongyitang.com/kongyitang/my_member/index.jsp"
+			},
+			{
+			   "type":"view",
+			   "name":"健康自测",
+			   "url":"http://wx.kongyitang.com/kongyitang/my_health/index.jsp"
+			}]
+      }]
+ }
