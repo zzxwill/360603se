@@ -48,7 +48,7 @@ public class test {
     	String pw = "patient";
 		pw = GP.generatePassword(pw);
 		UserDaoPatient patient = new UserDaoPatient();
-		patient.insertUser_Patient("patient", 0, 20, 0, "222", pw);
+		patient.insertUser_Patient("patient", 0, 20, 0, "patient", pw);
 		*/
 		
 		/*
