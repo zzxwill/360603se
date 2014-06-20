@@ -255,19 +255,21 @@
 	//显示或隐藏出诊表  Will  5/16/2014
 	function display_hidden_outpatient_rtable(){
 		
-			if(document.getElementById("site").value=="望京馆")
+		
+		var site= $("#reservation_specific_location_name").text();
+			if(site=="望京馆")
 			{
 				$("#o1").show();
 			}
-			if(document.getElementById("site").value=="五棵松馆")
+			if(site=="五棵松馆")
 			{
 				$("#o2").show();
 			}
-			if(document.getElementById("site").value=="展览路馆")
+			if(site=="展览路馆")
 			{
 				$("#o3").show();
 			}
-			if(document.getElementById("site").value=="三里屯SOHO馆")
+			if(site=="三里屯SOHO馆")
 			{
 				$("#o4").show();
 			}
