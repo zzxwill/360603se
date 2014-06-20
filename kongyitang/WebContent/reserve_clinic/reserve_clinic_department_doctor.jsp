@@ -194,13 +194,14 @@ $().ready(function() {
 				</table>
 				<div id="outpatient_reserve" class="Reservation">
 
-					<div id="reservation_specific_location_name">望京馆</div>
+					
 					<%
 					
 					request.setCharacterEncoding("utf-8");
 					 String site_name = request.getParameter("site_name");
 					 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
 					 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+					 String site_temp = site_name;
 					 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
 					 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
 					 
@@ -208,6 +209,7 @@ $().ready(function() {
 					 
 					 if(siteid == null || site_name ==null){
 							%>
+							
 					<center>
 						<div style="color: red">
 							<big>禁止访问！ <br>正在预约前界面，请稍后...
@@ -219,7 +221,9 @@ $().ready(function() {
 									</script>
 					<%	 
 							 }else{
-					 
+					 %>
+					 <div id="reservation_specific_location_name"><%=site_temp %></div>
+					 <% 
 								long  site_id = Long.parseLong(siteid);
 								
 								
