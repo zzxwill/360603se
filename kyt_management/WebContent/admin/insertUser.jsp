@@ -7,7 +7,7 @@
 
 <form class="form-horizontal" id="userForm" method="post" action="../admin/editUserInfo.jsp?type=new">
 
-	<div class="view"> 
+	<div class="view" style="width:100%"> 
        <!-- Button to trigger modal --> 
        <div align="right">
        <a id="myModalLinkUser" href="#myModalContainerUser" role="button" class="btn btn-primary" data-toggle="modal" contenteditable="true">新建用户</a> 
@@ -18,7 +18,7 @@
            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
            <h3 style="float: left;margin: 10px;" id="myModalLabelUser" contenteditable="true">新建用户</h3>
          </div>
-         <div class="modal-body" style="line-height:200%" >
+         <div style="width:100%" class="modal-body" style="line-height:200%" >
          
  <script>
     function checkNewUserInput()
@@ -76,7 +76,7 @@
 <!--			           <p contenteditable="true">显示信息-->
 				<div style="line-height:200%;color:red">用户名、密码与权限，此三项为必填项！</div>
            	    <table  width="58%" align="center" border="0" cellpadding="1" cellspacing="1">
-			    		<tr>
+			    		<tr width="100%" >
 			    			<td align="left" width="25%" >用户名:</td>
 			    			<td align="center" width="70%">
 			    				<input style="height:30px" type="text" id="usernameNew" name="usernameNew" style="width:90%;" value=""/>
