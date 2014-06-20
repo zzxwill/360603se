@@ -273,7 +273,7 @@ $().ready(function() {
 							<td class="xuetang_button"><strong><%=reserver_clinic_site_dao.site_name.get(i) %></strong></td>
 							<td align="right">
 								<div align="center" class="ASKSubmit" style="width:100px"
-									onclick="set_kongyitang_reservation_index_value('<%=reserver_clinic_site_dao.site_name.get(i) %>');set_kongyitang_reservation_index_siteid_value('<%=reserver_clinic_site_dao.site_id.get(i) %>');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
+									onclick="set_kongyitang_reservation_index_value('<%=reserver_clinic_site_dao.site_name.get(i) %>');show_hidden('kongyitang_reservation_index');show_hidden('reservation_specific_location');">
 									预&nbsp;&nbsp;约
 								</div>
 							</td>
