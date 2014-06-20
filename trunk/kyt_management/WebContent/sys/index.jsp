@@ -98,7 +98,7 @@
 			int role = Integer.parseInt(role_string);
 			if(role==0){
 			%>
-				<%@ include file="common.jsp"%>
+				<%@ include file="../common/index.jsp"%>
 			<%	
 			}else if(role==1){
 			%>
