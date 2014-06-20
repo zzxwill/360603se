@@ -53,8 +53,9 @@
     <%
    	Dao dao = new Dao();
     
-    request.setCharacterEncoding("utf-8");
-	 String site = request.getParameter("site");
+     request.setCharacterEncoding("utf-8");
+	 String site = request.getParameter("site_name");
+	
 	 String department = request.getParameter("department");
 	 String illness_name = request.getParameter("illness_name");
 	 
@@ -71,9 +72,17 @@
 	<%	 
 	 }else{
 	 
-	 
-	 int doctorid = Integer.valueOf(request.getParameter("doctorid")).intValue();
-	 int outpatientid = Integer.valueOf(request.getParameter("outpatientid")).intValue();
+		 site = java.net.URLDecoder.decode(site,"UTF-8");
+		 site = java.net.URLDecoder.decode(site,"UTF-8");
+		 
+		 department = java.net.URLDecoder.decode(department,"UTF-8");
+		 department = java.net.URLDecoder.decode(department,"UTF-8");
+
+
+
+		 
+	 int doctorid = Integer.valueOf(request.getParameter("doctor_id")).intValue();
+	 int outpatientid = Integer.valueOf(request.getParameter("outpatient_id")).intValue();
 	 //int outpatientid = 100001;
 	 
 	 
