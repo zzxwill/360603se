@@ -128,10 +128,9 @@ public class ReserveClinicDao {
 	public ArrayList<String> clinic_doctor_date = new ArrayList<String>();
 	
 	
-	
 	public ArrayList<Long> site_id = new ArrayList<Long>();
-	
 	public ArrayList<String> site_name = new ArrayList<String>();
+	
 	
 	
 	public int doctor_num;
@@ -152,6 +151,9 @@ public class ReserveClinicDao {
 	 * @date:     May 13, 2014 10:37:40 PM 
 	 */
 	public void retrive_deparment() throws SQLException {
+		
+		
+		
 
 		conn = Connections.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
@@ -185,10 +187,12 @@ public class ReserveClinicDao {
 	}
 	
 	//
-	public ArrayList retrive_doctors_by_deparment(int department_id) throws SQLException {
+	public ArrayList retrive_doctors_by_deparment(int department_id, long  site_id) throws SQLException {
 
 		conn = Connections.getConnection();
-		String sql = "SELECT u.id as doctor_id ,u.name, u.title, u.doctor_portrait FROM  " + table_prefix + "user_doctor u  WHERE u.department = " + department_id;
+
+		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  04user_doctor u, 04site_doctor  s WHERE u.id = s.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
+
 		
 		//当前日期    Will Zhou   5/24/2014
 		Date currentTime = new Date();
@@ -604,30 +608,21 @@ public class ReserveClinicDao {
 	}
 	
 	
-	
-	/**
-	 * @function: 获取场馆
-	 * @author:   Will Zhou
-	 * @date:     Jun 20, 2014 2:35:18 AM 
-	 */
 	public void retrive_site() throws SQLException {
 
 		conn = Connections.getConnection();
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
-		String sql = "SELECT id ,name FROM 04site where status=1";
+		String sql = "SELECT id, name from 04site where status = 1";
 
 
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			int index = 0;
-		/*	department = new String[NUM];
-			department_id = new int[NUM];*/
+			
 			while (rs.next()) {
 				site_id.add(rs.getLong(1));
 				site_name.add(rs.getString(2));
-			
 				
 			}
 		
