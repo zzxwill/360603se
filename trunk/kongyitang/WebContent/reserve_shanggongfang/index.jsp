@@ -594,7 +594,7 @@ $().ready(function() {
 								
 								%>
 									<option selected="" value='<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %>'>
-									<%=reserveClinicDao.date.get(i) %><%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.ampm.get(i) %><%=reserveClinicDao.time.get(i) %></option>
+								<%=reserveClinicDao.day.get(i) %><%=reserveClinicDao.time.get(i) %></option>
 								
 								<%} %>
 
