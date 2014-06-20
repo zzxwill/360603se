@@ -191,7 +191,7 @@ public class ReserveClinicDao {
 
 		conn = Connections.getConnection();
 
-		String sql = "SELECT u.id as doctor_id ,u.name, u.title FROM  04user_doctor u, 04site_doctor  s WHERE u.id = s.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
+		String sql = "SELECT u.id as doctor_id ,u.name, u.title, doctor_portrait FROM  04user_doctor u, 04site_doctor  s WHERE u.id = s.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
 
 		
 		//当前日期    Will Zhou   5/24/2014
