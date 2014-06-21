@@ -56,9 +56,9 @@ public class UserDaoPatient {
 				UserPatientNames[index] = rs.getString("name");
 				tmpGender = rs.getInt("gender");
 				if(tmpGender==1){
-					UserPatientGenders[index] = "男";
-				}else{
 					UserPatientGenders[index] = "女";
+				}else{
+					UserPatientGenders[index] = "男";
 				}
 				UserPatientAges[index] = rs.getInt("age");
 				UserPatientMobiles[index] = rs.getString("mobile");
