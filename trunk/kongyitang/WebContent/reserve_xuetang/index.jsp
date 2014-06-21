@@ -176,7 +176,7 @@ $().ready(function() {
 						</tr> -->
 
 						<tr>
-							<td align="center"><span class="title">孔医堂</span></td>
+							<td align="center"><span class="title">孔伯华学院</span></td>
 
 						</tr>
 						<tr>
