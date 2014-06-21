@@ -211,8 +211,8 @@ $().ready(function() {
 						<tr>
 							<td class="xuetang_button"><strong><%=reserver_clinic_site_dao.site_name.get(i) %></strong></td>
 							<td align="right">
-								<div align="center" class="ASKSubmit" style="width:100px"
-									onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%=reserver_clinic_site_dao.site_id.get(i) %>&site_name=<%=site_name%>'">
+								<div align="center" class="ASKSubmit_no" style="width:100px">
+<!--									onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%//=reserver_clinic_site_dao.site_id.get(i) %>&site_name=<%//=site_name%>'">-->
 									预&nbsp;&nbsp;约
 								</div>
 							</td>

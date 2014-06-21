@@ -61,7 +61,7 @@
     	<p>预约：<p/>
     	<div onclick="reserve_clinic();" >&nbsp;&nbsp;&nbsp;&nbsp;门诊预约 >> </div><br>
     	<div onclick="reserve_shanggongfang();" >&nbsp;&nbsp;&nbsp;&nbsp;健康服务 >> </div><br>
-    	<div onclick="reserve_xuetang();" >&nbsp;&nbsp;&nbsp;&nbsp;招生在线 >> </div><br>
+    	<div onclick="reserve_xuetang();" >&nbsp;&nbsp;&nbsp;&nbsp;学院介绍 >> </div><br>
     	<div onclick="reserve_product();" >&nbsp;&nbsp;&nbsp;&nbsp;产品展示 >> </div><br>
     	<br>
     	<p>提问：<p/>
