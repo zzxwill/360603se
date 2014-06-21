@@ -58,12 +58,12 @@
     				<table width="100%" height=" 45px">
     					<tr>
     						<td valign="middle" align="right" width="25%">
-    							<input type="radio" checked name="registerGender" id="registerGender" value="0">
+    							<input type="radio" checked name="registerGender" id="registerGender" value="1">
     						</td>
     						<td align="left" width="25%">&nbsp;&nbsp;男</td>
     						 
     						<td valign="middle" align="right" width="25%">
-    							<input type="radio" name="registerGender" id="registerGender" value="1"></td>
+    							<input type="radio" name="registerGender" id="registerGender" value="0"></td>
     						<td align="left" width="25%">&nbsp;&nbsp;女</td>
     					</tr>
 					</table></div>
