@@ -29,6 +29,9 @@
 .table-site table td {
 	border-top: 1px solid #000000
 }
+img {
+max-width: 100%;
+}
 </style>
 
 
@@ -222,6 +225,7 @@ $().ready(function() {
 					<%	 
 							 }else{
 					 %>
+					 <inupt type="hidden" value="<%=site_temp %>" id="site"/>
 					 <div id="reservation_specific_location_name"><%=site_temp %></div>
 					 <% 
 								long  site_id = Long.parseLong(siteid);
@@ -250,7 +254,7 @@ $().ready(function() {
 									width="16" height="15" alt="" />
 								<!-- <span style="float:right; font-size:14px;color:#d8a14f">共2人</span> -->
 							</div>
-						</div>
+						</div>  
 					</div>
 
 					<div id="<%=deparment_dao.department[i] %>" style="display: none;">
@@ -328,30 +332,30 @@ $().ready(function() {
 
 			<!-- 出诊表 -->
 			<div class="outpatient_table" id="o1"
-				style="display: none; background: #fff; margin: 20px;">
+				style="display: none;  margin: 20px;">
 				<img src="../images/CG/o13.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o11.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o12.jpg" width="100%" />
 			</div>
 			<div class="outpatient_table" id="o2"
-				style="display: none; background: #fff; margin: 20px;">
+				style="display: none;  margin: 20px;">
 				<img src="../images/CG/o23.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o21.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o22.jpg" width="100%" />
 			</div>
 			<div class="outpatient_table" id="o3"
-				style="display: none; background: #fff; margin: 20px;">
-				医馆功能筹备中，敬请期待！ <img src="../images/CG/o31.jpg" width="100%" /> <br />
-				<img src="../images/CG/o32.jpg" width="100%" />
+				style="display: none;margin: 20px;">
+				医馆功能筹备中，敬请期待！ <img src="../images/CG/o31.JPG" width="100%" /> <br />
+				<img src="../images/CG/o32.JPG" width="100%" />
 			</div>
 			<div class="outpatient_table" id="o4"
-				style="display: none; background: #fff; margin: 20px;">
+				style="display: none;  margin: 20px;">
 				<img src="../images/CG/o43.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o41.jpg" width="100%" /> <br /> <img
 					src="../images/CG/o42.jpg" width="100%" />
 			</div>
 			<div id="outpatient_table"
-				style="display: none; background: #fff; margin: 20px;">
+				style="display: none;  margin: 20px;">
 
 				<table border="1" cellspacing="0" cellpadding="0" width="100%"
 					id="reserve_table_td">
@@ -361,7 +365,7 @@ $().ready(function() {
 						<td width="25%">下</td>
 						<td width="25%">晚</td>
 					</tr>
-					<%
+					<%--
 							ReserveClinicDao outpatient_table_dao = new ReserveClinicDao();
 							HashMap hm4outpatienttable = new HashMap();
 							hm4outpatienttable.put("type", "门诊");
@@ -414,9 +418,9 @@ $().ready(function() {
 
 								tr += td1 + td2 + td3 + "</tr>";
 							}
-						%>
+						--%>
 
-					<%=tr %>
+					<%--tr --%>
 
 					<!-- <tr>
 							<td>二</td>
