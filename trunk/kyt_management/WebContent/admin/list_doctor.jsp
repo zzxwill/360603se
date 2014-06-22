@@ -9,18 +9,18 @@
 <table width="100%" align="center" border="1" cellpadding="0"
 	cellspacing="0" rules=rows>
 	<tr align="center" bgcolor="#D5D5D5">
-		<th align="center" width="4%"><strong>编号</strong></th>
-		<th align="center" width="6%"><strong>姓名</strong></th>
-		<th align="center" width="6%"><strong>性别</strong></th>
-		<th align="center" width="6%"><strong>年龄</strong></th>
-		<th align="center" width="14%"><strong>手机</strong></th>
-		<th align="center" width="9%"><strong>师从</strong></th>
-		<td align="center" width="12%"><strong>医师证号</strong></th>
-		<th align="center" width="9%"><strong>科室</strong></th>
-		<th align="center" width="9%"><strong>职 称</strong></th>
-		<th align="center" width="9%"><strong>场馆</strong></th>
-		<th align="center" width="7%"><strong>审核状态</strong></th>
-		<th align="center" width="10%"><strong>操作</strong></th>
+		<th align="center" ><strong>编号</strong></th>
+		<th align="center" ><strong>姓名</strong></th>
+		<th align="center" ><strong>性别</strong></th>
+		<th align="center" ><strong>年龄</strong></th>
+		<th align="center" ><strong>手机</strong></th>
+		<th align="center" ><strong>师从</strong></th>
+		<td align="center" ><strong>医师证号</strong></th>
+		<th align="center" ><strong>科室</strong></th>
+		<th align="center" ><strong>职 称</strong></th>
+		<th align="center" ><strong>场馆</strong></th>
+		<th align="center" ><strong>审核状态</strong></th>
+		<th align="center" ><strong>操作</strong></th>
 
 
 	</tr>
