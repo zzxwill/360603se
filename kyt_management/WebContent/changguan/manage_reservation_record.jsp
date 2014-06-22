@@ -18,9 +18,9 @@
 					<td align="center" width=""><strong>场馆</strong></td>
 					<td align="center" width=""><strong>类型</strong></td>
 					<td align="center" width=""><strong>科室</strong></td>
+					<td align="center" width=""><strong>医生</strong></td>
 					<td align="center" width=""><strong>用户姓名</strong></td>
 					<td align="center" width=""><strong>手机号</strong></td>
-					<td align="center" width=""><strong>医生</strong></td>
 					<td align="center" width=""><strong>预约时间</strong></td>
 					<td align="center" width=""><strong>状态</strong></td>					
 					<td align="center" width=""><strong>操作</strong></td>
