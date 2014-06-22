@@ -37,9 +37,9 @@
 								<td align="center"><%=reservation_dao.clinic_site.get(i) %>
 								<td align="center"><%=reservation_dao.clinic_type.get(i)%></td>
 								<td align="center"><%=reservation_dao.clinic_department.get(i)%></td>
-								<td align="center"><%=reservation_dao.user_name.get(i)%></td>
-								<td align="center"><%=reservation_dao.user_mobile.get(i)%></td>								
+								<td align="center"><%=reservation_dao.user_name.get(i)%></td>						
 								<td align="center"><%=reservation_dao.clinic_doctor_name.get(i)%></td>
+								<td align="center"><%=reservation_dao.user_mobile.get(i)%></td>	
 								<td align="center"><%=reservation_dao.date.get(i) %><%=reservation_dao.day.get(i) %><%=reservation_dao.ampm.get(i) %><%=reservation_dao.time.get(i) %></td>
 								<td align="center"><%=reservation_dao.clinic_treat_text.get(i) %></td>
 								
