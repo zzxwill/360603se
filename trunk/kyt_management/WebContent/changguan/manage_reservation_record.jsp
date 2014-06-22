@@ -45,9 +45,9 @@
 								
 							
 								<td>
-								<a id="submit_adjust_link"  onclick="return show_confirm('确认取消预约？');" href="../admin/set_reservation_status.jsp?type=cancel&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>取消</big></a>
-								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为爽约？');" href="../admin/set_reservation_status.jsp?type=unvisited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>爽约</big></a>
-								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为履约？');" href="../admin/set_reservation_status.jsp?type=visited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>履约</big></a>
+								<a id="submit_adjust_link"  onclick="return show_confirm('确认取消预约？');" href="../changguan/set_reservation_status.jsp?type=cancel&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>取消</big></a>
+								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为爽约？');" href="../changguan/set_reservation_status.jsp?type=unvisited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>爽约</big></a>
+								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为履约？');" href="../changgaun/set_reservation_status.jsp?type=visited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>履约</big></a>
 								<%-- 	<% if(reservation_dao.status.get(i) == 0){ %>
 								
 									<a id="submit_adjust_link"  onclick="return show_confirm('确认恢复停诊？');" href="../admin/cancell_outpatient_info.jsp?type=enable&outpatient_doctor_id=<%=reservation_dao.outpatient_doctor_id.get(i) %>" ><big>取消</big></a>

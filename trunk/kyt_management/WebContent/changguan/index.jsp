@@ -106,7 +106,7 @@
 				<%//预约列表 %>
 				<div id="yuyue" style="display: none;"  >
 				<%// %>
-					此选项仅用于后续预约列表！
+					<%@ include file="../changguan/manage_reservation_record.jsp"%>
 				</div>	
 			
 			</td>
