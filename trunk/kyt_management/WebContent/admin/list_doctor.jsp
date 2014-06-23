@@ -50,9 +50,9 @@
 		<td align="center" ><%=doctor_dao.doctor_age.get(i)%></td>
 		<td align="center" ><%=doctor_dao.doctor_mobile.get(i)%></td>
 		<td align="center" >
-			<%=(null==doctor_dao.doctor_master.get(i)||doctor_dao.doctor_master.get(i).equals(""))?"暂无":doctor_dao.doctor_doctor_criteria.get(i)%>
+			<%=(null==doctor_dao.doctor_master.get(i)||doctor_dao.doctor_master.get(i).equals(""))?"暂无":doctor_dao.doctor_master.get(i)%>
 		</td>
-		<td align="center" >
+		<td align="center" width="10%">
 			<%=(null==doctor_dao.doctor_doctor_criteria.get(i)||doctor_dao.doctor_doctor_criteria.get(i).equals(""))?"暂无":doctor_dao.doctor_doctor_criteria.get(i)%>
 		</td>
 		<td align="center">
