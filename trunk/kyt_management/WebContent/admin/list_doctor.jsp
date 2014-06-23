@@ -37,18 +37,21 @@
 		UserDao doctor_dao = new UserDao();
 
 		doctor_dao.retrive_doctors(user_role);
-
-		for (int i = 0; i < doctor_dao.doctor_id.size(); i++) {
+		int doctorID = 1;
+		//for (int i = 0; i < doctor_dao.doctor_id.size(); i++) { //正序
+		for (int i = doctor_dao.doctor_id.size()-1; i >0 ; i--,doctorID++) { //逆序
 	%>
 
 	<tr align="center" width="100%">
 
-		<td align="center" ><%=doctor_dao.doctor_id.get(i)%></td>
+		<td align="center" ><%=doctorID%></td>
 		<td align="center" ><%=doctor_dao.doctor_name.get(i)%></td>
 		<td align="center"><%=doctor_dao.doctor_gender.get(i)%></td>
 		<td align="center" ><%=doctor_dao.doctor_age.get(i)%></td>
 		<td align="center" ><%=doctor_dao.doctor_mobile.get(i)%></td>
-		<td align="center" ><%=doctor_dao.doctor_master.get(i)%></td>
+		<td align="center" >
+			<%=(null==doctor_dao.doctor_master.get(i)||doctor_dao.doctor_master.get(i).equals(""))?"暂无":doctor_dao.doctor_doctor_criteria.get(i)%>
+		</td>
 		<td align="center" >
 			<%=(null==doctor_dao.doctor_doctor_criteria.get(i)||doctor_dao.doctor_doctor_criteria.get(i).equals(""))?"暂无":doctor_dao.doctor_doctor_criteria.get(i)%>
 		</td>
@@ -106,7 +109,7 @@
 						<div class="modal-body">
 
 
-							<table width="60%" align="center" border="0" cellpadding="0"
+							<table width="70%" align="center" border="0" cellpadding="0"
 								cellspacing="0">
 								<tr>
 									<td align="left" width="49%">姓名:</td>
@@ -175,7 +178,21 @@
 										id="shopKeeperTel<%=doctor_dao.doctor_id.get(i)%>"
 										name="shopKeeperTel<%=doctor_dao.doctor_id.get(i)%>"
 										style="width:90%;"
-										value="<%=doctor_dao.doctor_department.get(i)%>" readonly="readonly"/></td>
+										<%
+											if(null==doctor_dao.doctor_department.get(i)||doctor_dao.doctor_department.get(i).equals("")){
+											%>
+												value="暂无"
+											<%	
+											}else{
+												int departmentID = Integer.parseInt(doctor_dao.doctor_department.get(i));
+												String departmentName = departmentDao_admin.getDepartmentName(departmentID);
+												%>
+												value="<%=departmentName %>"
+												<%	
+											}
+										%>
+										<%//=doctor_dao.doctor_department.get(i)%>
+										readonly="readonly"/></td>
 									<td width="1%"><a style="color: red;">&nbsp;&nbsp;</a></td>
 								</tr>
 								<tr>
@@ -204,6 +221,34 @@
 										</table>
 									</td>									
 								</tr>
+									
+								<%
+								if(!((null==doctor_dao.doctor_portrait.get(i))||(doctor_dao.doctor_portrait.get(i).equals("")))){
+								%>	
+								<tr>
+									<td align="center" width="49%">
+										<%
+										if(!((null==doctor_dao.doctor_portrait.get(i))||(doctor_dao.doctor_portrait.get(i).equals("")))){
+										%>
+											<img src="<%=D_IMAGES %><%=doctor_dao.doctor_portrait.get(i) %>" border = "0px" width="90%"/>
+										<%	
+										}
+										%>
+										
+									</td>
+									<td align="center" width="49%">
+										<%
+										if(!((null==doctor_dao.doctor_criteria_photo.get(i))||(doctor_dao.doctor_criteria_photo.get(i).equals("")))){
+										%>
+											<img src="<%=D_IMAGES %><%=doctor_dao.doctor_criteria_photo.get(i) %>" border = "0px" width="62%"/>
+										<%	
+										}
+										%>
+									</td>							
+								</tr>
+								<%	
+								}
+								%>
 
 							</table>
 
@@ -321,35 +366,6 @@
 		
 		</td>
 	</tr>
-	
-	<%
-	if(!((null==doctor_dao.doctor_criteria_photo.get(i))||(doctor_dao.doctor_criteria_photo.get(i).equals("")))){
-	%>	
-	<tr>
-		<td align="center" width="45%"><strong>医生&nbsp;<%=i+1 %>：</strong>
-			<%
-			if(!((null==doctor_dao.doctor_criteria_photo.get(i))||(doctor_dao.doctor_criteria_photo.get(i).equals("")))){
-			%>
-				<img src="<%=D_IMAGES %><%=doctor_dao.doctor_criteria_photo.get(i) %>" border = "0px" width="80%"/>
-			<%	
-			}
-			%>
-		</td>
-		<td align="center" width="45%">
-			<%
-			if(!((null==doctor_dao.doctor_portrait.get(i))||(doctor_dao.doctor_portrait.get(i).equals("")))){
-			%>
-				<img src="<%=D_IMAGES %><%=doctor_dao.doctor_portrait.get(i) %>" border = "0px" width="80%"/>
-			<%	
-			}
-			%>
-		</td>
-		<td align="center" width="10%"></td>
-	
-	</tr>
-	<%	
-	}
-	%>
 	
 	<%} %>
 </table>
