@@ -61,6 +61,9 @@ function KeshiChanged(){
 	else if(ASKKeShiTop==5){
 		message = "针推科";
 	}
+	else if(ASKKeShiTop==6){
+		message = "男&nbsp;&nbsp;科";
+	}
 	SelectedKeShiTop.innerHTML = "<a>" + message + "</a>";
 	
 	var ASKSelectForm = document.getElementById("ASKSelectForm");

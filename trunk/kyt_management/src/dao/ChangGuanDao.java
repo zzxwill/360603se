@@ -49,6 +49,7 @@ public class ChangGuanDao {
 	
 	public int name_nums;
 	public String name_infos[];
+	public int name_info_ids[];
 	
 
 	//新建场馆列表
@@ -225,10 +226,11 @@ public class ChangGuanDao {
 		}
 	}
 	
-	//查询所有场馆名字
+	//查询所有场馆名字及ID
 	public void getAllChangGuanName() throws SQLException {
 		
 		name_infos = new String[NUM];
+		name_info_ids = new int[NUM];
 
 		conn = Connections.getConnection();
 		String sql = "select * from 04changguan ";
@@ -237,6 +239,7 @@ public class ChangGuanDao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
+				name_info_ids[index] = rs.getInt("id");
 				name_infos[index] = rs.getString("name");
 				
 				index++;
