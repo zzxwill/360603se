@@ -229,7 +229,7 @@
 								//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
 								for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
 								%>
-									<img src="../img/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+									<img src="../img/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<a href="javascript:alert('编号为  <%=answerDao_Patient.answers_doctor_id_Given_Patient[j] %> 的医生 <%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %> ，信息正在更新发布！')"><%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %></a>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
 								<%}
 						 } %>
 							</div>
