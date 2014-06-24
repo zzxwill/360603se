@@ -22,6 +22,7 @@ public class AnswerDao {
 	private PreparedStatement ps = null;
 	
 	public String answers_Given_Patient[]; 
+	public String answers_doctor_name_Given_Patient[]; 
 	public int num_Given_Patient = 0;
 	
 	public String answers_Given_Doctor[]; 
@@ -111,15 +112,23 @@ public class AnswerDao {
 	public void getAnswers_Given(int question_id) throws SQLException {
 		
 		answers_Given_Patient = new String[NUM];
-		
+		answers_doctor_name_Given_Patient = new String[NUM];
 		conn = Connections.getConnection();
-		String sql = "select * from 04answer where question_id=" + question_id;
+		//String sql = "select * from 04answer where question_id=" + question_id;
+		String sql = "select a.answer, ud.name from 04answer a left join 04user_doctor ud on a.doctor_id = ud.id where a.question_id= '" + question_id + "'";
 		try {
 			int index = 1;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
+			String tmp_name = null;
 			while (rs.next()) {
-				answers_Given_Patient[index] = rs.getString("answer");;
+				answers_Given_Patient[index] = rs.getString(1);
+				tmp_name  = rs.getString(2);
+				if(null==tmp_name || tmp_name.equals("")){
+					answers_doctor_name_Given_Patient[index] = "专家";
+				}else{
+					answers_doctor_name_Given_Patient[index] = tmp_name;
+				}
 				index++;
 			}
 			num_Given_Patient = index-1;

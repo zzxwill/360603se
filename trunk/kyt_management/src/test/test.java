@@ -91,6 +91,25 @@ public class test {
 		XueTangDao xueTangDao = new XueTangDao();
 		xueTangDao.insertXueTang("测试学堂");
 		*/
+		
+		/*
+		//测试问题列表
+		ASKPatient aSKPatient = new ASKPatient();
+		aSKPatient.getAllQuestionInfos();
+		System.out.println(aSKPatient.userID + ",\n" + aSKPatient.user_gender + ",\n" + aSKPatient.user_age + ",\n"
+				+ aSKPatient.content + ",\n" + aSKPatient.picture_path + ",\n" + aSKPatient.department + ",\n"
+				+ aSKPatient.answered_flag + ",\n" + aSKPatient.createDate);
+		*/
+		
+		/*
+		//测试答案
+		AnswerDao answerDao = new AnswerDao();
+		answerDao.getAnswers_Given(2);
+		System.out.println(answerDao.num_Given_Patient + ",\n");
+		System.out.println(answerDao.answers_Given_Patient[1] + ",\n");
+		System.out.println(answerDao.answers_doctor_name_Given_Patient[1]);
+		*/
+		
 	}
 
 }
