@@ -23,6 +23,7 @@ public class AnswerDao {
 	
 	public String answers_Given_Patient[]; 
 	public String answers_doctor_name_Given_Patient[]; 
+	public int answers_doctor_id_Given_Patient[]; 
 	public int num_Given_Patient = 0;
 	
 	public String answers_Given_Doctor[]; 
@@ -113,9 +114,11 @@ public class AnswerDao {
 		
 		answers_Given_Patient = new String[NUM];
 		answers_doctor_name_Given_Patient = new String[NUM];
+		answers_doctor_id_Given_Patient = new int[NUM];
+		
 		conn = Connections.getConnection();
 		//String sql = "select * from 04answer where question_id=" + question_id;
-		String sql = "select a.answer, ud.name from 04answer a left join 04user_doctor ud on a.doctor_id = ud.id where a.question_id= '" + question_id + "'";
+		String sql = "select a.answer, a.doctor_id, ud.name from 04answer a left join 04user_doctor ud on a.doctor_id = ud.id where a.question_id= '" + question_id + "'";
 		try {
 			int index = 1;
 			stmt = conn.createStatement();
@@ -123,7 +126,8 @@ public class AnswerDao {
 			String tmp_name = null;
 			while (rs.next()) {
 				answers_Given_Patient[index] = rs.getString(1);
-				tmp_name  = rs.getString(2);
+				answers_doctor_id_Given_Patient[index] = rs.getInt(2);
+				tmp_name  = rs.getString(3);
 				if(null==tmp_name || tmp_name.equals("")){
 					answers_doctor_name_Given_Patient[index] = "专家";
 				}else{
