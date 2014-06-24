@@ -8,7 +8,7 @@
 
 <table width="100%" align="center" border="1" cellpadding="0" cellspacing="0" rules=rows>
 	<tr align="center" bgcolor="#D5D5D5">
-		<td align="center" width="20%"><strong>场馆名</strong></td>
+		<td align="center" width="20%"><strong>分管场馆名</strong></td>
 		<td align="center" width="35%"><strong>门诊科室</strong></td>
 		<td align="center" width="25%"><strong>健康服务类</strong></td>
 		<td align="center" width="10%"><strong>状&nbsp;态</strong></td>

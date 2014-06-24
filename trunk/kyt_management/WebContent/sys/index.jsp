@@ -104,7 +104,12 @@
 			%>
 				<%@ include file="admin.jsp"%>
 			<%				
-			}else if(role>GROUP_INTERVAL){
+			}else if(role==2){
+			%>
+				<%@ include file="../tiaolishi/index.jsp"%>
+			<%				
+			}
+			else if(role>GROUP_INTERVAL){
 				role = role - GROUP_INTERVAL;//场馆id
 				%>
 				<%@ include file="../changguan/index.jsp"%>
