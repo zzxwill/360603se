@@ -6,6 +6,29 @@
 <%@ include file="../check/index.jsp"%>
 <%//@ include file="../check/checkAdmin.jsp"%>
 
+<table width="100%" align="center">
+	<tr>
+		<td align="center" >选择场馆：
+			<select name="Search_by_ChangGuan" id="Search_by_ChangGuan">	
+				<%
+				ChangGuanDao DoctorChangGuanDao = new ChangGuanDao();
+				DoctorChangGuanDao.getAllChangGuanName();
+				for(int i=1;i<=DoctorChangGuanDao.name_nums;i++){
+				%>
+					<option value="<%=DoctorChangGuanDao.name_info_ids[i] %>" ><%=DoctorChangGuanDao.name_infos[i] %></option>
+				<%} %>
+				<option value="0" selected>未分配</option>
+			</select>
+		</td>
+		<td align="center">
+		医生姓名：<input id="Search_by_Name" name="Search_by_Name" height="35px"/>
+		</td>
+		<td align="center">
+			<a role="button" class="btn btn-primary"  >查&nbsp;询</a>
+		</td>
+	</tr>
+</table>
+
 <table width="100%" align="center" border="1" cellpadding="0"
 	cellspacing="0" rules=rows>
 	<tr align="center" bgcolor="#D5D5D5">

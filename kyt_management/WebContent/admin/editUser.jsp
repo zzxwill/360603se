@@ -155,14 +155,14 @@
 								<select name="authority<%=id %>" id="authority<%=id %>">	
 <!--									<option value="firstOption">《请选择权限分类》 </option>-->
 									<option value="0" selected>普通管理员</option>
-									<option value="2" selected>调理师</option>
+									<option value="2" >调理师</option>
 									<%
 									//int num = UserChangGuanDao.name_nums;
 									UserChangGuanDao.getAllChangGuanName();
 									//System.out.println(UserChangGuanDao.name_nums);
 									for(int j=1;j<=UserChangGuanDao.name_nums;j++){
 									%>
-										<option value="<%=j+GROUP_INTERVAL %>" ><%=UserChangGuanDao.name_infos[j] %></option>
+										<option value="<%=UserChangGuanDao.name_info_ids[j]+GROUP_INTERVAL %>" ><%=UserChangGuanDao.name_infos[j] %></option>
 									<%} %>
 									<option value="1">超级管理员</option>
 								</select>
