@@ -36,15 +36,19 @@
 			<%
 			group = userAdminDao.UserGroup;
 			if(group==0){
-				%>普&nbsp;通<%
+				%><div style="color:#E64403">普通管理员</div><%
 			}else if(group==1){
-				%>管理员<%
-			}else{
+				%><div style="color:#F89406">超级管理员</div><%
+			}
+			else if(group==2){
+				%><div style="color:#E64303">调理师</div><%
+			}
+			else{
 				int group_min = group - GROUP_INTERVAL; 
 				//System.out.println("group_min:" +group_min);
 				String name =  UserChangGuanDao.getChangGuanName_by_id(group_min);
 				%>
-				<%=name %>主
+				<div style="color:green"><%=name %>主</div>
 				<%
 			}
 			%>			
@@ -150,7 +154,8 @@
 							<td align="center" width="70%">
 								<select name="authority<%=id %>" id="authority<%=id %>">	
 <!--									<option value="firstOption">《请选择权限分类》 </option>-->
-									<option value="0" selected>普 &nbsp;通</option>
+									<option value="0" selected>普通管理员</option>
+									<option value="2" selected>调理师</option>
 									<%
 									//int num = UserChangGuanDao.name_nums;
 									UserChangGuanDao.getAllChangGuanName();
@@ -159,7 +164,7 @@
 									%>
 										<option value="<%=j+GROUP_INTERVAL %>" ><%=UserChangGuanDao.name_infos[j] %></option>
 									<%} %>
-									<option value="1">管理员</option>
+									<option value="1">超级管理员</option>
 								</select>
 
 							</td>

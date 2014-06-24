@@ -73,7 +73,9 @@
 		<td align="center">
 			<%=(null==doctor_dao.doctor_title.get(i)||doctor_dao.doctor_title.get(i).equals(""))?"暂无":doctor_dao.doctor_title.get(i)%>
 		</td>
-		<td align="center" ><%=doctor_dao.site_name.get(i)%></td>
+		<td align="center" >
+		<%=(null==doctor_dao.site_name.get(i)||doctor_dao.site_name.get(i).equals(""))?"<p style='color: red;'>未分配</p>":doctor_dao.site_name.get(i)%>
+		</td>
 		<td align="center">
 			<%//=doctor_dao.doctor_validate_flag.get(i)%>
 			<%=(doctor_dao.doctor_validate_flag.get(i).equals("否"))?"<p style='color: red;'>未审核</p>":"<p style='color: green;'>已审核</p>"%>

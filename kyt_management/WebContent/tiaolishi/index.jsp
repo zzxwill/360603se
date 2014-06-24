@@ -74,35 +74,26 @@
 				   });
 				</script>
 					
-					<%@ include file="../common/list_doctor.jsp"%>
+					<%@ include file="../tiaolishi/list_doctor.jsp"%>
 				</div>
 				
 				<%//患者管理 %>
 				<div id="patient" style="display: none;"  >
 				<%// %>
-					<%@ include file="../common/list_patient.jsp"%>
+					<%@ include file="../tiaolishi/list_patient.jsp"%>
 				</div>
-				<script type="text/javascript">
-					$("#patient").css("height",(document.body.clientHeight-65) +"px");
-				</script>
 				
 				<%//问题列表 %>
 				<div id="question" style="display: none;"  >
 				<%// %>
-					<%@ include file="../common/list_question.jsp"%>
+					<%@ include file="../tiaolishi/list_question.jsp"%>
 				</div>
-				<script type="text/javascript">
-					$("#question").css("height",(document.body.clientHeight-65) +"px");
-				</script>
 				
 				<%//预约列表 %>
 				<div id="yuyue" style="display: none;"  >
 				<%// %>
-					<%@ include file="../common/manage_reservation_record.jsp"%>
+					<%@ include file="../tiaolishi/manage_reservation_record.jsp"%>
 				</div>	
-				<script type="text/javascript">
-					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
-				</script>
 			
 			</td>
 		</tr>
