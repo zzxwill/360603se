@@ -192,10 +192,12 @@
 					<div style="width:90%" id="records" >	
 						<table width="100%">
 							<tr>
-								<td width="60%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+								<td width="41%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+								<td width="12%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+								<td width="12%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
 								<td width="8%"><img src="../img/child.png" border = "0px"  width="20px"/></td>
 								<td width="12%"><%=departmentName %></td>
-								<td width="20%" align="center">
+								<td width="15%" align="center">
 								<%if(answerFlag==0){ %>
 									<div id="reply_no" class="reply_no">未答复</div>
 								<%}else if(answerFlag==1){ %>
@@ -227,7 +229,7 @@
 								//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
 								for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
 								%>
-									<img src="../img/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+									<img src="../img/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
 								<%}
 						 } %>
 							</div>
@@ -264,10 +266,12 @@
 					  		
 								<table width="100%">
 									<tr>
-										<td width="50%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+										<td width="32%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+										<td width="15%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+										<td width="15%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
 										<td width="8%"><img src="../img/child.png" border = "0px"  width="20px"/></td>
-										<td width="22%"><%=departmentName %></td>
-										<td width="20%" align="center">
+										<td width="15%"><%=departmentName %></td>
+										<td width="15%" align="center">
 										<%if(answerFlag==0){ %>
 											<div id="reply_no" class="reply_no">未答复</div>
 										<%}else if(answerFlag==1){ %>
@@ -315,10 +319,12 @@
 					  		<div style="width:90%" id="records" >	
 								<table width="100%">
 									<tr>
-										<td width="50%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+										<td width="32%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+										<td width="15%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+										<td width="15%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
 										<td width="8%"><img src="../img/child.png" border = "0px"  width="20px"/></td>
-										<td width="22%"><%=departmentName %></td>
-										<td width="20%" align="center">
+										<td width="15%"><%=departmentName %></td>
+										<td width="15%" align="center">
 										<%if(answerFlag==0){ %>
 											<div id="reply_no" class="reply_no">未答复</div>
 										<%}else if(answerFlag==1){ %>

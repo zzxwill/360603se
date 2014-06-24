@@ -75,11 +75,11 @@
 							<td width="1%"><a style="color: red;">&nbsp;&nbsp;</a></td>
 						</tr>
 						<tr>
-							<td align="left" width="49%"><p style="color: red;">是否删除:</p></td>
+							<td align="left" width="49%"><p style="color: red;">状&nbsp;&nbsp;态:</p></td>
 							<td align="center" width="50%">
 								<table width="100%">
 									<tr align="center">
-										<td align="right" width="35%">不删除</td>
+										<td align="right" width="35%">正常</td>
 										<td valign="middle" align="left" width="15%">
 											<input type="radio" checked name="radio<%=i %>" value="0"></td>
 			
