@@ -143,7 +143,6 @@ $().ready(function() {
 <body>
 	<div data-role="page">
 		<div data-role="header">
-		<%@ include file="../reserve_clinic/index_test_js.jsp"%>
 			<table width="100%">
 				<tr>
 					<td width="23%" >
@@ -151,10 +150,7 @@ $().ready(function() {
 							<a id="return_link" onclick="window.location.href='../main/index.jsp'" ></a>
 						</div>
 					</td>
-					<td align="center" width="54%">
-						<div id="wait" onclick="GoTiming()"><a style="color: white;">预约孔医堂</a></div>
-						<div id="normal" onclick="GoReservation()" style="display:none"><a style="color: white;">预约孔医堂</a></div>
-					</td>
+					<td align="center" width="54%"><a style="color: white;">预约孔医堂</a></td>
 					<td width="23%">&nbsp;&nbsp;</td>
 				</tr>
 			</table>
@@ -215,8 +211,8 @@ $().ready(function() {
 						<tr>
 							<td class="xuetang_button"><strong><%=reserver_clinic_site_dao.site_name.get(i) %></strong></td>
 							<td align="right">
-								<div align="center" class="ASKSubmit_no" style="width:100px">
-<!--									onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%//=reserver_clinic_site_dao.site_id.get(i) %>&site_name=<%//=site_name%>'">-->
+								<div align="center" class="ASKSubmit" style="width:100px"
+									onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%=reserver_clinic_site_dao.site_id.get(i) %>&site_name=<%=site_name%>'">
 									预&nbsp;&nbsp;约
 								</div>
 							</td>
