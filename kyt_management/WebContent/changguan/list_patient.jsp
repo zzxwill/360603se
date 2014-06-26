@@ -45,7 +45,7 @@
 			       <div id="myModalContainerPatient<%=i %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelPatient<%=i %>" aria-hidden="true">
 			         <div class="modal-header">
 			           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			           <h3 id="myModalLabelPatient<%=i %>" contenteditable="true">修改用户状态信息</h3>
+			           <h3 id="myModalLabelPatient<%=i %>" contenteditable="true">修改患者状态信息</h3>
 			         </div>
 			         
 					<div class="modal-body">

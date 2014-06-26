@@ -82,7 +82,7 @@
 			}
 		}
 		%>
-		<%@ include file="../changguan/list_question_topSelect.jsp"%> 
+		<%@ include file="../common/list_question_topSelect.jsp"%> 
 		<%
 	  	int questionNum = askPatient_doctor.num_Condition;
 	  	//System.out.println("num:" + qNum);

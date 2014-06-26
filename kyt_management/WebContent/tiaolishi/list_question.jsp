@@ -11,9 +11,6 @@
 <!--  	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" target="hidden_question_frame">-->
 	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp?module=question" > 
 	      <fieldset data-role="fieldcontain">
-	      
-<!--	 <form method="post" name="ASKModifyForm" id="ASKModifyForm" action="index.jsp">-->
-<!--	      <fieldset data-role="fieldcontain">-->
 		
 	  	<%
 		request.setCharacterEncoding("UTF-8");
@@ -82,7 +79,7 @@
 			}
 		}
 		%>
-		<%@ include file="../admin/list_question_topSelect.jsp"%> 
+		<%@ include file="../tiaolishi/list_question_topSelect.jsp"%> 
 		<%
 	  	int questionNum = askPatient_doctor.num_Condition;
 	  	//System.out.println("num:" + qNum);
@@ -122,7 +119,8 @@
 					 <link rel="stylesheet" href="../css/my.css" />
 					
 					<center>
-					<div style="width:90%" id="records" >	
+					<div style="width:90%" id="records" >
+						<div>	
 						<table width="100%">
 							<tr>
 								<td width="41%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
@@ -168,21 +166,19 @@
 								<%}
 						 } %>
 							</div>
+					<!-- Button to trigger modal --> 
 						<br>
-					</div>
-			       	</center>
-				       	      
 
-			       
-				</fieldset>
-			</form>	
-			<br>
+						</div>
+					</div>
+					<br><br>
+			       	</center>
+
 			<%}
 	  		}
 	  	}
   	%>
-<!--  			</fieldset>-->
-<!--		  </form>-->
+
 		  	<iframe name='hidden_question_frame' id="hidden_question_frame" style='display:none'></iframe>
   		</fieldset>
 	</form>	

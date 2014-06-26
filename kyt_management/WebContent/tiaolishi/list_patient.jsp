@@ -32,6 +32,7 @@
 		<td align="center" >
 			<%=(userDaoPatient.UserPatientDels[i]==1)?"<p style='color: red;'>禁&nbsp;用</p>":"<p style='color: green;'>正&nbsp;常</p>" %>
 		</td>
+
 	</tr>
 	<%} %>
 </table>

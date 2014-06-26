@@ -30,9 +30,10 @@
 	String tel = request.getParameter("telephone");
 	String changguan_id_string  = request.getParameter("changguan_id");
 	String userID_string  = request.getParameter("userID");
-
+	String username  = request.getParameter("username");
+	
 	 if(null==tel||tel.equals("")||null==changguan_id_string||changguan_id_string.equals("")
-			 ||null==userID_string||userID_string.equals("")){
+			 ||null==userID_string||userID_string.equals("")||null==username||username.equals("")){
 		%>
 			<script language='javascript' type='text/javascript'>
 				window.location = "<%=url%>";
@@ -45,7 +46,7 @@
 		int changguan_id = Integer.parseInt(changguan_id_string);
 		int userID = Integer.parseInt(userID_string);
 		int auth = 0;
-		auth = 2*GROUP_INTERVAL + changguan_id;
+		auth = 3*GROUP_INTERVAL + changguan_id;
 			
 		if(null==pw||pw.equals("")){
 	    	userAdminDao.modifyUserByAdmin(userID,"",tel,auth,0);
@@ -55,7 +56,7 @@
 	    	pw = GP.generatePassword(pw);
 	    	userAdminDao.modifyUserByAdmin(userID,pw,tel,auth,0);
 	    }
-
+		userAdminDao.modifyTiaoLiShiUserByAdmin(username,changguan_id,tel,0);
 	}
 
 %>

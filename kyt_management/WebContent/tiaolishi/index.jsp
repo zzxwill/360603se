@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
-<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/tiaolishi.js"></script> 
 	<table width="100%">
 		<tr>
 
@@ -9,22 +9,27 @@
 					
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('doctor','patient','question','yuyue');">
+						onclick="show_tiaolishi_hidden('doctor','patient','question','user','yuyue');">
 						医生管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('patient','doctor','question','yuyue');">
+						onclick="show_tiaolishi_hidden('patient','doctor','question','user','yuyue');">
 						患者管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('question','doctor','patient','yuyue');">
+						onclick="show_tiaolishi_hidden('question','doctor','patient','user','yuyue');">
 						问题列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('yuyue','doctor','patient','question');">
+						onclick="show_tiaolishi_hidden('user','question','doctor','patient','yuyue');">
+						用户管理</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_tiaolishi_hidden('yuyue','doctor','patient','question','user');">
 						预约列表</div></td>
 					</tr>
 				</table>
@@ -59,16 +64,20 @@
 							document.getElementById("doctor").style.display = "block";
 						}
 						else if(module=="patient"){
-							$("#doctor").style.display = "none";
-							$("#patient").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("patient").style.display = "block";
 						}
 						else if(module=="question"){
-							$("#doctor").style.display = "none";
-							$("#question").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("question").style.display = "block";
+						}
+						else if(module=="user"){
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("user").style.display = "block";
 						}
 						else if(module=="yuyue"){
-							$("#doctor").style.display = "none";
-							$("#yuyue").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("yuyue").style.display = "block";
 						}
 				 
 				   });
@@ -87,6 +96,12 @@
 				<div id="question" style="display: none;"  >
 				<%// %>
 					<%@ include file="../tiaolishi/list_question.jsp"%>
+				</div>
+				
+				<%//用户管理 %>
+				<div id="user" style="display: none;"  >
+				<%// %>
+					<%@ include file="../tiaolishi/editUser.jsp"%>
 				</div>
 				
 				<%//预约列表 %>
