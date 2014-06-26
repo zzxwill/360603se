@@ -101,6 +101,10 @@ public class Tools {
 			sql = "select max(id) as id from 04site";
 		}
 		
+		else if(flag.equals("04tiaolishi")){
+			sql = "select max(id) as id from 04tiaolishi";
+		}
+		
 		
 		/*
 		else if(flag.equals("usercharts")){
@@ -158,6 +162,9 @@ public class Tools {
 					id = rs.getInt("id");
 				}
 
+				else if(flag.equals("04tiaolishi")){
+					id = rs.getInt("id");
+				}
 				
 				/*
 				else if(flag.equals("usercharts")){

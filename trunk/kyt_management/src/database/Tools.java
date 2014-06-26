@@ -30,7 +30,11 @@ public class Tools {
 		else if(flag.equals("usercharts")){
 			sql = "select max(userID) as userID from usercharts";
 		}
-			
+		
+		else if(flag.equals("04tiaolishi")){
+			sql = "select max(id) as id from 04tiaolishi";
+		}
+		
 		//System.out.println(sql);
 		try {
 			stmt = conn.createStatement();
@@ -45,6 +49,10 @@ public class Tools {
 				}
 				else if(flag.equals("usercharts")){
 					id = rs.getInt("userID");
+				}
+				
+				else if(flag.equals("04tiaolishi")){
+					id = rs.getInt("id");
 				}
 				id++;
 			}

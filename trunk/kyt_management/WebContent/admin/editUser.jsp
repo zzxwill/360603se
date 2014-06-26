@@ -35,21 +35,26 @@
 		<td align="center">
 			<%
 			group = userAdminDao.UserGroup;
-			if(group==0){
-				%><div style="color:#E64403">普通管理员</div><%
-			}else if(group==1){
+			if(group==1){
 				%><div style="color:#F89406">超级管理员</div><%
 			}
-			else if(group==2){
-				%><div style="color:#E64303">调理师</div><%
-			}
-			else{
+			else if((GROUP_INTERVAL<=group)&&(group<2*GROUP_INTERVAL)){
 				int group_min = group - GROUP_INTERVAL; 
 				//System.out.println("group_min:" +group_min);
 				String name =  UserChangGuanDao.getChangGuanName_by_id(group_min);
 				%>
 				<div style="color:green"><%=name %>主</div>
 				<%
+			}
+			else if((2*GROUP_INTERVAL<=group)&&(group<3*GROUP_INTERVAL)){
+				int group_min = group - 2*GROUP_INTERVAL;
+				String name =  UserChangGuanDao.getChangGuanName_by_id(group_min);
+				%><div style="color:#773A24"><%=name %>客服</div><%
+			}
+			else if(group>=3*GROUP_INTERVAL){
+				int group_min = group - 3*GROUP_INTERVAL;
+				String name =  UserChangGuanDao.getChangGuanName_by_id(group_min);
+				%><div style="color:#773A24"><%=name %>调理师</div><%
 			}
 			%>			
 		</td>
@@ -74,22 +79,54 @@
 					<div class="modal-body">
 					
 <script>
-    function checkEditUserInput(TelId)
+
+	function checkEditAuthority(id){
+		 var authorityEdit = document.getElementById('authority'+id).value;
+		 if(!(null==authorityEdit||authorityEdit=="")){
+			 if(authorityEdit=="2"||authorityEdit=="3"){
+				 document.getElementById('QuanXianChangGuan'+id).style.display = "block";
+			 }else{
+				 document.getElementById('QuanXianChangGuan'+id).style.display = "none";
+			}
+		}
+	
+	}
+
+    function checkEditUserInput(id)
     {
-       //alert(TelId);
-	   var telephoneEdit = document.getElementById('telephone'+TelId).value; 
+       //alert(id);
+       //var radioEdit = document.getElementById('radio'+id).value;
+       var radioEdit =$('input:radio[name="radio'+ id +'"]:checked').val();
+	   var telephoneEdit = document.getElementById('telephone'+id).value; 
+	   var authorityEdit = document.getElementById('authority'+id).value;
+	   var authorityChangGuanEdit = document.getElementById('authorityChangGuan'+id).value;
+	   
 	   var message = null;
-	   var msg = document.getElementById("msgUser"+TelId);
-	   var flag = 1;   
-	   if(null==telephoneEdit||telephoneEdit == ""){
-			  flag = 0;
-		 	  message = "请输入正确的电话！";
-			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
-			  //alert(message);
+	   var msg = document.getElementById("msgUser"+id);
+	   var flag = 1;  
+	   if(radioEdit=="0"){ //未删除
+		   if(null==telephoneEdit||telephoneEdit == ""){
+				  flag = 0;
+			 	  message = "请输入正确的电话！";
+				  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+				  //alert(message);
+		   }
+		   else if(null==authorityEdit||authorityEdit == ""||authorityEdit == "firstOption"){
+				  flag = 0;
+			 	  message = "请选择权限！";
+				  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+		   }
+		   else if(authorityEdit=="2"||authorityEdit=="3"){
+			   if(null==authorityChangGuanEdit||authorityChangGuanEdit == ""||authorityChangGuanEdit == "0"){
+				   	flag = 0;
+				 	message = "请选择所属场馆！";
+					msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+				}
+		   }
 	   }
 	   if(flag==1){
 	      //var addrForm = document.forms("addrForm");
-	      var userForm = document.getElementById("userForm"+TelId);
+	      var userForm = document.getElementById("userForm"+id);
 	      userForm.submit(); 
 	   }
     }
@@ -108,21 +145,21 @@
 								%>
 									<td align="right" width="25%">否</td>
 									<td valign="middle" align="left" width="20%">
-										<input type="radio" name="radio<%=id %>" value="0"></td>
+										<input type="radio" id="radio<%=id %>" name="radio<%=id %>" value="0"></td>
 		
 									<td align="right" width="25%">是</td>
 									<td valign="middle" align="left" width="20%">
-										<input type="radio" checked name="radio<%=id %>" value="1"></td>
+										<input type="radio" checked id="radio<%=id %>" name="radio<%=id %>" value="1"></td>
 								<%
 								}else{
 								%>
 									<td align="right" width="25%">否</td>
 									<td valign="middle" align="left" width="20%">
-										<input type="radio" checked name="radio<%=id %>" value="0"></td>
+										<input type="radio" checked  id="radio<%=id %>" name="radio<%=id %>" value="0"></td>
 		
 									<td align="right" width="25%">是</td>
 									<td valign="middle" align="left" width="20%">
-										<input type="radio" name="radio<%=id %>" value="1"></td>
+										<input type="radio" id="radio<%=id %>" name="radio<%=id %>" value="1"></td>
 								
 								<%} %>
 									<td align="right" width="10%">&nbsp;</td>
@@ -134,7 +171,7 @@
 						<tr>
 							<td align="left" width="25%">用户名:</td>
 							<td align="center" width="70%">
-								<input style="height: 30px" type="text" name="username<%=id %>" id="username<%=id %>" style="width:90%;" value="<%=userAdminDao.UserName %>" disabled="disabled" /></td>
+								<input style="height: 30px" type="text" name="username<%=id %>" id="username<%=id %>" style="width:90%;" value="<%=userAdminDao.UserName %>" readonly /></td>
 							<td width="5%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
 						</tr>
 						<tr>
@@ -152,10 +189,10 @@
 						<tr>
 							<td align="left" width="25%">权 &nbsp;限:</td>
 							<td align="center" width="70%">
-								<select name="authority<%=id %>" id="authority<%=id %>">	
-<!--									<option value="firstOption">《请选择权限分类》 </option>-->
-									<option value="0" selected>普通管理员</option>
-									<option value="2" >调理师</option>
+								<select name="authority<%=id %>" id="authority<%=id %>" onchange="checkEditAuthority(<%=id %>)">	
+									<option value="firstOption" selected>请选择权限 </option>
+									<option value="2" >场馆客服</option>
+									<option value="3" >调&nbsp;理&nbsp;师</option>
 									<%
 									//int num = UserChangGuanDao.name_nums;
 									UserChangGuanDao.getAllChangGuanName();
@@ -171,6 +208,25 @@
 							<td width="5%"><a style="color: red;">&nbsp;&nbsp;*</a></td>
 						</tr>
 					</table>
+					<div id="QuanXianChangGuan<%=id %>" name="QuanXianChangGuan<%=id %>" style="display:none">
+						<table  width="58%" align="center" border="0" cellpadding="1" cellspacing="1">
+							<tr>
+				    			<td valign="middle" align="left" width="25%">所属场馆:</td>
+				    			<td align="center" width="70%">
+				    			
+				    				<select name="authorityChangGuan<%=id %>" id="authorityChangGuan<%=id %>">	
+										<option value="0">请选择场馆 </option>
+										<%
+										for(int i=1;i<=UserChangGuanDao.name_nums;i++){
+										%>
+											<option value="<%=UserChangGuanDao.name_info_ids[i] %>" ><%=UserChangGuanDao.name_infos[i] %></option>
+										<%} %>
+									</select>
+								</td>
+				    			<td width="5%"><a style="color:red;">&nbsp;&nbsp;*</a></td>
+				    		</tr>
+				    	</table>
+				    </div>
 					
 					</div>
 			         
