@@ -82,7 +82,7 @@
 			}
 		}
 		%>
-		<%@ include file="../admin/list_question_topSelect.jsp"%> 
+		<%@ include file="../changguan/list_question_topSelect.jsp"%> 
 		<%
 	  	int questionNum = askPatient_doctor.num_Condition;
 	  	//System.out.println("num:" + qNum);
@@ -97,6 +97,10 @@
 	  	<%	
 	  	}else if(questionNum>0){
 	  		%>
+	  		<form method="post" name="HiddenForm" id="HiddenForm" action="index.jsp" >
+				<fieldset data-role="fieldcontain">
+				</fieldset>
+			</form>	
 	  		<%
 	  		int departmentID = 0;
 		  	String departmentName = null;
@@ -118,11 +122,53 @@
 		  			int answerFlag =  askPatient_doctor.answered_flags_Condition[i];
 		  			//System.out.println("qID:" + qID + "\n");
 		  		%>
+				  	<form class="form-horizontal" method="post" name="ASKForm<%=qID %>" id="ASKForm<%=qID %>" action="../changguan/list_question_answer.jsp?qID=<%=qID %>" >
+					      <fieldset data-role="fieldcontain">
 				
 					 <link rel="stylesheet" href="../css/my.css" />
+					<div class="view"> 
+	
+					<script >
+	
+						function DeleteSubmit(qID){
+							//alert("qID:" + qID);
+				  			var radioName = "QuestionDelRadio" + qID;
+							var delStatus = $('input:radio[name='+radioName+']:checked').val();
+							var message = null;
+				  			var msg = document.getElementById("msgQuestionDel"+qID);
+							//alert("delStatus:" +  delStatus);
+							if(delStatus==1){
+	
+								var DeleteForm = document.getElementById("ASKForm"+qID);
+								DeleteForm.submit(); 
+							}else{
+								message = "如需删除，请勾选“删除”！";
+					  		 	  //alert("message:" +  message);
+					  			msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+							}
+						}
+	
+						function DeleteQuestionChange(qID){
+							var message = null;
+				  			var msg = document.getElementById("msgQuestionDel"+qID);
+				  			var radioName = "QuestionDelRadio" + qID;
+							var delStatus = $('input:radio[name='+radioName+']:checked').val();
+							//alert("delStatus:" +  delStatus);
+							if(delStatus==1){
+								message = "您选择了删除该患者的提问！";
+					  		 	  //alert("message:" +  message);
+					  			msg.innerHTML = "<a style='color:green;'>" + message + "</a>";
+							}else{
+								message = " ";
+					  			msg.innerHTML = "<a style='color:white;'>" + message + "</a>";
+							}
+						
+						}
+					</script>
 					
 					<center>
-					<div style="width:90%" id="records" >	
+					<div style="width:90%" id="records" >
+						<div>	
 						<table width="100%">
 							<tr>
 								<td width="41%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
@@ -168,11 +214,79 @@
 								<%}
 						 } %>
 							</div>
+					<!-- Button to trigger modal --> 
 						<br>
+							<a style="width:40%"  id="myModalLinkQuestionDel<%=qID %>" href="#myModalContainerQuestionDel<%=qID %>" role="button" class="btn btn-warning" data-toggle="modal">删&nbsp;&nbsp;&nbsp;&nbsp;除	</a>
+
+						</div>
 					</div>
 			       	</center>
-				       	      
-
+				       	
+				   </div>
+				       
+				       <!--QuestionDel Modal -->
+				       <div id="myModalContainerQuestionDel<%=qID %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelQuestionDel<%=qID %>" aria-hidden="true">
+				         <div class="modal-header">
+				           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				           <h3 id="myModalLabelQuestionDel<%=qID %>" contenteditable="true">删除患者提问</h3>
+				         </div>
+				         
+						<div class="modal-body">
+						<center>
+					  		<div style="width:90%" id="records" >	
+								<table width="100%">
+									<tr>
+										<td width="32%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
+										<td width="15%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+										<td width="15%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
+										<td width="8%"><img src="../img/child.png" border = "0px"  width="20px"/></td>
+										<td width="15%"><%=departmentName %></td>
+										<td width="15%" align="center">
+										<%if(answerFlag==0){ %>
+											<div id="reply_no" class="reply_no">未答复</div>
+										<%}else if(answerFlag==1){ %>
+											<div id="reply_yes" class="reply_yes">已答复</div>
+										<%} %>
+										</td>
+									</tr>
+								</table>
+								<div align="left" id="questions"><%=askPatient_doctor.contents_Condition[i] %></div>
+							</div>
+							<br>
+							<input type="hidden" id="QuestionStatusDel" name="QuestionStatusDel" value="QuestionStatusDel"/>
+							<div style="color:red">是否删除该患者提问：</div>
+							<table width="90%">
+								<tr>
+									<td align="right" width="25%">否</td>
+									<td valign="middle" align="left" width="20%">
+											<input type="radio" checked name="QuestionDelRadio<%=qID %>" value="0" onchange="DeleteQuestionChange(<%=qID %>)">
+									</td>
+									<td align="right" width="25%">是</td>
+									<td valign="middle" align="left" width="20%">
+										<input type="radio" name="QuestionDelRadio<%=qID %>" value="1" onchange="DeleteQuestionChange(<%=qID %>)">
+									</td>
+								</tr>
+							</table>
+						</center>
+						</div>
+				         
+				         <div class="modal-footer">
+				         <table width="95%">
+				         	<tr>
+				         		<td width="66%" align="center" valign="top">&nbsp;
+				         			<div id="msgQuestionDel<%=qID %>"></div>
+				         		</td>
+				         		<td width="17%" align="center"  valign="bottom">
+				          			 <button class="btn" data-dismiss="modal" aria-hidden="true" contenteditable="true">取消</button>
+				          		</td>
+								<td width="17%" align="center"  valign="bottom">
+				           			<input class="btn btn-primary" type="button" value="删除问题"  onclick="DeleteSubmit(<%=qID %>)"/>
+				           		</td>
+				           	</tr>
+				          </table>
+				         </div>
+				       </div>
+				       <!--QuestionDel Modal End-->
 			       
 				</fieldset>
 			</form>	

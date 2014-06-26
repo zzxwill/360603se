@@ -20,6 +20,8 @@ import database.Connections;
 
 
 public class UserDao {
+	
+	int NUM = 1000;
 
 	private Statement stmt = null;
 	private ResultSet rs = null;
@@ -33,6 +35,13 @@ public class UserDao {
 	
 	public int UserNum = 0;
 	public String UserNames[];
+	
+	public int UserNum_ChangGuan = 0;
+	public int UserIDs_ChangGuan[];
+	public String UserNames_ChangGuan[];
+	public String UserTels_ChangGuan[];
+	public int UserGroups_ChangGuan[];
+	public int DeleteUsers_ChangGuan[];
 	
 	String table_prefix = "04";
 	
@@ -525,6 +534,46 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return userNum;
+	}
+	
+	//查询指定场馆用户信息
+	public void getChangGuanUserInfo(int changguan_id) throws SQLException {
+		
+		int GROUP_INTERVAL = 100;
+
+		UserIDs_ChangGuan = new int[NUM];
+		UserNames_ChangGuan = new String[NUM];
+		UserTels_ChangGuan = new String[NUM];
+		UserGroups_ChangGuan = new int[NUM];;
+		DeleteUsers_ChangGuan = new int[NUM];
+
+		int userGroup = 0;
+		
+		conn = Connections.getConnection();
+		String sql = "select * from usercharts where userGroup >= '" + GROUP_INTERVAL + "'";
+		try {
+			int index = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				userGroup = rs.getInt("userGroup");
+				if(userGroup%GROUP_INTERVAL==changguan_id){
+					UserIDs_ChangGuan[index] = rs.getInt("userID");
+					UserNames_ChangGuan[index] = rs.getString("userName");
+					UserTels_ChangGuan[index] = rs.getString("userTel");
+					UserNames_ChangGuan[index] = rs.getString("userName");
+					UserGroups_ChangGuan[index] = rs.getInt("userGroup");
+					DeleteUsers_ChangGuan[index] = rs.getInt("deleteUser");
+					index++;
+				}
+			}
+			UserNum_ChangGuan = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	//查询用户是否禁用
