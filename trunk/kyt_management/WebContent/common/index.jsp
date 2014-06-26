@@ -9,27 +9,32 @@
 					
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('doctor','patient','question','yuyue','paiqi');">
+						onclick="show_common_hidden('doctor','patient','question','yuyue','user','paiqi');">
 						医生管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('patient','doctor','question','yuyue','paiqi');">
+						onclick="show_common_hidden('patient','doctor','question','yuyue','user','paiqi');">
 						患者管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('question','doctor','patient','yuyue','paiqi');">
+						onclick="show_common_hidden('question','doctor','patient','yuyue','user','paiqi');">
 						问题列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('yuyue','doctor','patient','question','paiqi');">
+						onclick="show_common_hidden('yuyue','doctor','patient','question','user','paiqi');">
 						预约列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question');">
+						onclick="show_common_hidden('user','yuyue','doctor','patient','question','paiqi');">
+						用户管理</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question','user');">
 						医生排期</div></td>
 					</tr>
 				</table>
@@ -64,20 +69,24 @@
 							document.getElementById("doctor").style.display = "block";
 						}
 						else if(module=="patient"){
-							$("#doctor").style.display = "none";
-							$("#patient").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("patient").style.display = "none";
 						}
 						else if(module=="question"){
-							$("#doctor").style.display = "none";
-							$("#question").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("question").style.display = "none";
 						}
 						else if(module=="yuyue"){
-							$("#doctor").style.display = "none";
-							$("#yuyue").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
+						}
+						else if(module=="user"){
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("user").style.display = "block";
 						}
 						else if(module=="paiqi"){
-							$("#doctor").style.display = "none";
-							$("#paiqi").style.display = "block";
+							document.getElementById("doctor").style.display = "none";
+							document.getElementById("paiqi").style.display = "none";
 						}
 				   });
 				</script>
@@ -110,6 +119,15 @@
 				</div>	
 				<script type="text/javascript">
 					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
+				</script>
+				
+				<%//用户管理 %>
+				<div id="user" style="display: none;"  >
+				<%// %>
+					<%@ include file="../common/editUser.jsp"%>
+				</div>	
+				<script type="text/javascript">
+					$("#user").css("height",(document.body.clientHeight-65) +"px");
 				</script>
 				
 				<%//医生排期  TODO 排期 %>

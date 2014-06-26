@@ -32,6 +32,7 @@ public class UserDao {
 	public String UserName = null;
 	public String UserTel = null;
 	public int UserGroup = 0;
+	public int DeleteUser = 0;
 	
 	public int UserNum = 0;
 	public String UserNames[];
@@ -42,6 +43,12 @@ public class UserDao {
 	public String UserTels_ChangGuan[];
 	public int UserGroups_ChangGuan[];
 	public int DeleteUsers_ChangGuan[];
+	
+	public int UserID_Common;
+	public String UserName_Common;
+	public String UserTel_Common;
+	public int UserGroup_Common;
+	public int DeleteUser_Common;
 	
 	String table_prefix = "04";
 	
@@ -430,9 +437,9 @@ public class UserDao {
 	
 	//查询用户信息
 	public void getUserInfo(int userID) throws SQLException {
-
+		
 		conn = Connections.getConnection();
-		String sql = "select * from usercharts where userID=" + userID;
+		String sql = "select * from usercharts where userID ='" + userID + "'";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -440,6 +447,7 @@ public class UserDao {
 				UserName = rs.getString("userName");
 				UserTel = rs.getString("userTel");
 				UserGroup = rs.getInt("userGroup");
+				DeleteUser = rs.getInt("deleteUser");
 			}
 			stmt.close();
 			conn.close();
@@ -550,7 +558,7 @@ public class UserDao {
 		int userGroup = 0;
 		
 		conn = Connections.getConnection();
-		String sql = "select * from usercharts where userGroup >= '" + GROUP_INTERVAL + "'";
+		String sql = "select * from usercharts where userGroup >= '" + 2*GROUP_INTERVAL + "'";
 		try {
 			int index = 1;
 			stmt = conn.createStatement();
@@ -568,6 +576,30 @@ public class UserDao {
 				}
 			}
 			UserNum_ChangGuan = index-1;
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//查询指定客服用户信息
+	public void getCommonUserInfo(String userName) throws SQLException {
+		
+		conn = Connections.getConnection();
+		String sql = "select * from usercharts where userName = '" + userName + "'";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				UserID_Common = rs.getInt("userID");
+				UserName_Common = rs.getString("userName");
+				UserTel_Common = rs.getString("userTel");
+				UserName_Common = rs.getString("userName");
+				UserGroup_Common = rs.getInt("userGroup");
+				DeleteUser_Common = rs.getInt("deleteUser");
+			}
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {

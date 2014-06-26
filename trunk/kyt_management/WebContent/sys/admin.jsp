@@ -9,8 +9,8 @@
 							
 							<tr>
 								<td><div id="div-menu1" class="div-menusel"
-										onclick="show_hidden('reservation','question','adminUser','doctor','patient','changguan','xuetang','beixuan','div-menu1');">
-										预约管理</div></td>
+									onclick="show_hidden('reservation','question','adminUser','doctor','patient','changguan','xuetang','beixuan','div-menu1');">
+									预约管理</div></td>
 							</tr>
 							<tr>
 								<td><div id="div-menu2" class="div-menu" 
@@ -135,7 +135,7 @@
 						<%//医生管理 %>
 						<div id="doctor" style="display: none;"  class="mian">
 						<%// %>
-							<%@ include file="../admin/list_doctor.jsp"%>
+							<%//@ include file="../admin/list_doctor.jsp"%>
 						</div>	
 						<script type="text/javascript">
 							$("#doctor").css("height",(document.body.clientHeight-65) +"px");
@@ -144,7 +144,7 @@
 						<%//患者管理 %>
 						<div id="patient" style="display: none;"  class="mian">
 							<%// %>
-							<%@ include file="../admin/list_patient.jsp"%>
+							<%//@ include file="../admin/list_patient.jsp"%>
 						</div>	
 						<script type="text/javascript">
 							$("#patient").css("height",(document.body.clientHeight-65) +"px");
