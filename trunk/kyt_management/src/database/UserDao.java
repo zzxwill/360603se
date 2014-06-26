@@ -209,12 +209,14 @@ public class UserDao {
 					sql = "INSERT INTO `04site_doctor`(`site_id`, `doctor_id`) VALUES ("+ site_id + "," + dcotor_id + ")";
 					stmt.execute(sql);
 					
-					sql = "select max(id) as id  from 04outpatient_info";
+					return;
+					
+					/*sql = "select max(id) as id  from 04outpatient_info";
 					stmt = conn.createStatement();
 					rs2 = stmt.executeQuery(sql);
 					if(rs2.next()){
 						site_doctor_id = rs2.getLong("id");
-					}					
+					}					*/
 				}else{
 					//某天 某个上下午 某个时间段 存在，则应该去修改操作
 					site_doctor_id = rs.getLong("id");
