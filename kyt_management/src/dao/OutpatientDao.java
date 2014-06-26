@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -144,9 +145,16 @@ public class OutpatientDao {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				
+				int day_number = 0;	
+				String dayofweek = new String();
+					dayofweek = day_list[i];
+					day_number = day_to_DAYNUMBER(dayofweek);
+					//date.add(day_to_datemain(day_number));
+				
+				
 				
 				if(!rs.next()){
-					sql = "INSERT INTO `04outpatient_info`( `day`, `ampm`, `time`, `type`) VALUES ( '"+ day_list[i] + "','" + ampm_list[i]+ "','" +  time_list[i]+ "','" + type + "')";
+					sql = "INSERT INTO `04outpatient_info`( `date`,`day`, `ampm`, `time`, `type`) VALUES ( '"+ day_to_datemain(day_number) + "','" + day_list[i] + "','" + ampm_list[i]+ "','" +  time_list[i]+ "','" + type + "')";
 					stmt.execute(sql);
 					
 					sql = "select max(id) as id  from 04outpatient_info";
@@ -320,7 +328,7 @@ public class OutpatientDao {
 			}
 			
 			
-			sql = "UPDATE `04outpatient_doctor` SET `outpatient_id`="+ outpatient_id_db +",`total_amount`="+amount+" WHERE outpatient_id = " + outpatient_id + "  and doctor_id="+ doctor_id;
+			sql = "UPDATE `04outpatient_doctor` SET `outpatient_id`="+ outpatient_id_db +",`total_amount`="+amount+" WHERE id = " + outpatient_id ;
 			stmt = conn.createStatement();
 			stmt.execute(sql);
 			
@@ -336,6 +344,46 @@ public class OutpatientDao {
 		}
 	}
 	
+	
+	
+	/**
+	 * @function: 将周几转化为MONDAY/TUESDAY
+	 * @author:   Will Zhou
+	 * @date:     Jun 16, 2014 4:08:19 PM 
+	 */
+	public int day_to_DAYNUMBER(String day){
+		int DAY = 0;
+		if(day.endsWith("一")){
+			DAY = 2;
+		}else if(day.endsWith("二")){
+			DAY = 3;
+		}else if(day.endsWith("三")){
+			DAY = 4;
+		}else if(day.endsWith("四")){
+			DAY = 5;
+		}else if(day.endsWith("五")){
+			DAY = 6;
+		}else if(day.endsWith("六")){
+			DAY = 7;
+		}else if(day.endsWith("日")){
+			DAY = 1;
+		}
+		
+		
+		return DAY;
+	}
+	
+	public String  day_to_datemain(int DAY) throws SQLException{
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.DAY_OF_WEEK, DAY);
+		//System.out.println("Date " + c.getTime());
+		
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = dateFormat.format(c.getTime());
+		//System.out.println(date);
+		return date;
+	}
 	
 	
 }

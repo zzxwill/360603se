@@ -56,6 +56,10 @@ public class ReserveClinicDao {
 	public ArrayList<String> time = new ArrayList<String>();
 	public ArrayList<String> outpatient_type = new ArrayList<String>();
 	public ArrayList<Integer> amount = new ArrayList<Integer>();
+	public ArrayList<Integer> total_amount = new ArrayList<Integer>();
+	public ArrayList<Integer> used_amount = new ArrayList<Integer>();
+	
+	
 	public ArrayList<Integer> status = new ArrayList<Integer>();
 	public ArrayList<Long> outpatient_doctor_id = new ArrayList<Long>();
 	
@@ -181,7 +185,7 @@ public class ReserveClinicDao {
 		long department_id = (Long) hm.get("department_id");
 			
 		conn = Connections.getConnection();
-		String sql = "select u.id, u.name from 04user_doctor u ,04site_doctor s where u.id = s.doctor_id and u.department = " + department_id +" and s.id=" + site_id;	
+		String sql = "select u.id, u.name from 04user_doctor u ,04site_doctor s where u.id = s.doctor_id and u.department = " + department_id +" and s.site_id=" + site_id;	
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);			
@@ -220,9 +224,9 @@ public class ReserveClinicDao {
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
 		//String sql = "select i.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d ,04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and s.site_id and st.id and u.auth_submit = '1'";
-		String sql = "select i.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d, 04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1' and st.id = s.site_id";
+		String sql = "select o.id, st.name,i.type,d.name,u.name,i.day,i.ampm, i.time, total_amount - used_amount,u.id, o.status, o.id , total_amount,used_amount from 04site_doctor s, 04outpatient_doctor o, 04user_doctor u, 04outpatient_info i, 04department d, 04site st where u.department =d.id and s.doctor_id = u.id and o.doctor_id = u.id and o.outpatient_id = i.id and u.auth_submit = '1' and st.id = s.site_id";
 		if(hm.get("outpatient_id") != null){
-			sql += " and i.id = " + hm.get("outpatient_id");
+			sql += " and o.id = " + hm.get("outpatient_id");
 		}
 		
 		try {
@@ -249,12 +253,15 @@ public class ReserveClinicDao {
 				clinic_doctor_name.add(rs.getString(5));				
 				outpatient_day.add(rs.getString(6));
 				ampm.add(rs.getString(7));				
-				time.add(rs.getString(8));				
+				time.add(rs.getString(8));	
+				
 				amount.add(rs.getInt(9));	
 				doctor_id.add(rs.getLong(10));
 				status.add(rs.getInt(11));
 				outpatient_doctor_id.add(rs.getLong(12));
-				index++;
+				total_amount.add(rs.getInt(13));
+				used_amount.add(rs.getInt(14));
+				//index++;
 			}
 			department_num = index;
 			stmt.close();

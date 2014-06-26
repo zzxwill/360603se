@@ -14,16 +14,85 @@
 <%@ include file="../include/cssJS.jsp"%>
 <%@ include file="../include/tableCSS.jsp"%>
 <%@ include file="../include/custom.jsp"%>
+<%@ include file="../include/SpecificssJS.jsp"%>
+<link rel="stylesheet" href="../css/screen.css" />
 
+
+
+
+
+<style type="text/css">
+#shopForm label.error {
+	margin-left: 10px;
+	width: auto;
+	display: inline;
+}
+.ui-content
+{
+	padding:0px;
+}
+
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#shopForm").validate({
+		rules: {
+			
+			site: {
+				required: true,
+				number: true  
+			
+			},
+			type: {
+				required: true
+			},
+			department: {
+				required: true,
+				number: true  
+			},
+			doctor_name: {
+				required: true
+			},
+			amount: {
+				number:true,
+				required: true
+			}
+		},
+		messages: {
+			
+			site: {
+			
+				required: "必选！",
+				number:"必选！"
+			},
+			type: {
+			
+				required: "必选！"
+			},
+			department: {
+			
+				required: "必选！",
+				number:"必选！"
+			},
+			doctor_name: {
+			
+				required: "必选！"
+			},
+			amount: {
+				number:"请填写数字!",
+				required: "必填！"
+			}
+		}
+	});
+	
+	
 	/*Retrieve the frequently used partitions when clikcing the textarea  zzhengxi   4/20/2014*/
 	$("#department").change(function(){
 		var site = $("#site").val();
 		var department = $("#department").val();
 		
 		if(site == "0" || department =="0" ){
-			alert("请选择场馆和科室！");
+			//alert("请选择场馆和科室！");
 			return;
 		}
 		
@@ -45,14 +114,14 @@ $(document).ready(function(){
 				
 				//var requestList = data.substr(1, data.length-2);
 				var list = new Array();	
-				list = values.split(', ');
+				list = values.split('], [');
 				
 				
 				var doctor_id  = list[0];
 				var dcotor_name  = list[1];
 				
-				doctor_id = doctor_id.substr(1, doctor_id.length-2);
-				dcotor_name = dcotor_name.substr(1, dcotor_name.length-2);
+				doctor_id = doctor_id.substr(1, doctor_id.length-1);
+				dcotor_name = dcotor_name.substr(0, dcotor_name.length-1);
 				
 				var doctor_id_list =  new Array();	
 				doctor_id_list = doctor_id.split(",");
@@ -90,6 +159,13 @@ $(document).ready(function(){
 
 			}
 		});	
+		
+		var type = $("#type").val();
+		if(type == "0" ){
+			alert("请选择出诊类型");
+			return;
+		}
+		
 	});
 		
 		$("#site").change(function(){
@@ -97,10 +173,10 @@ $(document).ready(function(){
 			var department = $("#department").val();
 			
 			if(site == "0" || department =="0" ){
-				alert("请选择场馆和科室！");
+				//alert("请选择场馆和科室！");
 				return;
 			}
-			
+		
 			
 			//alert("focused!");
 			$.ajax({
@@ -119,14 +195,14 @@ $(document).ready(function(){
 					
 					//var requestList = data.substr(1, data.length-2);
 					var list = new Array();	
-					list = values.split(', ');
+					list = values.split('], [');
 					
 					
 					var doctor_id  = list[0];
 					var dcotor_name  = list[1];
 					
-					doctor_id = doctor_id.substr(1, doctor_id.length-2);
-					dcotor_name = dcotor_name.substr(1, dcotor_name.length-2);
+					doctor_id = doctor_id.substr(1, doctor_id.length-1);
+					dcotor_name = dcotor_name.substr(0, dcotor_name.length-1);
 					
 					var doctor_id_list =  new Array();	
 					doctor_id_list = doctor_id.split(",");
@@ -164,6 +240,12 @@ $(document).ready(function(){
 
 				}
 			});	
+			
+			var type = $("#type").val();
+			if(type == "0" ){
+				alert("请选择出诊类型");
+				return;
+			}
 		
 		
 		
@@ -211,7 +293,7 @@ $(document).ready(function(){
 							<tr>
 								<td align="left"><strong>场馆</strong></td>
 								<td colspan="2"><select id="site" name="site">
-								<OPTION selected="" value="0">选择场馆</OPTION>
+								<OPTION selected="" value="选择场馆">选择场馆</OPTION>
 										<%
 		request.setCharacterEncoding("utf-8");
 		ReserveClinicDao site_dao = new ReserveClinicDao();
@@ -230,7 +312,7 @@ $(document).ready(function(){
 							<tr>
 								<td align="left"><strong>出诊类型</strong></td>
 								<td colspan="2"><SELECT name="type">
-										<OPTION selected value="0">选择类型</OPTION>
+									<!-- 	<OPTION selected value="0">选择类型</OPTION> -->
 										<OPTION value="门诊">门诊</OPTION>
 										<OPTION value="健康服务">健康服务</OPTION>
 										</SELECT></td>
@@ -240,7 +322,7 @@ $(document).ready(function(){
 							<tr>
 								<td align="left"><strong>科室</strong></td>
 								<td colspan="2" align="left" ><SELECT name="department"  id="department">
-										<OPTION selected="" value="0">选择科室</OPTION>
+										<OPTION selected="" value="选择科室">选择科室</OPTION>
 											<%
 	
 		site_dao.retrive_department();
@@ -267,9 +349,15 @@ $(document).ready(function(){
 								<td align="left"><strong>医生</strong></td>
 								<td colspan="2"><SELECT name="doctor_name" id="doctor_name">
 									
-										</SELECT></td>
+										</SELECT><label for="doctor_name" class="error"></label></td>
 
 							</tr>
+							
+						
+							
+							
+
+						<!-- <tr> -->
 							
 							<!-- 
 								<tr>
@@ -436,7 +524,7 @@ $(document).ready(function(){
 								
 								<SELECT  id = "time" name = "time">
 										<OPTION selected value="8:30-10:00">8:30-10:00</OPTION>
-										<OPTION value="10:00-11:30">10:00-11：30</OPTION>
+										<OPTION value="10:00-11:30">10:00-11:30</OPTION>
 										<OPTION value="13:30-15:00">13:30-15:00</OPTION>
 										<OPTION value="15:00-16:30">15:00-16:30</OPTION>
 								</SELECT>
@@ -444,7 +532,7 @@ $(document).ready(function(){
 								预约限额
 								<input style="height: 30px"
 									type="text" name="amount" id="amount"
-									/>
+									/><label for="amount" class="error"></label>
 								
 								<input onClick="addExpert()" type="button" value="+" name="add" />
 								

@@ -20,7 +20,9 @@
 					<td align="center" width=""><strong>科室</strong></td>
 					<td align="center" width=""><strong>医生</strong></td>
 					<td align="center" width=""><strong>出诊时间</strong></td>
-					<td align="center" width=""><strong>预约剩余数</strong></td>					
+					<td align="center" width=""><strong>预约总数</strong></td>	
+					<td align="center" width=""><strong>已预约数</strong></td>	
+					<td align="center" width=""><strong>剩余预约数</strong></td>					
 					<td align="center" width=""><strong>操作</strong></td>
 					
 				</tr>				
@@ -38,6 +40,8 @@
 								<td align="center"><%=outpatient_dao.clinic_department.get(i)%></td>
 								<td align="center"><%=outpatient_dao.clinic_doctor_name.get(i)%></td>
 								<td align="center"><%=outpatient_dao.outpatient_day.get(i) %><%=outpatient_dao.ampm.get(i) %><%=outpatient_dao.time.get(i) %></td>
+								<td align="center"><%=outpatient_dao.total_amount.get(i) %></td>
+								<td align="center"><%=outpatient_dao.used_amount.get(i) %></td>
 								<td align="center"><%=outpatient_dao.amount.get(i) %></td>
 								
 							
