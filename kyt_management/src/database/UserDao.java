@@ -259,6 +259,87 @@ public class UserDao {
 		}
 	}
 	
+	//新建调理师用户
+	public void insertTiaoLiShiUser(String userName, int changguan_id, String userTel, String introduction) {
+		
+		conn = Connections.getConnection();
+		Tools tool = new Tools();
+		//System.out.println(name + "," + changguan_id + "," + userTel + ","  + introduction );
+		String sql = "insert into 04tiaolishi values(?,?,?,?,?,?,?,?,?)";
+		try {
+			ps = conn.prepareStatement(sql);
+			int id = tool.generateID("04tiaolishi");
+			if (id == -1) {
+				return;
+			}
+			ps.setInt(1, id);
+			ps.setString(2, userName);
+			ps.setString(3, userName);
+			ps.setInt(4, changguan_id);
+			ps.setString(5, userTel);
+			ps.setString(6, introduction);
+			Timestamp ts = new Timestamp(System.currentTimeMillis());  
+			ps.setTimestamp(7, ts);
+			ps.setTimestamp(8, ts);
+			ps.setInt(9, 0);
+			
+			System.out.println("insert Tiaolioshi : " + userName + "\n");
+			
+			ps.execute();
+			
+			ps.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//删除调理师用户
+	public void deleteTiaoLiShiUser(String userName) throws SQLException {
+		
+		conn = Connections.getConnection();
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+
+		String sql = "update 04tiaolishi set updateDate = '" + ts + "'"
+		+ " , delete_tiaolishi = '" + 1 + "'" + " where userName = '" + userName + "'";
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//管理员修改调理师用户信息
+	public void modifyTiaoLiShiUserByAdmin(String userName, int changguan_id, String userTel, int delete_tiaolishi) throws SQLException {
+		
+		conn = Connections.getConnection();
+		String sql = null;
+		Timestamp ts = new Timestamp(System.currentTimeMillis()); 
+		
+		sql = "update 04tiaolishi set userTel = '" + userTel + "'"
+			+ " , changguan_id = '" + changguan_id + "'" + " , updateDate = '" + ts + "'"	
+			+ " , delete_tiaolishi = '" + delete_tiaolishi + "'" + " where userName = '" + userName + "'" ;
+
+		try {	
+			stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	//用户修改用户信息
 	public void modifyUser(int userID, String userPWD, String userTel) throws SQLException {
 		

@@ -21,11 +21,28 @@
          <div style="width:100%" class="modal-body" style="line-height:200%" >
          
  <script>
+
+	function checkAuthority(){
+		 var authorityNew = document.getElementById("authorityNew").value;
+		 var authorityChangGuanNew = document.getElementById("authorityChangGuanNew").value;
+		 if(!(null==authorityNew||authorityNew=="")){
+			 if(authorityNew=="2"||authorityNew=="3"){
+				 document.getElementById("QuanXianChangGuan").style.display = "block";
+			 }else{
+				 document.getElementById("QuanXianChangGuan").style.display = "none";
+			}
+		}
+	
+	}
+ 
     function checkNewUserInput()
     {
 	   var usernameNew = document.getElementById("usernameNew").value;
 	   var passwordNew = document.getElementById("passwordNew").value;
 	   var telephoneNew = document.getElementById("telephoneNew").value;
+	   var authorityNew = document.getElementById("authorityNew").value;
+	   var authorityChangGuanNew = document.getElementById("authorityChangGuanNew").value;
+	   
 	   var message = null;
 	   var msg = document.getElementById("msgUserNew");
 	   var flag = 1;
@@ -38,11 +55,25 @@
 		 	 // alert(message);
 			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
 	   }
-	   if(null==telephoneNew||telephoneNew == ""){
+	   else if(null==telephoneNew||telephoneNew == ""){
 			  flag = 0;
 			  right = 0;
 		 	  message = "请输入正确的电话！";
 			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+	   }
+	   else if(null==authorityNew||authorityNew == ""||authorityNew == "firstOption"){
+			  flag = 0;
+			  right = 0;
+		 	  message = "请选择权限！";
+			  msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+	   }
+	   else if(authorityNew=="2"||authorityNew=="3"){
+		   if(null==authorityChangGuanNew||authorityChangGuanNew == ""||authorityChangGuanNew == "0"){
+			   	flag = 0;
+				right = 0;
+			 	message = "请选择所属场馆！";
+				msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
+			}
 	   }
 	   if(right==1){
 		   <%
@@ -101,24 +132,44 @@
 			    			<td valign="middle" align="left" width="25%">权 &nbsp;限:</td>
 			    			<td align="center" width="70%">
 			    			
-			    				<select name="authorityNew" id="authorityNew">	
-<!--									<option value="firstOption">《请选择权限分类》 </option>-->
-									<option value="0" selected>普通管理员</option>
-									<option value="2" >调理师</option>
+			    				<select name="authorityNew" id="authorityNew" onchange="checkAuthority()">	
+									<option value="firstOption" selected>请选择权限 </option>
+									<option value="2" >场馆客服</option>
+									<option value="3" >调&nbsp;理&nbsp;师</option>
 									<%
 									ChangGuanDao UserChangGuanDaoNew = new ChangGuanDao();
 									UserChangGuanDaoNew.getAllChangGuanName();
 									int num = UserChangGuanDaoNew.name_nums;
 									for(int i=1;i<=num;i++){
 									%>
-										<option value="<%=UserChangGuanDaoNew.name_info_ids[i]+GROUP_INTERVAL %>" ><%=UserChangGuanDaoNew.name_infos[i] %></option>
+										<option value="<%=UserChangGuanDaoNew.name_info_ids[i]+GROUP_INTERVAL %>" ><%=UserChangGuanDaoNew.name_infos[i] %>主</option>
 									<%} %>
 									<option value="1" >超级管理员</option>
 								</select>
 							</td>
 			    			<td width="5%"><a style="color:red;">&nbsp;&nbsp;*</a></td>
 			    		</tr>
+			    		
 				</table>
+				<div id="QuanXianChangGuan" name="QuanXianChangGuan" style="display:none">
+					<table  width="58%" align="center" border="0" cellpadding="1" cellspacing="1">
+						<tr>
+			    			<td valign="middle" align="left" width="25%">所属场馆:</td>
+			    			<td align="center" width="70%">
+			    			
+			    				<select name="authorityChangGuanNew" id="authorityChangGuanNew">	
+									<option value="0">请选择场馆 </option>
+									<%
+									for(int i=1;i<=num;i++){
+									%>
+										<option value="<%=UserChangGuanDaoNew.name_info_ids[i] %>" ><%=UserChangGuanDaoNew.name_infos[i] %></option>
+									<%} %>
+								</select>
+							</td>
+			    			<td width="5%"><a style="color:red;">&nbsp;&nbsp;*</a></td>
+			    		</tr>
+			    	</table>
+			    </div>
 <!--			           </p>-->
 <!--		<div id="msgUserNew"></div>-->
          </div>
