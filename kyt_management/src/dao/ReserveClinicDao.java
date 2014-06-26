@@ -554,6 +554,86 @@ public class ReserveClinicDao {
 
 	}
 	
+	//加入场馆信息分类
+	public void retrive_patient_reservation(int role) throws SQLException {
+
+		conn = Connections.getConnection();
+		
+	
+		//String sql = "SELECT  `site`, o.type, n.`department`,u.name,  d.name, u.mobile, o.date, o.day, o.ampm, o.time, case n.treat_flag when 0 then '未就诊' when 1 then '履约' when 2 then '已取消' when 3 then '爽约' end, n.treat_flag, n.id FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o ,04user u where  n.doctorid = d.id and n.outpatient_id = o.id and n.userid= u.id";
+		String sql = "SELECT  `site`, o.type, n.`department`,u.name,  d.name, u.mobile, o.date, o.day, o.ampm, o.time, case n.treat_flag when 0 then '未就诊' when 1 then '履约' when 2 then '已取消' when 3 then '爽约' end, n.treat_flag, n.id FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o ,04user u , 04site s " +
+				"	where  n.doctorid = d.id and n.outpatient_id = o.id and n.userid= u.id and s.id = '" + role + "'" + " and s.name = n.site";
+		//String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name, id, treat_flag  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
+		
+
+		try {
+			stmt = conn.createStatement();
+			Statement stmt_shanggongfang_assess = conn.createStatement();
+			
+			
+			
+			rs = stmt.executeQuery(sql);
+			
+			
+			//ResultSet rs_shanggongfang_assess = stmt_shanggongfang_assess.executeQuery(sql_shanggongfang_assess);
+			
+			//门诊预约
+			int index = 0;
+			while (rs.next()) {
+				clinic_site.add(rs.getString(1));
+				clinic_type.add(rs.getString(2));
+				clinic_department.add(rs.getString(3));
+				clinic_doctor_name.add(rs.getString(4));
+				user_name.add(rs.getString(5));
+				user_mobile.add(rs.getString(6));			
+				date.add(rs.getString(7));
+				day.add(rs.getString(8));
+				ampm.add(rs.getString(9));
+				time.add(rs.getString(10));			
+				clinic_treat_text.add(rs.getString(11));
+				clinic_treat_flag.add(rs.getInt(12));
+				clinic_reservation_id.add(rs.getLong(13));			
+				
+			}
+			
+			index = 0;
+			
+			
+			
+		/*	index = 0;
+			while (rs_shanggongfang_assess.next()) {
+				
+				shanggongfang_assess_type.add(rs_shanggongfang_assess.getString(1));
+				shanggongfang_assess_programe.add(rs_shanggongfang_assess.getString(2));
+				shanggongfang_assess_book_date.add(rs_shanggongfang_assess.getString(3));
+				shanggongfang_assess_book_master.add(rs_shanggongfang_assess.getString(4));
+				shanggongfang_assess_name.add(rs_shanggongfang_assess.getString(5));
+				shanggongfang_assess_id.add(rs_shanggongfang_assess.getLong(6));
+				shanggongfang_assess_treat_flag.add(rs_shanggongfang_assess.getInt(7));
+				index++;
+			}
+			
+			
+			
+	
+			
+			
+			
+			department_num = index;*/
+			stmt.close();
+			
+			stmt_shanggongfang_assess.close();
+		
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
 	
 	
 	
