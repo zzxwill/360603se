@@ -73,7 +73,7 @@
 					
 						<span style='color: #351515;font-size: 35px;font-family: 华文新魏;'><%=sysName %></span>
 					</td>
-					<td width="200px" align="right" style='color: #351515;font-size:20px;font-family: 华文新魏;'>欢迎&nbsp;,&nbsp;<%=loginedUserName %>!&nbsp;&nbsp;
+					<td  align="right" style='color: #351515;font-size:20px;font-family: 华文新魏;'>欢迎&nbsp;,&nbsp;<%=loginedUserName %>!&nbsp;&nbsp;
 					</td>
 					<td width="120px" align="left"><a class="btn btn-warning" contenteditable="true"
 						onclick="jumpOut()">退出</a>&nbsp;</td>

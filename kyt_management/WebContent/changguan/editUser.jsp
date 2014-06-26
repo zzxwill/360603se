@@ -15,6 +15,7 @@
 		<td align="center"><strong>状&nbsp;态</strong></td>
 		<td align="center"><strong>编&nbsp;辑</strong></td>
 	</tr>
+	<%@ include file="../changguan/editUserOwn.jsp"%>  
 	<%
 	UserDao userAdminDao = new UserDao();
 	userAdminDao.getChangGuanUserInfo(role);
@@ -22,15 +23,12 @@
 	int group = 0;
 	int id=0;
 
-	ChangGuanDao UserChangGuanDao = new ChangGuanDao();
-	String ChangGuanName = UserChangGuanDao.getChangGuanName_by_id(role);
-
 	for(int i=1;i<=userAdminDao.UserNum_ChangGuan;i++){
 		id = userAdminDao.UserIDs_ChangGuan[i];
 	%>
 
 	<tr align="center" >
-		<td align="center"><%=i %></td>
+		<td align="center"><%=i+1 %></td>
 		<td align="center"><%=userAdminDao.UserNames_ChangGuan[i] %></td>
 		<td align="center"><%=userAdminDao.UserTels_ChangGuan[i] %></td>
 		<td align="center">
