@@ -30,14 +30,14 @@
 		<td align="center"><%=userAdminDao.UserName_Common %></td>
 		<td align="center"><%=userAdminDao.UserTel_Common %></td>
 		<td align="center">
-			<div style="color:#773A24"><%=ChangGuanName %>客服</div>
+			<div style="color:#773A24"><%=ChangGuanName %>调理师</div>
 		</td>
 		<td align="center" >
 			<%=(userAdminDao.IsUserDel(id)==1)?"<p style='color: red;'>禁&nbsp;用</p>":"<p style='color: green;'>正&nbsp;常</p>" %>
 		</td>
 		<td align="center" valign="middle" >
 				
-			<form class="form-horizontal" id="userForm" method="post" action="../common/editUserInfo.jsp">	
+			<form class="form-horizontal" id="userForm" method="post" action="../tiaolishi/editUserInfo.jsp">	
 				<div class="view"> 
 			       <!-- Button to trigger modal --> 
 			       <div align="right">
