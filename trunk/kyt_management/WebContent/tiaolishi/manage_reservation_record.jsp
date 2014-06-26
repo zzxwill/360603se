@@ -28,7 +28,7 @@
 						<%
 					ReserveClinicDao reservation_dao = new ReserveClinicDao();
 						
-						reservation_dao.retrive_patient_reservation();
+						reservation_dao.retrive_patient_reservation(role);
 					for(int i=0;i<reservation_dao.clinic_reservation_id.size();i++){
 					
 					%>
