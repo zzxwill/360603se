@@ -6,7 +6,21 @@
 			<td width="120px" valign="top">
 				<!-- 左侧菜单 -->
 				<table  width="120px"  border="0" cellspacing="0" cellpadding="0"  >
-					
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_common_hidden('yuyue','doctor','patient','question','user','paiqi');">
+						预约列表</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question','user');">
+						医生排期</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_common_hidden('question','doctor','patient','yuyue','user','paiqi');">
+						问题列表</div></td>
+					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_common_hidden('doctor','patient','question','yuyue','user','paiqi');">
@@ -19,33 +33,20 @@
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('question','doctor','patient','yuyue','user','paiqi');">
-						问题列表</div></td>
-					</tr>
-					<tr>
-						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('yuyue','doctor','patient','question','user','paiqi');">
-						预约列表</div></td>
-					</tr>
-					<tr>
-						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_common_hidden('user','yuyue','doctor','patient','question','paiqi');">
 						用户管理</div></td>
 					</tr>
-					<tr>
-						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question','user');">
-						医生排期</div></td>
-					</tr>
+					
 				</table>
 			</td>
 
 			<td width="1100px" valign="top">
 				
-				<%//医生列表 %>
-				<div id="doctor" >
-					<%// %>
-					<script>
+				
+				<%//预约列表 %>
+				<div id="yuyue" >
+				<%// %>
+				<script>
 				  
 				   function getModuleParameter() {
 					    var url = location.search; //获取url中"?"符后的字串
@@ -54,8 +55,8 @@
 					    if (url.indexOf("?")!= -1) {
 					    	var pos = url.lastIndexOf("=");
 					    	parameter = url.substring(pos+1,url.length);
-					    	if(parameter!="doctor"){
-					    		document.getElementById("doctor").style.display = "none";
+					    	if(parameter!="yuyue"){
+					    		document.getElementById("yuyue").style.display = "none";
 					    	}
 					    }
 					    return parameter;
@@ -65,32 +66,40 @@
 					
 					//alert("module:" + module);
 					$(document).ready(function(){
-						if(module=="doctor"){
-							document.getElementById("doctor").style.display = "block";
+						if(module=="yuyue"){
+							document.getElementById("yuyue").style.display = "block";
 						}
 						else if(module=="patient"){
-							document.getElementById("doctor").style.display = "none";
-							document.getElementById("patient").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
+							document.getElementById("patient").style.display = "block";
 						}
 						else if(module=="question"){
-							document.getElementById("doctor").style.display = "none";
-							document.getElementById("question").style.display = "none";
-						}
-						else if(module=="yuyue"){
-							document.getElementById("doctor").style.display = "none";
 							document.getElementById("yuyue").style.display = "none";
+							document.getElementById("question").style.display = "block";
+						}
+						else if(module=="doctor"){
+							document.getElementById("yuyue").style.display = "none";
+							document.getElementById("doctor").style.display = "block";
 						}
 						else if(module=="user"){
-							document.getElementById("doctor").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("user").style.display = "block";
 						}
 						else if(module=="paiqi"){
-							document.getElementById("doctor").style.display = "none";
-							document.getElementById("paiqi").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
+							document.getElementById("paiqi").style.display = "block";
 						}
 				   });
 				</script>
-					
+					<%@ include file="../common/manage_reservation_record.jsp"%>
+				</div>	
+				<script type="text/javascript">
+					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
+				</script>
+				
+				<%//医生列表 %>
+				<div id="doctor" style="display: none;" >
+					<%// %>
 					<%@ include file="../common/list_doctor.jsp"%>
 				</div>
 				
@@ -110,15 +119,6 @@
 				</div>
 				<script type="text/javascript">
 					$("#question").css("height",(document.body.clientHeight-65) +"px");
-				</script>
-				
-				<%//预约列表 %>
-				<div id="yuyue" style="display: none;"  >
-				<%// %>
-					<%@ include file="../common/manage_reservation_record.jsp"%>
-				</div>	
-				<script type="text/javascript">
-					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
 				</script>
 				
 				<%//用户管理 %>

@@ -8,8 +8,18 @@
 				<table  width="120px"  border="0" cellspacing="0" cellpadding="0"  >
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('changguan','doctor','patient','question','yuyue','user','paiqi');">
-						场馆管理</div></td>
+						onclick="show_changguan_hidden('yuyue','doctor','changguan','patient','question','user','paiqi');">
+						预约列表</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_changguan_hidden('paiqi','yuyue','doctor','changguan','patient','question','user');">
+						医生排期</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_changguan_hidden('question','doctor','changguan','patient','yuyue','user','paiqi');">
+						问题列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
@@ -23,34 +33,24 @@
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('question','doctor','changguan','patient','yuyue','user','paiqi');">
-						问题列表</div></td>
+						onclick="show_changguan_hidden('changguan','doctor','patient','question','yuyue','user','paiqi');">
+						场馆管理</div></td>
 					</tr>
-					<tr>
-						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('yuyue','doctor','changguan','patient','question','user','paiqi');">
-						预约列表</div></td>
-					</tr>
+
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_changguan_hidden('user','paiqi','yuyue','doctor','changguan','patient','question');">
 						用户管理</div></td>
 					</tr>
-					<tr>
-						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('paiqi','yuyue','doctor','changguan','patient','question','user');">
-						医生排期</div></td>
-					</tr>
-					
 				</table>
 			</td>
 
 			<td width="1100px" valign="top">
 				
-				<%//场馆管理 %>
-				<div id="changguan" >
-					<%// %>
-					<script>
+				<%//预约列表 %>
+				<div id="yuyue" >
+				<%// %>
+				<script>
 				  
 				   function getModuleParameter() {
 					    var url = location.search; //获取url中"?"符后的字串
@@ -59,8 +59,8 @@
 					    if (url.indexOf("?")!= -1) {
 					    	var pos = url.lastIndexOf("=");
 					    	parameter = url.substring(pos+1,url.length);
-					    	if(parameter!="changguan"){
-					    		document.getElementById("changguan").style.display = "none";
+					    	if(parameter!="yuyue"){
+					    		document.getElementById("yuyue").style.display = "none";
 					    	}
 					    }
 					    return parameter;
@@ -70,37 +70,43 @@
 					
 					//alert("module:" + module);
 					$(document).ready(function(){
-						if(module=="changguan"){
-							document.getElementById("changguan").style.display = "block";
+						if(module=="yuyue"){
+							document.getElementById("yuyue").style.display = "block";
 						}
 						else if(module=="doctor"){
-							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("doctor").style.display = "block";
 						}
 						else if(module=="patient"){
-							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("patient").style.display = "block";
 						}
 						else if(module=="question"){
-							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("question").style.display = "block";
 						}
-						else if(module=="yuyue"){
-							document.getElementById("changguan").style.display = "none";
-							document.getElementById("yuyue").style.display = "block";
+						else if(module=="changguan"){
+							document.getElementById("yuyue").style.display = "none";
+							document.getElementById("changguan").style.display = "block";
 						}
 						else if(module=="user"){
-							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("user").style.display = "block";
 						}
 						else if(module=="paiqi"){
-							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "none";
 							document.getElementById("paiqi").style.display = "block";
 						}
 				 
 				   });
 				</script>
-					
+				
+					<%@ include file="../changguan/manage_reservation_record.jsp"%>
+				</div>	
+				
+				<%//场馆管理 %>
+				<div id="changguan" style="display: none;" >
+					<%// %>					
 					<%@ include file="../changguan/editChangGuan.jsp"%>
 				</div>	
 				
@@ -122,11 +128,7 @@
 					<%@ include file="../changguan/list_question.jsp"%>
 				</div>
 				
-				<%//预约列表 %>
-				<div id="yuyue" style="display: none;"  >
-				<%// %>
-					<%@ include file="../changguan/manage_reservation_record.jsp"%>
-				</div>	
+
 				
 				<%//用户管理 ，本场馆%>
 				<div id="user" style="display: none;"  >
