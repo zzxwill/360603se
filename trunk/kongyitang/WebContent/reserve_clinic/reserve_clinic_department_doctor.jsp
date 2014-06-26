@@ -144,7 +144,7 @@ $().ready(function() {
 					<td width="23%">
 						<div id="backButton">
 							<a id="return_link"
-								onclick="window.location.href='../main/index.jsp'"></a>
+								onclick="window.location.href='index.jsp'"></a>
 						</div>
 					</td>
 					<td align="center" width="54%"><a style="color: white;">预约孔医堂</a></td>
