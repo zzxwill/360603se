@@ -8,29 +8,40 @@
 				<table  width="120px"  border="0" cellspacing="0" cellpadding="0"  >
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('changguan','doctor','patient','question','yuyue');">
+						onclick="show_changguan_hidden('changguan','doctor','patient','question','yuyue','user','paiqi');">
 						场馆管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('doctor','changguan','patient','question','yuyue');">
+						onclick="show_changguan_hidden('doctor','changguan','patient','question','yuyue','user','paiqi');">
 						医生管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('patient','doctor','changguan','question','yuyue');">
+						onclick="show_changguan_hidden('patient','doctor','changguan','question','yuyue','user','paiqi');">
 						患者管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('question','doctor','changguan','patient','yuyue');">
+						onclick="show_changguan_hidden('question','doctor','changguan','patient','yuyue','user','paiqi');">
 						问题列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_changguan_hidden('yuyue','doctor','changguan','patient','question');">
+						onclick="show_changguan_hidden('yuyue','doctor','changguan','patient','question','user','paiqi');">
 						预约列表</div></td>
 					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_changguan_hidden('user','paiqi','yuyue','doctor','changguan','patient','question');">
+						用户管理</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_changguan_hidden('paiqi','yuyue','doctor','changguan','patient','question','user');">
+						医生排期</div></td>
+					</tr>
+					
 				</table>
 			</td>
 
@@ -67,16 +78,24 @@
 							document.getElementById("doctor").style.display = "block";
 						}
 						else if(module=="patient"){
-							$("#changguan").style.display = "none";
-							$("#patient").style.display = "block";
+							document.getElementById("changguan").style.display = "none";
+							document.getElementById("patient").style.display = "block";
 						}
 						else if(module=="question"){
-							$("#changguan").style.display = "none";
-							$("#question").style.display = "block";
+							document.getElementById("changguan").style.display = "none";
+							document.getElementById("question").style.display = "block";
 						}
 						else if(module=="yuyue"){
-							$("#changguan").style.display = "none";
-							$("#yuyue").style.display = "block";
+							document.getElementById("changguan").style.display = "none";
+							document.getElementById("yuyue").style.display = "block";
+						}
+						else if(module=="user"){
+							document.getElementById("changguan").style.display = "none";
+							document.getElementById("user").style.display = "block";
+						}
+						else if(module=="paiqi"){
+							document.getElementById("changguan").style.display = "none";
+							document.getElementById("paiqi").style.display = "block";
 						}
 				 
 				   });
@@ -108,6 +127,20 @@
 				<%// %>
 					<%@ include file="../changguan/manage_reservation_record.jsp"%>
 				</div>	
+				
+				<%//用户管理 ，本场馆%>
+				<div id="user" style="display: none;"  >
+				<%// %>
+					<%@ include file="../changguan/insertUser.jsp"%>
+					<%@ include file="../changguan/editUser.jsp"%>
+				</div>
+				
+				<%//医生排期  TODO 排期  %>
+				<div id="paiqi" style="display: none;"  >
+				<%// %>
+				医生排期
+					<%//@ include file="../changguan/paiqi.jsp"%>
+				</div>
 			
 			</td>
 		</tr>

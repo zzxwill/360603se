@@ -9,23 +9,28 @@
 					
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('doctor','patient','question','yuyue');">
+						onclick="show_common_hidden('doctor','patient','question','yuyue','paiqi');">
 						医生管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('patient','doctor','question','yuyue');">
+						onclick="show_common_hidden('patient','doctor','question','yuyue','paiqi');">
 						患者管理</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('question','doctor','patient','yuyue');">
+						onclick="show_common_hidden('question','doctor','patient','yuyue','paiqi');">
 						问题列表</div></td>
 					</tr>
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
-						onclick="show_common_hidden('yuyue','doctor','patient','question');">
+						onclick="show_common_hidden('yuyue','doctor','patient','question','paiqi');">
 						预约列表</div></td>
+					</tr>
+					<tr>
+						<td><div class=" btn btn-primary btn-block" 
+						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question');">
+						医生排期</div></td>
 					</tr>
 				</table>
 			</td>
@@ -70,7 +75,10 @@
 							$("#doctor").style.display = "none";
 							$("#yuyue").style.display = "block";
 						}
-				 
+						else if(module=="paiqi"){
+							$("#doctor").style.display = "none";
+							$("#paiqi").style.display = "block";
+						}
 				   });
 				</script>
 					
@@ -103,7 +111,17 @@
 				<script type="text/javascript">
 					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
 				</script>
-			
+				
+				<%//医生排期  TODO 排期 %>
+				<div id="paiqi" style="display: none;" >
+				<%// %>
+				医生排期
+					<%//@ include file="../common/paiqi.jsp"%>
+				</div>	
+				<script type="text/javascript">
+					$("#paiqi").css("height",(document.body.clientHeight-65) +"px");
+				</script>
+				
 			</td>
 		</tr>
 

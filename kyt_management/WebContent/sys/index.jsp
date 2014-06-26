@@ -95,25 +95,33 @@
 			</script>
 		<%
 		}else{
-			int role = Integer.parseInt(role_string);
-			if(role==0){
-			%>
-				<%@ include file="../common/index.jsp"%>
-			<%	
-			}else if(role==1){
+			int role = Integer.parseInt(role_string);//role=场馆id
+			 //超级管理员
+			if(role==1){
 			%>
 				<%@ include file="admin.jsp"%>
 			<%				
-			}else if(role==2){
-			%>
-				<%@ include file="../tiaolishi/index.jsp"%>
-			<%				
 			}
-			else if(role>GROUP_INTERVAL){
-				role = role - GROUP_INTERVAL;//场馆id
+			 //各馆馆主
+			else if((GROUP_INTERVAL<=role)&&(role<2*GROUP_INTERVAL)){
+				role = role - GROUP_INTERVAL;//role=场馆id
 				%>
 				<%@ include file="../changguan/index.jsp"%>
 				<%
+			}
+			 //各馆客服
+			else if((2*GROUP_INTERVAL<=role)&&(role<3*GROUP_INTERVAL)){
+				role = role - 2*GROUP_INTERVAL;
+				%>
+					<%@ include file="../common/index.jsp"%>
+				<%	
+			}
+			//各馆调理师
+			else if(role>=3*GROUP_INTERVAL){
+				role = role - 3*GROUP_INTERVAL;
+				%>
+					<%@ include file="../tiaolishi/index.jsp"%>
+				<%				
 			}
 		}
 		%>

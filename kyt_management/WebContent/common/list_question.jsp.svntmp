@@ -190,7 +190,6 @@
 					
 					<center>
 					<div style="width:90%" id="records" >	
-					<div>
 						<table width="100%">
 							<tr>
 								<td width="41%">提问日期： <%=askPatient_doctor.createDates_Condition[i] %></td>
@@ -251,7 +250,6 @@
 									</td>
 								</tr>
 							</table>
-						</div>
 					</div>
 			       	</center>
 				       	
