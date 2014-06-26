@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*"
+<%@ page language="java" import="java.util.*,java.net.URL,java.sql.*,java.text.DateFormat,java.text.SimpleDateFormat,java.util.Date"
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/package.jsp"%>
@@ -212,7 +212,7 @@ $().ready(function() {
 				<tr>
 					<td width="23%" >
 						<div id="backButton">
-							<a id="return_link" onclick="window.location.href='../main/index.jsp'" ></a>
+							<a id="return_link" onclick="window.location.href='reservation_clinic_patient_sickinfo.jsp'" ></a>
 						</div>
 					</td>
 					<td align="center" width="54%"><a style="color: white;">预约孔医堂</a></td>
@@ -325,10 +325,13 @@ $().ready(function() {
 						
 									 long  doctor_id = Long.parseLong(doctor_id_str);
 
-						
+									 Date currentTime = new Date();
+										DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+										String date = dateFormat.format(currentTime);
+										
 						
 					ReserveClinicDao outpatient_dao = new ReserveClinicDao();
-						outpatient_dao.retrive_outpatient();
+						outpatient_dao.retrive_outpatient(doctor_id);
 					for(int i=0;i<outpatient_dao.outpatient_id.size();i++){
 				
 					
@@ -336,17 +339,21 @@ $().ready(function() {
 							<tr style="height: 40px; line-height: 40px;">
 								<td id="clinic_text"  style="font-size:13px;" align="left" ><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<!-- 星期X -->&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
 								<td>
-									<% if (outpatient_dao.amount.get(i) < 50){ %>
+									<% if (outpatient_dao.amount.get(i) <= 0){ %>
 									<div align="center" class="ASKSubmit_no"
-										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >预约已满
 									</div>
-									<%} else { %>
+									<%} else if(outpatient_dao.outpatient_date.get(i).compareTo(date) >= 0 ){ %>
 									<div align="center" class="ASKSubmit"
 										style="height: 30px; line-height: 30px;font-size:15px;width:60px;margin:0px"
 										onclick="window.location.href='reservation_clinic_patient_sickinfo.jsp?site_name=<%=site_name%>&department=<%=department %>&doctor_id=<%=doctor_id %>&outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>'">
 										预约
 									</div>
-									<%}%>									
+									<%}else{ %>
+									<div align="center" class="ASKSubmit_no"
+										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
+									</div>
+									<%}%>										
 
 								</td>
 
