@@ -291,7 +291,7 @@ $().ready(function() {
 											<tr>
 
 												<td><span><%=doctor_dao.title[j] %></span></td>
-												<td width="10%" align="center">剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
+											<%-- 	<td width="10%" align="center">剩余:<%=doctor_dao.doctor_available_amount[i] %></td> --%>
 											
 												
 
