@@ -308,7 +308,7 @@ $().ready(function() {
 											<tr>
 
 										
-												<td width="20%" align="center">挂号费:<%=doctor_dao.visit_fee[i] %></td>
+<%-- 												<td width="20%" align="center">挂号费:<%=doctor_dao.visit_fee[i] %></td> --%>
 												<td width="80%" align="center">简介:<%=doctor_dao.introduction[i] %></td>
 												
 
