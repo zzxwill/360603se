@@ -236,7 +236,8 @@ public class ReserveClinicDao {
 				//doctor_portrait[index] = rs.getString("doctor_portrait");
 				doctor_portrait[index] = rs.getString(4);
 				
-				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
+				//String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
+				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_doctor d WHERE d.doctor_id =" ;
 				sql_doctor_available_amount += rs.getInt(1);
 				conn_doctor_avaialble_amount = Connections.getConnection();
 				stmt_doctor_avaialble_amount = conn_doctor_avaialble_amount.createStatement();
@@ -520,19 +521,19 @@ String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as
 	public int day_to_DAYNUMBER(String day){
 		int DAY = 0;
 		if(day.endsWith("一")){
-			DAY = 2;
-		}else if(day.endsWith("二")){
-			DAY = 3;
-		}else if(day.endsWith("三")){
-			DAY = 4;
-		}else if(day.endsWith("四")){
-			DAY = 5;
-		}else if(day.endsWith("五")){
-			DAY = 6;
-		}else if(day.endsWith("六")){
-			DAY = 7;
-		}else if(day.endsWith("日")){
 			DAY = 1;
+		}else if(day.endsWith("二")){
+			DAY = 2;
+		}else if(day.endsWith("三")){
+			DAY = 3;
+		}else if(day.endsWith("四")){
+			DAY = 4;
+		}else if(day.endsWith("五")){
+			DAY = 5;
+		}else if(day.endsWith("六")){
+			DAY = 6;
+		}else if(day.endsWith("日")){
+			DAY = 7;
 		}
 		
 		
