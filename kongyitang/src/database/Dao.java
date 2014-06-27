@@ -35,7 +35,7 @@ public class Dao {
 	// 提交望京馆信息
 	public void submit_reservation(String illness_name, String purpose,
 			String detail, long mobile, String name, String site,
-			String department, int doctorid, int userid, int outpatient_id) {
+			String department, int doctorid, int userid, int outpatient_id, String outpatient_date, int outpatient_date_id) {
 
 		int patient_illness_id = 0;
 		Connection conn = Connections.getConnection();
@@ -71,7 +71,7 @@ public class Dao {
 			
 			
 			//String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`) VALUES (?,?,?,?,?)";
-			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`, userid,outpatient_id) VALUES (?,?,?,?,?,?,?)";
+			String sql_reservation_normal = "INSERT INTO `" + table_prefix + "reservation_normal`(`site`, `department`, `doctorid`, `patient_illness_id`, `date`, userid,outpatient_id,outpatient_date_id) VALUES (?,?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql_reservation_normal);
 			ps.setString(1, site);
 			ps.setString(2, department);
@@ -87,16 +87,57 @@ public class Dao {
 			//加入用户名 Will Zhou   5/21/2014
 			ps.setLong(6, userid);
 			
-			ps.setLong(7, outpatient_id);
-			
+			ps.setInt(7, outpatient_id);
+			ps.setInt(8, outpatient_date_id);
 
 			ps.execute();
 			
 			
+			
+			
+			String sql = "SELECT id FROM `04outpatient_used_amount` where  `doctor_id` =  "+ doctorid +" and  `outpatient_date_id` = "+outpatient_date_id ;
+			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
+			
+				st = conn.createStatement();
+				rs = st.executeQuery(sql);
+				
+				long outpatient_used_amount_id = 0;			
+				
+				
+				if(!rs.next()){
+					sql = "INSERT INTO `04outpatient_used_amount`( `doctor_id`,`outpatient_date_id`, `used_amount`) VALUES ( "+ doctorid + "," +outpatient_date_id + "," + 1 +")";
+					st.execute(sql);
+					
+				/*	sql = "select max(id) as id  from 04outpatient_used_amount";
+					st = conn.createStatement();
+					ResultSet rs2 = st.executeQuery(sql);
+					if(rs2.next()){
+						outpatient_used_amount_id = rs2.getLong("id");
+					}					*/
+					return;
+				}else{
+					//某天 某个上下午 某个时间段 存在，则应该去修改操作
+					outpatient_used_amount_id = rs.getLong("id");
+				}
+				
+				sql = "update 04outpatient_used_amount set used_amount=used_amount + 1 where id = " + outpatient_used_amount_id;
+				st = conn.createStatement();
+				
+				//stmt.equals(sql);
+				st.execute(sql);
+			
+			
+			
+			/*
+			
+			
+			
+			
 			//预约医生后，医生已使用的预约号增加一个  Will Zhou   5/24/2014
-			String sql_outpatient_doctor = "UPDATE 04outpatient_doctor SET used_amount = used_amount +1 where outpatient_id = " + outpatient_id  + " and doctor_id=" + doctorid ;
+			//String sql_outpatient_doctor = "UPDATE 04outpatient_doctor SET used_amount = used_amount +1 where id = " + outpatient_doctor_id  + " and doctor_id=" + doctorid ;
+			String sql_outpatient_doctor = "UPDATE 04outpatient_doctor SET used_amount = used_amount +1 where id = " + outpatient_doctor_id  ;
 			ps = conn.prepareStatement(sql_outpatient_doctor);
-			ps.execute();
+			ps.execute();*/
 			
 
 			conn.close();
@@ -243,48 +284,53 @@ public class Dao {
 
 	
 	// 取消门诊预约信息
-		public void cancell_reservation(HashMap hm) {
+	public void cancell_reservation(HashMap hm) {
 
-			long clinic_reservation_normal_id = (Long) hm.get("clinic_reservation_normal_id");
-			String type= (String) hm.get("type");
-
-			String table_name = new String();
-			if("normal".equals(type)){
-				table_name = "04reservation_normal";
-			}else if("adjust".equals(type)){
-				table_name = "04reservation_shanggongfang_adjust";
-			}else if("assess".equals(type)){
-				table_name = "04reservation_shanggongfang_assess";
-			}else if("xuetang".equals(type)){
-				table_name = "04reservation_xuetang";
-			}
-			
-			Connection conn = Connections.getConnection();
-			
-			
-			
-			
-			
-
-			String sql = "UPDATE " + table_name + " SET `treat_flag`=2 WHERE id = " + clinic_reservation_normal_id;
-
+		long clinic_reservation_normal_id = (Long) hm
+				.get("clinic_reservation_normal_id");
+		String type = (String) hm.get("type");
 		
-			try {
-				PreparedStatement ps;
+		int outpatient_doctor_id = (Integer) hm.get("outpatient_doctor_id");
+		int outpatient_date_id = (Integer) hm.get("outpatient_date_id");
+		
 
-			
-					ps = conn.prepareStatement(sql);
-				
-
-				ps.execute();
-
-				conn.close(); 
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		String table_name = new String();
+		if ("normal".equals(type)) {
+			table_name = "04reservation_normal";
+		} else if ("adjust".equals(type)) {
+			table_name = "04reservation_shanggongfang_adjust";
+		} else if ("assess".equals(type)) {
+			table_name = "04reservation_shanggongfang_assess";
+		} else if ("xuetang".equals(type)) {
+			table_name = "04reservation_xuetang";
 		}
+
+		Connection conn = Connections.getConnection();
+
+		String sql = "UPDATE " + table_name + " SET `treat_flag`=2 WHERE id = "
+				+ clinic_reservation_normal_id;
+
+		try {
+			PreparedStatement ps;
+			ps = conn.prepareStatement(sql);
+			ps.execute();
+			
+			//医生已使用的预约号+1 Will Zhou   6/27/2014
+			
+			//sql = "UPDATE 04outpatient_doctor SET used_amount = used_amount - 1 where id = " + outpatient_doctor_id  ;
+			sql = "update 04outpatient_used_amount set used_amount = used_amount - 1 where outpatient_date_id = " + outpatient_date_id + " and doctor_id =  (select doctorid from 04reservation_normal where id = " +  clinic_reservation_normal_id + ")";
+					
+			ps = conn.prepareStatement(sql);
+			ps.execute();
+			
+
+			conn.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	// 饮料单价
 	public double PRICE_OF_KUANGQUANSHUI = 0.0;

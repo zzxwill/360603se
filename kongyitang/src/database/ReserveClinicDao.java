@@ -75,6 +75,7 @@ public class ReserveClinicDao {
 	//可预约门诊时间信息  Will Zhou  5/13/2014
 	//public int department_num;
 	public ArrayList<Integer> outpatient_id = new ArrayList<Integer>();
+	public ArrayList<Integer> outpatient_date_id = new ArrayList<Integer>();
 	public ArrayList<String> outpatient_date = new ArrayList<String>();
 	public ArrayList<String> time = new ArrayList<String>();
 	public ArrayList<String> outpatient_type = new ArrayList<String>();
@@ -97,6 +98,7 @@ public class ReserveClinicDao {
 	public ArrayList<String> clinic_time = new ArrayList<String>();
 	public ArrayList<Integer> clinic_reservation_normal_id = new ArrayList<Integer>();
 	public ArrayList<Integer> clinic_treat_flag = new ArrayList<Integer>();
+	public ArrayList<Integer> outpatient_doctor_id = new ArrayList<Integer>();
 	
 	public ArrayList<Long> shanggongfang_adjust_id = new ArrayList<Long>();
 	public ArrayList<String> shanggongfang_adjust_type = new ArrayList<String>();
@@ -292,8 +294,8 @@ public class ReserveClinicDao {
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
 
 		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
-String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as outpatient_type, total_amount - used_amount FROM 04outpatient_info i, 04outpatient_doctor ou_doc, 04outpatient_date ou_date where i.id = ou_doc.outpatient_id and i.id = ou_date.outpatient_info_id and i.type = '门诊' and ou_doc.doctor_id = "+ doctor_id;
-
+//String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as outpatient_type, total_amount - used_amount FROM 04outpatient_info i, 04outpatient_doctor ou_doc, 04outpatient_date ou_date where i.id = ou_doc.outpatient_id and i.id = ou_date.outpatient_info_id and i.type = '门诊' and ou_doc.doctor_id = "+ doctor_id;
+		String sql = "SELECT i.id, t1.date,  i.time, i.type, total_amount,i.day, i.ampm, t1.id FROM `04outpatient_date` t1, 04outpatient_doctor t2, 04outpatient_info i where t1.outpatient_info_id = t2.outpatient_id and t1.outpatient_info_id = i.id and t1.date between curdate() and curdate() +INTERVAL 2 WEEK and i.type = '门诊' and t2.doctor_id = " + doctor_id ;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -304,19 +306,23 @@ String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as
 			public ArrayList<String> outpatient_type = new ArrayList<String>();*/
 		/*	department = new String[NUM];
 			department_id = new int[NUM];*/
+			day.clear();
+			
 			while (rs.next()) {
+				//outpatient_id指表04outpatient_doctor的id  Will Zhou   6/27/2014 
+				//还是只表outpatient_id  Will Zhou  6/27/2014  --renew
 				outpatient_id.add(rs.getInt(1));
 				outpatient_date.add(rs.getString(2));
 				time.add(rs.getString(3));
 				outpatient_type.add(rs.getString(4));
 				amount.add(rs.getInt(5));
+				day.add(rs.getString(6));
+				outpatient_date_id.add(rs.getInt(8));
 				
-			
-				
-				index++;
+				//index++;
 				
 			}
-			department_num = index;
+		//	department_num = index;
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
@@ -337,7 +343,8 @@ String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as
 		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.name as department  ,u.name, u.title FROM " + table_prefix + "`department` d, " + table_prefix + "user_doctor u  WHERE d.id= u.department";
-		String sql = "SELECT  `site`, n.`department`, d.name,  o.day, o.time, n.id, n.treat_flag  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
+		//String sql = "SELECT  `site`, n.`department`, d.name,  o.day, o.time, n.id, n.treat_flag, n.outpatient_id  FROM  04reservation_normal n, 04user_doctor d,  04outpatient_info o where  n.doctorid = d.id and n.outpatient_id = o.id and userid =  " + userid;
+		String sql = "SELECT  `site`, n.`department`, r.name,  o.day, o.time, n.id, n.treat_flag, n.outpatient_id, d.date  FROM  04reservation_normal n, 04outpatient_date d,  04outpatient_info o ,04user_doctor r where  n.outpatient_date_id  = d.id and d.outpatient_info_id = o.id and n.doctorid = r.id and userid ="  + userid;
 		String sql_shanggongfang_adjust = "SELECT type, `adjust_programe`, `book_date` as shanggongfang_adjust_book_date, `adjust_master`, name  as shanggongfang_adjust_name, id , treat_flag FROM  " + table_prefix + "reservation_shanggongfang_adjust WHERE  username =  " + userid;
 		String sql_shanggongfang_assess = "SELECT type, assess_programe, book_date as shanggongfang_assess_book_date, assess_master, name as shanggongfang_assess_name, id, treat_flag  FROM   " + table_prefix + "reservation_shanggongfang_assess  WHERE  username =  " + userid;
 		String sql_xuetang = "SELECT `xuetang`, `name`, id, treat_flag as xuetang_name FROM   " + table_prefix + "reservation_xuetang WHERE  username =  " + userid;
@@ -360,14 +367,21 @@ String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as
 			
 			//门诊预约
 			int index = 0;
+			outpatient_date_id.clear();
+			date.clear();
 			while (rs.next()) {
 				clinic_site.add(rs.getString(1));
 				clinic_department.add(rs.getString(2));
 				clinic_doctor_name.add(rs.getString(3));
 				clinic_date.add(rs.getString(4));
+				day.add(rs.getString(4));
 				clinic_time.add(rs.getString(5));
 				clinic_reservation_normal_id.add(rs.getInt(6));
 				clinic_treat_flag.add(rs.getInt(7));
+				//outpatient_doctor_id.add(rs.getInt(8));
+				outpatient_date_id.add(rs.getInt(8));
+				date.add(rs.getString(9));
+				
 				
 				index++;
 			}
@@ -645,6 +659,38 @@ String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as
 		}
 
 	}
+	
+	
+	/**
+	 * @function: 04outpatient_used_amount获取已预约的号
+	 * @author:   Will Zhou
+	 * @throws SQLException 
+	 * @date:     Jun 27, 2014 12:30:00 PM 
+	 */
+	public int get_used_amount_by_doctor_outpatient(long outpatient_date_id, long doctor_id) throws SQLException{
+		String sql = "SELECT used_amount FROM `04outpatient_used_amount` where  `doctor_id` =  "+ doctor_id +" and  `outpatient_date_id` = "+outpatient_date_id ;
+		//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
+		Connection conn = Connections.getConnection();
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		
+			
+			int used_amount = 0;			
+			
+			
+			if(rs.next()){
+				used_amount = rs.getInt("used_amount");
+			
+				
+			}
+			//stmt.equals(sql);
+			st.execute(sql);
+			st.close();
+			conn.close();
+			return used_amount;
+	}
+
 	
 	
 	public static void main(String args[]) throws SQLException{
