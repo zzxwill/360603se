@@ -61,7 +61,7 @@
 			<td align="center"><%=reserveClinicDao.clinic_site.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.clinic_department.get(i) %></td>
 			<td align="center"><%=reserveClinicDao.clinic_doctor_name.get(i) %></td>
-			<td align="center"><%=reserveClinicDao.clinic_date.get(i) %>&nbsp;<%=reserveClinicDao.clinic_time.get(i) %></td>
+			<td align="center"><%=reserveClinicDao.date.get(i) %>&nbsp;<%=reserveClinicDao.day.get(i) %>&nbsp;<%=reserveClinicDao.clinic_time.get(i) %></td>
 			<td align="center">
 			<%Date currentTime = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -87,7 +87,7 @@
 				%>	
 			<div align="center" class="ASKSubmit"
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" >
-										<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=normal&clinic_reservation_normal_id=<%=reserveClinicDao.clinic_reservation_normal_id.get(i) %>" ><big>取消</big></a>
+										<a id="submit_adjust_link" style="color: white;" onclick="return show_confirm();" href="../my_reservation/cancell_reservation.jsp?type=normal&clinic_reservation_normal_id=<%=reserveClinicDao.clinic_reservation_normal_id.get(i) %>&outpatient_doctor_id=123&outpatient_date_id=<%=reserveClinicDao.outpatient_date_id.get(i)%>" ><big>取消</big></a>
 									</div>	
 								
 		

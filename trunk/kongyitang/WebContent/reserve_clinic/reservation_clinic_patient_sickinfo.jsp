@@ -228,8 +228,12 @@ $().ready(function() {
 				 String site_name = request.getParameter("site_name");
 				String department = request.getParameter("department");
 				String outpatient_id_str= request.getParameter("outpatient_id");
+				String date = request.getParameter("date");
+				String outpatient_date_id_str = request.getParameter("outpatient_date_id");
 				
-				 if(doctor_id_str == null || site_name ==null || department == null || outpatient_id_str==null){
+				 if(doctor_id_str == null || site_name ==null || department == null || outpatient_id_str==null || date ==null || outpatient_date_id_str == null){
+					 
+					 
 							%>
 					<center>
 						<div style="color: red">
@@ -249,7 +253,9 @@ $().ready(function() {
 					//long  site_id = Long.parseLong(site_id_str);
 					long  doctor_id = Long.parseLong(doctor_id_str);
 					
-					long  outpatient_id = Long.parseLong(outpatient_id_str);	
+					long  outpatient_id = Long.parseLong(outpatient_id_str);
+					long outpatient_date_id = Long.parseLong(outpatient_date_id_str);
+					
 					 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
 					 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
 					/* request.setAttribute("site_name", site_name);
@@ -285,7 +291,7 @@ $().ready(function() {
 		
 		<div data-role="content">
 			<form name="verifyForm" id="verifyForm" method="post"
-				action="submit_reserve_clinic.jsp?site_name=<%=site_name%>&department=<%=department %>&doctor_id=<%=doctor_id %>&outpatient_id=<%=outpatient_id %>">
+				action="submit_reserve_clinic.jsp?site_name=<%=site_name%>&department=<%=department %>&doctor_id=<%=doctor_id %>&outpatient_id=<%=outpatient_id %>&date=<%=date%>&outpatient_date_id=<%=outpatient_date_id%>">
 				
 				
 

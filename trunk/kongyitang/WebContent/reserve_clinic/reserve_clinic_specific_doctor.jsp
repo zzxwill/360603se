@@ -333,11 +333,17 @@ $().ready(function() {
 					ReserveClinicDao outpatient_dao = new ReserveClinicDao();
 						outpatient_dao.retrive_outpatient(doctor_id);
 					for(int i=0;i<outpatient_dao.outpatient_id.size();i++){
+						long outpatient_date_id  =outpatient_dao.outpatient_date_id.get(i);
+						int used_amount_temp = outpatient_dao.get_used_amount_by_doctor_outpatient(outpatient_date_id,doctor_id );
+						
 				
 					
 					%>
 							<tr style="height: 40px; line-height: 40px;">
-								<td id="clinic_text"  style="font-size:13px;" align="left" ><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<!-- 星期X -->&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
+								<td id="clinic_text"  style="font-size:13px;" align="left" ><%=outpatient_dao.outpatient_date.get(i) %>&nbsp;<%=outpatient_dao.day.get(i) %>&nbsp;<%=outpatient_dao.time.get(i) %>&nbsp;<%=outpatient_dao.outpatient_type.get(i)%></td>
+								
+								<td id="clinic_text"  style="font-size:13px;" align="left" >预约剩余数：<%=outpatient_dao.amount.get(i)- used_amount_temp%></td>
+								
 								<td>
 									<% if (outpatient_dao.amount.get(i) <= 0){ %>
 									<div align="center" class="ASKSubmit_no"
@@ -346,7 +352,7 @@ $().ready(function() {
 									<%} else if(outpatient_dao.outpatient_date.get(i).compareTo(date) >= 0 ){ %>
 									<div align="center" class="ASKSubmit"
 										style="height: 30px; line-height: 30px;font-size:15px;width:60px;margin:0px"
-										onclick="window.location.href='reservation_clinic_patient_sickinfo.jsp?site_name=<%=site_name%>&department=<%=department %>&doctor_id=<%=doctor_id %>&outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>'">
+										onclick="window.location.href='reservation_clinic_patient_sickinfo.jsp?site_name=<%=site_name%>&department=<%=department %>&doctor_id=<%=doctor_id %>&outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>&date=<%=outpatient_dao.outpatient_date.get(i) %>&outpatient_date_id=<%=outpatient_dao.outpatient_date_id.get(i)%>'">
 										预约
 									</div>
 									<%}else{ %>

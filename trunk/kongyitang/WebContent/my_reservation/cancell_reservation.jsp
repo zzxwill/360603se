@@ -48,12 +48,19 @@
     
     request.setCharacterEncoding("utf-8");
 	 long clinic_reservation_normal_id = Long.parseLong(request.getParameter("clinic_reservation_normal_id"));
+	 String outpatient_doctor_id_str = request.getParameter("outpatient_doctor_id");
+	 String outpatient_date_id_str = request.getParameter("outpatient_date_id");
+	 int outpatient_doctor_id = Integer.parseInt(outpatient_doctor_id_str);
+	 int outpatient_date_id = Integer.parseInt(outpatient_date_id_str);
+	 
 	 String type= request.getParameter("type");
 	 
 	
 	 
 	 HashMap hm = new HashMap();
 	 hm.put("clinic_reservation_normal_id", clinic_reservation_normal_id);
+	 hm.put("outpatient_doctor_id", outpatient_doctor_id);
+	 hm.put("outpatient_date_id",outpatient_date_id);
 	 hm.put("type", type);
 	 
 	

@@ -84,7 +84,8 @@
 	 int doctorid = Integer.valueOf(request.getParameter("doctor_id")).intValue();
 	 int outpatientid = Integer.valueOf(request.getParameter("outpatient_id")).intValue();
 	 //int outpatientid = 100001;
-	 
+	 String date = request.getParameter("date");
+	 int outpatient_date_id =Integer.valueOf(request.getParameter("outpatient_date_id"));
 	 
 	 String purpose = request.getParameter("purpose");
 	 
@@ -95,12 +96,12 @@
 	 long mobile = Long.parseLong(request.getParameter("mobile"));
 	 String name = request.getParameter("name");
 	 
-	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid,USERID, outpatientid);
+	 dao.submit_reservation(illness_name, purpose, detail, mobile, name, site, department, doctorid,USERID, outpatientid,date, outpatient_date_id);
 	 
 	//发送成功预约的短信	
 		ReservationSMS reservationSMS = new ReservationSMS();
 		String msg = "孔医堂门诊-" + site + "：" + department + "，"+ name + "，" + mobile + "。请准时就诊，谢谢！";
-		reservationSMS.run(msg,String.valueOf(mobile).toString());	
+		//reservationSMS.run(msg,String.valueOf(mobile).toString());	
 		
 		String notification = "恭喜您 " + name + "，您已成功预约“门诊-" + site + "“！";
 		
