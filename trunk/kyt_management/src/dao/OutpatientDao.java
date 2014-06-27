@@ -354,19 +354,19 @@ public class OutpatientDao {
 	public int day_to_DAYNUMBER(String day){
 		int DAY = 0;
 		if(day.endsWith("一")){
-			DAY = 2;
-		}else if(day.endsWith("二")){
-			DAY = 3;
-		}else if(day.endsWith("三")){
-			DAY = 4;
-		}else if(day.endsWith("四")){
-			DAY = 5;
-		}else if(day.endsWith("五")){
-			DAY = 6;
-		}else if(day.endsWith("六")){
-			DAY = 7;
-		}else if(day.endsWith("日")){
 			DAY = 1;
+		}else if(day.endsWith("二")){
+			DAY = 2;
+		}else if(day.endsWith("三")){
+			DAY = 3;
+		}else if(day.endsWith("四")){
+			DAY = 4;
+		}else if(day.endsWith("五")){
+			DAY = 5;
+		}else if(day.endsWith("六")){
+			DAY = 6;
+		}else if(day.endsWith("日")){
+			DAY = 7;
 		}
 		
 		
