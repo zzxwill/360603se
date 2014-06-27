@@ -140,6 +140,8 @@ public class ReserveClinicDao {
 	//医生头像
 	public String  doctor_portrait[];
 	public int  doctor_available_amount[];
+	public String  visit_fee[];
+	public String  introduction[];
 	
 	private int NUM = 1000;
 	
@@ -192,7 +194,7 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 
 		//String sql = "SELECT u.id as doctor_id ,u.name, u.title, doctor_portrait FROM  04user_doctor u, 04site_doctor  s WHERE u.id = s.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
-		String sql = "SELECT distinct u.id as doctor_id ,u.name, u.title, doctor_portrait FROM  04user_doctor u ,`04outpatient_doctor` o ,04site_doctor  s WHERE u.id = s.doctor_id  and u.id = o.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
+		String sql = "SELECT distinct u.id as doctor_id ,u.name, u.title, doctor_portrait, visit_fee, introduction FROM  04user_doctor u ,`04outpatient_doctor` o ,04site_doctor  s WHERE u.id = s.doctor_id  and u.id = o.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
 		 
 		
 		//当前日期    Will Zhou   5/24/2014
@@ -223,6 +225,9 @@ public class ReserveClinicDao {
 			
 			doctor_available_amount = new int[NUM];
 			
+			 visit_fee = new String[NUM];
+				introduction =  new String[NUM];
+			
 			
 			while (rs.next()) {
 				//department[index] = rs.getString(1);
@@ -235,6 +240,10 @@ public class ReserveClinicDao {
 				//医生头像
 				//doctor_portrait[index] = rs.getString("doctor_portrait");
 				doctor_portrait[index] = rs.getString(4);
+				
+				
+				 visit_fee[index] = rs.getString(5);
+					introduction[index] =  rs.getString(6);
 				
 				//String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_info i, 04outpatient_doctor d WHERE i.id = d.outpatient_id and  date between curdate() and date_sub(curdate(),INTERVAL WEEKDAY(curdate())-6 DAY) and d.doctor_id = " ;
 				String sql_doctor_available_amount = "SELECt sum(total_amount - used_amount) FROM 04outpatient_doctor d WHERE d.doctor_id =" ;

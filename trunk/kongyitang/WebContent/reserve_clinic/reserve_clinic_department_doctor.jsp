@@ -272,7 +272,7 @@ $().ready(function() {
 								%>
 								<tr style="border-bottom: 1px dotted #d8a14f;">
 
-									<td id="<%=doctor_dao.doctor_id[j] %>" width="100%">
+									<td id="<%=doctor_dao.doctor_id[j] %>" width="50%">
 										<table width="100%" style="font-size: 13px;">
 
 											<tr>
@@ -291,14 +291,36 @@ $().ready(function() {
 											<tr>
 
 												<td><span><%=doctor_dao.title[j] %></span></td>
-												<td width="50%" align="center">剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
+												<td width="10%" align="center">剩余:<%=doctor_dao.doctor_available_amount[i] %></td>
+											
+												
 
 											</tr>
 
 										</table>
 									</td>
+									
+									
+									<td id="<%=doctor_dao.doctor_id[j] %>" width="50%">
+										<table width="100%" style="font-size: 13px;">
+
+											
+											<tr>
+
+										
+												<td width="20%" align="center">挂号费:<%=doctor_dao.visit_fee[i] %></td>
+												<td width="80%" align="center">简介:<%=doctor_dao.introduction[i] %></td>
+												
+
+											</tr>
+
+										</table>
+									</td>
+									
+									
+									
 									<td width="60px">
-										<div align="center" class="ASKSubmit"
+										<div align="right" class="ASKSubmit"
 											style="height: 30px; line-height: 30px; width: 60px; margin: 0px"
 											class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
 											onclick="window.location.href='reserve_clinic_specific_doctor.jsp?site_name=<%=site_name%>&department=<%=deparment %>&doctor_id=<%=doctor_dao.doctor_id[j] %>'">
