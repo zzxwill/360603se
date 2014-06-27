@@ -457,7 +457,7 @@ public class ReserveClinicDao {
 	public void retrive_department() throws SQLException {		
 		
 		conn = Connections.getConnection();
-		String sql = "SELECT id, name FROM `04department` where valid = '1'";
+		String sql = "SELECT id, name FROM `04department` where valid = '1' and type = 0";
 		//department_id = new ArrayList();
 		try {
 			stmt = conn.createStatement();

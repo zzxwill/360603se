@@ -314,7 +314,7 @@ $(document).ready(function(){
 								<td colspan="2"><SELECT name="type">
 									<!-- 	<OPTION selected value="0">选择类型</OPTION> -->
 										<OPTION value="门诊">门诊</OPTION>
-										<OPTION value="健康服务">健康服务</OPTION>
+										<!-- <OPTION value="健康服务">健康服务</OPTION> -->
 										</SELECT></td>
 
 							</tr>
