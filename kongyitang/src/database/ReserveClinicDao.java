@@ -242,6 +242,9 @@ public class ReserveClinicDao {
 				//医生头像
 				//doctor_portrait[index] = rs.getString("doctor_portrait");
 				doctor_portrait[index] = rs.getString(4);
+				if(doctor_portrait[index]==null){
+					doctor_portrait[index] = "";
+				}
 				
 				
 				 visit_fee[index] = rs.getString(5);
