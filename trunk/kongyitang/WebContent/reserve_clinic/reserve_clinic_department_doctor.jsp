@@ -276,8 +276,22 @@ $().ready(function() {
 										<table width="100%" style="font-size: 13px;">
 
 											<tr>
-												<td style="padding: 5px; width: 50px" rowspan="2"><img
+												<%-- <td style="padding: 5px; width: 50px" rowspan="2"><img
 													src="../resources/images/upload/doctor_male.jpg" width="40"
+													height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td> --%>
+													<td style="padding: 5px; width: 50px" rowspan="2">
+													
+													<%-- <%=D_IMAGES %><%=doctor_dao.doctor_portrait[j] %> --%>
+													<% String url = doctor_dao.doctor_portrait[j];
+														if(url==null || url == ""){
+															url = "../resources/images/upload/doctor_male.jpg" ;
+														}else{
+															url = D_IMAGES + url;
+														}
+													%>
+													
+													<img
+													src="<%=url %>" width="40"
 													height="60" alt="<%=doctor_dao.doctor_id[j] %>" /></td>
 												<td valign="bottom"><span
 													style="text-align: left; font-size: 15px; font-weight: 700"><%=doctor_dao.name[j] %></span><img
