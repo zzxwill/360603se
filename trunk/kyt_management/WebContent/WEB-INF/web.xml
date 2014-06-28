@@ -25,6 +25,10 @@
     <servlet-name>retrieve_doctor</servlet-name>
     <url-pattern>/admin/retrieve_doctor</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>retrieve_doctor</servlet-name>
+    <url-pattern>/changguan/retrieve_doctor</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>

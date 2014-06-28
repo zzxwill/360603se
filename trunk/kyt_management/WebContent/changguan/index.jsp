@@ -11,11 +11,13 @@
 						onclick="show_changguan_hidden('yuyue','doctor','changguan','patient','question','user','paiqi');">
 						预约列表</div></td>
 					</tr>
+					<!--
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_changguan_hidden('paiqi','yuyue','doctor','changguan','patient','question','user');">
 						医生排期</div></td>
 					</tr>
+					-->
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_changguan_hidden('question','doctor','changguan','patient','yuyue','user','paiqi');">
@@ -101,7 +103,8 @@
 				   });
 				</script>
 				
-					<%@ include file="../changguan/manage_reservation_record.jsp"%>
+					<%//@ include file="../changguan/manage_reservation_record.jsp"%>
+					<%@ include file="../changguan/list_reservation.jsp_new.jsp"%>
 				</div>	
 				
 				<%//场馆管理 %>
