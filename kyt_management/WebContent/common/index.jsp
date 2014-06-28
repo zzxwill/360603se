@@ -11,11 +11,13 @@
 						onclick="show_common_hidden('yuyue','doctor','patient','question','user','paiqi');">
 						预约列表</div></td>
 					</tr>
+					<!--
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_common_hidden('paiqi','yuyue','doctor','patient','question','user');">
 						医生排期</div></td>
 					</tr>
+					 -->
 					<tr>
 						<td><div class=" btn btn-primary btn-block" 
 						onclick="show_common_hidden('question','doctor','patient','yuyue','user','paiqi');">
@@ -91,7 +93,8 @@
 						}
 				   });
 				</script>
-					<%@ include file="../common/manage_reservation_record.jsp"%>
+					<%//@ include file="../common/manage_reservation_record.jsp"%>
+					<%@ include file="../common/list_reservation.jsp_new.jsp"%>
 				</div>	
 				<script type="text/javascript">
 					$("#yuyue").css("height",(document.body.clientHeight-65) +"px");
@@ -100,13 +103,13 @@
 				<%//医生列表 %>
 				<div id="doctor" style="display: none;" >
 					<%// %>
-					<%@ include file="../common/list_doctor.jsp"%>
+					<%//@ include file="../common/list_doctor.jsp"%>
 				</div>
 				
 				<%//患者管理 %>
 				<div id="patient" style="display: none;"  >
 				<%// %>
-					<%@ include file="../common/list_patient.jsp"%>
+					<%//@ include file="../common/list_patient.jsp"%>
 				</div>
 				<script type="text/javascript">
 					$("#patient").css("height",(document.body.clientHeight-65) +"px");

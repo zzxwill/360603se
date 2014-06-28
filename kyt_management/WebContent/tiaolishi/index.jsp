@@ -84,19 +84,20 @@
 				   });
 				</script>
 					
-					<%@ include file="../tiaolishi/manage_reservation_record.jsp"%>
+					<%//@ include file="../tiaolishi/manage_reservation_record.jsp"%>
+					<%@ include file="../tiaolishi/list_reservation.jsp_new.jsp"%>
 				</div>	
 				
 				<%//医生列表 %>
 				<div id="doctor" style="display: none;"  >
 					<%// %>
-					<%@ include file="../tiaolishi/list_doctor.jsp"%>
+					<%//@ include file="../tiaolishi/list_doctor.jsp"%>
 				</div>
 				
 				<%//患者管理 %>
 				<div id="patient" style="display: none;"  >
 				<%// %>
-					<%@ include file="../tiaolishi/list_patient.jsp"%>
+					<%//@ include file="../tiaolishi/list_patient.jsp"%>
 				</div>
 				
 				<%//问题列表 %>

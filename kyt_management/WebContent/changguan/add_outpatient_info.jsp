@@ -37,12 +37,12 @@
 $(document).ready(function(){
 	$("#shopForm").validate({
 		rules: {
-			
+			/*
 			site: {
 				required: true,
 				number: true  
 			
-			},
+			},*/
 			type: {
 				required: true
 			},
@@ -59,12 +59,12 @@ $(document).ready(function(){
 			}
 		},
 		messages: {
-			
+			/*
 			site: {
 			
 				required: "必选！",
 				number:"必选！"
-			},
+			},*/
 			type: {
 			
 				required: "必选！"
@@ -84,11 +84,13 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
-	
+	var fatherWindow = window.dialogArguments;
+	var user_role = fatherWindow.document.getElementById("user_role").value;
+	//alert("user_role01 : " + user_role);
 	/*Retrieve the frequently used partitions when clikcing the textarea  zzhengxi   4/20/2014*/
 	$("#department").change(function(){
-		var site = $("#site").val();
+		//var site = $("#site").val();
+		var site = user_role;
 		var department = $("#department").val();
 		
 		if(site == "0" || department =="0" ){
@@ -169,7 +171,9 @@ $(document).ready(function(){
 	});
 		
 		$("#site").change(function(){
-			var site = $("#site").val();
+			//var site = $("#site").val();
+			var site = user_role;
+			
 			var department = $("#department").val();
 			
 			if(site == "0" || department =="0" ){
@@ -266,7 +270,7 @@ $(document).ready(function(){
 
 		<form class="form-horizontal"
 			id="shopForm" method="post"
-			action="../admin/submit_outpatient_info.jsp">
+			action="../changguan/submit_outpatient_info.jsp">
 			
 			<input id="day_list" name="day_list" type="hidden">
 			<input id="ampm_list" name="ampm_list" type="hidden">
@@ -291,8 +295,9 @@ $(document).ready(function(){
 							cellspacing="0">
 
 							<tr>
-								<td align="left"><strong>场馆</strong></td>
-								<td colspan="2"><select id="site" name="site">
+<!--								<td align="left"><strong>场馆</strong></td>-->
+								<td colspan="2">
+								<select id="site" name="site" style="display:none">
 								<OPTION selected="" value="0">选择场馆</OPTION>
 										<%
 		request.setCharacterEncoding("utf-8");
@@ -349,7 +354,7 @@ $(document).ready(function(){
 								<td align="left"><strong>医生</strong></td>
 								<td colspan="2"><SELECT name="doctor_name" id="doctor_name">
 									
-										</SELECT><label for="doctor_name" class="error"></label></td>
+										</SELECT><label for="doctor_name"  id="doctor_name" class="error"></label></td>
 
 							</tr>
 							

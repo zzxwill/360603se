@@ -73,13 +73,15 @@
 	    var result= window.showModalDialog(url,null,sFeatures);
 	    return result;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	//带有场馆id
+	function ShowModalWithRoleResult(url,height,width){
+	    var sFeatures = "dialogHeight:"+height+";dialogWidth:"+width+";";
+	    sFeatures = sFeatures + "center:yes;edge:raised;help:no;scroll:yes;status:no;unadorned:yes;resizable:no";
+	    var result= window.showModalDialog(url,window,sFeatures);
+	    return result;
+	}
+
 	</script>
 	
 	
