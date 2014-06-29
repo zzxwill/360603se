@@ -39,23 +39,13 @@
 			</script>
 			
 <%		
-	}else{
-		
-			 
+	}else{			 
 				long doctor_id = Long.parseLong(doctor_id_str);
-				String site = request.getParameter("site");
-				long site_id = 0;
-				if(site!=null){
-					site_id = Long.parseLong(site);
-				}
-				
-				
-				
-				
+				String site_list = request.getParameter("site");
 				
 				HashMap hm = new HashMap();
 				hm.put("doctor_id", doctor_id);
-				hm.put("site_id", site_id);
+				hm.put("site_list", site_list);
 				
 				UserDao user_dao = new UserDao();
 				

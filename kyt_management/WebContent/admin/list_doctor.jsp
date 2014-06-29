@@ -6,6 +6,41 @@
 <%@ include file="../check/index.jsp"%>
 <%//@ include file="../check/checkAdmin.jsp"%>
 
+<script type="text/javascript">
+/*
+$().ready(function() {
+	
+	 
+   $("#assign_site_link").click(function() {
+		    if (fetch_site()) {
+		        $("#verifyForm").submit();
+		    }
+		}); 
+	 
+	
+	});
+	 */
+	
+
+	function fetch_site(){
+		var site="";   
+		$("input[name='site_checkbox']:checked").each(function(){   
+			site+=$(this).val()+";";   
+		//alert($(this).val());   
+		});
+		//alert(site);   
+		$("#site").val(site);
+		if(site == ""){
+			alert("请选择场馆！");
+			return false;
+		}
+		return true;
+	}
+<!--
+
+//-->
+</script>
+
 <table width="100%" align="center">
 	<tr>
 		<td align="center" >选择场馆：
@@ -304,7 +339,8 @@
 				
 					<form class="form-horizontal"
 				id="shopForm<%=doctor_dao.doctor_id.get(i)%>" method="post"
-				action="../admin/assign_site_for_doctor.jsp?type=edit&doctor_id=<%=doctor_dao.doctor_id.get(i)%>">
+				action="../admin/assign_site_for_doctor.jsp?type=edit&doctor_id=<%=doctor_dao.doctor_id.get(i)%>" onsubmit="return fetch_site();">
+				<input type="hidden" id= "site" name="site">
 				<div class="view">
 					<!-- Button to trigger modal -->
 					<div align="right">
@@ -345,8 +381,8 @@
 
 								<tr>
 								<td align="left"><strong>场馆</strong></td>
-								<td colspan="2"><select id="site" name="site">
-								<OPTION selected="" value="0">选择场馆</OPTION>
+								<td colspan="2"><%--<select id="site" name="site">
+ 								<OPTION selected="" value="0">选择场馆</OPTION>
 										<%
 		request.setCharacterEncoding("utf-8");
 		ReserveClinicDao site_dao = new ReserveClinicDao();
@@ -359,7 +395,22 @@
 	
 									
 										<%} %>
-								</select></td>
+								</select> --%>
+				
+		<%
+		request.setCharacterEncoding("utf-8");
+		ReserveClinicDao site_dao = new ReserveClinicDao();
+
+		site_dao.retrive_sites();
+
+		for (int j = 0; j < site_dao.site_id.size(); j++) {
+	%>
+	<input type="checkbox"  name="site_checkbox" value="<%=site_dao.site_id.get(j) %>"><%=site_dao.site_name.get(j) %>
+	
+									
+										<%} %>
+								
+								</td>
 							</tr>
 							
 
@@ -378,9 +429,12 @@
 										<button class="btn" data-dismiss="modal" aria-hidden="true"
 											contenteditable="true">取消</button>
 									</td>
-									<td width="17%" align="center" valign="bottom"><input
-										class="btn btn-primary" type="submit" value="分配" /></td>
-								</tr>
+									<td width="17%" align="center" valign="bottom">
+									<!-- 	<div align="center" id="ASKSubmit">
+								<a id="assign_site_link" style="color: black;"  ><big>分配</big></a>
+							</div> -->
+									<input
+										class="btn btn-primary" type="submit" value="分配" /></td>								</tr>
 							</table>
 
 						</div>
