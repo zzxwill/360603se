@@ -96,7 +96,7 @@ public class UserDao {
 		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait`  FROM `04user_doctor` d  ";
-		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait` , sd.site_name FROM `04user_doctor` d left join (select s.id, s.name as site_name,doctor_id from 04site_doctor left join 04site s on site_id = s.id ) sd on d.id = sd.doctor_id";
+		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait` , sd.site_name FROM `04user_doctor` d left join (select s.id, s.name as site_name,doctor_id from 04site_doctor left join 04site s on site_id = s.id ) sd on d.id = sd.doctor_id limit 2";
 		
 		if(site_id > GROUP_INTERVAL){
 			site_id = site_id - GROUP_INTERVAL;
@@ -191,54 +191,48 @@ public class UserDao {
 		 * @author:   Will Zhou
 		 * @date:     Jun 16, 2014 11:59:58 AM 
 		 */
-		public void assign_site_for_doctor(HashMap hm) throws SQLException {
-			long dcotor_id = (Long) hm.get("doctor_id");
-			long site_id = (Long) hm.get("site_id");
+	public void assign_site_for_doctor(HashMap hm) throws SQLException {
+		long dcotor_id = (Long) hm.get("doctor_id");
+		String site_list = (String) hm.get("site_list");
+		String site_id_list[] = site_list.split(";");
 		
-			long site_doctor_id =0;
-			conn = Connections.getConnection();
+		String sql = "delete FROM `04site_doctor` WHERE doctor_id ="
+				+ dcotor_id;
+		// sql = "SELECT id FROM `04outpatient_info` WHERE day ='" +
+		// day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+
+		// time_list[i] + "'";
+		conn = Connections.getConnection();
+		stmt = conn.createStatement();
+		stmt.execute(sql);
+		
+
+		for (int i = 0; (i < site_id_list.length)&&(site_id_list[i]!=null); i++) {
+
+			//long site_doctor_id = 0;
 			
-			String sql = "SELECT id FROM `04site_doctor` WHERE doctor_id =" + dcotor_id;
-			//sql = "SELECT id FROM `04outpatient_info` WHERE day ='" + day_list[i] + "' and ampm = '" + ampm_list[i] + "' and time ='"+ time_list[i] + "'";
-			try {
-				stmt = conn.createStatement();
-				rs = stmt.executeQuery(sql);
-				
-				
-				if(!rs.next()){
-					sql = "INSERT INTO `04site_doctor`(`site_id`, `doctor_id`) VALUES ("+ site_id + "," + dcotor_id + ")";
-					stmt.execute(sql);
-					
-					return;
-					
-					/*sql = "select max(id) as id  from 04outpatient_info";
-					stmt = conn.createStatement();
-					rs2 = stmt.executeQuery(sql);
-					if(rs2.next()){
-						site_doctor_id = rs2.getLong("id");
-					}					*/
-				}else{
-					//某天 某个上下午 某个时间段 存在，则应该去修改操作
-					site_doctor_id = rs.getLong("id");
-				}
+		
+				sql = "INSERT INTO `04site_doctor`(`site_id`, `doctor_id`) VALUES ("
+						+ site_id_list[i] + "," + dcotor_id + ")";
+				stmt.execute(sql);
+
 			
+				/*
+				 * sql = "select max(id) as id  from 04outpatient_info"; stmt =
+				 * conn.createStatement(); rs2 = stmt.executeQuery(sql);
+				 * if(rs2.next()){ site_doctor_id = rs2.getLong("id"); }
+				 */
 			
-			
-			sql = "update `04site_doctor` set site_id="+ site_id + " where id=" + site_doctor_id ;
+/*
+			sql = "update `04site_doctor` set site_id=" + site_id
+					+ " where id=" + site_doctor_id;
 			stmt = conn.createStatement();
-			stmt.execute(sql);
-			
-			
-		
-				
-				
-				stmt.close();
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			stmt.execute(sql);*/
 		}
+
+		stmt.close();
+		conn.close();
+
+	}
 		
 	
 	
