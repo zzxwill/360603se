@@ -2,8 +2,6 @@
 
 <%@page import="dao.*" %>
 
-<%@ include file="../check/index.jsp"%>
-<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <form class="form-horizontal" id="userForm" method="post" action="../changguan/editUserInfo.jsp?type=new">
 

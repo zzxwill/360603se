@@ -1,15 +1,12 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 <%@page import="dao.*" %>
 
-<%@ include file="../check/index.jsp"%> 
-<%//@ include file="../check/checkAdmin.jsp"%>  
-
 <table width="95%">
 	<tr>
 		<td>
 
 <!--  	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" target="hidden_question_frame">-->
-	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp?module=question" > 
+	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../changguan/index.jsp?module=question" > 
 	      <fieldset data-role="fieldcontain">
 	      
 <!--	 <form method="post" name="ASKModifyForm" id="ASKModifyForm" action="index.jsp">-->

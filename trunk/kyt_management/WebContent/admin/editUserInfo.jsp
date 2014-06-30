@@ -3,8 +3,7 @@
 <%@page import="dao.*" %>
  
  <%@ include file="../include/package.jsp"%>  
- <%@ include file="../check/index.jsp"%> 
- <%//@ include file="../check/checkAdmin.jsp"%>  
+<%@ include file="../check/checkAdmin.jsp"%> 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -25,7 +24,7 @@
  <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../sys?module=adminUser">
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys/index.jsp?module=adminUser";
+	String url = "../admin/index.jsp?module=adminUser";
 	String info = null;
 	String type = request.getParameter("type");
 	String userID_tostring = request.getParameter("userId");

@@ -12,7 +12,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
-    <url-pattern>/sys/loginServlet</url-pattern>
+<!--    <url-pattern>/sys/loginServlet</url-pattern>-->
+    <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -28,6 +29,10 @@
   <servlet-mapping>
     <servlet-name>retrieve_doctor</servlet-name>
     <url-pattern>/changguan/retrieve_doctor</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>retrieve_doctor</servlet-name>
+    <url-pattern>/common/retrieve_doctor</url-pattern>
   </servlet-mapping>
   
   

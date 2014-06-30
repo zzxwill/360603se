@@ -85,8 +85,18 @@ public class loginServlet extends HttpServlet {
 	}
 	
 	 public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException{
-	        UserDao userDao = new UserDao();
-		 	String url = "/sys/";
+	        
+		 	UserDao userDao = new UserDao();
+		 	
+		 	int GROUP_INTERVAL = 100;
+		 	
+	        String url = "/sys/";
+		 	String url_tialishi = "tiaolishi/";
+		 	String url_common = "common/";
+		 	String url_changguan = "changguan/";
+			String url_admin = "admin/";
+		 	
+		 	
 		 	Validate check = new Validate();
 	        if(check.validate_user(request.getParameter("loginUserName"), request.getParameter("loginUserPW"))){
 	        	String loginedUserName = request.getParameter("loginUserName");
@@ -101,32 +111,28 @@ public class loginServlet extends HttpServlet {
 	        	
 	        	int role = userDao.check_user_role(loginedUserName);
 	        	String role_string = role + "";
-	        	session.setAttribute("role", role_string);
+	        	session.setAttribute("role", role_string);        	
 	        	
-	        	/*
-	        	if(userDao.IsUserAdmin(loginedUserName)==1){
-	        		session.setAttribute("adminCheck", "true");
-	        		//System.out.println("adminCheck:" + "admin" + "\n");
-	        	}else{
-	        		session.setAttribute("adminCheck", "false");
+	        	session.setMaxInactiveInterval(60*30);//
+
+	        	if(role==1){//管理员
+	        		response.sendRedirect(url_admin);
 	        	}
-	        	
-	        	//望京馆工作人员  Will 6/9/2014
-	        	if(userDao.IsUserAdmin(loginedUserName)==2){
-	        		session.setAttribute("adminCheck", "staff_wjg");
-	        		//System.out.println("adminCheck:" + "admin" + "\n");
+	        	else if((GROUP_INTERVAL<=role)&&(role<2*GROUP_INTERVAL)){//各馆馆主
+	        		response.sendRedirect(url_changguan);
 	        	}
-	        	*/
-	        	
-	        	
-	        	session.setMaxInactiveInterval(60*20);//
-	    		
-	        	request.getRequestDispatcher(url).forward(request, response);
+	        	else if((2*GROUP_INTERVAL<=role)&&(role<3*GROUP_INTERVAL)){ //各馆客服
+	        		response.sendRedirect(url_common);
+	        	}
+	        	else if(role>=3*GROUP_INTERVAL){ //各馆调理师
+	        		//request.getRequestDispatcher(url_tialishi).forward(request, response);
+	        		response.sendRedirect(url_tialishi);
+	        	}
 	        }else {
 	        	String message = check.message;
 	        	request.setAttribute("message", message);
 	        	response.setContentType("text/html; charset=utf-8");
-	        	response.sendRedirect("../sys");
+	        	response.sendRedirect("");
 	            //request.getRequestDispatcher("/").forward(request, response);
 	        }
 	   }

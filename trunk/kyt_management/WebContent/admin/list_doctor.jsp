@@ -3,8 +3,7 @@
 
 <%@page import="database.*"%>
 <%@page import="dao.*"%>
-<%@ include file="../check/index.jsp"%>
-<%//@ include file="../check/checkAdmin.jsp"%>
+
 
 <script type="text/javascript">
 /*

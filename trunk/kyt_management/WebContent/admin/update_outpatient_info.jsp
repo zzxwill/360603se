@@ -10,7 +10,7 @@
 
 <%@ include file="../include/meta.jsp"%>
 <%@ include file="../include/cssJS.jsp"%>
-   <%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkAdmin.jsp"%>
 <style type="text/css">
 </style>
 
@@ -55,7 +55,7 @@ function return_to_wechat_main(){
 			</div>
 			</center>
 			<script language='javascript' type='text/javascript'>
-				setTimeout(" window.location = '../sys/loginServlet' ",2000);
+				setTimeout(" window.location = '../admin/index.jsp' ",2000);
 			</script>	 
 		 	 
 	<%	 
@@ -123,7 +123,7 @@ function return_to_wechat_main(){
 				
 			<% 
 	
-				String url= "../sys/loginServlet" ;
+				String url= "../admin/index.jsp" ;
 				
 			%>
 

@@ -10,7 +10,7 @@
 
 <%@ include file="../include/meta.jsp"%>
 <%@ include file="../include/cssJS.jsp"%>
-   <%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkChangGuan.jsp"%>
 <style type="text/css">
 </style>
 
@@ -80,7 +80,7 @@
 				<br>
 		
 				
-			<% String url= "../sys/loginServlet" ; %>	
+			<% String url= "../changguan/index.jsp" ; %>	
 			<br><br>
 			<center>
 		 	<div style="color:red"><big>

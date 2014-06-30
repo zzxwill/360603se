@@ -9,7 +9,7 @@
 		<td>
 
 <!--  	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" target="hidden_question_frame">-->
-	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp?module=question" > 
+	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../tialishi/index.jsp?module=question" > 
 	      <fieldset data-role="fieldcontain">
 		
 	  	<%

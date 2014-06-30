@@ -21,7 +21,7 @@
  
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys/index.jsp?module=patient";
+	String url = "../common/index.jsp?module=patient";
 	String info = null;
 	String type = request.getParameter("type");
 	String patientID_str = request.getParameter("patientID");

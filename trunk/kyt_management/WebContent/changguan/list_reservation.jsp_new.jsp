@@ -130,7 +130,7 @@
 
 					<tr>
 						<td colspan="7"><%@ include
-								file="../common/manage_reservation_record.jsp"%>
+								file="../changguan/manage_reservation_record.jsp"%>
 
 						</td>
 

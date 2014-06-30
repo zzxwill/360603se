@@ -3,7 +3,7 @@
 
 <%@page import="database.*"%>
 <%@page import="dao.*"%>
-<%@ include file="../check/index.jsp"%>
+<%@ include file="../check/checkTiaoLiShi.jsp"%>
 <%//@ include file="../check/checkAdmin.jsp"%>
 
 <table width="100%" align="center" border="1" cellpadding="0"

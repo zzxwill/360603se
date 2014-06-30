@@ -1,8 +1,6 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%@page import="dao.*" %>
-<%@ include file="../check/index.jsp"%> 
-<%//@ include file="../check/checkAdmin.jsp"%>  
 
 <script type="text/javascript">
 	//取消预约时的确认  Will 6/16/2014
