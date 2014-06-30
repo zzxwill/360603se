@@ -16,7 +16,7 @@
 
 </head>
 
-<%@ include file="/check/index.jsp"%> 
+<%@ include file="/check/checkCommon.jsp"%> 
 <%//@ include file="/check/checkAdmin.jsp"%>  
   
  <body>
@@ -24,7 +24,7 @@
 	<%
 	
 	request.setCharacterEncoding("UTF-8");
- 	String url = "../sys/index.jsp?module=question";
+ 	String url = "../common/index.jsp?module=question";
 
 	String qID = request.getParameter("qID");
 

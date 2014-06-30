@@ -3,7 +3,7 @@
 <%@page import="database.*" %>
 <%@page import="dao.*" %>
 
-<%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkCommon.jsp"%> 
 <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <table width="100%" align="center" border="1" cellpadding="0" cellspacing="0" rules=rows>
@@ -35,7 +35,7 @@
 		</td>
 		<td align="center" valign="middle" >
 				
-			<form class="form-horizontal" id="PatientForm<%=i %>" method="post" action="../changguan/list_patient_modify.jsp?type=edit&patientID=<%=i %>">	
+			<form class="form-horizontal" id="PatientForm<%=i %>" method="post" action="../common/list_patient_modify.jsp?type=edit&patientID=<%=i %>">	
 				<div class="view"> 
 			       <!-- Button to trigger modal --> 
 			       <div align="right">

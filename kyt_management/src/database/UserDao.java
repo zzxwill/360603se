@@ -96,7 +96,7 @@ public class UserDao {
 		conn = Connections.getConnection();
 		
 		//String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait`  FROM `04user_doctor` d  ";
-		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait` , sd.site_name FROM `04user_doctor` d left join (select s.id, s.name as site_name,doctor_id from 04site_doctor left join 04site s on site_id = s.id ) sd on d.id = sd.doctor_id limit 2";
+		String sql = "SELECT d.id, `name`, (case when `gender`=0  then '男' else '女' end) as gender, `age`,  `mobile`, `master`, `doctor_criteria`, `department`, `title`,  (case when validate_flag=0  then '否' else '是' end) as validate_flag , `doctor_criteria_photo`, `doctor_portrait` , sd.site_name FROM `04user_doctor` d left join (select s.id, s.name as site_name,doctor_id from 04site_doctor left join 04site s on site_id = s.id ) sd on d.id = sd.doctor_id";
 		
 		if(site_id > GROUP_INTERVAL){
 			site_id = site_id - GROUP_INTERVAL;

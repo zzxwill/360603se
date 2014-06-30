@@ -2,7 +2,7 @@
  
  <%@ include file="../include/package.jsp"%> 
  <%//@ page import="database.*" %>  
- <%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkChangGuan.jsp"%>
  <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -21,7 +21,7 @@
  
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys/index.jsp?module=patient";
+	String url = "../changguan/index.jsp?module=patient";
 	String info = null;
 	String type = request.getParameter("type");
 	String patientID_str = request.getParameter("patientID");

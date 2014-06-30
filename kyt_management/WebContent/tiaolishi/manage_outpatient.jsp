@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%@page import="dao.*" %>
-<%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkTiaoLiShi.jsp"%> 
 <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <script type="text/javascript">
@@ -51,9 +51,9 @@
 									<!-- <div align="center" class="ASKSubmit_no"
 										style="height: 30px; line-height: 30px; font-size:15px;width:60px;margin:0px" onclick="" >已停诊
 									</div> -->
-									<p id="submit_adjust_link"   style='color: green;'>正&nbsp;常</p>
+									<p id="submit_adjust_link"   style='color: red;'>停&nbsp;诊</p>
 									<%} else { %>
-									<p id="submit_adjust_link"  style='color: red;'>停&nbsp;诊</p>
+									<p id="submit_adjust_link"  style='color: green;'>正&nbsp;常</p>
 									<%}%>
 									
 								</td>

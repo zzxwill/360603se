@@ -3,13 +3,25 @@
 
 <%
 request.setCharacterEncoding("utf-8");
-adminCheck = (String)session.getAttribute("adminCheck");
-if(null==adminCheck||adminCheck.equals("")||adminCheck.endsWith("false")){
+loginedUserName = (String)session.getAttribute("loginedUserName");
+loginRole = (String)session.getAttribute("role");
+//String weixinID = request.getParameter("sid");
+if(null==loginedUserName||loginedUserName.equals("")||null==loginRole||loginRole.equals("")){
 %>
-<script language='javascript' type='text/javascript'>
-	window.location = "../sys";
-</script>
-
+	<script language='javascript' type='text/javascript'>
+		location.href = '../index.jsp';
+	</script>
 <%	
+}else {
+	//int CheckRole = 0;
+	CheckRole  = Integer.parseInt(loginRole);	//role=场馆id
+	
+	if(CheckRole!=1){
+		%>
+		<script language='javascript' type='text/javascript'>
+			location.href = '../index.jsp';
+		</script>
+	<%
+	}
 }
 %> 

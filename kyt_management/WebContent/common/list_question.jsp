@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 <%@page import="dao.*" %>
 
-<%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkCommon.jsp"%> 
 <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <table width="95%">
@@ -9,7 +9,7 @@
 		<td>
 
 <!--  	<form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp" target="hidden_question_frame">-->
-	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../sys/index.jsp?module=question" > 
+	  <form method="post" name="ASKSelectForm" id="ASKSelectForm" action="../common/index.jsp?module=question" > 
 	      <fieldset data-role="fieldcontain">
 	      
 <!--	 <form method="post" name="ASKModifyForm" id="ASKModifyForm" action="index.jsp">-->
@@ -122,7 +122,7 @@
 		  			int answerFlag =  askPatient_doctor.answered_flags_Condition[i];
 		  			//System.out.println("qID:" + qID + "\n");
 		  		%>
-				  	<form class="form-horizontal" method="post" name="ASKForm<%=qID %>" id="ASKForm<%=qID %>" action="../changguan/list_question_answer.jsp?qID=<%=qID %>" >
+				  	<form class="form-horizontal" method="post" name="ASKForm<%=qID %>" id="ASKForm<%=qID %>" action="../common/list_question_answer.jsp?qID=<%=qID %>" >
 					      <fieldset data-role="fieldcontain">
 				
 					 <link rel="stylesheet" href="../css/my.css" />

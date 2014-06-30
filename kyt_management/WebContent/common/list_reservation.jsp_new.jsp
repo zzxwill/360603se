@@ -68,7 +68,7 @@
 						
 						<td >
 							<INPUT id="u94" type="submit" class="u94" value="添加排期"
-							onclick="ShowModalWithRoleResult('../changguan/add_outpatient_info.jsp','600px','800px');;return false"" >
+							onclick="ShowModalWithRoleResult('../common/add_outpatient_info.jsp','600px','800px');;return false"" >
 						</td>
 					</tr>
 

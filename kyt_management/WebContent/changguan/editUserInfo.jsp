@@ -3,7 +3,7 @@
 <%@page import="dao.*" %>
  
  <%@ include file="../include/package.jsp"%>  
- <%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkChangGuan.jsp"%>
  <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,10 +22,10 @@
 </script> 
 
   <body>
- <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../sys?module=adminUser">
+ <form class="form-horizontal" id="editUserForm" name="editUserForm" method="post" action="../changguan?module=adminUser">
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys/index.jsp?module=user";
+	String url = "../changguan/index.jsp?module=user";
 	String info = null;
 	String type = request.getParameter("type");
 	String changguan_id_string = request.getParameter("changguan_id");

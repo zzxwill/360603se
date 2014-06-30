@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*,java.net.URL,java.sql.*" pageEncoding="UTF-8"%>
 
 <%@page import="dao.*" %>
-<%@ include file="../check/index.jsp"%> 
+<%@ include file="../check/checkCommon.jsp"%> 
 <%//@ include file="../check/checkAdmin.jsp"%>  
 
 <script type="text/javascript">
@@ -48,17 +48,6 @@
 								<a id="submit_adjust_link"  onclick="return show_confirm('确认取消预约？');" href="../common/set_reservation_status.jsp?type=cancel&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>取消</big></a>
 								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为爽约？');" href="../common/set_reservation_status.jsp?type=unvisited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>爽约</big></a>
 								<a id="submit_adjust_link"  onclick="return show_confirm('确认设置为履约？');" href="../common/set_reservation_status.jsp?type=visited&clinic_reservation_id=<%=reservation_dao.clinic_reservation_id.get(i) %>" ><big>履约</big></a>
-								<%-- 	<% if(reservation_dao.status.get(i) == 0){ %>
-								
-									<a id="submit_adjust_link"  onclick="return show_confirm('确认恢复停诊？');" href="../admin/cancell_outpatient_info.jsp?type=enable&outpatient_doctor_id=<%=reservation_dao.outpatient_doctor_id.get(i) %>" ><big>取消</big></a>
-									<%} else { %>
-									<a id="submit_adjust_link"  onclick="return show_confirm('确认恢复停诊？');" href="../admin/cancell_outpatient_info.jsp?type=disable&outpatient_doctor_id=<%=reservation_dao.outpatient_doctor_id.get(i) %>" ><big>爽约</big></a>
-									
-									
-									<a
-										onclick="ShowModalWithResult('../admin/edit_outpatient_info.jsp?outpatient_id=<%=reservation_dao.outpatient_id.get(i) %>','600px','800px');return false">编辑
-									</a>
-									<%}%> --%>
 									
 								</td>
 

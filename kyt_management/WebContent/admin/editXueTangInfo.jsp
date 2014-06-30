@@ -5,8 +5,7 @@
  
  <%@ include file="../include/package.jsp"%> 
  <%//@ page import="database.*" %>  
- <%@ include file="../check/index.jsp"%> 
- <%//@ include file="../check/checkAdmin.jsp"%>  
+<%@ include file="../check/checkAdmin.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -24,7 +23,7 @@
  
 <%
 	request.setCharacterEncoding("UTF-8");
-	String url = "../sys/index.jsp?module=xuetang";
+	String url = "../admin/index.jsp?module=xuetang";
 	String info = null;
 	String type = request.getParameter("type");
 	String XueTangID_tostring = request.getParameter("XueTangId");
