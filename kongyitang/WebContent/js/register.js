@@ -2,12 +2,12 @@
 	var radio=0;
 	
 	function test(){
-		alert("setup:\rtest");
+		//alert("setup:\rtest");
 	}
 	
     function checkRegister()
     {
-    	 alert("setup:\r");
+    	// alert("setup:\r");
 	   var registerName = document.getElementById("registerName").value;
 	   var registerGender = document.getElementById("registerGender").value;
 	   var registerAge = document.getElementById("registerAge").value;

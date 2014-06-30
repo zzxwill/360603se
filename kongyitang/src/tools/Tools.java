@@ -93,7 +93,9 @@ public class Tools {
 			sql = "select max(id) as id from 04validate_code";
 		}
 		
-		
+		else if(flag.equals("04tiaolishi")){
+			sql = "select max(id) as id from 04tiaolishi";
+		}
 		/*
 		else if(flag.equals("usercharts")){
 			sql = "select max(userID) as userID from usercharts";
