@@ -196,7 +196,7 @@ public class ReserveClinicDao {
 		conn = Connections.getConnection();
 
 		//String sql = "SELECT u.id as doctor_id ,u.name, u.title, doctor_portrait FROM  04user_doctor u, 04site_doctor  s WHERE u.id = s.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
-		String sql = "SELECT distinct u.id as doctor_id ,u.name, u.title, doctor_portrait, visit_fee, introduction FROM  04user_doctor u ,`04outpatient_doctor` o ,04site_doctor  s WHERE u.id = s.doctor_id  and u.id = o.doctor_id and  u.department = " + department_id + " and s.site_id = "+ site_id;
+		String sql = "SELECT distinct u.id as doctor_id ,u.name, u.title, doctor_portrait, visit_fee, introduction FROM  04user_doctor u ,`04outpatient_doctor` o ,04site_doctor  s WHERE u.id = s.doctor_id  and u.id = o.doctor_id and o.status != 2 and  u.department = " + department_id + " and s.site_id = "+ site_id;
 		 
 		
 		//当前日期    Will Zhou   5/24/2014
@@ -298,7 +298,7 @@ public class ReserveClinicDao {
 
 		//String sql = "SELECT `id` as outpatient_id, `date` as outpatient_date, `time`, `type` as outpatient_type, `amount` FROM " + table_prefix + "outpatient_info";
 //String sql = "SELECT i.`id` as outpatient_id, ou_date.`date` , `time`, `type` as outpatient_type, total_amount - used_amount FROM 04outpatient_info i, 04outpatient_doctor ou_doc, 04outpatient_date ou_date where i.id = ou_doc.outpatient_id and i.id = ou_date.outpatient_info_id and i.type = '门诊' and ou_doc.doctor_id = "+ doctor_id;
-		String sql = "SELECT i.id, t1.date,  i.time, i.type, total_amount,i.day, i.ampm, t1.id FROM `04outpatient_date` t1, 04outpatient_doctor t2, 04outpatient_info i where t1.outpatient_info_id = t2.outpatient_id and t1.outpatient_info_id = i.id and t1.date between curdate() and curdate() +INTERVAL 2 WEEK and i.type = '门诊' and t2.doctor_id = " + doctor_id ;
+		String sql = "SELECT i.id, t1.date,  i.time, i.type, total_amount,i.day, i.ampm, t1.id FROM `04outpatient_date` t1, 04outpatient_doctor t2, 04outpatient_info i where t1.outpatient_info_id = t2.outpatient_id and t1.outpatient_info_id = i.id and t1.date between curdate() and curdate() +INTERVAL 2 WEEK and i.type = '门诊' and t2.status != 2 and t2.doctor_id = " + doctor_id ;
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);

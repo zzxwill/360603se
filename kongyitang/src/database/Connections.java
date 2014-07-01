@@ -13,8 +13,8 @@ public class Connections {
 	        try {
 	        	
 	            Class.forName("com.mysql.jdbc.Driver").newInstance();
-	            conn = DriverManager.getConnection("jdbc:mysql://121.201.7.153:3306/db4sm1ji23kix8uy?characterEncoding=utf8","root2","123qwe");
-	            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db4sm1ji23kix8uy?characterEncoding=utf8","root","mima");
+	           // conn = DriverManager.getConnection("jdbc:mysql://121.201.7.153:3306/db4sm1ji23kix8uy?characterEncoding=utf8","root2","123qwe");
+	            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db4sm1ji23kix8uy?characterEncoding=utf8","root","");
 	            
 	        } catch (InstantiationException e) {
 	            // TODO Auto-generated catch block
