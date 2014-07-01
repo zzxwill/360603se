@@ -215,8 +215,8 @@ $().ready(function() {
 						<tr>
 							<td class="xuetang_button"><strong><%=reserver_clinic_site_dao.site_name.get(i) %></strong></td>
 							<td align="right">
-								<div align="center" class="ASKSubmit" style="width:100px">
-								<%// TODO 正常预约撤销，测试时请注销 %>
+								<div align="center" class="ASKSubmit_no" style="width:100px">
+								<%// TODO 正常预约撤销ASKSubmit，测试时请注销ASKSubmit_no %>
 <!--									onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%//=reserver_clinic_site_dao.site_id.get(i) %>&site_name=<%//=site_name%>'">-->
 									预&nbsp;&nbsp;约 
 							</div> 
