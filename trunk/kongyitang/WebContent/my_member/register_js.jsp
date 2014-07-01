@@ -41,7 +41,7 @@ var radio=0;
 	   if(flag==1){
 		   //registerNext
 		   
-		   if(!( /^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/.test(registerTel))){
+		   if(!( /^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57]|17[0-9])[0-9]{8}$/.test(registerTel))){
 				 flagTel = 0;
 				 message = "请输入正确的手机号！";
 				 msg.innerHTML = "<a style='color:red;'>" + message + "</a>";
