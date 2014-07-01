@@ -34,7 +34,8 @@
     	window.location = "../my_member/index.jsp";
      }
     function my_health(){
-    	window.location = "../my_health/index_new.jsp";
+    	//window.location = "../my_health/index_new.jsp";
+    	window.location = "http://www.kongyitang.com/emrs/index.php?controller=Index&action=indexwx";
      }
     </script>
     
