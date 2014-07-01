@@ -201,16 +201,16 @@ $().ready(function() {
 					<%
 					
 					request.setCharacterEncoding("utf-8");
-					 String site_name = request.getParameter("site_name");
-					 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
-					 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
-					 String site_temp = site_name;
-					 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
-					 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
+					String site_name = request.getParameter("site_name");
+					site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+					site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+					String site_temp = site_name;
+					site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
+					site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
 					 
-					 String siteid = request.getParameter("site_id");
+					String siteid = request.getParameter("site_id");
 					 
-					 if(siteid == null || site_name ==null){
+					if(siteid == null || site_name ==null){
 							%>
 							
 					<center>
@@ -340,12 +340,12 @@ $().ready(function() {
 									</td>
 									
 									
-									
+									<!-- 传参site_id是为了用于从后一个页面reserve_clinic_specific_doctor.jsp返回时，本页面可以获取到site_id，这样不会出错    Will Zhou   6/29/2014 -->
 									<td width="60px">
 										<div align="right" class="ASKSubmit"
 											style="height: 30px; line-height: 30px; width: 60px; margin: 0px"
 											class="<%=deparment_dao.department[i] %>_<%=doctor_dao.doctor_id[j] %>"
-											onclick="window.location.href='reserve_clinic_specific_doctor.jsp?site_name=<%=site_name%>&department=<%=deparment %>&doctor_id=<%=doctor_dao.doctor_id[j] %>'">
+											onclick="window.location.href='reserve_clinic_specific_doctor.jsp?site_name=<%=site_name%>&department=<%=deparment %>&doctor_id=<%=doctor_dao.doctor_id[j] %>&site_id=<%=siteid %>'">
 											<big>预&nbsp;&nbsp;约</big>
 										</div>
 									</td>

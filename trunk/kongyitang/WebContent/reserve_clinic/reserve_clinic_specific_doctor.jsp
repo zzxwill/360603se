@@ -117,72 +117,8 @@
 <script type="text/javascript">
 
 $().ready(function() {
-	 $("#verifyForm").validate({
-			rules: {
-				
-				name: {
-					required: true,
-					maxlength: 10
-				},
-			
-			
-				mobile: {
-					required: true,
-					number:true,
-					minlength: 11,
-					maxlength: 11
-					
-				},
-				illness_name: {
-					required: true,
-					maxlength: 100
-				},
-				detail: {
-					required: true,
-					maxlength: 200
-				},
-				purpose_chk: {
-					required: true
-				}
-			},
-			messages: {
-				
-				name: {
-					required: "必填！",
-					maxlength: "长度不能超过10个字符！"
-				} ,
-				
-				
-				mobile: {
-					required: "必填！",
-					number:"请填写数字!",
-					minlength: "手机号码为11位!",
-					maxlength: "手机号码为11位!"
-					
-				},
-				illness_name: {
-					required: "必填！",
-					maxlength: "长度不能超过100个字符！"
-				} ,
-				detail: {
-					required: "必填！",
-					maxlength: "长度不能超过200个字符！"
-				} ,
-				purpose_chk:{
-					required: "必选！"
-				} 
-			}
-		});
-	 
-   $("#submit_adjust_link").click(function() {
-		 set_reservation_patient_sickinfo_value();
-		    if ($("#verifyForm").valid()) {
-		        $("#verifyForm").submit();
-		    }
-		}); 
-	 
 	
-	});
+	 
 	function UpDown(vid)
 	{
 		if($(vid).css("border-bottom-width")=="0px")
@@ -206,13 +142,39 @@ $().ready(function() {
 </head>
 
 <body>
+	<%
+
+	request.setCharacterEncoding("utf-8");
+	 //String site_name = new String(request.getParameter("site_name").getBytes("utf-8"),"utf-8");
+	 String site_name = request.getParameter("site_name");
+	 
+	 /*用于在本页的返回链接里传参   Will Zhou   6/29/2014*/
+		String site_name_previous_page = new String();
+	 
+	 String department = request.getParameter("department");
+	 department = java.net.URLDecoder.decode(department,"UTF-8");
+	 department = java.net.URLDecoder.decode(department,"UTF-8");
+	 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+	 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+	 System.out.println(site_name);
+	 //site_name = java.net.URLEncoder.encode(site_name,"utf-8");
+	 
+	 String doctor_id_str = request.getParameter("doctor_id");
+	 
+	  if(site_name != null){
+		 site_name_previous_page = site_name;
+		 site_name_previous_page = java.net.URLDecoder.decode(site_name_previous_page,"UTF-8");
+		 site_name_previous_page = java.net.URLDecoder.decode(site_name_previous_page,"UTF-8");
+	 }
+	 
+	%>
 	<div data-role="page">
 		<div data-role="header">
 			<table width="100%">
 				<tr>
 					<td width="23%" >
 						<div id="backButton">
-							<a id="return_link" onclick="window.location.href='reservation_clinic_patient_sickinfo.jsp'" ></a>
+							<a id="return_link" onclick="window.location.href='reserve_clinic_department_doctor.jsp?site_id=<%=request.getParameter("site_id") %>&site_name=<%=site_name_previous_page %>'" ></a>
 						</div>
 					</td>
 					<td align="center" width="54%"><a style="color: white;">预约孔医堂</a></td>
@@ -287,18 +249,6 @@ $().ready(function() {
 
 						<table width="100%">
 						<%
-						request.setCharacterEncoding("utf-8");
-						 //String site_name = new String(request.getParameter("site_name").getBytes("utf-8"),"utf-8");
-						 String site_name = request.getParameter("site_name");
-						 String department = request.getParameter("department");
-						 department = java.net.URLDecoder.decode(department,"UTF-8");
-						 department = java.net.URLDecoder.decode(department,"UTF-8");
-						 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
-						 //site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
-						 System.out.println(site_name);
-						 //site_name = java.net.URLEncoder.encode(site_name,"utf-8");
-						 
-						 String doctor_id_str = request.getParameter("doctor_id");
 						 if(site_name == null || department ==null || doctor_id_str == null){
 								%>
 						<center>
@@ -314,6 +264,9 @@ $().ready(function() {
 								 }else{
 									 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
 									 site_name = java.net.URLDecoder.decode(site_name,"UTF-8");
+									 
+									 site_name_previous_page = site_name;
+									 
 									 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
 									 site_name = java.net.URLEncoder.encode(site_name,"UTF-8");
 									 
