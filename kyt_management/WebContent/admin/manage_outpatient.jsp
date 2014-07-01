@@ -57,7 +57,11 @@
 									</a> --%>
 									<a
 										onclick="ShowModalWithResult('../admin/edit_outpatient_info.jsp?outpatient_id=<%=outpatient_dao.outpatient_id.get(i) %>','600px','800px');return false">编辑
+										
 									</a>
+									
+									<a id="submit_adjust_link"  onclick="return show_confirm('确认删除？');" href="../admin/cancell_outpatient_info.jsp?type=delete&outpatient_doctor_id=<%=outpatient_dao.outpatient_doctor_id.get(i) %>" ><big>删除</big></a>
+									
 									<%}%>
 									
 								</td>

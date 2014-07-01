@@ -207,6 +207,8 @@ public class OutpatientDao {
 			status = 1;
 		}else if("disable".equals(type)){
 			status = 0;
+		}else if("delete".equals(type)){
+			status = 2;
 		}
 
 		String sql = "UPDATE `04outpatient_doctor` SET status = " + status + " where id=" + outpatient_doctor_id;
