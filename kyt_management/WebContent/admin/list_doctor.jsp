@@ -21,18 +21,23 @@ $().ready(function() {
 	 */
 	
 
-	function fetch_site(){
+	function fetch_site(obj){
 		var site="";   
 		$("input[name='site_checkbox']:checked").each(function(){   
 			site+=$(this).val()+";";   
 		//alert($(this).val());   
 		});
 		//alert(site);   
-		$("#site").val(site);
+		
 		if(site == ""){
 			alert("请选择场馆！");
 			return false;
 		}
+		
+		obj.site.value = site;
+		
+		//$("#site").val(site);
+		
 		return true;
 	}
 <!--
@@ -338,7 +343,7 @@ $().ready(function() {
 				
 					<form class="form-horizontal"
 				id="shopForm<%=doctor_dao.doctor_id.get(i)%>" method="post"
-				action="../admin/assign_site_for_doctor.jsp?type=edit&doctor_id=<%=doctor_dao.doctor_id.get(i)%>" onsubmit="return fetch_site();">
+				action="../admin/assign_site_for_doctor.jsp?type=edit&doctor_id=<%=doctor_dao.doctor_id.get(i)%>" onsubmit="return fetch_site(this);">
 				<input type="hidden" id= "site" name="site">
 				<div class="view">
 					<!-- Button to trigger modal -->

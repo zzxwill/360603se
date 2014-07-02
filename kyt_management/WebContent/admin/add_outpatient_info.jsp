@@ -295,7 +295,7 @@ $(document).ready(function(){
 							<tr>
 								<td align="left"><strong>场馆</strong></td>
 								<td colspan="2"><select id="site" name="site">
-								<OPTION selected="" value="0">选择场馆</OPTION>
+								<OPTION selected="" value="选择场馆">选择场馆</OPTION>
 										<%
 		request.setCharacterEncoding("utf-8");
 		ReserveClinicDao site_dao = new ReserveClinicDao();
