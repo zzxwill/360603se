@@ -96,6 +96,17 @@ public class Tools {
 		else if(flag.equals("04tiaolishi")){
 			sql = "select max(id) as id from 04tiaolishi";
 		}
+		
+		else if(flag.equals("04department_doctor")){
+			sql = "select max(id) as id from 04department_doctor";
+		}
+		
+		else if(flag.equals("04fee_doctor")){
+			sql = "select max(id) as id from 04fee_doctor";
+		}
+		
+		
+		
 		/*
 		else if(flag.equals("usercharts")){
 			sql = "select max(userID) as userID from usercharts";
@@ -144,7 +155,15 @@ public class Tools {
 					id = rs.getInt("id");
 				}
 				
+				else if(flag.equals("04department_doctor")){
+					id = rs.getInt("id");
+				}
 				
+				else if(flag.equals("04fee_doctor")){
+					id = rs.getInt("id");
+				}
+				
+
 				/*
 				else if(flag.equals("usercharts")){
 					id = rs.getInt("userID");

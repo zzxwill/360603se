@@ -194,17 +194,37 @@ public class test {
 		//后台新建医生账号：
 		
 		InsertDoctorInfo insertDoctorInfo = new InsertDoctorInfo();
-		String userName = "LiMing";  
+		String userName = "doctor";  
 		int userGender = 0;
-		String userTel = "8090";
-		String doctor_portrait = "LiMing.jpg";
+		String department = "内科";
+		String userTel = "doctor";
+		String title = "正科";
+		String master = "张三丰";
+		String certified_type = "暂无";
+		String doctor_portrait = "touxiang.png";
 		int visti_fee = 300;
-		String introduction = "这是LiMing医生的测试程序！";
+		String introduction = "这是医生的测试账号！";
 		int site_id = 1;
 		//insertDoctorInfo.insert_site_doctor(site_id, doctor_id);
 		//insertDoctorInfo.insertUser_Doctor(userName, userGender, department, userTel, title, master, certified_type, doctor_portrait, visti_fee, introduction, site_id)
-		insertDoctorInfo.insertUser_Doctor(userName, userGender, userTel, doctor_portrait, visti_fee, introduction, site_id); 
+		insertDoctorInfo.insertUser_Doctor(userName, userGender, department, userTel, title, master, certified_type, doctor_portrait, visti_fee, introduction, site_id);
+		//insertDoctorInfo.insertUser_Doctor(userName, userGender, userTel, doctor_portrait, visti_fee, introduction, site_id); 
 		System.out.println("success:\n");
+		*/
+		
+		/*
+		//查询回复问题的医生信息
+		AnswerDao ad   = new AnswerDao();
+		ad.getAnswers_Given(15);
+		for(int i=1;i<=ad.num_Given_Patient;i++){
+		System.out.println("i:" + i + "\nanswer: "+ad.answers_Given_Patient[i] + "\n" + 
+				"id:" + ad.answers_doctor_id_Given_Patient[i]
+				 + "\nname:" + ad.answers_doctor_name_Given_Patient [i] 
+				 + "\ndepartment：" + ad.answers_doctor_department_Given_Patient[i]
+				 + "\nportrait：" + ad.answers_doctor_portrait_Given_Patient[i]  
+				 + "\nintruduction:" + ad.answers_doctor_introduction_Given_Patient[i]
+				 + "\nchangguan" + ad.answers_doctor_changguan_Given_Patient[i]  + "\n");
+		}
 		*/
 	}
 
