@@ -22,7 +22,17 @@ public class AnswerDao {
 	private PreparedStatement ps = null;
 	
 	public String answers_Given_Patient[]; 
+	public String answers_doctor_name_Given_Patient[]; 
+	public int answers_doctor_id_Given_Patient[]; 
+	public int answers_doctor_department_id_Given_Patient[]; 
+	public String answers_doctor_department_Given_Patient[]; 
+	public String answers_doctor_introduction_Given_Patient[]; 
+	public String answers_doctor_portrait_Given_Patient[]; 
+	public int answers_doctor_changguan_id_Given_Patient[]; 
+	public String answers_doctor_changguan_Given_Patient[]; 
+	//public int answers_doctor_visit_fee_Given_Patient[]; 
 	public int num_Given_Patient = 0;
+	
 	
 	public String answers_Given_Doctor[]; 
 	public int questions_ids_Given_Doctor[];
@@ -111,16 +121,80 @@ public class AnswerDao {
 	public void getAnswers_Given(int question_id) throws SQLException {
 		
 		answers_Given_Patient = new String[NUM];
+		answers_doctor_name_Given_Patient = new String[NUM]; 
+		answers_doctor_id_Given_Patient = new int[NUM]; 
+		answers_doctor_department_Given_Patient = new String[NUM]; 
+		answers_doctor_introduction_Given_Patient = new String[NUM];
+		answers_doctor_portrait_Given_Patient = new String[NUM];
+		//public int answers_doctor_visit_fee_Given_Patient[];
+		answers_doctor_changguan_Given_Patient = new String[NUM];
 		
+		//answers_doctor_department_id_Given_Patient = new int[NUM];
+		//answers_doctor_changguan_id_Given_Patient = new int[NUM];
+
 		conn = Connections.getConnection();
-		String sql = "select * from 04answer where question_id=" + question_id;
+		//String sql = "select * from 04answer where question_id=" + question_id; 
+		/*
+		String sql = "select a.answer, a.doctor_id " +
+				", ud.name, ud.department, ud.doctor_portrait, ud.introduction, sd.site_id" +
+				" from 04answer a" +
+				" left join 04user_doctor ud on a.doctor_id = ud.id " +
+				" left join 04site_doctor sd on a.doctor_id = sd.doctor_id " +
+				" where a.question_id = " + question_id;
+		*/
+		String sql = "select a.answer, a.doctor_id " +
+			", ud.name, ud.department, ud.doctor_portrait, ud.introduction, sd.site_id" +
+			" from 04answer a" +
+			" left join 04user_doctor ud on a.doctor_id = ud.id " +
+			" left join 04site_doctor sd on a.doctor_id = sd.doctor_id " +
+			" where a.question_id = " + question_id;
 		try {
+			String tmp_name = null;
+			String tmp_department_id = null;
+			int tmp_changguan_id = 0;
 			int index = 1;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
+			//System.out.println("setup:"+ "\n");
+			DepartmentDao dd = new DepartmentDao();
+			ChangGuanDao cgd = new ChangGuanDao();
+			int pre = -1;
 			while (rs.next()) {
-				answers_Given_Patient[index] = rs.getString("answer");;
-				index++;
+				answers_Given_Patient[index] = rs.getString(1);
+				answers_doctor_id_Given_Patient[index] = rs.getInt(2);
+				
+				tmp_name = rs.getString(3);
+				
+				if(null==tmp_name || tmp_name.equals("")){
+					answers_doctor_name_Given_Patient[index] = "专家";
+				}else{
+					answers_doctor_name_Given_Patient[index] = tmp_name;
+					//answers_doctor_name_Given_Patient[index] = rs.getString(3);
+					tmp_department_id = rs.getString(4);
+					if(null==tmp_department_id || tmp_department_id.equals("")){
+						answers_doctor_department_Given_Patient[index] = null;
+					}else{
+						answers_doctor_department_Given_Patient[index] = dd.getDepartmentName(Integer.parseInt(tmp_department_id));
+					}
+					answers_doctor_portrait_Given_Patient[index] = rs.getString(5);
+					answers_doctor_introduction_Given_Patient[index] = rs.getString(6);
+					
+					tmp_changguan_id  = rs.getInt(7);
+					if(tmp_changguan_id==0){
+						answers_doctor_changguan_Given_Patient[index] = null;
+					}else{
+						answers_doctor_changguan_Given_Patient[index] = cgd.getChangGuanName_by_id(tmp_changguan_id);
+					}	
+					
+				}
+				if(pre==answers_doctor_id_Given_Patient[index]){
+					
+				}
+				else if(pre==-1||pre!=answers_doctor_id_Given_Patient[index]){
+					pre = answers_doctor_id_Given_Patient[index];
+					index++;
+				}
+				//index++;
 			}
 			num_Given_Patient = index-1;
 			stmt.close();

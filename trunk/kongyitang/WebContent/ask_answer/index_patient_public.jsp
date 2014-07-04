@@ -148,9 +148,43 @@
 					<div align="left"  id="ask_answers">
 					<%
 						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
-						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){	
+						String doctor_info = null;
+						int tmp_id =0;
+						String tmp_department = null;
+						String tmp_intruduction = null;
+						String tmp_changguan = null;
+						
+ 						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){
+ 							tmp_id = answerDao_Patient.answers_doctor_id_Given_Patient[j];
+ 							tmp_department = answerDao_Patient.answers_doctor_department_Given_Patient[j];
+ 							tmp_intruduction = answerDao_Patient.answers_doctor_introduction_Given_Patient[j];
+ 							//tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							
+ 							if(tmp_id==0){
+ 								doctor_info = "专家医生信息暂无！\\n";
+ 							}else{
+ 								doctor_info = "医&nbsp;&nbsp;生&nbsp;" +answerDao_Patient.answers_doctor_name_Given_Patient[j]+ "&nbsp;信息:\\n\\n";
+ 								if(!(null==tmp_department||tmp_department.equals(""))){
+ 									doctor_info += "所属科室：&nbsp;" +tmp_department+ "&nbsp;\\n";
+ 								}
+ 								else{
+ 									doctor_info += "所属科室：：&nbsp;" +"暂无"+ "&nbsp;\\n";
+ 								}
+ 								if(!(null==tmp_intruduction||tmp_intruduction.equals(""))){
+ 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +tmp_intruduction+ "&nbsp;\\n";
+ 								}else{
+ 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +"暂无"+ "&nbsp;\\n";
+ 								}
+ 								if(!(null==tmp_changguan||tmp_changguan.equals(""))){
+ 									doctor_info += "所属场馆：&nbsp;" +tmp_changguan+ "&nbsp;\\n";
+ 								}else{
+ 									doctor_info += "所属场馆：&nbsp;" +"暂无"+ "&nbsp;\\n";
+ 								}
+ 							}
 						%>
-							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>专家答复&nbsp;<%=j %>&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<a href="javascript:alert('<%=doctor_info %>')">
+									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %></a>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+
 					<%} %>
 					</div>
 					<br>
