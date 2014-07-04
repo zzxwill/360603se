@@ -34,7 +34,7 @@
 
 		int doctorID = 1;
 		//for (int i = 0; i < doctor_dao.doctor_id.size(); i++) { //正序
-		for (int i = doctor_dao.doctor_id.size()-1; i >0 ; i--,doctorID++) { //逆序
+		for (int i = doctor_dao.doctor_id.size()-1; i >=0 ; i--,doctorID++) { //逆序
 	%>
 
 	<tr align="center" width="100%">
