@@ -71,11 +71,25 @@
 		//System.out.println("askPatient.num_Given:" + askPatient.num_Given + "\n");
 		int question_num_patient = askPatient.num_Given;
 		if(question_num_patient>0){
-			
+			%>
+			<script>
+				function ViewDoctorInfoClose(qID,id){
+					document.getElementById('ViewDoctorInfo'+qID+id).style.display='none';
+					document.getElementById('ViewDoctorInfo'+qID+id).value = "";
+				}
+				function ViewDoctorInfo(qID,id){	
+					var doc = document.getElementById('ViewDoctorInfo'+qID+id);
+					//doc.style.top = (document.documentElement.scrollTop + (document.documentElement.clientHeight - doc.offsetHeight) / 2) + "px";
+					//doc.style.left = (document.documentElement.scrollLeft + (document.documentElement.clientWidth - doc.offsetWidth) / 2) + "px";
+					doc.style.display='block';
+				}
+			</script>
+			<%	
 			//for(int i=1;i<=askPatient.num_Given;i++){
 			for(int i=askPatient.num_Given;i>=1;i--){
 				
 				int questionID = askPatient.ids_Given[i];
+				int qID = questionID;
 				
 				//问题删除判断
 	  			DeleteQuestionDao deleteQuestionDao = new DeleteQuestionDao();
@@ -130,46 +144,33 @@
 						</table>
 						<div align="left" id="questions"><%=askPatient.contents_Given[i] %></div>
 						<div align="left"  id="answers">
-							<%
+						<%
 						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
 						String doctor_info = null;
 						int tmp_id =0;
 						String tmp_department = null;
 						String tmp_intruduction = null;
 						String tmp_changguan = null;
+						int tmp_visit_fee = 0;
+						String tmp_portrait = null;
 						
  						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){
  							tmp_id = answerDao_Patient.answers_doctor_id_Given_Patient[j];
  							tmp_department = answerDao_Patient.answers_doctor_department_Given_Patient[j];
  							tmp_intruduction = answerDao_Patient.answers_doctor_introduction_Given_Patient[j];
- 							//tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							tmp_visit_fee = answerDao_Patient.answers_doctor_visit_fee_Given_Patient[j];
+ 							tmp_portrait = answerDao_Patient.answers_doctor_portrait_Given_Patient[j];
  							
- 							if(tmp_id==0){
- 								doctor_info = "专家医生信息暂无！\\n";
- 							}else{
- 								doctor_info = "医&nbsp;&nbsp;生&nbsp;" +answerDao_Patient.answers_doctor_name_Given_Patient[j]+ "&nbsp;信息:\\n\\n";
- 								if(!(null==tmp_department||tmp_department.equals(""))){
- 									doctor_info += "所属科室：&nbsp;" +tmp_department+ "&nbsp;\\n";
- 								}
- 								else{
- 									doctor_info += "所属科室：：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 								if(!(null==tmp_intruduction||tmp_intruduction.equals(""))){
- 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +tmp_intruduction+ "&nbsp;\\n";
- 								}else{
- 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 								if(!(null==tmp_changguan||tmp_changguan.equals(""))){
- 									doctor_info += "所属场馆：&nbsp;" +tmp_changguan+ "&nbsp;\\n";
- 								}else{
- 									doctor_info += "所属场馆：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 							}
+ 							
 						%>
-							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<a href="javascript:alert('<%=doctor_info %>')">
-									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %></a>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
-
-					<%} %>
+							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;
+								<a  style="width:95%" onclick="ViewDoctorInfo(<%=qID %>,<%=tmp_id %>);">
+									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %>
+								</a>
+								&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+							<%@ include file="../my_question/index_click_doctor.jsp"%> 
+						<%} %>
 						</div>
 					</div>
 					<br>
@@ -219,7 +220,6 @@
 							</td>
 						</tr>
 						<tr>
-							<td width="50%" align="center"><%=userDaoDoctor.doctor_Title_Given %></td>
 							<td width="50%" align="center">
 								<%String title = userDaoDoctor.doctor_Title_Given;
 								%>

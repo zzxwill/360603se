@@ -30,7 +30,7 @@ public class AnswerDao {
 	public String answers_doctor_portrait_Given_Patient[]; 
 	public int answers_doctor_changguan_id_Given_Patient[]; 
 	public String answers_doctor_changguan_Given_Patient[]; 
-	//public int answers_doctor_visit_fee_Given_Patient[]; 
+	public int answers_doctor_visit_fee_Given_Patient[]; 
 	public int num_Given_Patient = 0;
 	
 	
@@ -126,7 +126,7 @@ public class AnswerDao {
 		answers_doctor_department_Given_Patient = new String[NUM]; 
 		answers_doctor_introduction_Given_Patient = new String[NUM];
 		answers_doctor_portrait_Given_Patient = new String[NUM];
-		//public int answers_doctor_visit_fee_Given_Patient[];
+		answers_doctor_visit_fee_Given_Patient = new int[NUM]; 
 		answers_doctor_changguan_Given_Patient = new String[NUM];
 		
 		//answers_doctor_department_id_Given_Patient = new int[NUM];
@@ -143,7 +143,8 @@ public class AnswerDao {
 				" where a.question_id = " + question_id;
 		*/
 		String sql = "select a.answer, a.doctor_id " +
-			", ud.name, ud.department, ud.doctor_portrait, ud.introduction, sd.site_id" +
+			", ud.name, ud.department, ud.doctor_portrait, ud.introduction, ud.visit_fee, " +
+			" sd.site_id " +
 			" from 04answer a" +
 			" left join 04user_doctor ud on a.doctor_id = ud.id " +
 			" left join 04site_doctor sd on a.doctor_id = sd.doctor_id " +
@@ -178,8 +179,9 @@ public class AnswerDao {
 					}
 					answers_doctor_portrait_Given_Patient[index] = rs.getString(5);
 					answers_doctor_introduction_Given_Patient[index] = rs.getString(6);
+					answers_doctor_visit_fee_Given_Patient[index] = rs.getInt(7);
 					
-					tmp_changguan_id  = rs.getInt(7);
+					tmp_changguan_id  = rs.getInt(8);
 					if(tmp_changguan_id==0){
 						answers_doctor_changguan_Given_Patient[index] = null;
 					}else{

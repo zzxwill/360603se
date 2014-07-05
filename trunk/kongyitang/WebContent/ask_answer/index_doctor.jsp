@@ -106,11 +106,26 @@
 	  		<br><br><br><br><br>
 	  	<%	
 	  	}else if(questionNum>0){
+	  		AnswerDao answerDao_Patient = new AnswerDao();
 	  		%>
+			
+			
 	  		<form method="post" name="HiddenForm" id="HiddenForm" action="index.jsp" >
 				<fieldset data-role="fieldcontain">
 				</fieldset>
 			</form>	
+			<script>
+				function ViewDoctorInfoClose(qID,id){
+					document.getElementById('ViewDoctorInfo'+qID+id).style.display='none';
+					document.getElementById('ViewDoctorInfo'+qID+id).value = "";
+				}
+				function ViewDoctorInfo(qID,id){	
+					var doc = document.getElementById('ViewDoctorInfo'+qID+id);
+					//doc.style.top = (document.documentElement.scrollTop + (document.documentElement.clientHeight - doc.offsetHeight) / 2) + "px";
+					//doc.style.left = (document.documentElement.scrollLeft + (document.documentElement.clientWidth - doc.offsetWidth) / 2) + "px";
+					doc.style.display='block';
+				}
+			</script>
 	  		<%
 	  		int departmentID = 0;
 		  	String departmentName = null;
@@ -126,7 +141,7 @@
 	  			deleteFlag = deleteQuestionDao.IsQuestionExist(qID);
 	  			if(deleteFlag==0){//未删除
 	  			//判断完毕
-	  			
+	  			answerDao_Patient.getAnswers_Given(qID);
 	  			
 	  			departmentID = askPatient_doctor.departments_Condition[i];
 	  			departmentName = departmentDao.getDepartmentName(departmentID);
@@ -150,9 +165,11 @@
 				<div style="width:90%" id="records" >	
 					<table width="100%">
 						<tr>
-							<td width="60%"><%=askPatient_doctor.createDates_Condition[i] %></td>
-							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-							<td width="12%"><%=departmentName %></td>
+							<td width="40%">提问日期：<%=askPatient_doctor.createDates_Condition[i] %></td>
+							<td width="12%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+							<td width="12%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
+<!--							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>-->
+							<td width="14%"><%=departmentName %></td>
 							<td width="20%" align="center">
 							<%if(answerFlag==0){ %>
 								<div id="reply_no" class="reply_no">未答复</div>
@@ -175,6 +192,37 @@
 						<%
 					} 
 					%>
+					<div align="left"  id="ask_answers">
+					<%
+						//System.out.println("answerDao_Patient.num_Given_Patient:" + answerDao_Patient.num_Given_Patient + "\n");
+						String doctor_info = null;
+						int tmp_id =0;
+						String tmp_department = null;
+						String tmp_intruduction = null;
+						String tmp_changguan = null;
+						int tmp_visit_fee = 0;
+						String tmp_portrait = null;
+						
+ 						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){
+ 							tmp_id = answerDao_Patient.answers_doctor_id_Given_Patient[j];
+ 							tmp_department = answerDao_Patient.answers_doctor_department_Given_Patient[j];
+ 							tmp_intruduction = answerDao_Patient.answers_doctor_introduction_Given_Patient[j];
+ 							tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							tmp_visit_fee = answerDao_Patient.answers_doctor_visit_fee_Given_Patient[j];
+ 							tmp_portrait = answerDao_Patient.answers_doctor_portrait_Given_Patient[j];
+ 							
+ 							
+						%>
+						<div>
+							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;
+								<a  style="width:95%" onclick="ViewDoctorInfo(<%=qID %>,<%=tmp_id %>);">
+									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %>
+								</a>
+								&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+							</div>
+						<%@ include file="../ask_answer/index_click_doctor_by_doctor.jsp"%> 
+					<%} %>
+					</div>
 					<br>
 					<%
 					UserDaoDoctor userDaoDoctor_answer = new UserDaoDoctor();
