@@ -90,7 +90,20 @@
 		  	DepartmentDao departmentDao = new DepartmentDao();
 		  	
 		  	AnswerDao answerDao_Patient = new AnswerDao();
-						
+			%>
+			<script>
+				function ViewDoctorInfoClose(qID,id){
+					document.getElementById('ViewDoctorInfo'+qID+id).style.display='none';
+					document.getElementById('ViewDoctorInfo'+qID+id).value = "";
+				}
+				function ViewDoctorInfo(qID,id){	
+					var doc = document.getElementById('ViewDoctorInfo'+qID+id);
+					//doc.style.top = (document.documentElement.scrollTop + (document.documentElement.clientHeight - doc.offsetHeight) / 2) + "px";
+					//doc.style.left = (document.documentElement.scrollLeft + (document.documentElement.clientWidth - doc.offsetWidth) / 2) + "px";
+					doc.style.display='block';
+				}
+			</script>
+			<%			
 	  		//for(int i=1;i<=questionNum;i++){//正序
 		  	for(int i=questionNum;i>=1;i--){ //逆序
 	  			//qID = i;
@@ -118,9 +131,11 @@
 				<div style="width:90%" id="ask_records" >	
 					<table width="100%">
 						<tr>
-							<td width="60%"><%=askPatient_doctor.createDates_Condition[i] %></td>
-							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>
-							<td width="12%"><%=departmentName %></td>
+							<td width="40%">提问日期：<%=askPatient_doctor.createDates_Condition[i] %></td>
+							<td width="12%">性别：<%=askPatient_doctor.user_genders_Condition[i] %></td>
+							<td width="12%">年龄：<%=askPatient_doctor.user_ages_Condition[i] %></td>
+<!--							<td width="8%"><img src="../images/child.png" border = "0px"  width="20px"/></td>-->
+							<td width="14%"><%=departmentName %></td>
 							<td width="20%" align="center">
 							<%if(answerFlag==0){ %>
 								<div id="ask_reply_no" class="ask_reply_no">未答复</div>
@@ -153,38 +168,27 @@
 						String tmp_department = null;
 						String tmp_intruduction = null;
 						String tmp_changguan = null;
+						int tmp_visit_fee = 0;
+						String tmp_portrait = null;
 						
  						for(int j=1;j<=answerDao_Patient.num_Given_Patient;j++){
  							tmp_id = answerDao_Patient.answers_doctor_id_Given_Patient[j];
  							tmp_department = answerDao_Patient.answers_doctor_department_Given_Patient[j];
  							tmp_intruduction = answerDao_Patient.answers_doctor_introduction_Given_Patient[j];
- 							//tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							tmp_changguan = answerDao_Patient.answers_doctor_changguan_Given_Patient[j];
+ 							tmp_visit_fee = answerDao_Patient.answers_doctor_visit_fee_Given_Patient[j];
+ 							tmp_portrait = answerDao_Patient.answers_doctor_portrait_Given_Patient[j];
  							
- 							if(tmp_id==0){
- 								doctor_info = "专家医生信息暂无！\\n";
- 							}else{
- 								doctor_info = "医&nbsp;&nbsp;生&nbsp;" +answerDao_Patient.answers_doctor_name_Given_Patient[j]+ "&nbsp;信息:\\n\\n";
- 								if(!(null==tmp_department||tmp_department.equals(""))){
- 									doctor_info += "所属科室：&nbsp;" +tmp_department+ "&nbsp;\\n";
- 								}
- 								else{
- 									doctor_info += "所属科室：：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 								if(!(null==tmp_intruduction||tmp_intruduction.equals(""))){
- 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +tmp_intruduction+ "&nbsp;\\n";
- 								}else{
- 									doctor_info += "简&nbsp;&nbsp;介：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 								if(!(null==tmp_changguan||tmp_changguan.equals(""))){
- 									doctor_info += "所属场馆：&nbsp;" +tmp_changguan+ "&nbsp;\\n";
- 								}else{
- 									doctor_info += "所属场馆：&nbsp;" +"暂无"+ "&nbsp;\\n";
- 								}
- 							}
+ 							
 						%>
-							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;<a href="javascript:alert('<%=doctor_info %>')">
-									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %></a>&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
-
+						<div>
+							<img src="../images/zhuanjiahuida.png" border = "0px"  width="25px"/>医生&nbsp;
+								<a  style="width:95%" onclick="ViewDoctorInfo(<%=qID %>,<%=tmp_id %>);">
+									<%=answerDao_Patient.answers_doctor_name_Given_Patient[j] %>
+								</a>
+								&nbsp;答复&nbsp;：&nbsp;<%=answerDao_Patient.answers_Given_Patient[j] %><br>
+							</div>
+						<%@ include file="../ask_answer/index_click_doctor.jsp"%> 
 					<%} %>
 					</div>
 					<br>

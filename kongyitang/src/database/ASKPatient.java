@@ -51,6 +51,8 @@ public class ASKPatient {
 	//查询指定条件的所有问题
 	public int ids_Condition[];
 	//public int userIDs_Condition[];
+	public String user_genders_Condition[];
+	public int user_ages_Condition[];
 	public String contents_Condition[];
 	public String picture_paths_Condition[];
 	public int departments_Condition[];
@@ -263,6 +265,8 @@ public class ASKPatient {
 	public void getAllQuestionInfos_Condition(int answered_flag, int department) throws SQLException {
 
 		ids_Condition = new int[NUM];
+		user_genders_Condition = new String[NUM];
+		user_ages_Condition = new int[NUM];
 		contents_Condition = new String[NUM];
 		picture_paths_Condition = new String[NUM];
 		departments_Condition = new int[NUM];
@@ -271,6 +275,7 @@ public class ASKPatient {
 
 		conn = Connections.getConnection();
 		String sql = null;
+		/*
 		if((answered_flag==-1)&&(department==0)){//无任何限制
 			sql = "select * from 04question";
 		}else if((answered_flag==-1)&&(department>0)){//无回答标志限制，且，搜索相关部分部门
@@ -281,19 +286,47 @@ public class ASKPatient {
 			sql = "select * from 04question where answered_flag= '" + answered_flag + "'"
 				+ " and department = '" + department + "'";
 		}
+		*/
+		if((answered_flag==-1)&&(department==0)){//无任何限制
+			//sql = "select * from 04question";
+			sql = "select q.id, u.gender, u.age, q.content, q.picture_path, q.department, q.answered_flag, q.createDate " +
+				" from 04question q left join 04user u on q.userID = u.id ";
+		}else if((answered_flag==-1)&&(department>0)){//无回答标志限制，且，搜索相关部分部门
+			//sql = "select * from 04question where department= '" + department + "'";
+			sql = "select q.id, u.gender, u.age, q.content, q.picture_path, q.department, q.answered_flag, q.createDate " +
+			" from 04question q left join 04user u on q.userID = u.id where q.department= '" + department + "'";
+		}else if((answered_flag>-1)&&(department==0)){//搜索相关回答，且，无部门限制
+			//sql = "select * from 04question where answered_flag= '" + answered_flag + "'";
+			sql = "select q.id, u.gender, u.age, q.content, q.picture_path, q.department, q.answered_flag, q.createDate " +
+			" from 04question q left join 04user u on q.userID = u.id where q.answered_flag = '" + answered_flag + "'";
+		}else if((answered_flag>-1)&&(department>0)){//搜索相关回答，且，搜索相关部分部门
+			//sql = "select * from 04question where answered_flag= '" + answered_flag + "'"
+			//	+ " and department = '" + department + "'";
+			sql = "select q.id, u.gender, u.age, q.content, q.picture_path, q.department, q.answered_flag, q.createDate " +
+				" from 04question q left join 04user u on q.userID = u.id where  q.answered_flag= '" + answered_flag + "'"
+				+ " and q.department = '" + department + "'";
+		}
 		
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			int index = 1;
+			int tmp_gender = 0;
 			while (rs.next()) {
 				ids_Condition[index] = rs.getInt("id");
 				//userIDs_Condition[index] = rs.getInt("userID");
-				contents_Condition[index] = rs.getString("content");
-				picture_paths_Condition[index] = rs.getString("picture_path");
-				departments_Condition[index] = rs.getInt("department");
-				answered_flags_Condition[index] = rs.getInt("answered_flag");
-				createDates_Condition[index] = rs.getTimestamp("createDate");
+				tmp_gender = rs.getInt(2);
+				if(tmp_gender==1){
+					user_genders_Condition[index] = "女";
+				}else{
+					user_genders_Condition[index] = "男";
+				}
+				user_ages_Condition[index] = rs.getInt(3);
+				contents_Condition[index] = rs.getString(4);
+				picture_paths_Condition[index] = rs.getString(5);
+				departments_Condition[index] = rs.getInt(6);
+				answered_flags_Condition[index] = rs.getInt(7);
+				createDates_Condition[index] = rs.getTimestamp(8);
 				index++;
 			}
 			num_Condition = index-1;

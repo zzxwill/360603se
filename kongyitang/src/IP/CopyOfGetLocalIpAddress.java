@@ -1,14 +1,12 @@
 package IP;
 
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class GetLocalIpAddress {
+public class CopyOfGetLocalIpAddress {
 	
 	public String getLocalIpAddress() {
 	    try {
@@ -17,39 +15,12 @@ public class GetLocalIpAddress {
 	            for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
 	                InetAddress inetAddress = enumIpAddr.nextElement();
 	                if (!inetAddress.isLoopbackAddress()) {
-	                    return inetAddress.getHostAddress().toString()+ "-" +getIpAddr()+"-";
+	                    return inetAddress.getHostAddress().toString();
 	                }
 	            }
 	        }
 	    }catch (Exception e) {
             e.printStackTrace();
-        }
-        return getIpAddr();
-	}
-	
-	public String getIpAddr() {
-		Enumeration allNetInterfaces = null;  
-        try {  
-            allNetInterfaces = NetworkInterface.getNetworkInterfaces();  
-        } catch (java.net.SocketException e) {  
-            e.printStackTrace();  
-        }  
-        InetAddress ip = null;  
-        while (allNetInterfaces.hasMoreElements())  
-        {  
-            NetworkInterface netInterface = (NetworkInterface) allNetInterfaces  
-                    .nextElement();  
-            System.out.println(netInterface.getName());  
-            Enumeration addresses = netInterface.getInetAddresses();  
-            while (addresses.hasMoreElements())  
-            {  
-                ip = (InetAddress) addresses.nextElement();  
-                if (ip != null && ip instanceof Inet4Address)  
-                {   
-                	return ip.getHostAddress();
-                   
-                }  
-            }  
         }
         return null;
 	}

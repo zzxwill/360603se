@@ -21,8 +21,8 @@ String LGRole = null;
 String curPath = null;
 String sysName = "孔医堂！";
 String hrSize  = "999 1px";
-String P_IMAGES = "http://121.201.7.153/KYTPic/IllnessDes/";
-String D_IMAGES = "http://121.201.7.153/KYTPic/Portrait/";
+String P_IMAGES = "http://121.201.7.153/KYTPic/IllnessDes/";//患者病情照片
+String D_IMAGES = "http://121.201.7.153/KYTPic/Portrait/";//医生头像照片
 String ImageUrl_tmp = "E:\\code\\web-java\\file\\" ;
 //D_IMAGES = ImageUrl_tmp;
 
