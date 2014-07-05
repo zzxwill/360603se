@@ -6,8 +6,8 @@
     display: none; 
     position: absolute;  /*absolute ,,relative*/ 
     /*top: 5%;  */
-    left: 25%;
-    width: 45%; 
+    left: 9%;
+    width: 80%; 
     /*height: 60%;*/ 
     padding: 10px; 
     border: 1px solid #d8a14f; 
