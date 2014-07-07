@@ -2,11 +2,14 @@ package database;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import database.Connections;
 import tools.Tools;
@@ -27,7 +30,8 @@ public class ASKPatient {
 	public String picture_path = null;
 	public int department = 0;
 	public int answered_flag = 0;
-	public Timestamp createDate = null;
+	//public Timestamp createDate = null;
+	public String createDate = null;
 	
 	public int ids[];
 	public int userIDs[];
@@ -35,7 +39,8 @@ public class ASKPatient {
 	public String picture_paths[];
 	public int departments[];
 	public int answered_flags[]; 
-	public Timestamp createDates[];
+	//public Timestamp createDates[];
+	public String createDates[];
 	public int num = 0;
 	
 	//查询指定用户所有问题
@@ -45,7 +50,8 @@ public class ASKPatient {
 	public String picture_paths_Given[];
 	public int departments_Given[];
 	public int answered_flags_Given[]; 
-	public Timestamp createDates_Given[];
+	//public Timestamp createDates_Given[];
+	public String createDates_Given[];
 	public int num_Given = 0;
 	
 	//查询指定条件的所有问题
@@ -57,8 +63,9 @@ public class ASKPatient {
 	public String picture_paths_Condition[];
 	public int departments_Condition[];
 	public int answered_flags_Condition[]; 
-	public Timestamp createDates_Condition[];
+	//public Timestamp createDates_Condition[];
 	public int num_Condition = 0;
+	public String createDates_Condition[];
 	
 	
 	//新建问题
@@ -179,7 +186,8 @@ public class ASKPatient {
 				picture_path = rs.getString("picture_path");
 				department = rs.getInt("department");
 				answered_flag = rs.getInt("answered_flag");
-				createDate = rs.getTimestamp("createDate");
+				//createDate = rs.getTimestamp("createDate");
+				createDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getTimestamp("createDate").getTime());
 			}
 			stmt.close();
 			conn.close();
@@ -198,7 +206,8 @@ public class ASKPatient {
 		picture_paths = new String[NUM];
 		departments = new int[NUM];
 		answered_flags = new int[NUM];
-		createDates = new Timestamp[NUM];
+		//createDates = new Timestamp[NUM];
+		createDates = new String[NUM];
 
 		conn = Connections.getConnection();
 		String sql = "select * from 04question";
@@ -214,7 +223,8 @@ public class ASKPatient {
 				picture_paths[index] = rs.getString("picture_path");
 				departments[index] = rs.getInt("department");
 				answered_flags[index] = rs.getInt("answered_flag");
-				createDates[index] = rs.getTimestamp("createDate");
+				//createDates[index] = rs.getTimestamp("createDate");
+				createDates[index] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getTimestamp("createDate").getTime());
 				index++;
 			}
 			num = index-1;
@@ -234,7 +244,8 @@ public class ASKPatient {
 		picture_paths_Given = new String[NUM];
 		departments_Given = new int[NUM];
 		answered_flags_Given = new int[NUM];
-		createDates_Given = new Timestamp[NUM];
+		//createDates_Given = new Timestamp[NUM];
+		createDates_Given = new String[NUM];
 
 		conn = Connections.getConnection();
 		String sql = "select * from 04question where userID= '" + userID + "'";
@@ -249,7 +260,8 @@ public class ASKPatient {
 				picture_paths_Given[index] = rs.getString("picture_path");
 				departments_Given[index] = rs.getInt("department");
 				answered_flags_Given[index] = rs.getInt("answered_flag");
-				createDates_Given[index] = rs.getTimestamp("createDate");
+				//createDates_Given[index] = rs.getTimestamp("createDate");
+				createDates_Given[index] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getTimestamp("createDate").getTime());
 				index++;
 			}
 			num_Given = index-1;
@@ -271,7 +283,7 @@ public class ASKPatient {
 		picture_paths_Condition = new String[NUM];
 		departments_Condition = new int[NUM];
 		answered_flags_Condition = new int[NUM];
-		createDates_Condition = new Timestamp[NUM];
+		createDates_Condition = new String[NUM];
 
 		conn = Connections.getConnection();
 		String sql = null;
@@ -326,7 +338,9 @@ public class ASKPatient {
 				picture_paths_Condition[index] = rs.getString(5);
 				departments_Condition[index] = rs.getInt(6);
 				answered_flags_Condition[index] = rs.getInt(7);
-				createDates_Condition[index] = rs.getTimestamp(8);
+				//createDates_Condition[index] = rs.getTimestamp(8);
+				//d = new java.util.Date(rs.getTimestamp(8).getTime()); 
+				createDates_Condition[index] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getTimestamp(8).getTime());
 				index++;
 			}
 			num_Condition = index-1;
